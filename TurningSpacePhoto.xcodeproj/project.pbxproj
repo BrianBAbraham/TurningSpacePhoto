@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD0C04322C0B228C00DD0132 /* RemovePhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04312C0B228C00DD0132 /* RemovePhotoViewModel.swift */; };
+		FD0C04342C0B442900DD0132 /* RemovePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04332C0B442900DD0132 /* RemovePhotoView.swift */; };
+		FD0C04372C0B474900DD0132 /* ScaleDimensionLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */; };
+		FD0C04392C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */; };
+		FD26F5752BFF542500AECB16 /* TurningSpacePhotoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5742BFF542500AECB16 /* TurningSpacePhotoApp.swift */; };
+		FD26F57C2BFF542700AECB16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD26F57B2BFF542700AECB16 /* Preview Assets.xcassets */; };
+		FD26F5852BFF591200AECB16 /* SimpleWheelchair.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5842BFF591200AECB16 /* SimpleWheelchair.swift */; };
+		FD26F58D2BFF597900AECB16 /* ActionSlideStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5892BFF597900AECB16 /* ActionSlideStyle.swift */; };
+		FD26F58E2BFF597900AECB16 /* ActionDismissStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F58A2BFF597900AECB16 /* ActionDismissStyle.swift */; };
+		FD26F58F2BFF597900AECB16 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F58B2BFF597900AECB16 /* Symbols.swift */; };
+		FD26F5902BFF597900AECB16 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F58C2BFF597900AECB16 /* ButtonStyle.swift */; };
+		FD26F59C2BFF59BB00AECB16 /* VisibleToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5922BFF59BB00AECB16 /* VisibleToolModel.swift */; };
+		FD26F59D2BFF59BB00AECB16 /* ScaleMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */; };
+		FD26F59E2BFF59BB00AECB16 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5942BFF59BB00AECB16 /* NavigationModel.swift */; };
+		FD26F59F2BFF59BB00AECB16 /* ChairManoeuvreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5952BFF59BB00AECB16 /* ChairManoeuvreModel.swift */; };
+		FD26F5A02BFF59BB00AECB16 /* ChosenPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5962BFF59BB00AECB16 /* ChosenPhotoModel.swift */; };
+		FD26F5A12BFF59BB00AECB16 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5972BFF59BB00AECB16 /* AlertModel.swift */; };
+		FD26F5A22BFF59BB00AECB16 /* ScalingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5982BFF59BB00AECB16 /* ScalingModel.swift */; };
+		FD26F5A32BFF59BB00AECB16 /* DefaultMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5992BFF59BB00AECB16 /* DefaultMeasurements.swift */; };
+		FD26F5A42BFF59BB00AECB16 /* MenuChairModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */; };
+		FD26F5B12BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift */; };
+		FD26F5B22BFF5A0C00AECB16 /* MenuChairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */; };
+		FD26F5B32BFF5A0C00AECB16 /* ScalingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A92BFF5A0C00AECB16 /* ScalingViewModel.swift */; };
+		FD26F5B42BFF5A0C00AECB16 /* VisbileToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */; };
+		FD26F5B52BFF5A0C00AECB16 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */; };
+		FD26F5B62BFF5A0C00AECB16 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AC2BFF5A0C00AECB16 /* NavigationViewModel.swift */; };
+		FD26F5B72BFF5A0C00AECB16 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AD2BFF5A0C00AECB16 /* ProjectViewModel.swift */; };
+		FD26F5B82BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */; };
+		FD26F5BA2BFF5A0C00AECB16 /* ScaleMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */; };
+		FD26F5CB2BFF5A4F00AECB16 /* ScalingPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */; };
+		FD26F5CC2BFF5A4F00AECB16 /* ChairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BD2BFF5A4F00AECB16 /* ChairView.swift */; };
+		FD26F5CD2BFF5A4F00AECB16 /* MenuChairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BE2BFF5A4F00AECB16 /* MenuChairView.swift */; };
+		FD26F5CE2BFF5A4F00AECB16 /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BF2BFF5A4F00AECB16 /* FlipView.swift */; };
+		FD26F5CF2BFF5A4F00AECB16 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C02BFF5A4F00AECB16 /* ArcView.swift */; };
+		FD26F5D02BFF5A4F00AECB16 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C12BFF5A4F00AECB16 /* ConstraintView.swift */; };
+		FD26F5D12BFF5A4F00AECB16 /* TurnHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C22BFF5A4F00AECB16 /* TurnHandleView.swift */; };
+		FD26F5D22BFF5A4F00AECB16 /* PhotoPickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */; };
+		FD26F5D32BFF5A4F00AECB16 /* SizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C42BFF5A4F00AECB16 /* SizeClass.swift */; };
+		FD26F5D42BFF5A4F00AECB16 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C52BFF5A4F00AECB16 /* NavigationView.swift */; };
+		FD26F5D52BFF5A4F00AECB16 /* PhotoManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */; };
+		FD26F5D62BFF5A4F00AECB16 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C72BFF5A4F00AECB16 /* ViewModifier.swift */; };
+		FD26F5D72BFF5A4F00AECB16 /* ScalingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C82BFF5A4F00AECB16 /* ScalingToolView.swift */; };
+		FD26F5D82BFF5A4F00AECB16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5C92BFF5A4F00AECB16 /* ContentView.swift */; };
+		FD26F5D92BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */; };
+		FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DB2BFF5ACE00AECB16 /* Names.swift */; };
+		FD26F5E32BFF5ACE00AECB16 /* Determine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */; };
+		FD26F5E42BFF5ACE00AECB16 /* SlideFromBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottom.swift */; };
+		FD26F5E52BFF5ACE00AECB16 /* Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */; };
+		FD26F5E62BFF5ACE00AECB16 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DF2BFF5ACE00AECB16 /* Type.swift */; };
+		FD26F5E72BFF5ACE00AECB16 /* GlobalSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */; };
+		FD26F5E82BFF5ACE00AECB16 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */; };
+		FD26F5EA2BFF5AE700AECB16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */; };
+		FD26F5EC2BFF5B9900AECB16 /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */; };
+		FD711A0B2C09E5C200A2163A /* PhotoMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */; };
+		FD711A0E2C0A121F00A2163A /* ChosenPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */; };
+		FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */; };
+		FD93F2562C075B96005C3312 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93F2552C075B96005C3312 /* DataServices.swift */; };
+		FDD75A522C0DBA17002853D4 /* ResetPositionButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A512C0DBA17002853D4 /* ResetPositionButtonViewModel.swift */; };
+		FDD75A542C0DBB02002853D4 /* ResetPositionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */; };
+		FDD75A572C0E168F002853D4 /* ScalingToollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */; };
+		FDE11BED2C04F4FF0088420F /* ScaleValueProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE11BEC2C04F4FF0088420F /* ScaleValueProviderViewModel.swift */; };
+		FDF365C62C0F41C20054FFF0 /* PlanDimensionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF365C52C0F41C20054FFF0 /* PlanDimensionSelectorView.swift */; };
+		FDF4C12E2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */; };
+		FDF4C1302C08D4F100A63333 /* Delte1l.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C12F2C08D4F100A63333 /* Delte1l.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FD0C04312C0B228C00DD0132 /* RemovePhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoViewModel.swift; sourceTree = "<group>"; };
+		FD0C04332C0B442900DD0132 /* RemovePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoView.swift; sourceTree = "<group>"; };
+		FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDimensionLineView.swift; sourceTree = "<group>"; };
+		FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDimensionLineViewModel.swift; sourceTree = "<group>"; };
+		FD26F5712BFF542500AECB16 /* TurningSpacePhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurningSpacePhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD26F5742BFF542500AECB16 /* TurningSpacePhotoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurningSpacePhotoApp.swift; sourceTree = "<group>"; };
+		FD26F57B2BFF542700AECB16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FD26F5842BFF591200AECB16 /* SimpleWheelchair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleWheelchair.swift; sourceTree = "<group>"; };
+		FD26F5892BFF597900AECB16 /* ActionSlideStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSlideStyle.swift; sourceTree = "<group>"; };
+		FD26F58A2BFF597900AECB16 /* ActionDismissStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDismissStyle.swift; sourceTree = "<group>"; };
+		FD26F58B2BFF597900AECB16 /* Symbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		FD26F58C2BFF597900AECB16 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		FD26F5922BFF59BB00AECB16 /* VisibleToolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibleToolModel.swift; sourceTree = "<group>"; };
+		FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleMenuModel.swift; sourceTree = "<group>"; };
+		FD26F5942BFF59BB00AECB16 /* NavigationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
+		FD26F5952BFF59BB00AECB16 /* ChairManoeuvreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreModel.swift; sourceTree = "<group>"; };
+		FD26F5962BFF59BB00AECB16 /* ChosenPhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenPhotoModel.swift; sourceTree = "<group>"; };
+		FD26F5972BFF59BB00AECB16 /* AlertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		FD26F5982BFF59BB00AECB16 /* ScalingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingModel.swift; sourceTree = "<group>"; };
+		FD26F5992BFF59BB00AECB16 /* DefaultMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMeasurements.swift; sourceTree = "<group>"; };
+		FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairModel.swift; sourceTree = "<group>"; };
+		FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreViewModel.swift; sourceTree = "<group>"; };
+		FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairViewModel.swift; sourceTree = "<group>"; };
+		FD26F5A92BFF5A0C00AECB16 /* ScalingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingViewModel.swift; sourceTree = "<group>"; };
+		FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisbileToolViewModel.swift; sourceTree = "<group>"; };
+		FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		FD26F5AC2BFF5A0C00AECB16 /* NavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		FD26F5AD2BFF5A0C00AECB16 /* ProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenPhotoViewModel.swift; sourceTree = "<group>"; };
+		FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleMenuViewModel.swift; sourceTree = "<group>"; };
+		FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingPhotoView.swift; sourceTree = "<group>"; };
+		FD26F5BD2BFF5A4F00AECB16 /* ChairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairView.swift; sourceTree = "<group>"; };
+		FD26F5BE2BFF5A4F00AECB16 /* MenuChairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairView.swift; sourceTree = "<group>"; };
+		FD26F5BF2BFF5A4F00AECB16 /* FlipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
+		FD26F5C02BFF5A4F00AECB16 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
+		FD26F5C12BFF5A4F00AECB16 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		FD26F5C22BFF5A4F00AECB16 /* TurnHandleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnHandleView.swift; sourceTree = "<group>"; };
+		FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerButtonView.swift; sourceTree = "<group>"; };
+		FD26F5C42BFF5A4F00AECB16 /* SizeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClass.swift; sourceTree = "<group>"; };
+		FD26F5C52BFF5A4F00AECB16 /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManagementView.swift; sourceTree = "<group>"; };
+		FD26F5C72BFF5A4F00AECB16 /* ViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
+		FD26F5C82BFF5A4F00AECB16 /* ScalingToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingToolView.swift; sourceTree = "<group>"; };
+		FD26F5C92BFF5A4F00AECB16 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmScaleButtonView.swift; sourceTree = "<group>"; };
+		FD26F5DB2BFF5ACE00AECB16 /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
+		FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Determine.swift; sourceTree = "<group>"; };
+		FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideFromBottom.swift; sourceTree = "<group>"; };
+		FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manipulations.swift; sourceTree = "<group>"; };
+		FD26F5DF2BFF5ACE00AECB16 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSizes.swift; sourceTree = "<group>"; };
+		FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../turningSpace001/turningSpace001/Assets.xcassets; sourceTree = "<group>"; };
+		FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
+		FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMenuView.swift; sourceTree = "<group>"; };
+		FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPhotoView.swift; sourceTree = "<group>"; };
+		FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingPhotoViewModel.swift; sourceTree = "<group>"; };
+		FD93F2552C075B96005C3312 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		FDD75A512C0DBA17002853D4 /* ResetPositionButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPositionButtonViewModel.swift; sourceTree = "<group>"; };
+		FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPositionButtonView.swift; sourceTree = "<group>"; };
+		FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingToollViewModel.swift; sourceTree = "<group>"; };
+		FDE11BEC2C04F4FF0088420F /* ScaleValueProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleValueProviderViewModel.swift; sourceTree = "<group>"; };
+		FDF365C52C0F41C20054FFF0 /* PlanDimensionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDimensionSelectorView.swift; sourceTree = "<group>"; };
+		FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingDimensionSelectorView.swift; sourceTree = "<group>"; };
+		FDF4C12F2C08D4F100A63333 /* Delte1l.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delte1l.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD26F56E2BFF542500AECB16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD0C04352C0B445500DD0132 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */,
+				FD0C04312C0B228C00DD0132 /* RemovePhotoViewModel.swift */,
+				FDD75A512C0DBA17002853D4 /* ResetPositionButtonViewModel.swift */,
+				FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */,
+				FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */,
+				FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */,
+				FD26F5962BFF59BB00AECB16 /* ChosenPhotoModel.swift */,
+				FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */,
+				FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */,
+				FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */,
+				FD0C04332C0B442900DD0132 /* RemovePhotoView.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		FD26F5682BFF542500AECB16 = {
+			isa = PBXGroup;
+			children = (
+				FD26F5732BFF542500AECB16 /* TurningSpacePhoto */,
+				FD26F5722BFF542500AECB16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD26F5722BFF542500AECB16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5712BFF542500AECB16 /* TurningSpacePhoto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD26F5732BFF542500AECB16 /* TurningSpacePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5742BFF542500AECB16 /* TurningSpacePhotoApp.swift */,
+				FD93F2552C075B96005C3312 /* DataServices.swift */,
+				FD26F5DA2BFF5ACE00AECB16 /* Misc */,
+				FD26F5862BFF593A00AECB16 /* Chairs */,
+				FD26F5882BFF597900AECB16 /* Styles */,
+				FD26F5912BFF59BB00AECB16 /* Model */,
+				FDD75A552C0DBFAF002853D4 /* PhotoScaling */,
+				FD26F5BB2BFF5A4F00AECB16 /* View */,
+				FD26F5A62BFF5A0C00AECB16 /* ViewModel */,
+				FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */,
+				FD26F57A2BFF542700AECB16 /* Preview Content */,
+			);
+			path = TurningSpacePhoto;
+			sourceTree = "<group>";
+		};
+		FD26F57A2BFF542700AECB16 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F57B2BFF542700AECB16 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD26F5862BFF593A00AECB16 /* Chairs */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5842BFF591200AECB16 /* SimpleWheelchair.swift */,
+			);
+			path = Chairs;
+			sourceTree = "<group>";
+		};
+		FD26F5882BFF597900AECB16 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5892BFF597900AECB16 /* ActionSlideStyle.swift */,
+				FD26F58A2BFF597900AECB16 /* ActionDismissStyle.swift */,
+				FD26F58B2BFF597900AECB16 /* Symbols.swift */,
+				FD26F58C2BFF597900AECB16 /* ButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		FD26F5912BFF59BB00AECB16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5922BFF59BB00AECB16 /* VisibleToolModel.swift */,
+				FD26F5942BFF59BB00AECB16 /* NavigationModel.swift */,
+				FD26F5952BFF59BB00AECB16 /* ChairManoeuvreModel.swift */,
+				FD26F5972BFF59BB00AECB16 /* AlertModel.swift */,
+				FD26F5992BFF59BB00AECB16 /* DefaultMeasurements.swift */,
+				FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD26F5A62BFF5A0C00AECB16 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */,
+				FD26F5AC2BFF5A0C00AECB16 /* NavigationViewModel.swift */,
+				FDF4C12F2C08D4F100A63333 /* Delte1l.swift */,
+				FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift */,
+				FD26F5AD2BFF5A0C00AECB16 /* ProjectViewModel.swift */,
+				FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */,
+				FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD26F5BB2BFF5A4F00AECB16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5BD2BFF5A4F00AECB16 /* ChairView.swift */,
+				FD26F5BE2BFF5A4F00AECB16 /* MenuChairView.swift */,
+				FD26F5BF2BFF5A4F00AECB16 /* FlipView.swift */,
+				FD26F5C02BFF5A4F00AECB16 /* ArcView.swift */,
+				FD26F5C12BFF5A4F00AECB16 /* ConstraintView.swift */,
+				FD26F5C22BFF5A4F00AECB16 /* TurnHandleView.swift */,
+				FD26F5C42BFF5A4F00AECB16 /* SizeClass.swift */,
+				FD26F5C52BFF5A4F00AECB16 /* NavigationView.swift */,
+				FD26F5C72BFF5A4F00AECB16 /* ViewModifier.swift */,
+				FD26F5C92BFF5A4F00AECB16 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD26F5DA2BFF5ACE00AECB16 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5DB2BFF5ACE00AECB16 /* Names.swift */,
+				FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */,
+				FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottom.swift */,
+				FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */,
+				FD26F5DF2BFF5ACE00AECB16 /* Type.swift */,
+				FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */,
+				FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		FD711A0C2C09E5E500A2163A /* Scaling */ = {
+			isa = PBXGroup;
+			children = (
+				FD26F5982BFF59BB00AECB16 /* ScalingModel.swift */,
+				FD26F5A92BFF5A0C00AECB16 /* ScalingViewModel.swift */,
+				FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */,
+				FDF365C52C0F41C20054FFF0 /* PlanDimensionSelectorView.swift */,
+				FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */,
+				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
+				FD26F5C82BFF5A4F00AECB16 /* ScalingToolView.swift */,
+				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
+				FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */,
+				FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */,
+				FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */,
+				FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */,
+				FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */,
+				FDE11BEC2C04F4FF0088420F /* ScaleValueProviderViewModel.swift */,
+			);
+			path = Scaling;
+			sourceTree = "<group>";
+		};
+		FDD75A552C0DBFAF002853D4 /* PhotoScaling */ = {
+			isa = PBXGroup;
+			children = (
+				FD711A0C2C09E5E500A2163A /* Scaling */,
+				FD0C04352C0B445500DD0132 /* Photo */,
+			);
+			path = PhotoScaling;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD26F5702BFF542500AECB16 /* TurningSpacePhoto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD26F57F2BFF542700AECB16 /* Build configuration list for PBXNativeTarget "TurningSpacePhoto" */;
+			buildPhases = (
+				FD26F56D2BFF542500AECB16 /* Sources */,
+				FD26F56E2BFF542500AECB16 /* Frameworks */,
+				FD26F56F2BFF542500AECB16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TurningSpacePhoto;
+			productName = TurningSpacePhoto;
+			productReference = FD26F5712BFF542500AECB16 /* TurningSpacePhoto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD26F5692BFF542500AECB16 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					FD26F5702BFF542500AECB16 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = FD26F56C2BFF542500AECB16 /* Build configuration list for PBXProject "TurningSpacePhoto" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD26F5682BFF542500AECB16;
+			productRefGroup = FD26F5722BFF542500AECB16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD26F5702BFF542500AECB16 /* TurningSpacePhoto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD26F56F2BFF542500AECB16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD26F57C2BFF542700AECB16 /* Preview Assets.xcassets in Resources */,
+				FD26F5EA2BFF5AE700AECB16 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD26F56D2BFF542500AECB16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD26F59D2BFF59BB00AECB16 /* ScaleMenuModel.swift in Sources */,
+				FD26F5CE2BFF5A4F00AECB16 /* FlipView.swift in Sources */,
+				FD26F5D22BFF5A4F00AECB16 /* PhotoPickerButtonView.swift in Sources */,
+				FD26F5CD2BFF5A4F00AECB16 /* MenuChairView.swift in Sources */,
+				FDF4C1302C08D4F100A63333 /* Delte1l.swift in Sources */,
+				FD26F5D62BFF5A4F00AECB16 /* ViewModifier.swift in Sources */,
+				FD26F5A12BFF59BB00AECB16 /* AlertModel.swift in Sources */,
+				FDF365C62C0F41C20054FFF0 /* PlanDimensionSelectorView.swift in Sources */,
+				FD26F5B22BFF5A0C00AECB16 /* MenuChairViewModel.swift in Sources */,
+				FD26F5D12BFF5A4F00AECB16 /* TurnHandleView.swift in Sources */,
+				FD0C04372C0B474900DD0132 /* ScaleDimensionLineView.swift in Sources */,
+				FDD75A572C0E168F002853D4 /* ScalingToollViewModel.swift in Sources */,
+				FD0C04392C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift in Sources */,
+				FD26F5B72BFF5A0C00AECB16 /* ProjectViewModel.swift in Sources */,
+				FD26F5BA2BFF5A0C00AECB16 /* ScaleMenuViewModel.swift in Sources */,
+				FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */,
+				FD26F5D42BFF5A4F00AECB16 /* NavigationView.swift in Sources */,
+				FD26F5E82BFF5ACE00AECB16 /* Shapes.swift in Sources */,
+				FD26F58D2BFF597900AECB16 /* ActionSlideStyle.swift in Sources */,
+				FD26F5CC2BFF5A4F00AECB16 /* ChairView.swift in Sources */,
+				FDD75A522C0DBA17002853D4 /* ResetPositionButtonViewModel.swift in Sources */,
+				FD26F5B52BFF5A0C00AECB16 /* AlertViewModel.swift in Sources */,
+				FDF4C12E2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift in Sources */,
+				FD26F5852BFF591200AECB16 /* SimpleWheelchair.swift in Sources */,
+				FD26F5D02BFF5A4F00AECB16 /* ConstraintView.swift in Sources */,
+				FD711A0E2C0A121F00A2163A /* ChosenPhotoView.swift in Sources */,
+				FD26F5B62BFF5A0C00AECB16 /* NavigationViewModel.swift in Sources */,
+				FD26F5B12BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift in Sources */,
+				FD26F58F2BFF597900AECB16 /* Symbols.swift in Sources */,
+				FD26F5A22BFF59BB00AECB16 /* ScalingModel.swift in Sources */,
+				FD26F5E72BFF5ACE00AECB16 /* GlobalSizes.swift in Sources */,
+				FD26F5D32BFF5A4F00AECB16 /* SizeClass.swift in Sources */,
+				FD26F5D52BFF5A4F00AECB16 /* PhotoManagementView.swift in Sources */,
+				FD26F5B32BFF5A0C00AECB16 /* ScalingViewModel.swift in Sources */,
+				FD711A0B2C09E5C200A2163A /* PhotoMenuView.swift in Sources */,
+				FD26F5752BFF542500AECB16 /* TurningSpacePhotoApp.swift in Sources */,
+				FD26F58E2BFF597900AECB16 /* ActionDismissStyle.swift in Sources */,
+				FD26F5D82BFF5A4F00AECB16 /* ContentView.swift in Sources */,
+				FD0C04322C0B228C00DD0132 /* RemovePhotoViewModel.swift in Sources */,
+				FD26F5A32BFF59BB00AECB16 /* DefaultMeasurements.swift in Sources */,
+				FD26F59E2BFF59BB00AECB16 /* NavigationModel.swift in Sources */,
+				FDD75A542C0DBB02002853D4 /* ResetPositionButtonView.swift in Sources */,
+				FD26F5EC2BFF5B9900AECB16 /* PhotoPickerViewModel.swift in Sources */,
+				FD26F5E52BFF5ACE00AECB16 /* Manipulations.swift in Sources */,
+				FD26F5E32BFF5ACE00AECB16 /* Determine.swift in Sources */,
+				FD93F2562C075B96005C3312 /* DataServices.swift in Sources */,
+				FDE11BED2C04F4FF0088420F /* ScaleValueProviderViewModel.swift in Sources */,
+				FD26F5E42BFF5ACE00AECB16 /* SlideFromBottom.swift in Sources */,
+				FD26F5B82BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift in Sources */,
+				FD0C04342C0B442900DD0132 /* RemovePhotoView.swift in Sources */,
+				FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */,
+				FD26F5B42BFF5A0C00AECB16 /* VisbileToolViewModel.swift in Sources */,
+				FD26F59C2BFF59BB00AECB16 /* VisibleToolModel.swift in Sources */,
+				FD26F5CF2BFF5A4F00AECB16 /* ArcView.swift in Sources */,
+				FD26F5A42BFF59BB00AECB16 /* MenuChairModel.swift in Sources */,
+				FD26F5CB2BFF5A4F00AECB16 /* ScalingPhotoView.swift in Sources */,
+				FD26F5E62BFF5ACE00AECB16 /* Type.swift in Sources */,
+				FD26F5D92BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift in Sources */,
+				FD26F5A02BFF59BB00AECB16 /* ChosenPhotoModel.swift in Sources */,
+				FD26F5D72BFF5A4F00AECB16 /* ScalingToolView.swift in Sources */,
+				FD26F59F2BFF59BB00AECB16 /* ChairManoeuvreModel.swift in Sources */,
+				FD26F5902BFF597900AECB16 /* ButtonStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FD26F57D2BFF542700AECB16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FD26F57E2BFF542700AECB16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD26F5802BFF542700AECB16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TurningSpacePhoto/Preview Content\"";
+				DEVELOPMENT_TEAM = QUV6RNFRAM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BrianAbraham.TurningSpacePhoto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD26F5812BFF542700AECB16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TurningSpacePhoto/Preview Content\"";
+				DEVELOPMENT_TEAM = QUV6RNFRAM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BrianAbraham.TurningSpacePhoto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD26F56C2BFF542500AECB16 /* Build configuration list for PBXProject "TurningSpacePhoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD26F57D2BFF542700AECB16 /* Debug */,
+				FD26F57E2BFF542700AECB16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD26F57F2BFF542700AECB16 /* Build configuration list for PBXNativeTarget "TurningSpacePhoto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD26F5802BFF542700AECB16 /* Debug */,
+				FD26F5812BFF542700AECB16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD26F5692BFF542500AECB16 /* Project object */;
+}
