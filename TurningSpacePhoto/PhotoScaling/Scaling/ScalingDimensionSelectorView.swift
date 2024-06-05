@@ -31,12 +31,12 @@ struct ScalingDimensionSelectorView: View {
         }
     }
 }
-
+//test
 
 struct CurrentDimensionView: View {
    
     @EnvironmentObject var currentDimensionVM: CurrentDimensionViewModel
-   
+   let test = 1
     
     var dimensionOnPlan: Int {
         Int(currentDimensionVM.dimensionOnPlan)
