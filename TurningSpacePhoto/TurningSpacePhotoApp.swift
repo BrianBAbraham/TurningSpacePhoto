@@ -18,7 +18,7 @@ struct TurningSpacePhotoApp: App {
     @StateObject var scalingPhotoViewModel = ScalingPhotoViewModel()
     @StateObject var menuChairViewModel = MenuChairViewModel()
     @StateObject var alertVM = AlertViewModel()
-    @StateObject var removePhotoViewModel = RemovePhotoViewModel()
+    @StateObject var removePhotoViewModel = RemovePhotoButtonViewModel()
     @StateObject var scaleDimensionLineViewModel = ScaleDimensionLineViewModel()
     @StateObject var visibleToolViewModel = VisibleToolViewModel()
     @StateObject var photoPickerVM = PhotoPickerViewModel()

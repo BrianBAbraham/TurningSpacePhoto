@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD0C04322C0B228C00DD0132 /* RemovePhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04312C0B228C00DD0132 /* RemovePhotoViewModel.swift */; };
-		FD0C04342C0B442900DD0132 /* RemovePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04332C0B442900DD0132 /* RemovePhotoView.swift */; };
+		FD0C04322C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */; };
+		FD0C04342C0B442900DD0132 /* RemovePhotoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */; };
 		FD0C04372C0B474900DD0132 /* ScaleDimensionLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */; };
 		FD0C04392C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */; };
 		FD26F5752BFF542500AECB16 /* TurningSpacePhotoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5742BFF542500AECB16 /* TurningSpacePhotoApp.swift */; };
@@ -60,6 +60,7 @@
 		FD26F5E82BFF5ACE00AECB16 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */; };
 		FD26F5EA2BFF5AE700AECB16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */; };
 		FD26F5EC2BFF5B9900AECB16 /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */; };
+		FD3B49982C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */; };
 		FD711A0B2C09E5C200A2163A /* PhotoMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */; };
 		FD711A0E2C0A121F00A2163A /* ChosenPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */; };
 		FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */; };
@@ -74,8 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD0C04312C0B228C00DD0132 /* RemovePhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoViewModel.swift; sourceTree = "<group>"; };
-		FD0C04332C0B442900DD0132 /* RemovePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoView.swift; sourceTree = "<group>"; };
+		FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoButtonViewModel.swift; sourceTree = "<group>"; };
+		FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoButtonView.swift; sourceTree = "<group>"; };
 		FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDimensionLineView.swift; sourceTree = "<group>"; };
 		FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDimensionLineViewModel.swift; sourceTree = "<group>"; };
 		FD26F5712BFF542500AECB16 /* TurningSpacePhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurningSpacePhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +129,7 @@
 		FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../turningSpace001/turningSpace001/Assets.xcassets; sourceTree = "<group>"; };
 		FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
+		FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScalingDimensionSelectorMediator.swift; sourceTree = "<group>"; };
 		FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMenuView.swift; sourceTree = "<group>"; };
 		FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPhotoView.swift; sourceTree = "<group>"; };
 		FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingPhotoViewModel.swift; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */,
-				FD0C04312C0B228C00DD0132 /* RemovePhotoViewModel.swift */,
+				FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */,
 				FDD75A512C0DBA17002853D4 /* ResetPositionButtonViewModel.swift */,
 				FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */,
 				FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */,
@@ -165,7 +167,7 @@
 				FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */,
 				FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */,
 				FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */,
-				FD0C04332C0B442900DD0132 /* RemovePhotoView.swift */,
+				FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -300,6 +302,7 @@
 				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
 				FD26F5C82BFF5A4F00AECB16 /* ScalingToolView.swift */,
 				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
+				FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */,
 				FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */,
 				FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */,
 				FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */,
@@ -402,6 +405,7 @@
 				FD0C04372C0B474900DD0132 /* ScaleDimensionLineView.swift in Sources */,
 				FDD75A572C0E168F002853D4 /* ScalingToollViewModel.swift in Sources */,
 				FD0C04392C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift in Sources */,
+				FD3B49982C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift in Sources */,
 				FD26F5B72BFF5A0C00AECB16 /* ProjectViewModel.swift in Sources */,
 				FD26F5BA2BFF5A0C00AECB16 /* ScaleMenuViewModel.swift in Sources */,
 				FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */,
@@ -427,7 +431,7 @@
 				FD26F5752BFF542500AECB16 /* TurningSpacePhotoApp.swift in Sources */,
 				FD26F58E2BFF597900AECB16 /* ActionDismissStyle.swift in Sources */,
 				FD26F5D82BFF5A4F00AECB16 /* ContentView.swift in Sources */,
-				FD0C04322C0B228C00DD0132 /* RemovePhotoViewModel.swift in Sources */,
+				FD0C04322C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift in Sources */,
 				FD26F5A32BFF59BB00AECB16 /* DefaultMeasurements.swift in Sources */,
 				FD26F59E2BFF59BB00AECB16 /* NavigationModel.swift in Sources */,
 				FDD75A542C0DBB02002853D4 /* ResetPositionButtonView.swift in Sources */,
@@ -438,7 +442,7 @@
 				FDE11BED2C04F4FF0088420F /* ScaleValueProviderViewModel.swift in Sources */,
 				FD26F5E42BFF5ACE00AECB16 /* SlideFromBottom.swift in Sources */,
 				FD26F5B82BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift in Sources */,
-				FD0C04342C0B442900DD0132 /* RemovePhotoView.swift in Sources */,
+				FD0C04342C0B442900DD0132 /* RemovePhotoButtonView.swift in Sources */,
 				FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */,
 				FD26F5B42BFF5A0C00AECB16 /* VisbileToolViewModel.swift in Sources */,
 				FD26F59C2BFF59BB00AECB16 /* VisibleToolModel.swift in Sources */,

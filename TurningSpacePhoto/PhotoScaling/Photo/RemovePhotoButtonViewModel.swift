@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class RemovePhotoViewModel: ObservableObject {
+class RemovePhotoButtonViewModel: ObservableObject {
     let photoService = PhotoService.shared
     let scaleService = ScaleService.shared
     @Published var isActive: Bool = PhotoService.shared.photoStatus

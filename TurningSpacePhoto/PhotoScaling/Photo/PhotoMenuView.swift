@@ -22,7 +22,7 @@ struct PhotoMenuView: View {
                          ResetPositionButtonView()
                           .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                          
-                         RemovePhotoView()
+                         RemovePhotoButtonView()
                      }
                     
                      

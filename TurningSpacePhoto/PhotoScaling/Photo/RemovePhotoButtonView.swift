@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct RemovePhotoView: View {
-    @EnvironmentObject private var removePhotoVM: RemovePhotoViewModel
+struct RemovePhotoButtonView: View {
+    @EnvironmentObject private var removePhotoVM: RemovePhotoButtonViewModel
    
     var body: some View {
         Button(action: {

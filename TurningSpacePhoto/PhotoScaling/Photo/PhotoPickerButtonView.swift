@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhotoPickerButtonView: View {
     @EnvironmentObject private var photoPickerVM: PhotoPickerViewModel
-    @EnvironmentObject var photoScaleVM: ChosenPhotoViewModel
+
     @State private var showPicker = false
     var body: some View {
 
@@ -20,11 +20,6 @@ struct PhotoPickerButtonView: View {
         }
         .photosPicker(isPresented: $showPicker, selection: $photoPickerVM.imageSelection, matching: .images)
         .onChange(of: photoPickerVM.imageSelection) { newValue in
-
-//            if photoPickerVM.imageSelection != nil {
-//            
-//                photoScaleVM.setImagePickerStatus(true)
-//            }
         }
     }
 }
