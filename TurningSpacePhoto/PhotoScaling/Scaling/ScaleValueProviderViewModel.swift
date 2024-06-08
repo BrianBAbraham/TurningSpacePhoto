@@ -33,44 +33,42 @@ struct ScaleValueProviderModel {
 ///scale is separation/dimension on plan
 class ScaleValueProviderViewModel: ObservableObject {
     private (set) var scaleValueProviderModel: ScaleValueProviderModel = ScaleValueProviderModel()
-    
+
     let scaleServices = ScaleService.shared
     let dimensionService = DimensionService.shared
     @Published var dimensionOnPlan = DimensionService.shared.dimensionOnPlan
-    
-   // var scalingCompeted = false
 
     private var cancellables: Set<AnyCancellable> = []
-    
+
     init() {
         DimensionService.shared.$dimensionOnPlan
             .sink { [weak self] newData in
                 self?.dimensionOnPlan = newData
             }
             .store(in: &cancellables)
-        
+
         ScaleService.shared.$leftScalingToolPosition
             .sink { [weak self] newData in
                     self?.setLeftScalingToolPosition(newData )
             }
             .store(in: &cancellables)
-        
+
         ScaleService.shared.$rightScalingToolPosition
             .sink { [weak self] newData in
                     self?.setRightScalingToolPosition(newData )
             }
             .store(in: &cancellables)
-        
+
         scaleServices.$scalingCompleted
             .sink { [weak self] newData in
                 if newData {
-                    
+
                     self?.setScale("scaling completed")
                 }
         }
         .store(in: &cancellables)
     }
-    
+
 }
 
 
@@ -136,3 +134,5 @@ extension ScaleValueProviderViewModel {
         dimensionService.setDimensionOnPlan(value)
     }
 }
+
+

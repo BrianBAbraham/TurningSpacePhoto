@@ -10,52 +10,52 @@ import Combine
 import SwiftUI
 
 
-class ChosenPhotoViewModel: ObservableObject {
-
-   @Published
-    private (set) var chosenPhotoModel =
-     ChosenPhotoModel(currentPhotoZoom: 1.0)
-    
-    var chosenPhoto: Image? = PhotoService.shared.photo
-    
-    var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
-    
-    var scalingCompleted = ScaleService.shared.scalingCompleted
-    
-    private var cancellables: Set<AnyCancellable> = []
-    
-    
-    init() {
-       
-        PhotoService.shared.$photo
-            .sink { [weak self] newData in
-                self?.chosenPhoto = newData
-                //self?.model.modifyManoeuvreScale(newData)
-            }
-            .store(
-                in: &cancellables
-            )
-        
-        PhotoService.shared.$finalPhotoZoom
-            .sink { [weak self] newData in
-                self?.finalPhotoZoom = newData
-                self?.setFinalChosenPhotoZoom(newData)
-            }
-            .store(
-                in: &cancellables
-            )
-        
-        ScaleService.shared.$scalingCompleted
-            .sink { [weak self] newData in
-                self?.scalingCompleted = newData
-                //self?.setFinalChosenPhotoZoom(newData)
-            }
-            .store(
-                in: &cancellables
-            )
-    }
-    
-}
+//class ChosenPhotoViewModel: ObservableObject {
+//
+//   @Published
+//    private (set) var chosenPhotoModel =
+//     ChosenPhotoModel(currentPhotoZoom: 1.0)
+//    
+//    var chosenPhoto: Image? = PhotoService.shared.photo
+//    
+//    var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
+//    
+//    var scalingCompleted = ScaleService.shared.scaleServicesData.scalingCompleted
+//    
+//    private var cancellables: Set<AnyCancellable> = []
+//    
+//    
+//    init() {
+//       
+//        PhotoService.shared.$photo
+//            .sink { [weak self] newData in
+//                self?.chosenPhoto = newData
+//                //self?.model.modifyManoeuvreScale(newData)
+//            }
+//            .store(
+//                in: &cancellables
+//            )
+//        
+//        PhotoService.shared.$finalPhotoZoom
+//            .sink { [weak self] newData in
+//                self?.finalPhotoZoom = newData
+//                self?.setFinalChosenPhotoZoom(newData)
+//            }
+//            .store(
+//                in: &cancellables
+//            )
+//        
+//        ScaleService.shared.$scaleServicesData
+//            .sink { [weak self] newData in
+//                self?.scalingCompleted = newData.scalingCompleted
+//                //self?.setFinalChosenPhotoZoom(newData)
+//            }
+//            .store(
+//                in: &cancellables
+//            )
+//    }
+//    
+//}
 
 
 extension ChosenPhotoViewModel {
@@ -104,4 +104,50 @@ extension ChosenPhotoViewModel {
         PhotoService.shared.setPhotoLocation(location)
     }
 }
+//
+class ChosenPhotoViewModel: ObservableObject {
 
+   @Published
+    private (set) var chosenPhotoModel =
+     ChosenPhotoModel(currentPhotoZoom: 1.0)
+    
+    var chosenPhoto: Image? = PhotoService.shared.photo
+    
+    var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
+    
+    var scalingCompleted = ScaleService.shared.scalingCompleted
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
+    
+    init() {
+       
+        PhotoService.shared.$photo
+            .sink { [weak self] newData in
+                self?.chosenPhoto = newData
+                
+            }
+            .store(
+                in: &cancellables
+            )
+        
+        PhotoService.shared.$finalPhotoZoom
+            .sink { [weak self] newData in
+                self?.finalPhotoZoom = newData
+                self?.setFinalChosenPhotoZoom(newData)
+            }
+            .store(
+                in: &cancellables
+            )
+        
+        ScaleService.shared.$scalingCompleted
+            .sink { [weak self] newData in
+                self?.scalingCompleted = newData
+               
+            }
+            .store(
+                in: &cancellables
+            )
+    }
+    
+}

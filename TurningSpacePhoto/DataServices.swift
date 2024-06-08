@@ -21,39 +21,35 @@ class ShowViewService {
 }
 
 
+
+
 class ScaleService {
     @Published var scale = 1.0
     @Published var scalingCompleted = false
     @Published var scalingToolAtInitialPosition = false
     @Published var leftScalingToolPosition = CGPoint(x: 75, y: 100)
     @Published var rightScalingToolPosition = CGPoint(x: SizeOf.screenWidth * 0.8, y: 100)
+    
+    
    
     
     static let shared = ScaleService()
-    
-    
-    func getScale() -> Double {
-        scale
-    }
-    
-    
+        
     func setScale(_ scale: Double) {
         self.scale = scale
-    }
-    
-    
-    func getScalingComplete() -> Bool {
-       scalingCompleted
+       
     }
     
     
     func setScalingCompleted() {
-        self.scalingCompleted = true
+        scalingCompleted = true
+       
     }
     
     
     func setScalingCompletedFalse() {
-        self.scalingCompleted = false
+        scalingCompleted = false
+       
     }
     
     
@@ -69,11 +65,13 @@ class ScaleService {
     
     func setLeftScalingToolPosition(_ value: CGPoint) {
         leftScalingToolPosition = value
+        
     }
     
     
     func setRightScalingToolPosition(_ value: CGPoint) {
         rightScalingToolPosition = value
+        
     }
 }
 
@@ -88,13 +86,6 @@ class DimensionService {
        
         dimensionOnPlan = value
     }
-    
-    func getDimensionOnPlan() -> Double {
-        print("DimensionOnPlan \(  dimensionOnPlan)")
-        return
-        dimensionOnPlan
-    }
-    
 }
 
 
@@ -108,19 +99,9 @@ class PhotoService {
     static let shared = PhotoService()
     
     
-    func getFinalPhoto() -> Image? {
-        photo
-    }
-    
-    
     func setFinalPhotoZoom(_ value: Double) {
     
         self.finalPhotoZoom = value
-    }
-    
-    
-    func getPhotolocation() -> CGPoint {
-        photoLocation
     }
     
     
@@ -128,19 +109,9 @@ class PhotoService {
         photoLocation = value
     }
     
-    
-    func getPhotoStatus() -> Bool {
-        photoStatus
-    }
-    
-    
+
     func setPhotoStatus(_ status: Bool) {
         photoStatus = status
-    }
-    
-    
-    func getPhoto() -> Image? {
-        photo
     }
     
     

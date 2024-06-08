@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class ScaleDimensionLineViewModel: ObservableObject {
-
+    
     @Published var scale: Double = ScaleService.shared.scale
     @Published var scalingCompleted: Bool = ScaleService.shared.scalingCompleted
     @Published var dimensionOnPlan: Double = DimensionService.shared.dimensionOnPlan
@@ -41,3 +41,5 @@ class ScaleDimensionLineViewModel: ObservableObject {
         scalingCompleted = newData
     }
 }
+
+
