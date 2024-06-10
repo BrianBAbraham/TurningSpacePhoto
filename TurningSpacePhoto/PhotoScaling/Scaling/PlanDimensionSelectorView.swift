@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlanDimensionSelectorView: View {
-    @State private var millimeterDimensionOnPlan = ScaleValueProviderModel.intialDimensionOnPlan
+    @State private var millimeterDimensionOnPlan = DimensionService.shared.dimensionOnPlan
   
     @EnvironmentObject  var planDimensionSelectorVM: PlanDimensionSelectorViewModel
    
@@ -57,14 +57,12 @@ import Combine
 class PlanDimensionSelectorViewModel: ObservableObject {
     
     @Published private (set) var notShowing = true
-
-    private let mediator = ShowScalingDimensionSelectorMediator.shared
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
 
-        ShowViewService.shared.$scalingDimensionSelectorView
+        ShowScalingDimensionSelectorService.shared.$scalingDimensionSelectorView
             .sink { [weak self] newData in
                 self?.notShowing = newData
                

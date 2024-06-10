@@ -29,13 +29,14 @@ import Combine
 class ConfirmScaleButtonViewModel: ObservableObject {
    
     @Published private (set) var notShowing = true
-
-    private let mediator = ShowScalingDimensionSelectorMediator.shared
+    
     private var cancellables: Set<AnyCancellable> = []
+   
     init() {
-
+        // Ensure ShowScalingDimensionSelectorMediator.shared is initialized
+       let _ = ShowScalingDimensionSelectorMediator.shared
         
-        ShowViewService.shared.$scalingDimensionSelectorView
+        ShowScalingDimensionSelectorService.shared.$scalingDimensionSelectorView
             .sink { [weak self] newData in
                 self?.notShowing = newData
         }
@@ -44,7 +45,6 @@ class ConfirmScaleButtonViewModel: ObservableObject {
     
 
     func setScalingCompleted(){
-       
         ScaleService.shared.setScalingCompleted()
     }
 }

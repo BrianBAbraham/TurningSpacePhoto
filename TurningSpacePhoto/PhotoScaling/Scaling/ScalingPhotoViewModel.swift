@@ -8,19 +8,10 @@ import Foundation
 import Combine
 import SwiftUI
 
-struct ScalingPhotoModel {
-    var finalPhotoZoom: Double = 1.0
-    var currentPhotoZoom: Double
-    var scalingPhoto: Image?
-    var chosenPhotoLocation = SizeOf.centre
-}
-
 
 
 class ScalingPhotoViewModel: ObservableObject {
 
-    private (set) var scalingPhotoModel =
-     ChosenPhotoModel(currentPhotoZoom: 1.0)
     
     @Published var showScalingPhoto = false
     
@@ -33,12 +24,11 @@ class ScalingPhotoViewModel: ObservableObject {
     var scalingCompleted = ScaleService.shared.scalingCompleted
     
 
-    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
        
-        PhotoService.shared.$photo
+        photoService.$photo
             .sink { [weak self] newData in
                 self?.scalingPhoto = newData
                 self?.setShowScalingPhoto()
@@ -48,10 +38,9 @@ class ScalingPhotoViewModel: ObservableObject {
             )
         
         
-        PhotoService.shared.$photoLocation
+       photoService.$photoLocation
             .sink { [weak self] newData in
                 self?.scalingPhotoLocation = newData
-                self?.setModelScalingPhotoLocatio(newData)
             }
             .store(
                 in: &cancellables
@@ -74,7 +63,6 @@ extension ScalingPhotoViewModel {
     func setFinalChosenPhotoZoom(_ zoom: Double, _ callerName: String? = "unknown") {
         //make available for other ViewModel
        photoService.setFinalPhotoZoom(zoom)
-        scalingPhotoModel.finalPhotoZoom = zoom
     }
     
     
@@ -88,15 +76,7 @@ extension ScalingPhotoViewModel {
         }
     }
     
-    
-    func getScalingPhotoLocation() -> CGPoint {
-        scalingPhotoModel.chosenPhotoLocation
-    }
-    
 
-    func setModelScalingPhotoLocatio(_ location: CGPoint) {
-        scalingPhotoModel.chosenPhotoLocation = location
-    }
     
     
     func setScalingPhotoLocation(_ location: CGPoint) {

@@ -19,23 +19,21 @@
 		FD26F58F2BFF597900AECB16 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F58B2BFF597900AECB16 /* Symbols.swift */; };
 		FD26F5902BFF597900AECB16 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F58C2BFF597900AECB16 /* ButtonStyle.swift */; };
 		FD26F59C2BFF59BB00AECB16 /* VisibleToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5922BFF59BB00AECB16 /* VisibleToolModel.swift */; };
-		FD26F59D2BFF59BB00AECB16 /* ScaleMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */; };
+		FD26F59D2BFF59BB00AECB16 /* PhotoMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5932BFF59BB00AECB16 /* PhotoMenuModel.swift */; };
 		FD26F59E2BFF59BB00AECB16 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5942BFF59BB00AECB16 /* NavigationModel.swift */; };
 		FD26F59F2BFF59BB00AECB16 /* ChairManoeuvreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5952BFF59BB00AECB16 /* ChairManoeuvreModel.swift */; };
-		FD26F5A02BFF59BB00AECB16 /* ChosenPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5962BFF59BB00AECB16 /* ChosenPhotoModel.swift */; };
 		FD26F5A12BFF59BB00AECB16 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5972BFF59BB00AECB16 /* AlertModel.swift */; };
-		FD26F5A22BFF59BB00AECB16 /* ScalingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5982BFF59BB00AECB16 /* ScalingModel.swift */; };
 		FD26F5A32BFF59BB00AECB16 /* DefaultMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5992BFF59BB00AECB16 /* DefaultMeasurements.swift */; };
 		FD26F5A42BFF59BB00AECB16 /* MenuChairModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */; };
 		FD26F5B12BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift */; };
 		FD26F5B22BFF5A0C00AECB16 /* MenuChairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */; };
-		FD26F5B32BFF5A0C00AECB16 /* ScalingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A92BFF5A0C00AECB16 /* ScalingViewModel.swift */; };
+		FD26F5B32BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A92BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift */; };
 		FD26F5B42BFF5A0C00AECB16 /* VisbileToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */; };
 		FD26F5B52BFF5A0C00AECB16 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */; };
 		FD26F5B62BFF5A0C00AECB16 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AC2BFF5A0C00AECB16 /* NavigationViewModel.swift */; };
 		FD26F5B72BFF5A0C00AECB16 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AD2BFF5A0C00AECB16 /* ProjectViewModel.swift */; };
 		FD26F5B82BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */; };
-		FD26F5BA2BFF5A0C00AECB16 /* ScaleMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */; };
+		FD26F5BA2BFF5A0C00AECB16 /* PhotoMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5B02BFF5A0C00AECB16 /* PhotoMenuViewModel.swift */; };
 		FD26F5CB2BFF5A4F00AECB16 /* ScalingPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */; };
 		FD26F5CC2BFF5A4F00AECB16 /* ChairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BD2BFF5A4F00AECB16 /* ChairView.swift */; };
 		FD26F5CD2BFF5A4F00AECB16 /* MenuChairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5BE2BFF5A4F00AECB16 /* MenuChairView.swift */; };
@@ -53,7 +51,7 @@
 		FD26F5D92BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */; };
 		FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DB2BFF5ACE00AECB16 /* Names.swift */; };
 		FD26F5E32BFF5ACE00AECB16 /* Determine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */; };
-		FD26F5E42BFF5ACE00AECB16 /* SlideFromBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottom.swift */; };
+		FD26F5E42BFF5ACE00AECB16 /* SlideFromBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottomView.swift */; };
 		FD26F5E52BFF5ACE00AECB16 /* Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */; };
 		FD26F5E62BFF5ACE00AECB16 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DF2BFF5ACE00AECB16 /* Type.swift */; };
 		FD26F5E72BFF5ACE00AECB16 /* GlobalSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */; };
@@ -68,7 +66,7 @@
 		FDD75A522C0DBA17002853D4 /* ResetPositionButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A512C0DBA17002853D4 /* ResetPositionButtonViewModel.swift */; };
 		FDD75A542C0DBB02002853D4 /* ResetPositionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */; };
 		FDD75A572C0E168F002853D4 /* ScalingToollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */; };
-		FDE11BED2C04F4FF0088420F /* ScaleValueProviderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE11BEC2C04F4FF0088420F /* ScaleValueProviderViewModel.swift */; };
+		FDE11BED2C04F4FF0088420F /* ScaleValueProviderMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */; };
 		FDF365C62C0F41C20054FFF0 /* PlanDimensionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF365C52C0F41C20054FFF0 /* PlanDimensionSelectorView.swift */; };
 		FDF4C12E2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */; };
 		FDF4C1302C08D4F100A63333 /* Delte1l.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C12F2C08D4F100A63333 /* Delte1l.swift */; };
@@ -88,23 +86,21 @@
 		FD26F58B2BFF597900AECB16 /* Symbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		FD26F58C2BFF597900AECB16 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		FD26F5922BFF59BB00AECB16 /* VisibleToolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibleToolModel.swift; sourceTree = "<group>"; };
-		FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleMenuModel.swift; sourceTree = "<group>"; };
+		FD26F5932BFF59BB00AECB16 /* PhotoMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoMenuModel.swift; sourceTree = "<group>"; };
 		FD26F5942BFF59BB00AECB16 /* NavigationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
 		FD26F5952BFF59BB00AECB16 /* ChairManoeuvreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreModel.swift; sourceTree = "<group>"; };
-		FD26F5962BFF59BB00AECB16 /* ChosenPhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenPhotoModel.swift; sourceTree = "<group>"; };
 		FD26F5972BFF59BB00AECB16 /* AlertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
-		FD26F5982BFF59BB00AECB16 /* ScalingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingModel.swift; sourceTree = "<group>"; };
 		FD26F5992BFF59BB00AECB16 /* DefaultMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMeasurements.swift; sourceTree = "<group>"; };
 		FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairModel.swift; sourceTree = "<group>"; };
 		FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreViewModel.swift; sourceTree = "<group>"; };
 		FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairViewModel.swift; sourceTree = "<group>"; };
-		FD26F5A92BFF5A0C00AECB16 /* ScalingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingViewModel.swift; sourceTree = "<group>"; };
+		FD26F5A92BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCompletedViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisbileToolViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AC2BFF5A0C00AECB16 /* NavigationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AD2BFF5A0C00AECB16 /* ProjectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenPhotoViewModel.swift; sourceTree = "<group>"; };
-		FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleMenuViewModel.swift; sourceTree = "<group>"; };
+		FD26F5B02BFF5A0C00AECB16 /* PhotoMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoMenuViewModel.swift; sourceTree = "<group>"; };
 		FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingPhotoView.swift; sourceTree = "<group>"; };
 		FD26F5BD2BFF5A4F00AECB16 /* ChairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairView.swift; sourceTree = "<group>"; };
 		FD26F5BE2BFF5A4F00AECB16 /* MenuChairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairView.swift; sourceTree = "<group>"; };
@@ -122,7 +118,7 @@
 		FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmScaleButtonView.swift; sourceTree = "<group>"; };
 		FD26F5DB2BFF5ACE00AECB16 /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
 		FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Determine.swift; sourceTree = "<group>"; };
-		FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideFromBottom.swift; sourceTree = "<group>"; };
+		FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideFromBottomView.swift; sourceTree = "<group>"; };
 		FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manipulations.swift; sourceTree = "<group>"; };
 		FD26F5DF2BFF5ACE00AECB16 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSizes.swift; sourceTree = "<group>"; };
@@ -137,7 +133,7 @@
 		FDD75A512C0DBA17002853D4 /* ResetPositionButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPositionButtonViewModel.swift; sourceTree = "<group>"; };
 		FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPositionButtonView.swift; sourceTree = "<group>"; };
 		FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingToollViewModel.swift; sourceTree = "<group>"; };
-		FDE11BEC2C04F4FF0088420F /* ScaleValueProviderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleValueProviderViewModel.swift; sourceTree = "<group>"; };
+		FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleValueProviderMediator.swift; sourceTree = "<group>"; };
 		FDF365C52C0F41C20054FFF0 /* PlanDimensionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDimensionSelectorView.swift; sourceTree = "<group>"; };
 		FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingDimensionSelectorView.swift; sourceTree = "<group>"; };
 		FDF4C12F2C08D4F100A63333 /* Delte1l.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delte1l.swift; sourceTree = "<group>"; };
@@ -163,7 +159,6 @@
 				FDD75A532C0DBB02002853D4 /* ResetPositionButtonView.swift */,
 				FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */,
 				FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */,
-				FD26F5962BFF59BB00AECB16 /* ChosenPhotoModel.swift */,
 				FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */,
 				FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */,
 				FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */,
@@ -282,7 +277,7 @@
 			children = (
 				FD26F5DB2BFF5ACE00AECB16 /* Names.swift */,
 				FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */,
-				FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottom.swift */,
+				FD26F5DD2BFF5ACE00AECB16 /* SlideFromBottomView.swift */,
 				FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */,
 				FD26F5DF2BFF5ACE00AECB16 /* Type.swift */,
 				FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */,
@@ -294,8 +289,7 @@
 		FD711A0C2C09E5E500A2163A /* Scaling */ = {
 			isa = PBXGroup;
 			children = (
-				FD26F5982BFF59BB00AECB16 /* ScalingModel.swift */,
-				FD26F5A92BFF5A0C00AECB16 /* ScalingViewModel.swift */,
+				FD26F5A92BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift */,
 				FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */,
 				FDF365C52C0F41C20054FFF0 /* PlanDimensionSelectorView.swift */,
 				FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */,
@@ -304,11 +298,11 @@
 				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
 				FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */,
 				FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */,
-				FD26F5932BFF59BB00AECB16 /* ScaleMenuModel.swift */,
-				FD26F5B02BFF5A0C00AECB16 /* ScaleMenuViewModel.swift */,
+				FD26F5932BFF59BB00AECB16 /* PhotoMenuModel.swift */,
+				FD26F5B02BFF5A0C00AECB16 /* PhotoMenuViewModel.swift */,
 				FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */,
 				FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */,
-				FDE11BEC2C04F4FF0088420F /* ScaleValueProviderViewModel.swift */,
+				FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */,
 			);
 			path = Scaling;
 			sourceTree = "<group>";
@@ -392,7 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD26F59D2BFF59BB00AECB16 /* ScaleMenuModel.swift in Sources */,
+				FD26F59D2BFF59BB00AECB16 /* PhotoMenuModel.swift in Sources */,
 				FD26F5CE2BFF5A4F00AECB16 /* FlipView.swift in Sources */,
 				FD26F5D22BFF5A4F00AECB16 /* PhotoPickerButtonView.swift in Sources */,
 				FD26F5CD2BFF5A4F00AECB16 /* MenuChairView.swift in Sources */,
@@ -407,7 +401,7 @@
 				FD0C04392C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift in Sources */,
 				FD3B49982C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift in Sources */,
 				FD26F5B72BFF5A0C00AECB16 /* ProjectViewModel.swift in Sources */,
-				FD26F5BA2BFF5A0C00AECB16 /* ScaleMenuViewModel.swift in Sources */,
+				FD26F5BA2BFF5A0C00AECB16 /* PhotoMenuViewModel.swift in Sources */,
 				FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */,
 				FD26F5D42BFF5A4F00AECB16 /* NavigationView.swift in Sources */,
 				FD26F5E82BFF5ACE00AECB16 /* Shapes.swift in Sources */,
@@ -422,11 +416,10 @@
 				FD26F5B62BFF5A0C00AECB16 /* NavigationViewModel.swift in Sources */,
 				FD26F5B12BFF5A0C00AECB16 /* ChairManoeuvreViewModel.swift in Sources */,
 				FD26F58F2BFF597900AECB16 /* Symbols.swift in Sources */,
-				FD26F5A22BFF59BB00AECB16 /* ScalingModel.swift in Sources */,
 				FD26F5E72BFF5ACE00AECB16 /* GlobalSizes.swift in Sources */,
 				FD26F5D32BFF5A4F00AECB16 /* SizeClass.swift in Sources */,
 				FD26F5D52BFF5A4F00AECB16 /* PhotoManagementView.swift in Sources */,
-				FD26F5B32BFF5A0C00AECB16 /* ScalingViewModel.swift in Sources */,
+				FD26F5B32BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift in Sources */,
 				FD711A0B2C09E5C200A2163A /* PhotoMenuView.swift in Sources */,
 				FD26F5752BFF542500AECB16 /* TurningSpacePhotoApp.swift in Sources */,
 				FD26F58E2BFF597900AECB16 /* ActionDismissStyle.swift in Sources */,
@@ -439,8 +432,8 @@
 				FD26F5E52BFF5ACE00AECB16 /* Manipulations.swift in Sources */,
 				FD26F5E32BFF5ACE00AECB16 /* Determine.swift in Sources */,
 				FD93F2562C075B96005C3312 /* DataServices.swift in Sources */,
-				FDE11BED2C04F4FF0088420F /* ScaleValueProviderViewModel.swift in Sources */,
-				FD26F5E42BFF5ACE00AECB16 /* SlideFromBottom.swift in Sources */,
+				FDE11BED2C04F4FF0088420F /* ScaleValueProviderMediator.swift in Sources */,
+				FD26F5E42BFF5ACE00AECB16 /* SlideFromBottomView.swift in Sources */,
 				FD26F5B82BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift in Sources */,
 				FD0C04342C0B442900DD0132 /* RemovePhotoButtonView.swift in Sources */,
 				FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */,
@@ -451,7 +444,6 @@
 				FD26F5CB2BFF5A4F00AECB16 /* ScalingPhotoView.swift in Sources */,
 				FD26F5E62BFF5ACE00AECB16 /* Type.swift in Sources */,
 				FD26F5D92BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift in Sources */,
-				FD26F5A02BFF59BB00AECB16 /* ChosenPhotoModel.swift in Sources */,
 				FD26F5D72BFF5A4F00AECB16 /* ScalingToolView.swift in Sources */,
 				FD26F59F2BFF59BB00AECB16 /* ChairManoeuvreModel.swift in Sources */,
 				FD26F5902BFF597900AECB16 /* ButtonStyle.swift in Sources */,

@@ -60,8 +60,8 @@ var movements = MovementNames.allCases.map {$0}// ["only wheelchair", "tightest 
 
 struct ModifyNumberOfManouevre: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
-    @EnvironmentObject var menuPictureScaleViewModel: ScalingViewModel
-    @EnvironmentObject var pictureScaleViewModel: ChosenPhotoViewModel
+    @EnvironmentObject var menuPictureScaleViewModel: ScalingCompletedViewModel
+   // @EnvironmentObject var pictureScaleViewModel: ChosenPhotoViewModel
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let buttonText: String
     var body: some View {
@@ -298,7 +298,7 @@ struct MenuForChairView: View {
         )
 
         if menuChairViewModel.getShowMenuStatus() {
-            SlideFromBottom(MenuIcon.chairTool, 230) {
+            SlideFromBottomView(MenuIcon.chairTool, 230) {
                 VStack{
                     HStack {
                         sliderChairLength(boundLength)

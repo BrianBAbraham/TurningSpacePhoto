@@ -58,8 +58,8 @@ struct Navigation: View {
 
 struct Icon: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
-    @EnvironmentObject var scaleButtonVM: ScalingViewModel
-    @EnvironmentObject  var scaleMenuVM: ScaleMenuViewModel
+    @EnvironmentObject var scaleButtonVM: ScalingCompletedViewModel
+    @EnvironmentObject  var scaleMenuVM: PhotoMenuViewModel
     @EnvironmentObject var menuChairViewModel: MenuChairViewModel
 
     
@@ -128,7 +128,7 @@ struct NavigationBackground: View {
 struct ReturnToNavigation: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
     @EnvironmentObject var menuChairViewModel: MenuChairViewModel
-    @EnvironmentObject var scaleButtonVM: ScaleMenuViewModel
+    @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
    // @EnvironmentObject var chosenPhotoViewModel: ChosenPhotoViewModel
 // @EnvironmentObject var openFileViewModel: OpenFileViewModel
     let maxWidth = NavigationBackGroundWidth().width
@@ -138,8 +138,8 @@ struct ReturnToNavigation: View {
                 Button( action: {
                     navigationViewModel.setShowMenu(true)
                     menuChairViewModel.setShowMenuStatus(false)
-                    if scaleButtonVM.getMenuActiveStatus() {
-                        scaleButtonVM.setMenuActiveStatus(false)
+                    if photoMenuVM.showMenu {
+                        photoMenuVM.setMenuActiveStatus(false)
 
                     }
 //print("MENU PRESS \(menuPictureScaleViewModel.getScalingCompletedStatus())")

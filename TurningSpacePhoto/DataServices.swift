@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 
 
-class ShowViewService {
-    static let shared = ShowViewService()
+class ShowScalingDimensionSelectorService {
+    static let shared = ShowScalingDimensionSelectorService()
     
     @Published var scalingDimensionSelectorView = false
     
@@ -37,19 +37,16 @@ class ScaleService {
         
     func setScale(_ scale: Double) {
         self.scale = scale
-       
     }
     
     
     func setScalingCompleted() {
         scalingCompleted = true
-       
     }
     
     
     func setScalingCompletedFalse() {
         scalingCompleted = false
-       
     }
     
     
@@ -65,13 +62,11 @@ class ScaleService {
     
     func setLeftScalingToolPosition(_ value: CGPoint) {
         leftScalingToolPosition = value
-        
     }
     
     
     func setRightScalingToolPosition(_ value: CGPoint) {
         rightScalingToolPosition = value
-        
     }
 }
 
@@ -83,7 +78,6 @@ class DimensionService {
     static let shared = DimensionService()
     
     func setDimensionOnPlan(_ value: Double ) {
-       
         dimensionOnPlan = value
     }
 }
@@ -121,7 +115,7 @@ class PhotoService {
     }
     
     
-    func resetPhoto() {
+    func removePhoto() {
         photoStatus = false
         photo = nil
     }

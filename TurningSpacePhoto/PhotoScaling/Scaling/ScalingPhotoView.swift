@@ -20,7 +20,7 @@ struct ScalingPhotoView: View {
     @GestureState private var startScalingPhotoLocation: CGPoint? = nil // 1
     
     var position: CGPoint {
-        scalingPhotoVM.scalingPhotoModel.chosenPhotoLocation
+        scalingPhotoVM.scalingPhotoLocation
     }
     
     var dragScalingPhoto: some Gesture {

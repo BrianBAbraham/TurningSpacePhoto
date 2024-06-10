@@ -25,8 +25,13 @@ struct ScalingToolView: View {
     }
     
     var body: some View {
-        DragScalerBoxView("left", scalingToolVM.leftScalingToolPosition, dragLeftScalingTool as! _ChangedGesture<DragGesture>)
-        DragScalerBoxView("right", scalingToolVM.rightScalingToolPosition, dragRightScalingTool as! _ChangedGesture<DragGesture>)
+        if !scalingToolVM.isDisabled {
+            
+            DragScalerBoxView("left", scalingToolVM.leftScalingToolPosition, dragLeftScalingTool as! _ChangedGesture<DragGesture>)
+            DragScalerBoxView("right", scalingToolVM.rightScalingToolPosition, dragRightScalingTool as! _ChangedGesture<DragGesture>)
+        } else {
+            EmptyView()
+        }
     }
 }
 

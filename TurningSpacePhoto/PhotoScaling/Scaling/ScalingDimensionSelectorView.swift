@@ -55,17 +55,16 @@ class CurrentDimensionViewModel: ObservableObject {
     
     @Published private (set) var dimensionOnPlan = DimensionService.shared.dimensionOnPlan
    
-    private let mediator = ShowScalingDimensionSelectorMediator.shared
     
+    @Published private (set) var notShowing = true
  
     let dimensionService = DimensionService.shared
    
-    
-    @Published private (set) var notShowing = true
+
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        ShowViewService.shared.$scalingDimensionSelectorView
+        ShowScalingDimensionSelectorService.shared.$scalingDimensionSelectorView
             .sink { [weak self] newData in
                 self?.notShowing = newData
         }

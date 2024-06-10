@@ -9,11 +9,12 @@ import SwiftUI
 
 struct RemovePhotoButtonView: View {
     @EnvironmentObject private var removePhotoVM: RemovePhotoButtonViewModel
+    @StateObject private var viewModel = PhotoPickerViewModel()
    
     var body: some View {
         Button(action: {
             removePhotoVM.removePhoto()
-
+            viewModel.removeSelectedImage()
         }) { Text("Remove")}
 
             .disabled(!removePhotoVM.isActive)

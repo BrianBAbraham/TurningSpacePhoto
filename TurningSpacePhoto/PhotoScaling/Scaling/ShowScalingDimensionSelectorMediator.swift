@@ -26,7 +26,6 @@ class ShowScalingDimensionSelectorMediator {
             .sink { [weak self] newData in
                 self?.scalingCompleted = newData
                 self?.setShowing()
-                
         }
         .store(in: &cancellables)
         
@@ -34,7 +33,6 @@ class ShowScalingDimensionSelectorMediator {
             .sink { [weak self] newData in
                 self?.photoStatus = newData
                 self?.setShowing()
-               
         }
         .store(in: &cancellables)
     }
@@ -45,7 +43,9 @@ class ShowScalingDimensionSelectorMediator {
         } else {
             notShowing = true
         }
-        ShowViewService.shared.setScalingDimensionSelectorView(notShowing)
+        ShowScalingDimensionSelectorService.shared.setScalingDimensionSelectorView(notShowing)
     }
     
 }
+
+

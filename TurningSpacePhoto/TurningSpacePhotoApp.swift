@@ -11,9 +11,9 @@ import SwiftUI
 struct TurningSpacePhotoApp: App {
     @StateObject var vm = ChairManoeuvreProjectVM()
     @StateObject var navigationViewModel = NavigationViewModel()
-    @StateObject var scaleButtonViewModel = ScalingViewModel()
-    @StateObject var scaleValueProviderVM = ScaleValueProviderViewModel()
-    @StateObject var scaleMenuViewModel = ScaleMenuViewModel()
+    @StateObject var scaleButtonViewModel = ScalingCompletedViewModel()
+    @StateObject var scaleValueProviderVM = ScaleValueProviderMediator()
+    @StateObject var scaleMenuViewModel = PhotoMenuViewModel()
     @StateObject var chosenPhotoViewModel = ChosenPhotoViewModel()
     @StateObject var scalingPhotoViewModel = ScalingPhotoViewModel()
     @StateObject var menuChairViewModel = MenuChairViewModel()
@@ -27,6 +27,7 @@ struct TurningSpacePhotoApp: App {
     @StateObject var confirmScaleButtonViewModel = ConfirmScaleButtonViewModel()
     @StateObject var planDimensionSelectorViewModel = PlanDimensionSelectorViewModel()
     @StateObject var currentDimensionViewModel = CurrentDimensionViewModel()
+    @StateObject var slideFromBottomViewModel = SlideFromBottomViewModel()
    
  
     var body: some Scene {
@@ -52,6 +53,8 @@ struct TurningSpacePhotoApp: App {
                 .environmentObject(confirmScaleButtonViewModel)
                 .environmentObject(planDimensionSelectorViewModel)
                 .environmentObject(currentDimensionViewModel)
+                .environmentObject(slideFromBottomViewModel)
+
 
         }
     }

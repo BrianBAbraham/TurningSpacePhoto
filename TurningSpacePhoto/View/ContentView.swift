@@ -22,7 +22,7 @@ struct DragBackgroundPictureAndChairsGesture: Gesture {
     var body: some Gesture {
         DragGesture(minimumDistance: 1, coordinateSpace: .global)
             .updating($startLocation) { value, startLocation, _ in
-                startLocation = startLocation ?? chosenPhotoVM.getChosenPhotoLocation()
+                startLocation = startLocation ?? chosenPhotoVM.chosenPhotoLocation
             }
             .onChanged { value in
                 guard let startLocation = startLocation else { return }
@@ -53,10 +53,10 @@ struct ContentView: View {
     @EnvironmentObject var alertVM: AlertViewModel
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
     @EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
-    @EnvironmentObject var scalingViewModel: ScalingViewModel
-    @EnvironmentObject var scaleMenuVM: ScaleMenuViewModel
+    @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
+    @EnvironmentObject var scaleMenuVM: PhotoMenuViewModel
     @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
-    @EnvironmentObject  var scaleValueProviderVM: ScaleValueProviderViewModel
+    @EnvironmentObject  var scaleValueProviderVM: ScaleValueProviderMediator
     @EnvironmentObject var photoPickerVM: PhotoPickerViewModel
     @GestureState private var fingerBackgroundPictureLocation: CGPoint? = nil
     @GestureState private var startBackgroundPictureLocation: CGPoint? = nil // 1
@@ -81,7 +81,7 @@ struct ContentView: View {
     var dragBackgroundPictureAndChairsMoveents: some Gesture {
         DragGesture(minimumDistance: 1, coordinateSpace: .global)
             .onChanged { value in
-                var newLocation = chosenPhotoVM.getChosenPhotoLocation()
+                var newLocation = chosenPhotoVM.chosenPhotoLocation
                 let xTranslation = value.translation.width
                 let yTranslation = value.translation.height
                 newLocation.x += xTranslation
@@ -94,7 +94,7 @@ struct ContentView: View {
                 yChange = yTranslation
             }
             .updating($startBackgroundPictureLocation) { (value, startBackgroundPictureLocation, transaction) in
-                startBackgroundPictureLocation = startBackgroundPictureLocation ?? chosenPhotoVM.getChosenPhotoLocation() // 2
+                startBackgroundPictureLocation = startBackgroundPictureLocation ?? chosenPhotoVM.chosenPhotoLocation // 2
                 chosenPhotoVM.setChosenPhotoLocation(startBackgroundPictureLocation!)
             }
             .onEnded(){ value  in
@@ -116,7 +116,7 @@ struct ContentView: View {
     }
     
     var scalingCompleted: Bool {
-        scalingViewModel.scalingCompleted
+        scalingCompletedViewModel.scalingCompleted
     }
     
     
@@ -173,7 +173,7 @@ struct ContentView: View {
         return
         Group {
             if scalingCompleted {
-                ChosenPhotoView(chosenPhotoVM.chosenPhoto)
+                ChosenPhotoView()
             }
    
             else {

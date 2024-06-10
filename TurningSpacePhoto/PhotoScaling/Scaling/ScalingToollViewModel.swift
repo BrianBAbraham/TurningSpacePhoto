@@ -38,6 +38,13 @@ class ScalingToolViewModel: ObservableObject {
     
     @Published var rightScalingToolPosition:CGPoint
     
+    var scalingCompleted: Bool = ScaleService.shared.scalingCompleted
+    
+    var photoStatus: Bool =
+        PhotoService.shared.photoStatus
+    
+   @Published var isDisabled = false
+    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
@@ -45,7 +52,7 @@ class ScalingToolViewModel: ObservableObject {
         leftScalingToolPosition = scalingToolModel.leftScalingToolPosition
         rightScalingToolPosition = scalingToolModel.rightScalingToolPosition
        
-        ScaleService.shared.$scalingToolAtInitialPosition
+       scaleService.$scalingToolAtInitialPosition
             .sink { [weak self] newData in
                 if newData {
                     self?.setScalingToolToInitialPosition()
@@ -53,6 +60,19 @@ class ScalingToolViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
+        scaleService.$scalingCompleted
+            .sink { [weak self] newData in
+                self?.scalingCompleted = newData
+                self?.setButtonIsDisabledStatus()
+            }
+            .store(in: &cancellables)
+        
+            PhotoService.shared.$photoStatus
+                .sink { [weak self] newData in
+                    self?.photoStatus = newData
+                    self?.setButtonIsDisabledStatus()
+                }
+                .store(in: &cancellables)
     }
 }
 
@@ -107,6 +127,11 @@ extension ScalingToolViewModel {
         rightScalingToolPosition = ScalingToolModel.initialRightScalingToolPosition
         scaleService.unsetScalingToolAtInitialPosition()
     }
+    
+        func setButtonIsDisabledStatus() {
+            //if no photo or photo but scaling completed
+           isDisabled = !photoStatus || scalingCompleted
+        }
 }
 
 

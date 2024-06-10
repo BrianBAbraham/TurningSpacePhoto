@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct SlideFromBottom<Content: View>: View {
+struct SlideFromBottomView<Content: View>: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
-    @EnvironmentObject var scaleButtonVM: ScalingViewModel
-    @EnvironmentObject var scaleMenuVM: ScaleMenuViewModel
-    @EnvironmentObject var photoScaleVM: ChosenPhotoViewModel
+    @EnvironmentObject var scalingCompletedVM: ScalingCompletedViewModel
+    @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
+    @EnvironmentObject var slideFromBottomViewModel: SlideFromBottomViewModel
     @EnvironmentObject var menuChairViewModel: MenuChairViewModel
     @State var showingPopover = false
     var menuName: String
@@ -27,10 +27,9 @@ struct SlideFromBottom<Content: View>: View {
     var body: some View {
         let unscaledImageSoPreventDismiss =
         //!scaleButtonVM.getScalingCompletedStatus() &&
-        !scaleButtonVM.scalingCompleted &&
+        !scalingCompletedVM.scalingCompleted &&
             menuName == "photo" &&
-            (photoScaleVM.getChosenPhotoStatus() //||
-          //   photoScaleVM.getImagePickerStatus()
+            (slideFromBottomViewModel.chosenPhotoStatus
             )
         
 //        print("unscaledImageSoPreventDismiss: \(unscaledImageSoPreventDismiss)")
@@ -52,7 +51,7 @@ return
                                 // Handle openFile action
                             }
                             if self.menuName == "photo" {
-                                scaleMenuVM.setMenuActiveStatus(false)
+                                photoMenuVM.setMenuActiveStatus(false)
                             }
                             if self.menuName == "arrow.clockwise" {
                                 // Handle arrow.clockwise action

@@ -10,122 +10,50 @@ import Combine
 import SwiftUI
 
 
-//class ChosenPhotoViewModel: ObservableObject {
-//
-//   @Published
-//    private (set) var chosenPhotoModel =
-//     ChosenPhotoModel(currentPhotoZoom: 1.0)
-//    
-//    var chosenPhoto: Image? = PhotoService.shared.photo
-//    
-//    var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
-//    
-//    var scalingCompleted = ScaleService.shared.scaleServicesData.scalingCompleted
-//    
-//    private var cancellables: Set<AnyCancellable> = []
-//    
-//    
-//    init() {
-//       
-//        PhotoService.shared.$photo
-//            .sink { [weak self] newData in
-//                self?.chosenPhoto = newData
-//                //self?.model.modifyManoeuvreScale(newData)
-//            }
-//            .store(
-//                in: &cancellables
-//            )
-//        
-//        PhotoService.shared.$finalPhotoZoom
-//            .sink { [weak self] newData in
-//                self?.finalPhotoZoom = newData
-//                self?.setFinalChosenPhotoZoom(newData)
-//            }
-//            .store(
-//                in: &cancellables
-//            )
-//        
-//        ScaleService.shared.$scaleServicesData
-//            .sink { [weak self] newData in
-//                self?.scalingCompleted = newData.scalingCompleted
-//                //self?.setFinalChosenPhotoZoom(newData)
-//            }
-//            .store(
-//                in: &cancellables
-//            )
-//    }
-//    
-//}
-
-
-extension ChosenPhotoViewModel {
-    func getScalingCompleted() -> Bool {
-        scalingCompleted
-    }
-    
-    
-    func getFinalChosentPhotoZoom() -> Double {
-        return
-            chosenPhotoModel.finalPhotoZoom
-    }
-
-    
-    func setFinalChosenPhotoZoom(_ zoom: Double) {
-        chosenPhotoModel.finalPhotoZoom = zoom
-    }
-    
-   
-    func getChosenPhoto() -> Image? {
-        chosenPhotoModel.chosenPhoto
-    }
-    
-    
-    func setChosenPhoto(){
-        chosenPhotoModel.chosenPhoto = chosenPhoto
-        if chosenPhoto != nil {
-            chosenPhotoModel.chosenPhotoStatus = true
-        }
-    }
-    
-    
-    func getChosenPhotoLocation() -> CGPoint {
-        chosenPhotoModel.chosenPhotoLocation
-        
-    }
-
-    
-    func getChosenPhotoStatus() -> Bool {
-        chosenPhotoModel.chosenPhotoStatus
-    }
-        
-
-    func setChosenPhotoLocation(_ location: CGPoint) {
-        chosenPhotoModel.chosenPhotoLocation = location
-        PhotoService.shared.setPhotoLocation(location)
-    }
-}
-//
-class ChosenPhotoViewModel: ObservableObject {
-
-   @Published
-    private (set) var chosenPhotoModel =
-     ChosenPhotoModel(currentPhotoZoom: 1.0)
-    
-    var chosenPhoto: Image? = PhotoService.shared.photo
-    
-    var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
-    
-    var scalingCompleted = ScaleService.shared.scalingCompleted
+class SlideFromBottomViewModel: ObservableObject {
+    @Published var chosenPhotoStatus: Bool = PhotoService.shared.photoStatus
     
     private var cancellables: Set<AnyCancellable> = []
     
+    init() {
+        PhotoService.shared.$photoStatus
+            .sink { [weak self] newData in
+                self?.chosenPhotoStatus = newData
+            }
+            .store(
+                    in: &cancellables
+                )
+                }
+}
+
+
+
+
+
+class ChosenPhotoViewModel: ObservableObject {
+    @Published var chosenPhoto: Image? = PhotoService.shared.photo
+
+    @Published var photoStatus: Bool = PhotoService.shared.photoStatus
+
+    @Published var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
+
+    @Published var chosenPhotoLocation = PhotoService.shared.photoLocation
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     init() {
-       
+
         PhotoService.shared.$photo
             .sink { [weak self] newData in
                 self?.chosenPhoto = newData
-                
+            }
+            .store(
+                in: &cancellables
+            )
+        
+        PhotoService.shared.$photoStatus
+            .sink { [weak self] newData in
+                self?.photoStatus = newData
             }
             .store(
                 in: &cancellables
@@ -134,20 +62,28 @@ class ChosenPhotoViewModel: ObservableObject {
         PhotoService.shared.$finalPhotoZoom
             .sink { [weak self] newData in
                 self?.finalPhotoZoom = newData
-                self?.setFinalChosenPhotoZoom(newData)
             }
             .store(
                 in: &cancellables
             )
         
-        ScaleService.shared.$scalingCompleted
+        PhotoService.shared.$photoLocation
             .sink { [weak self] newData in
-                self?.scalingCompleted = newData
-               
+                self?.chosenPhotoLocation = newData
             }
             .store(
                 in: &cancellables
             )
     }
-    
 }
+
+
+extension ChosenPhotoViewModel {
+
+    func setChosenPhotoLocation(_ location: CGPoint) {
+      
+        PhotoService.shared.setPhotoLocation(location)
+    }
+}
+
+

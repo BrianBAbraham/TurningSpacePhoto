@@ -19,31 +19,26 @@ struct ChosenPhotoView: View {
                 fingerBackgroundPictureLocation = value.location
             }
     }
-    let chosenPhoto: Image?
-    init (_ chosenPhoto: Image?) {
-        self.chosenPhoto = chosenPhoto
-    }
+    
+
     var body: some View {
         // set backGround to scale that was last applied in the PhotoScaleView
-        let finalZoomInPhotoPicker = chosenPhotoVM.getFinalChosentPhotoZoom()
+        let finalZoomInPhotoPicker = chosenPhotoVM.finalPhotoZoom
         
         return
             Group {
         
-                if let unwrapped = self.chosenPhoto {
-                    unwrapped
+                if chosenPhotoVM.photoStatus {
+                    chosenPhotoVM.chosenPhoto!//safe with if
                         .initialImageModifier()
                         .scaleEffect(finalZoomInPhotoPicker )
-                        .position(chosenPhotoVM.getChosenPhotoLocation())
+                        .position(chosenPhotoVM.chosenPhotoLocation)
                         .gesture(DragBackgroundPictureAndChairsGesture(
                             xChange: $xChange,
                             yChange: $yChange
                         ))
                         .gesture(fingerDrag)
-                }
-                
-                
-                else {
+                } else {
                     EmptyView()
                 }
             }

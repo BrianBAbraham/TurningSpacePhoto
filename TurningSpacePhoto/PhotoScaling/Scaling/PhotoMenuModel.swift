@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ScaleMenuModel {
-    var active: Bool
+struct PhotoMenuModel {
+    var active: Bool = false
 
 }

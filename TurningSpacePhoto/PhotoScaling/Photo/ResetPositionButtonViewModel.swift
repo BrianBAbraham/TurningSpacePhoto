@@ -28,7 +28,6 @@ class ResetPositionButtonViewModel: ObservableObject {
         photoService.$photoLocation
             .sink { [weak self] newData in
                 self?.photoLocation = newData
-                
             }
             .store(in: &cancellables)
     }
@@ -38,8 +37,6 @@ class ResetPositionButtonViewModel: ObservableObject {
         // imnage exists
         // image or scaling toools have moved
         isActive && photoLocation != SizeOf.centre
-        
-       
     }
     
     func resetPositions() {

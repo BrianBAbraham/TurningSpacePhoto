@@ -23,10 +23,9 @@ class ScaleDimensionLineViewModel: ObservableObject {
             }
             .store(in: &cancellables)
 
-        
         ScaleService.shared.$scalingCompleted
             .sink { [weak self] newData in
-                self?.updateScalingCompleted(newData)
+                self?.scalingCompleted = newData
             }
             .store(in: &cancellables)
         
@@ -35,10 +34,6 @@ class ScaleDimensionLineViewModel: ObservableObject {
                 self?.scale = newData
             }
             .store(in: &cancellables)
-    }
-    
-    private func updateScalingCompleted(_ newData: Bool) {
-        scalingCompleted = newData
     }
 }
 
