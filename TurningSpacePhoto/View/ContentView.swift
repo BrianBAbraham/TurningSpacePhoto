@@ -57,7 +57,7 @@ struct ContentView: View {
     @EnvironmentObject var scaleMenuVM: PhotoMenuViewModel
     @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
     @EnvironmentObject  var scaleValueProviderVM: ScaleValueProviderMediator
-    @EnvironmentObject var photoPickerVM: PhotoPickerViewModel
+  //  @EnvironmentObject var photoPickerVM: PhotoPickerViewModel
     @GestureState private var fingerBackgroundPictureLocation: CGPoint? = nil
     @GestureState private var startBackgroundPictureLocation: CGPoint? = nil // 1
     @State private var xChange = 0.0
@@ -129,7 +129,7 @@ struct ContentView: View {
     }
     
     var scale: Double {
-        scaleValueProviderVM.getScale()
+        scaleValueProviderVM.scale
     }
     
     func limitZoom (_ zoom: CGFloat) -> CGFloat {

@@ -114,11 +114,6 @@ extension ScaleValueProviderMediator {
     }
     
     
-    func getScale() -> Double {
-        scaleValueProviderModel.scale
-    }
-    
-
     func setDimensionOnPlan(_ value: Double) {
         scaleValueProviderModel.dimensionOnPlan = value
     }

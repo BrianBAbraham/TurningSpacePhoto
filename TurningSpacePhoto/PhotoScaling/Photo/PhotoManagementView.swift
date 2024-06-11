@@ -10,8 +10,7 @@ import SwiftUI
 
 
 struct PhotoManagementView: View {
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+   
     var body: some View {
         ZStack {
             ScalingPhotoView()

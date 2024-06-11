@@ -22,10 +22,10 @@ struct TurningSpacePhotoApp: App {
     @StateObject var scaleDimensionLineViewModel = ScaleDimensionLineViewModel()
     @StateObject var visibleToolViewModel = VisibleToolViewModel()
     @StateObject var photoPickerVM = PhotoPickerViewModel()
-    @StateObject var resetPositionButtonViewModel = ResetPositionButtonViewModel()
+    @StateObject var resetPositionButtonViewModel = CentrePhotoButtonViewModel()
     @StateObject var scalingToolViewModel = ScalingToolViewModel()
     @StateObject var confirmScaleButtonViewModel = ConfirmScaleButtonViewModel()
-    @StateObject var planDimensionSelectorViewModel = PlanDimensionSelectorViewModel()
+    @StateObject var planDimensionSelectorViewModel = PhotoDimensionSelectorViewModel()
     @StateObject var currentDimensionViewModel = CurrentDimensionViewModel()
     @StateObject var slideFromBottomViewModel = SlideFromBottomViewModel()
    

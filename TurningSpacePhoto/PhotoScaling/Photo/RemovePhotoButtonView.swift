@@ -9,16 +9,17 @@ import SwiftUI
 
 struct RemovePhotoButtonView: View {
     @EnvironmentObject private var removePhotoVM: RemovePhotoButtonViewModel
-    @StateObject private var viewModel = PhotoPickerViewModel()
+  
    
     var body: some View {
+        let isNotShowing = removePhotoVM.isNotShowing
         Button(action: {
             removePhotoVM.removePhoto()
-            viewModel.removeSelectedImage()
+ 
         }) { Text("Remove")}
 
-            .disabled(!removePhotoVM.isActive)
-            .opacity(removePhotoVM.isActive ? 1.0: 0.1)
+            .disabled(isNotShowing)
+            .opacity(isNotShowing ? 0.1: 1.0)
     }
       
 }

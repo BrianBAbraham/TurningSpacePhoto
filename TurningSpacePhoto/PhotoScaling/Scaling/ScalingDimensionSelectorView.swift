@@ -8,12 +8,8 @@
 import SwiftUI
 
 
-
-
-
 struct ScalingDimensionSelectorView: View {
    
-    
     var body: some View {
         VStack {
             
@@ -23,15 +19,15 @@ struct ScalingDimensionSelectorView: View {
                 CurrentDimensionView()
             }
 
-            PlanDimensionSelectorView()
+            PhotoDimensionSelectorView()
                 .padding(EdgeInsets(top: -20, leading: 0, bottom: 50, trailing: 0))
 
             Spacer()
-            
         }
     }
 }
-//test
+
+
 
 struct CurrentDimensionView: View {
    

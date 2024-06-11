@@ -16,11 +16,15 @@ struct PhotoPickerButtonView: View {
         Button(action: {
             showPicker = true
         }) {
-            Text("Photo")
+            Text(
+                "Photo"
+            )
         }
-        .photosPicker(isPresented: $showPicker, selection: $photoPickerVM.imageSelection, matching: .images)
-        .onChange(of: photoPickerVM.imageSelection) { newValue in
-        }
+        .photosPicker(
+            isPresented: $showPicker,
+            selection: $photoPickerVM.imageSelection,
+            matching: .images
+        )
     }
 }
 

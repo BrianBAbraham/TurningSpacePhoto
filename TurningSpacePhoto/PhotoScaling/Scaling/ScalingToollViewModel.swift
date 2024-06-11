@@ -43,7 +43,7 @@ class ScalingToolViewModel: ObservableObject {
     var photoStatus: Bool =
         PhotoService.shared.photoStatus
     
-   @Published var isDisabled = false
+   @Published var notShowing = false
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -51,28 +51,20 @@ class ScalingToolViewModel: ObservableObject {
         
         leftScalingToolPosition = scalingToolModel.leftScalingToolPosition
         rightScalingToolPosition = scalingToolModel.rightScalingToolPosition
-       
-       scaleService.$scalingToolAtInitialPosition
-            .sink { [weak self] newData in
-                if newData {
-                    self?.setScalingToolToInitialPosition()
-                }
-            }
-            .store(in: &cancellables)
-        
+           
         scaleService.$scalingCompleted
             .sink { [weak self] newData in
                 self?.scalingCompleted = newData
-                self?.setButtonIsDisabledStatus()
+                self?.setButtonIsNotShowingStatus()
             }
             .store(in: &cancellables)
         
-            PhotoService.shared.$photoStatus
-                .sink { [weak self] newData in
-                    self?.photoStatus = newData
-                    self?.setButtonIsDisabledStatus()
-                }
-                .store(in: &cancellables)
+        PhotoService.shared.$photoStatus
+            .sink { [weak self] newData in
+                self?.photoStatus = newData
+                self?.setButtonIsNotShowingStatus()
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -121,16 +113,11 @@ extension ScalingToolViewModel {
         scaleService.setRightScalingToolPosition(location)
     }
     
+
     
-    func setScalingToolToInitialPosition() {
-        leftScalingToolPosition = ScalingToolModel.initialLefStcalingToolPosition
-        rightScalingToolPosition = ScalingToolModel.initialRightScalingToolPosition
-        scaleService.unsetScalingToolAtInitialPosition()
-    }
-    
-        func setButtonIsDisabledStatus() {
+        func setButtonIsNotShowingStatus() {
             //if no photo or photo but scaling completed
-           isDisabled = !photoStatus || scalingCompleted
+           notShowing = !photoStatus || scalingCompleted
         }
 }
 

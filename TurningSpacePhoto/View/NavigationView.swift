@@ -9,34 +9,33 @@ import SwiftUI
 
 
 
-
-
-struct Navigation: View {
-    @EnvironmentObject var navigationViewModel: NavigationViewModel
+struct MainHelpView: View {
     @State private var showingPopover = false
-    
-    
-    var helpButton: some View {
-    Button(action: {
-        showingPopover = true
-    })  //{Text (Image(systemName: "questionmark.circle"))}
-        {Text("?")}
-            .font(.largeTitle)
-//        .modifier(MenuButtonWithSymbolFont())
-        .popover(isPresented: $showingPopover) {
-            VStack(alignment: .leading){
-                Text("BIG IDEA\nShow the wheelchair path on the plan")
-                Text("\nPHOTO MENU FEATURES\nImport a photo of a scaled plan\nor\nPractice with the TRY ME example plan")
-                Text("\n8WHEELCHAIR MENU FEATUREES\nAdd wheelchair\nAdd lots of wheelchairs\nDrag wheelchairs\nChange wheelchair length\nChange wheelchair width\nChange wheelchair start angle\nChange wheelchair end angle\nChange to any manoeuvre tightness\nAdd manoeuvres of preset tightness\nFlip wheelchair left to right\nFlip wheelchair top to bottom\nAdd midway wheelchair\nChange midway wheelchair angle")
-            }
-            .modifier(PopOverBodyFont())
-            .padding()
+    var body: some View {
+        Button(action: {
+            showingPopover = true
+        })  //{Text (Image(systemName: "questionmark.circle"))}
+            {Text("?")}
+                .font(.largeTitle)
+    //        .modifier(MenuButtonWithSymbolFont())
+            .popover(isPresented: $showingPopover) {
+                VStack(alignment: .leading){
+                    Text("BIG IDEA\nShow the wheelchair path on the plan")
+                    Text("\nPHOTO MENU FEATURES\nImport a photo of a scaled plan\nor\nPractice with the TRY ME example plan")
+                    Text("\n8WHEELCHAIR MENU FEATUREES\nAdd wheelchair\nAdd lots of wheelchairs\nDrag wheelchairs\nChange wheelchair length\nChange wheelchair width\nChange wheelchair start angle\nChange wheelchair end angle\nChange to any manoeuvre tightness\nAdd manoeuvres of preset tightness\nFlip wheelchair left to right\nFlip wheelchair top to bottom\nAdd midway wheelchair\nChange midway wheelchair angle")
+                }
+                .modifier(PopOverBodyFont())
+                .padding()
 
-        }
-        .buttonStyle(TopNavigationBlueButton())
-       // .buttonStyle(PlainButtonStyle())
-    
+            }
+            .buttonStyle(TopNavigationBlueButton())
+           // .buttonStyle(PlainButtonStyle())
+        
+    }
 }
+
+struct NavigationContentView: View {
+   
     var body: some View {
         ZStack (alignment: .trailing) {
                 NavigationBackground()
@@ -44,11 +43,11 @@ struct Navigation: View {
                 Group{
                     DismissNavigation()
                     Spacer()
-                    Icon("photo")
+                    SideMenuIconView("photo")
                     Spacer()
-                    Icon(MenuIcon.chairTool)
+                    SideMenuIconView(MenuIcon.chairTool)
                     Spacer()
-                    helpButton
+                    MainHelpView()//helpButton
                     Spacer()
                 }
             }
@@ -56,7 +55,9 @@ struct Navigation: View {
     }
 }
 
-struct Icon: View {
+
+
+struct SideMenuIconView: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
     @EnvironmentObject var scaleButtonVM: ScalingCompletedViewModel
     @EnvironmentObject  var scaleMenuVM: PhotoMenuViewModel
@@ -74,16 +75,12 @@ struct Icon: View {
                 if name == "folder.fill" {
                 }
                 if name == "photo" {
-                    
-                    //print("active menu \(scaleMenuVM.getMenuActiveStatus())")
                     scaleMenuVM.setMenuActiveStatus(true)
                 }
                 if name == "arrow.clockwise" {
-//print("No menu")
                 }
                 if name == MenuIcon.chairTool {
                     menuChairViewModel.toggleShowMenuStatus()
-                    
                 }
                 
             })  {
@@ -113,6 +110,7 @@ struct SlideNavigationFromTrailing<Content: View>: View {
 }
 
 
+
 struct NavigationBackground: View {
     let maxWidth = NavigationBackGroundWidth().width
     var body: some View {
@@ -125,12 +123,12 @@ struct NavigationBackground: View {
     }
 }
 
+
+
 struct ReturnToNavigation: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
     @EnvironmentObject var menuChairViewModel: MenuChairViewModel
     @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
-   // @EnvironmentObject var chosenPhotoViewModel: ChosenPhotoViewModel
-// @EnvironmentObject var openFileViewModel: OpenFileViewModel
     let maxWidth = NavigationBackGroundWidth().width
     var body: some View {
         ZStack {
@@ -142,7 +140,6 @@ struct ReturnToNavigation: View {
                         photoMenuVM.setMenuActiveStatus(false)
 
                     }
-//print("MENU PRESS \(menuPictureScaleViewModel.getScalingCompletedStatus())")
                 }) {
                     Spacer()
                     ZStack{
@@ -160,6 +157,8 @@ struct ReturnToNavigation: View {
         }
     }
 }
+
+
 
 struct DismissNavigation: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
@@ -188,7 +187,7 @@ struct NavigationView: View {
         
         ZStack {
             if navigationViewModel.getShowToggle() {
-                SlideNavigationFromTrailing (content: Navigation())
+                SlideNavigationFromTrailing (content: NavigationContentView())
             }
         }
     }

@@ -8,18 +8,20 @@
 import Foundation
 import Combine
 
-class ResetPositionButtonViewModel: ObservableObject {
-    @Published var isActive: Bool = PhotoService.shared.photoStatus
+class CentrePhotoButtonViewModel: ObservableObject {
+    @Published var isNotShowing: Bool = true
     let photoService = PhotoService.shared
     var photoLocation = PhotoService.shared.photoLocation
     let scalingService = ScaleService.shared
+    var photoStatus = PhotoService.shared.photoStatus
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
         photoService.$photoStatus
             .sink { [weak self] newData in
-                self?.isActive = newData
+                self?.photoStatus = newData
+                self?.getIsNotShowing()
                 
             }
             .store(in: &cancellables)
@@ -28,19 +30,24 @@ class ResetPositionButtonViewModel: ObservableObject {
         photoService.$photoLocation
             .sink { [weak self] newData in
                 self?.photoLocation = newData
+                self?.getIsNotShowing()
             }
             .store(in: &cancellables)
     }
     
     
-    func getIsActive() -> Bool {
-        // imnage exists
-        // image or scaling toools have moved
-        isActive && photoLocation != SizeOf.centre
+    func getIsNotShowing() {
+        // no imnage
+        // image and image has not moved
+       
+        let outcome =
+        (photoStatus && photoLocation != SizeOf.centre)
+        
+        isNotShowing = !outcome
     }
     
     func resetPositions() {
         photoService.setPhotoLocation(SizeOf.centre)
-        scalingService.setScalingToolToInitialPosition()
+        //scalingService.setScalingToolToInitialPosition()
     }
 }

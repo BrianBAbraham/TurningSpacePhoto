@@ -12,14 +12,14 @@ class ScaleDimensionLineViewModel: ObservableObject {
     
     @Published var scale: Double = ScaleService.shared.scale
     @Published var scalingCompleted: Bool = ScaleService.shared.scalingCompleted
-    @Published var dimensionOnPlan: Double = DimensionService.shared.dimensionOnPlan
+    @Published var dimensionOnPhoto: Double = DimensionService.shared.dimensionOnPlan
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
         DimensionService.shared.$dimensionOnPlan
             .sink { [weak self] newData in
-                self?.dimensionOnPlan = newData
+                self?.dimensionOnPhoto = newData
             }
             .store(in: &cancellables)
 
