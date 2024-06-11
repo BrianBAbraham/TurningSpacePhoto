@@ -38,7 +38,8 @@ struct NavigationContentView: View {
    
     var body: some View {
         ZStack (alignment: .trailing) {
-                NavigationBackground()
+            NavigationBackground()
+            
             VStack{
                 Group{
                     DismissNavigation()
@@ -59,8 +60,8 @@ struct NavigationContentView: View {
 
 struct SideMenuIconView: View {
     @EnvironmentObject var navigationViewModel: NavigationViewModel
-    @EnvironmentObject var scaleButtonVM: ScalingCompletedViewModel
-    @EnvironmentObject  var scaleMenuVM: PhotoMenuViewModel
+    @EnvironmentObject var scalingCompletedVM: ScalingCompletedViewModel
+    @EnvironmentObject  var photoMenuVM: PhotoMenuViewModel
     @EnvironmentObject var menuChairViewModel: MenuChairViewModel
 
     
@@ -75,7 +76,7 @@ struct SideMenuIconView: View {
                 if name == "folder.fill" {
                 }
                 if name == "photo" {
-                    scaleMenuVM.setMenuActiveStatus(true)
+                    photoMenuVM.setMenuActiveStatus(true)
                 }
                 if name == "arrow.clockwise" {
                 }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class CentrePhotoButtonViewModel: ObservableObject {
+class CenterPhotoButtonViewModel: ObservableObject {
     @Published var isNotShowing: Bool = true
     let photoService = PhotoService.shared
     var photoLocation = PhotoService.shared.photoLocation

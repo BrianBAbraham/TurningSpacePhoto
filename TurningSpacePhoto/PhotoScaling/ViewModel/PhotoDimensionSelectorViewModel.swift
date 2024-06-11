@@ -30,3 +30,4 @@ class PhotoDimensionSelectorViewModel: ObservableObject {
         DimensionService.shared.setDimensionOnPlan(value)
     }
 }
+  

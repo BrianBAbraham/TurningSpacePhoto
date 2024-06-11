@@ -9,7 +9,7 @@ import SwiftUI
 
 struct  CentrePhotonButtonView: View {
   
-    @EnvironmentObject private var centrePhotoButtonViewModel: CentrePhotoButtonViewModel
+    @EnvironmentObject private var centrePhotoButtonViewModel: CenterPhotoButtonViewModel
     
 
     

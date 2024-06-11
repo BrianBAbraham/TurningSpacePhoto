@@ -49,118 +49,67 @@ struct DragBackgroundPictureAndChairsGesture: Gesture {
 }
 
 
-struct ContentView: View {
-    @EnvironmentObject var alertVM: AlertViewModel
+struct ChairMovementOnChosenBackground: View {
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
-    @EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
     @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
-    @EnvironmentObject var scaleMenuVM: PhotoMenuViewModel
     @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
-    @EnvironmentObject  var scaleValueProviderVM: ScaleValueProviderMediator
-  //  @EnvironmentObject var photoPickerVM: PhotoPickerViewModel
-    @GestureState private var fingerBackgroundPictureLocation: CGPoint? = nil
-    @GestureState private var startBackgroundPictureLocation: CGPoint? = nil // 1
-    @State private var xChange = 0.0
-    @State private var yChange = 0.0
     
-    var mainScale: Double {
-        
-       
-        return UIScreen.main.scale
-    }
-
-
-    var selectedChairWidth: Double {
-        chairManoeuvreProjectVM.getSelectedChairMeasurement(.chairWidth)
-    }
-
-    let firstMovementIndex = 0
     var arrayOfForEachMovementOfOneChairArrayChairMovementPart:  [(chairIndex: Int, chairMovementsParts: [Type.ChairMovementParts])] {
         chairManoeuvreProjectVM.getForEachMovementOfOneChairArrayChairMovementPart()
     }
-    var dragBackgroundPictureAndChairsMoveents: some Gesture {
-        DragGesture(minimumDistance: 1, coordinateSpace: .global)
-            .onChanged { value in
-                var newLocation = chosenPhotoVM.chosenPhotoLocation
-                let xTranslation = value.translation.width
-                let yTranslation = value.translation.height
-                newLocation.x += xTranslation
-                newLocation.y += yTranslation
-                chosenPhotoVM.setChosenPhotoLocation(newLocation)
-                xChange = xTranslation - xChange
-                yChange = yTranslation - yChange
-                chairManoeuvreProjectVM.modifyAllMovementLocationsByBackgroundPictureDrag( CGPoint(x: xChange, y: yChange))
-                xChange = xTranslation
-                yChange = yTranslation
-            }
-            .updating($startBackgroundPictureLocation) { (value, startBackgroundPictureLocation, transaction) in
-                startBackgroundPictureLocation = startBackgroundPictureLocation ?? chosenPhotoVM.chosenPhotoLocation // 2
-                chosenPhotoVM.setChosenPhotoLocation(startBackgroundPictureLocation!)
-            }
-            .onEnded(){ value  in
-                self.xChange = 0.0
-                self.yChange = 0.0
-            }
-    }
-    var fingerDrag: some Gesture {
-        DragGesture()
-            .updating($fingerBackgroundPictureLocation) { (value, fingerBackgroundPictureLocation, transaction) in
-                fingerBackgroundPictureLocation = value.location
-            }
-    }
 
-    @State var currentZoom: CGFloat = 0.0
-    @State var lastCurrentZoom: CGFloat = 0.0
-    private var  minimumZoom: Double {
-        0.07 / chairManoeuvreProjectVM.model.manoeuvreScale
-    }
-    
-    var scalingCompleted: Bool {
-        scalingCompletedViewModel.scalingCompleted
-    }
-    
-    
-    private var maximimumZoom = 5.0
-    var zoom: CGFloat {
-        let zoom =
-        limitZoom( 1 + currentZoom + lastCurrentZoom)
-       // print("zoom in ContentView \(zoom)")
-    return zoom
-    }
-    
-    var scale: Double {
-        scaleValueProviderVM.scale
-    }
-    
-    func limitZoom (_ zoom: CGFloat) -> CGFloat {
-       return max(min(zoom, maximimumZoom),minimumZoom)
-    }
-    
-    func chairsMovementsOnChosenBackground() -> some View {
+    var body: some View {
         ZStack{
-            chosenBackground()
+            ChosenPhotoView()
                
-          //  if confirmScaleButtonViewModel.getScalingCompletedStatus()
-            if scalingCompleted{
+            if scalingCompletedViewModel.scalingCompleted {
                 ForEach( arrayOfForEachMovementOfOneChairArrayChairMovementPart, id: \.chairIndex) { item in
                     ChairMovementsView(forEachMovementOfOneChairArrayChairMovementPart: item.chairMovementsParts)
                     TurnHandleConditionalView(forEachMovementOfOneChairArrayChairMovementPart: item.chairMovementsParts)
                 }
             }
         }
-        .scaleEffect(zoom)
-        .gesture(MagnificationGesture()
-            .onChanged { value in
-                currentZoom = value - 1
-                visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
-            }
-            .onEnded { value in
-                lastCurrentZoom += currentZoom
-                currentZoom = 0.0
-            }
-         )
+
     }
-  
+}
+
+
+
+struct ContentView: View {
+    @EnvironmentObject var alertVM: AlertViewModel
+    @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
+    //@EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
+    @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
+    @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
+    @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
+
+    
+    var scalingCompleted: Bool {
+        scalingCompletedViewModel.scalingCompleted
+    }
+    
+
+    @State var currentZoom: CGFloat = 0.0
+    @State var lastCurrentZoom: CGFloat = 0.0
+    private var  minimumZoom: Double {
+        0.07 / chairManoeuvreProjectVM.model.manoeuvreScale
+    }
+    private var maximimumZoom = 5.0
+    var zoom: CGFloat {
+        let zoom =
+        limitZoom( 1 + currentZoom + lastCurrentZoom)
+       
+    return zoom
+    }
+    func limitZoom (_ zoom: CGFloat) -> CGFloat {
+       return max(min(zoom, maximimumZoom),minimumZoom)
+    }
+    
+    
+//    var scale: Double {
+//        scaleValueProviderVM.scale
+//    }
+//    
 
     var backgroundWhenInChairMenu: some View {
         LocalFilledRectangle.path(0,0,SizeOf.screenWidth * 1, SizeOf.screenHeight * 1,.white,0.9)
@@ -169,19 +118,18 @@ struct ContentView: View {
     
     func chosenBackground() -> some View {
         // set backGround to scale that was last applied in the PhotoScaleView
-      //  let finalZoomInPhotoPicker = chosenPhotoVM.getFinalChosentPhotoZoom()
         return
-        Group {
-            if scalingCompleted {
-                ChosenPhotoView()
-            }
-   
-            else {
+            Group {
                 if scalingCompleted {
-                    backgroundWhenInChairMenu
+                    ChosenPhotoView()
+                }
+       
+                else {
+                    if scalingCompleted {
+                        backgroundWhenInChairMenu
+                    }
                 }
             }
-        }
     }
     
     
@@ -197,13 +145,13 @@ struct ContentView: View {
         return state
     }
     
-    var flipHandleZoomSize: Double {
-        chairManoeuvreProjectVM.applyChairManoeuvreScale(SizeOf.tool)
-    }
+//    var flipHandleZoomSize: Double {
+//        chairManoeuvreProjectVM.applyChairManoeuvreScale(SizeOf.tool)
+//    }
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
   
-
-
+    
+    
     
     var body: some View {
 
@@ -211,24 +159,35 @@ struct ContentView: View {
            // if confirmScaleButtonViewModel.getScalingCompletedStatus() 
             if scalingCompleted
             {
-              //scaledDimensionLine
-                
-                ScaleDimensionLineView(zoom)
+               ScaleDimensionLineView(zoom)
             }
 
             ZStack {
                 PhotoManagementView()
-                    .zIndex(scaleMenuVM.getMenuActiveStatus() ? 2.0: 2.0)
+                    .zIndex(photoMenuVM.showMenu ? 2.0: 2.0)
+          
+                ChairMovementOnChosenBackground()
+                    .scaleEffect(zoom)
+                    .gesture(MagnificationGesture()
+                        .onChanged { value in
+                            currentZoom = value - 1
+                            
+                            //tools to edit chair movment only appear at sufficient zoom
+                            visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
+                        }
+                        .onEnded { value in
+                            lastCurrentZoom += currentZoom
+                            currentZoom = 0.0
+                        }
+                     )
                 
-                chairsMovementsOnChosenBackground()
-                
-                ReturnToNavigation() //OFF!
+                ReturnToNavigation()
                     .zIndex(11.0)
                 
                 NavigationView()
                     .zIndex(11.0)
                 
-               MenuForChairView() //OFF!
+               MenuForChairView() 
                 
                 //                if showAlert {
                 //                 ScaleAlert()
