@@ -78,7 +78,7 @@ struct ChairMovementOnChosenBackground: View {
 struct ContentView: View {
     @EnvironmentObject var alertVM: AlertViewModel
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
-    //@EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
+    @EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
     @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
     @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
     @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
@@ -181,10 +181,10 @@ struct ContentView: View {
                         }
                      )
                 
-                ReturnToNavigation()
+                ReturnToRightSideMenuView()
                     .zIndex(11.0)
                 
-                NavigationView()
+                ConditionalRightSideMenuView()
                     .zIndex(11.0)
                 
                MenuForChairView() 

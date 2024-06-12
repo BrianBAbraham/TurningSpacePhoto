@@ -6,27 +6,28 @@
 //
 
 import Foundation
+import Combine
 
 class PhotoMenuViewModel: ObservableObject {
     
-    private var photoMenuModel: PhotoMenuModel = PhotoMenuModel()
+    @Published private (set) var showMenu: Bool = SubMenuDisplayService.shared.showPhotoMenu
    
-    @Published private (set) var showMenu: Bool
+    private var cancellables: Set<AnyCancellable> = []
     
     init(){
-        showMenu = photoMenuModel.active
+        
+        SubMenuDisplayService.shared.$showPhotoMenu
+            .sink { [weak self] newData in
+                self?.showMenu = newData
+            }
+            .store(
+                    in: &cancellables
+                )
     }
   
     
-    func getMenuActiveStatus () -> Bool{
-        showMenu
-    }
-    
-   
-    func setMenuActiveStatus (_ state: Bool){
-        showMenu = state
-        photoMenuModel.active = state
-    }
 
-
+    func setShowMenu (_ state: Bool){
+        SubMenuDisplayService.shared.setShowPhotoMenu(state)
+    }
 }

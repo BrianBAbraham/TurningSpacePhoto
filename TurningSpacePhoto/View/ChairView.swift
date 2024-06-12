@@ -145,7 +145,7 @@ struct ForRotationView: ViewModifier {
 struct ChairMovementView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
     @EnvironmentObject var menuChairVM: MenuChairViewModel
-    @EnvironmentObject var navigationVM: NavigationViewModel
+ 
     let chairMovement: Type.ChairMovementParts
     
     init (chairMovementArgument: Type.ChairMovementParts){
@@ -220,7 +220,7 @@ struct ChairMovementView: View {
                     vm.toggleSelectionOfOneMovementOfManoeuvre(chairMovement)
                         if vm.getIsAnyChairSelected() {
 //                            menuChairVM.setShowMenuStatus(true)
-                            navigationVM.setShowMenu(false)
+                            vm.setShowMenu(false)
                         }
                         
                     })

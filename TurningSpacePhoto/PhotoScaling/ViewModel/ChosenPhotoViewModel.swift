@@ -10,23 +10,6 @@ import Combine
 import SwiftUI
 
 
-class SlideFromBottomViewModel: ObservableObject {
-    @Published var chosenPhotoStatus: Bool = PhotoService.shared.photoStatus
-    
-    private var cancellables: Set<AnyCancellable> = []
-    
-    init() {
-        PhotoService.shared.$photoStatus
-            .sink { [weak self] newData in
-                self?.chosenPhotoStatus = newData
-            }
-            .store(
-                    in: &cancellables
-                )
-                }
-}
-
-
 
 
 

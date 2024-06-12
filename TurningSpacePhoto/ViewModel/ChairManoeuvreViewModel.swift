@@ -48,6 +48,10 @@ class ChairManoeuvreProjectVM: ObservableObject {
 //print ("chair:\(chairIndex)   movement\(movementCount) ")
 //    }
     
+    func setShowMenu (_ value: Bool){
+            MainMenusDisplayService.shared.setShowRightSideMenu(value)
+    }
+    
     func addChairManoeuvre() {
         let simpleWheelchairMeasurementDictionary =
             [ChairMeasurements.chairLength.rawValue: 1340.0,

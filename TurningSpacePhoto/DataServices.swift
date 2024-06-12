@@ -22,6 +22,89 @@ class ShowScalingDimensionSelectorService {
 
 
 
+class MainMenusDisplayService {
+    static let shared = MainMenusDisplayService()
+    
+    @Published var showSlideFromBottomMenu = false
+    @Published var showRightSideMenu = true
+    @Published var preventSlideFromBottomDimiss = false
+    
+    
+    func setShowSlideFromBottomMenuFalse() {
+        showSlideFromBottomMenu = false
+    }
+    
+    
+    func setShowRightSideMenuFalse() {
+        showRightSideMenu = false
+    }
+    
+    
+    func setPreventSlideFromBottomDismissFalse() {
+        preventSlideFromBottomDimiss = false
+    }
+    
+    
+    func setShowSlideFromBottomMenuTrue() {
+        showSlideFromBottomMenu = true
+    }
+    
+    
+    func setShowRightSideMenuTrue() {
+        showRightSideMenu = true
+    }
+    
+    
+    func setPreventSlideFromBottomDismissTrue() {
+        preventSlideFromBottomDimiss = true
+    }
+    
+    func setShowRightSideMenu(_ value: Bool) {
+        showRightSideMenu = value
+    }
+}
+
+
+class SubMenuDisplayService {
+    static let shared = SubMenuDisplayService()
+    
+    @Published var showPhotoMenu = false
+    @Published var showChairMenu = false
+    
+    
+    func setShowPhotoMenuFalse() {
+        showPhotoMenu = false
+    }
+    
+    
+    func setShowChairMenuFalse() {
+        showChairMenu = false
+    }
+    
+    
+    func setShowPhotoMenu(_ value: Bool) {
+        showPhotoMenu = value
+    }
+    
+    func setShowPhotoMenuTrue() {
+        showPhotoMenu = true
+    }
+    func setShowChairMenu(_ value: Bool) {
+        showChairMenu = value
+    }
+    
+    
+    func setShowChairMenuTrue() {
+        showChairMenu = true
+    }
+    
+    func toggleShowChairMenu() {
+        showChairMenu.toggle()
+    }
+}
+
+
+
 
 class ScaleService {
     @Published var scale = 1.0
@@ -30,8 +113,6 @@ class ScaleService {
     @Published var leftScalingToolPosition = CGPoint(x: 75, y: 100)
     @Published var rightScalingToolPosition = CGPoint(x: SizeOf.screenWidth * 0.8, y: 100)
     
-    
-   
     
     static let shared = ScaleService()
         

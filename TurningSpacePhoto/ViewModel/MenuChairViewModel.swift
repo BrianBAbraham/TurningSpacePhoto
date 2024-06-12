@@ -7,17 +7,36 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 
 class MenuChairViewModel: ObservableObject {
     @Published private var menuChairModel: MenuChairModel = MenuChairModel(showMenu: false)
+    @Published private (set) var showChairMenu = SubMenuDisplayService.shared.showChairMenu
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
+    init() {
+        SubMenuDisplayService.shared.$showChairMenu
+            .sink { [weak self] newData in
+                self?.showChairMenu = newData
+            }
+            .store(
+                in: &cancellables
+            )
+        
+    }
+    
 }
+
+
+
 
 
 
 extension MenuChairViewModel {
     func getShowMenuStatus() -> Bool{
-        menuChairModel.showMenu
+        showChairMenu
     }
     
     func getCurrentMovementType() -> MovementNames{
@@ -25,15 +44,14 @@ extension MenuChairViewModel {
     }
     
     func setShowMenuStatus(_ state: Bool){
-        menuChairModel.showMenu = state
+        SubMenuDisplayService.shared.setShowChairMenu(state)
     }
     
     func setCurrentMovementType(_ movementType: MovementNames){
-//print(movementType.rawValue)
         menuChairModel.currentMovementType = movementType
     }
     
     func toggleShowMenuStatus(){
-        menuChairModel.showMenu.toggle()
+        SubMenuDisplayService.shared.toggleShowChairMenu()
     }
 }

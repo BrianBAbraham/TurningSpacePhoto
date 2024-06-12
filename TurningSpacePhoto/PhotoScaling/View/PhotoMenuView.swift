@@ -13,7 +13,7 @@ struct PhotoMenuView: View {
         
         if photoMenuVM.showMenu{
             Group {
-                SlideFromBottomView("photo", 200) {
+                SlideFromBottomMenuView("photo", 200) {
                     VStack{
                         
                         PhotoPickerButtonView()
