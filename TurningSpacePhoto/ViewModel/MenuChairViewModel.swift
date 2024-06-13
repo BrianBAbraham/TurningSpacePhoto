@@ -51,7 +51,7 @@ extension MenuChairViewModel {
         menuChairModel.currentMovementType = movementType
     }
     
-    func toggleShowMenuStatus(){
-        SubMenuDisplayService.shared.toggleShowChairMenu()
-    }
+//    func toggleShowMenuStatus(){
+//        SubMenuDisplayService.shared.toggleShowChairMenu()
+//    }
 }

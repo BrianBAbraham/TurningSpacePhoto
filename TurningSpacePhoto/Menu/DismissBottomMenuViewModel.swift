@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 
-class SlideFromBottomMenuDismissViewModel: ObservableObject {
+class DismissBottomMenuViewModel: ObservableObject {
     var chosenPhotoStatus: Bool = PhotoService.shared.photoStatus
     var scalingCompleted: Bool = ScaleService.shared.scalingCompleted
     @Published var preventDismiss = false
@@ -42,6 +42,11 @@ class SlideFromBottomMenuDismissViewModel: ObservableObject {
     }
     
     
+    func setShowChairMenuFalse (){
+        SubMenuDisplayService.shared.setShowChairMenuFalse()
+    }
+    
+    
     func setShowPhotoMenuFalse (){
         SubMenuDisplayService.shared.setShowPhotoMenuFalse()
     }
@@ -51,10 +56,6 @@ class SlideFromBottomMenuDismissViewModel: ObservableObject {
         MainMenusDisplayService.shared.setShowRightSideMenuFalse()
     }
     
-    
-    func setShowMenu (_ value: Bool){
-            MainMenusDisplayService.shared.setShowRightSideMenu(value)
-    }
 }
 
 

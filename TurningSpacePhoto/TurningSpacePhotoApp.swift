@@ -12,92 +12,69 @@ import SwiftUI
 @main
 struct TurningSpacePhotoApp: App {
     
-
-    class ScalePhotoGroup: ObservableObject {
-        @Published var scaleButtonViewModel = ScalingCompletedViewModel()
-//        @StateObject var scaleValueProviderVM = ScaleValueProviderMediator()
-//        @StateObject var scaleMenuViewModel = PhotoMenuViewModel()
-//        @StateObject var chosenPhotoViewModel = ChosenPhotoViewModel()
-//        @StateObject var scalingPhotoViewModel = ScalingPhotoViewModel()
-//        @StateObject var scaleDimensionLineViewModel = ScaleDimensionLineViewModel()
-//        
-//        @StateObject var scalingToolViewModel = ScalingToolViewModel()
-//        @StateObject var confirmScaleButtonViewModel = ConfirmScaleButtonViewModel()
-//        @StateObject var planDimensionSelectorViewModel = PhotoDimensionSelectorViewModel()
-    }
-
-    class MenuGroup: ObservableObject {
-        @Published var conditionalRightSideMenuViewModel = ConditionalRightSideMenuViewModel()
-    }
-
-    // Create an instance of the nested struct
-    let scalePhotoGroup = ScalePhotoGroup()
-    let menuGroup = MenuGroup()
-    
-    
-   // @StateObject var scaleButtonViewModel = ScalingCompletedViewModel()
-    
-    @StateObject var vm = ChairManoeuvreProjectVM()
-    
-    
-    @StateObject var navigationViewModel = DismissRightSideMenuViewModel()
+    //MENU MANAGEMENT a - z
+    @StateObject var conditionalRightSideMenuViewModel = ConditionalRightSideMenuViewModel()
+    @StateObject var dismissBottomMenuViewModel = DismissBottomMenuViewModel()
+    @StateObject var dismissRightSideMenuViewModel = DismissRightSideMenuViewModel()
     @StateObject var returnToRightSideMenuViewModel = ReturnToRightSideMenuViewModel()
+    @StateObject var rightSideMenuItemViewModel = RightSideMenuItemViewModel()
     
-    @StateObject var scaleValueProviderVM = ScaleValueProviderMediator()
-    @StateObject var scaleMenuViewModel = PhotoMenuViewModel()
-    @StateObject var chosenPhotoViewModel = ChosenPhotoViewModel()
-    @StateObject var scalingPhotoViewModel = ScalingPhotoViewModel()
-    
+   //MISC
+    @StateObject var vm = ChairManoeuvreProjectVM()
     @StateObject var menuChairViewModel = MenuChairViewModel()
     @StateObject var alertVM = AlertViewModel()
-    
-    
-    @StateObject var removePhotoViewModel = RemovePhotoButtonViewModel()
-    @StateObject var scaleDimensionLineViewModel = ScaleDimensionLineViewModel()
-    
-    
     @StateObject var visibleToolViewModel = VisibleToolViewModel()
+    
+    //PHOTO SELECTION a - z
+    @StateObject var chosenPhotoViewModel = ChosenPhotoViewModel()
+    @StateObject var removePhotoViewModel = RemovePhotoButtonViewModel()
     @StateObject var photoPickerVM = PhotoPickerViewModel()
     
-    @StateObject var resetPositionButtonViewModel = CenterPhotoButtonViewModel()
-    @StateObject var scalingToolViewModel = ScalingToolViewModel()
+    //SCALING MANAGEMENT a - z
     @StateObject var confirmScaleButtonViewModel = ConfirmScaleButtonViewModel()
-    @StateObject var planDimensionSelectorViewModel = PhotoDimensionSelectorViewModel()
     @StateObject var currentDimensionViewModel = CurrentDimensionViewModel()
-    
-    @StateObject var slideFromBottomMenuViewModel = SlideFromBottomMenuDismissViewModel()
-   
+    @StateObject var planDimensionSelectorViewModel = PhotoDimensionSelectorViewModel()
+    @StateObject var resetPositionButtonViewModel = CenterPhotoButtonViewModel()
+    @StateObject var scaleDimensionLineViewModel = ScaleDimensionLineViewModel()
+    @StateObject var scaleMenuViewModel = PhotoMenuViewModel()
+    @StateObject var scaleValueProviderMediator = ScaleValueProviderMediator()
+    @StateObject var scalingCompletedViewModel = ScalingCompletedViewModel()
+    @StateObject var scalingPhotoViewModel = ScalingPhotoViewModel()
+    @StateObject var scalingToolViewModel = ScalingToolViewModel()
  
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(scalePhotoGroup.scaleButtonViewModel)
-
-            
-                .environmentObject(navigationViewModel)
+               
+                //MENU MANAGEMENT a - z
+                .environmentObject(conditionalRightSideMenuViewModel)
+                .environmentObject(dismissBottomMenuViewModel)
+                .environmentObject(dismissRightSideMenuViewModel)
                 .environmentObject(returnToRightSideMenuViewModel)
-                
-                .environmentObject(scaleMenuViewModel)
-                .environmentObject(chosenPhotoViewModel)
-                .environmentObject(scalingPhotoViewModel)
-                .environmentObject(scaleValueProviderVM)
+                .environmentObject(rightSideMenuItemViewModel)
+            
+                //MISC
                 .environmentObject(vm)
                 .environmentObject(menuChairViewModel)
                 .environmentObject(alertVM)
-                .environmentObject(removePhotoViewModel)
                 .environmentObject(visibleToolViewModel)
+
+                //PHOTO SELECTION a - z
+                .environmentObject(chosenPhotoViewModel)
+                .environmentObject(removePhotoViewModel)
                 .environmentObject(photoPickerVM)
-                .environmentObject(scaleDimensionLineViewModel)
-                .environmentObject(resetPositionButtonViewModel)
-                .environmentObject(scalingToolViewModel)
 
+                //SCALING MANAGEMENT a - z
                 .environmentObject(confirmScaleButtonViewModel)
-                .environmentObject(planDimensionSelectorViewModel)
                 .environmentObject(currentDimensionViewModel)
-                .environmentObject(slideFromBottomMenuViewModel)
-                .environmentObject(menuGroup.conditionalRightSideMenuViewModel)
-
-
+                .environmentObject(planDimensionSelectorViewModel)
+                .environmentObject(resetPositionButtonViewModel)
+                .environmentObject(scaleDimensionLineViewModel)
+                .environmentObject(scaleMenuViewModel)
+                .environmentObject(scaleValueProviderMediator)
+                .environmentObject(scalingCompletedViewModel)
+                .environmentObject(scalingPhotoViewModel)
+                .environmentObject(scalingToolViewModel)
         }
     }
 }

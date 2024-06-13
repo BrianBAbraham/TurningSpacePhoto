@@ -25,13 +25,13 @@ class ShowScalingDimensionSelectorService {
 class MainMenusDisplayService {
     static let shared = MainMenusDisplayService()
     
-    @Published var showSlideFromBottomMenu = false
+    @Published var showBottomMenu = false
     @Published var showRightSideMenu = true
-    @Published var preventSlideFromBottomDimiss = false
+    @Published var preventBottomMenuDismiss = false
     
     
     func setShowSlideFromBottomMenuFalse() {
-        showSlideFromBottomMenu = false
+        showBottomMenu = false
     }
     
     
@@ -41,12 +41,12 @@ class MainMenusDisplayService {
     
     
     func setPreventSlideFromBottomDismissFalse() {
-        preventSlideFromBottomDimiss = false
+        preventBottomMenuDismiss = false
     }
     
     
     func setShowSlideFromBottomMenuTrue() {
-        showSlideFromBottomMenu = true
+        showBottomMenu = true
     }
     
     
@@ -56,7 +56,7 @@ class MainMenusDisplayService {
     
     
     func setPreventSlideFromBottomDismissTrue() {
-        preventSlideFromBottomDimiss = true
+        preventBottomMenuDismiss = true
     }
     
     func setShowRightSideMenu(_ value: Bool) {

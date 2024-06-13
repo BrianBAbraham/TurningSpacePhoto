@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//Chevron >
 struct ReturnToRightSideMenuView: View {
     @EnvironmentObject var returnToRightSideMenuVM: ReturnToRightSideMenuViewModel
 

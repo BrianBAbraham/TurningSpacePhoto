@@ -10,10 +10,6 @@ import Combine
 
 
 class ReturnToRightSideMenuViewModel: ObservableObject {
- 
-    //@Published private (set) var showRightSideMenu = MainMenusDisplayService.shared.showRightSideMenu
-    
-//    private var showPhotoMenu = SubMenuDisplayService.shared.showPhotoMenu
     
     private var photoStatus = PhotoService.shared.photoStatus
     
@@ -21,24 +17,8 @@ class ReturnToRightSideMenuViewModel: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     
-   
     init() {
-//        MainMenusDisplayService.shared.$showRightSideMenu
-//            .sink { [weak self] newData in
-//                self?.showRightSideMenu = newData
-//            }
-//            .store(
-//                    in: &cancellables
-//                )
-        
-//        SubMenuDisplayService.shared.$showPhotoMenu
-//            .sink { [weak self] newData in
-//                self?.showPhotoMenu = newData
-//            }
-//            .store(
-//                    in: &cancellables
-//                )
-        
+
        PhotoService.shared.$photoStatus
             .sink { [weak self] newData in
                 self?.photoStatus = newData
@@ -55,19 +35,6 @@ class ReturnToRightSideMenuViewModel: ObservableObject {
                     in: &cancellables
                 )
     }
-}
-
-
-extension ReturnToRightSideMenuViewModel {
-    
-//    func setShowRightSideMenuFalse() {
-//        MainMenusDisplayService.shared.setShowRightSideMenuFalse()
-//    }
-//    
-
-    func setShowMenu (_ value: Bool){
-            MainMenusDisplayService.shared.setShowRightSideMenu(value)
-    }
     
     
     func retunToRightSideMenu() {
@@ -75,7 +42,7 @@ extension ReturnToRightSideMenuViewModel {
             
         }
         else {
-            setShowMenu(true)
+            MainMenusDisplayService.shared.setShowRightSideMenuTrue()
             
             SubMenuDisplayService.shared.setShowPhotoMenuFalse()
             

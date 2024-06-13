@@ -83,7 +83,8 @@ struct ContentView: View {
     @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
     @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
 
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+  
     var scalingCompleted: Bool {
         scalingCompletedViewModel.scalingCompleted
     }
@@ -106,10 +107,7 @@ struct ContentView: View {
     }
     
     
-//    var scale: Double {
-//        scaleValueProviderVM.scale
-//    }
-//    
+
 
     var backgroundWhenInChairMenu: some View {
         LocalFilledRectangle.path(0,0,SizeOf.screenWidth * 1, SizeOf.screenHeight * 1,.white,0.9)
@@ -134,29 +132,26 @@ struct ContentView: View {
     
     
     var showAlert: Bool {
-        var state = false
-        if alertVM.getPickerImageAddedWhenNoChairsStatus() {
-            state =
-            !scalingCompleted
-            && chairManoeuvreProjectVM.chairManoeuvres.count > 0 && //chosenPhotoScaleVM.getImagePickerStatus() &&
-            scalingCompleted
-
-        }
+        var state = true
+//        if alertVM.getPickerImageAddedWhenNoChairsStatus() {
+//            state =
+//            !scalingCompleted
+//            && chairManoeuvreProjectVM.chairManoeuvres.count > 0 && //chosenPhotoScaleVM.getImagePickerStatus() &&
+//            scalingCompleted
+//
+//        }
         return state
     }
     
-//    var flipHandleZoomSize: Double {
-//        chairManoeuvreProjectVM.applyChairManoeuvreScale(SizeOf.tool)
-//    }
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-  
+
+   
     
     
     
     var body: some View {
 
         ZStack{
-           // if confirmScaleButtonViewModel.getScalingCompletedStatus() 
+     
             if scalingCompleted
             {
                ScaleDimensionLineView(zoom)
@@ -189,9 +184,9 @@ struct ContentView: View {
                 
                MenuForChairView() 
                 
-                //                if showAlert {
-                //                 ScaleAlert()
-                //                }
+                                if showAlert {
+                                 ScaleAlert()
+                                }
                 
             }
         }
@@ -206,7 +201,7 @@ struct ScaleAlert: View {
     var body: some View {
         VStack {
             // 2
-            Text(presentAlert ? "Presenting": "Nonsense-alert ignored")
+            Text(presentAlert ? "Presenting": "not scaled")
                 .foregroundColor(.red)
             Button("Alert") {
                 // 3
@@ -217,7 +212,7 @@ struct ScaleAlert: View {
         .alert(isPresented: $presentAlert) { // 4
             Alert(
                 title: Text("PLAN NOT SCALED"),
-                message: Text("nonsense results: the chair image and plan are at different scales go to photo menu and scale")
+                message: Text("nonsense results unless wheelchair and plan at same scale.\n Set scale to leave menu")
             )
         }
         .padding()

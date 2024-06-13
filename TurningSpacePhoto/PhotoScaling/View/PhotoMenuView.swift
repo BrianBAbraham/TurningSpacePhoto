@@ -13,7 +13,9 @@ struct PhotoMenuView: View {
         
         if photoMenuVM.showMenu{
             Group {
-                SlideFromBottomMenuView("photo", 200) {
+                
+                BottomMenuView("photo", 200) {
+                
                     VStack{
                         
                         PhotoPickerButtonView()
@@ -35,3 +37,18 @@ struct PhotoMenuView: View {
      }
 }
 
+
+//
+//struct PhotoMenuView: View {
+//    @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
+//    
+//    var body: some View {
+//        if photoMenuVM.showMenu {
+//            Group {
+//                BottomMenuView(menuName: "photo", menuHeight: 200)
+//            }
+//        } else {
+//            EmptyView()
+//        }
+//    }
+//}

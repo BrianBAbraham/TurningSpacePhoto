@@ -46,9 +46,9 @@ struct RightSideMenuView: View {
                     DismissRightSideMenuView()
                     Spacer()
                     // all sub menu below
-                    RightSideMenuIconView("photo")
+                    RightSideMenuItemView("photo")
                     Spacer()
-                    RightSideMenuIconView(MenuIcon.chairTool)
+                    RightSideMenuItemView(MenuIcon.chairTool)
                     Spacer()
                     MainHelpView()//helpButton
                     Spacer()
@@ -77,41 +77,7 @@ struct RightSideMenuBackgroundView: View {
 
 
 
-struct RightSideMenuIconView: View {
-    @EnvironmentObject var navigationViewModel: DismissRightSideMenuViewModel
-    @EnvironmentObject var scalingCompletedVM: ScalingCompletedViewModel
-    @EnvironmentObject  var photoMenuVM: PhotoMenuViewModel
-    @EnvironmentObject var menuChairViewModel: MenuChairViewModel
 
-    
-    let maxWidth = RightSideBackgroundWidth().width
-    let name: String
-    init (_ name: String) {
-        self.name = name
-    }
-    var body: some View {
-            Button( action: {
-                navigationViewModel.setShowMenu(false)
-                if name == "folder.fill" {
-                }
-                if name == "photo" {
-                    photoMenuVM.setShowMenu(true)
-                }
-                if name == "arrow.clockwise" {
-                }
-                if name == MenuIcon.chairTool {
-                    menuChairViewModel.toggleShowMenuStatus()
-                }
-                
-            })  {
-                Image(systemName: self.name)
-//                .font(.largeTitle)
-           }
-            .buttonStyle(TopNavigationBlueButton())
-            //.buttonStyle(PlainButtonStyle())
-    }
-}
-    
 
 
 
