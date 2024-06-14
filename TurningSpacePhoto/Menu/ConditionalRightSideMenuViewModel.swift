@@ -12,7 +12,7 @@ import Combine
 
 class ConditionalRightSideMenuViewModel: ObservableObject {
  
-    @Published private (set) var showRightSideMenu = MainMenusDisplayService.shared.showRightSideMenu
+    @Published private (set) var showRightSideMenu = RightSideMenuDisplayService.shared.showRightSideMenu
     
 
     
@@ -20,7 +20,7 @@ class ConditionalRightSideMenuViewModel: ObservableObject {
     
    
     init() {
-        MainMenusDisplayService.shared.$showRightSideMenu
+        RightSideMenuDisplayService.shared.$showRightSideMenu
             .sink { [weak self] newData in
                 self?.showRightSideMenu = newData
             }

@@ -22,17 +22,17 @@ class ShowScalingDimensionSelectorService {
 
 
 
-class MainMenusDisplayService {
-    static let shared = MainMenusDisplayService()
+class RightSideMenuDisplayService {
+    static let shared = RightSideMenuDisplayService()
     
-    @Published var showBottomMenu = false
+//    @Published var showBottomMenu = false
     @Published var showRightSideMenu = true
     @Published var preventBottomMenuDismiss = false
     
-    
-    func setShowSlideFromBottomMenuFalse() {
-        showBottomMenu = false
-    }
+//    
+//    func setShowSlideFromBottomMenuFalse() {
+//        showBottomMenu = false
+//    }
     
     
     func setShowRightSideMenuFalse() {
@@ -45,9 +45,9 @@ class MainMenusDisplayService {
     }
     
     
-    func setShowSlideFromBottomMenuTrue() {
-        showBottomMenu = true
-    }
+//    func setShowSlideFromBottomMenuTrue() {
+//        showBottomMenu = true
+//    }
     
     
     func setShowRightSideMenuTrue() {

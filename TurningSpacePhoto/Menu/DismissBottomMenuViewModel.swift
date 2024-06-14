@@ -53,7 +53,7 @@ class DismissBottomMenuViewModel: ObservableObject {
     
     
     func setShowRightSideMenuFalse() {
-        MainMenusDisplayService.shared.setShowRightSideMenuFalse()
+        RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  RightSideMenuIconViewModel.swift
+//  RightSideMenuItemViewModel.swift
 //  TurningSpacePhoto
 //
 //  Created by Brian Abraham on 13/06/2024.
@@ -13,7 +13,7 @@ class RightSideMenuItemViewModel: ObservableObject {
     
     
     func setShowRightSideMenuFalse (){
-        MainMenusDisplayService.shared.setShowRightSideMenuFalse()
+        RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
     }
     
     func toggleShowChairMenuStatus(){

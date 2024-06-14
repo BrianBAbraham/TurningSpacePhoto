@@ -49,7 +49,7 @@ class ChairManoeuvreProjectVM: ObservableObject {
 //    }
     
     func setShowMenu (_ value: Bool){
-            MainMenusDisplayService.shared.setShowRightSideMenu(value)
+            RightSideMenuDisplayService.shared.setShowRightSideMenu(value)
     }
     
     func addChairManoeuvre() {

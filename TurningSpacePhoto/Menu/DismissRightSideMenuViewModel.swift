@@ -11,7 +11,7 @@ import Combine
 
 class DismissRightSideMenuViewModel: ObservableObject {
  
-    @Published private (set) var showRightSideMenu = MainMenusDisplayService.shared.showRightSideMenu
+    @Published private (set) var showRightSideMenu = RightSideMenuDisplayService.shared.showRightSideMenu
     
 
     
@@ -19,7 +19,7 @@ class DismissRightSideMenuViewModel: ObservableObject {
     
    
     init() {
-        MainMenusDisplayService.shared.$showRightSideMenu
+        RightSideMenuDisplayService.shared.$showRightSideMenu
             .sink { [weak self] newData in
                 self?.showRightSideMenu = newData
             }
@@ -29,8 +29,8 @@ class DismissRightSideMenuViewModel: ObservableObject {
 
     }
 
-    func setShowMenu (_ value: Bool){
-        MainMenusDisplayService.shared.setShowRightSideMenu(value)
+    func setShowRightSideMenuFalse (){
+        RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
     }
 }
 

@@ -91,7 +91,7 @@ struct DismissRightSideMenuView: View {
     @EnvironmentObject var dismissRightSideMenuVM: DismissRightSideMenuViewModel
     var body: some View {
         Button(action: {
-            dismissRightSideMenuVM.setShowMenu(false)
+            dismissRightSideMenuVM.setShowRightSideMenuFalse()
         }, label: {
             ActionDismissStyle(color: .blue)
                 .padding(.top, 2)
