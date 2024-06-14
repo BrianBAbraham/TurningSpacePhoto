@@ -197,25 +197,39 @@ struct ContentView: View {
 
 
 struct ScaleAlert: View {
-    @State private var presentAlert = true
+    @EnvironmentObject var unscaledPhotoAlertVM: UnscaledPhotoAlertViewModel
+  //  @State private var presentAlert = true
+//    var unscaledAlert: Bool {
+//        unscaledPhotoAlertVM.unscaledPhotoAlert
+//    }
+    
     var body: some View {
-        VStack {
-            // 2
-            Text(presentAlert ? "Presenting": "not scaled")
-                .foregroundColor(.red)
-            Button("Alert") {
-                // 3
-                presentAlert = true
+        if unscaledPhotoAlertVM.unscaledPhotoAlert{
+            
+            VStack {
+                // 2
+                Text(unscaledPhotoAlertVM.unscaledPhotoAlert ? "Presenting": "not scaled")
+                    .foregroundColor(.red)
+                Button("Alert") {
+                    // 3
+                    unscaledPhotoAlertVM.unscaledPhotoAlert = true
+                }
+                Spacer()
             }
-            Spacer()
+            .alert(isPresented: $unscaledPhotoAlertVM.unscaledPhotoAlert) { // 4
+                Alert(
+                    title: Text("PLAN NOT SCALED"),
+                    message: Text("nonsense results unless wheelchair and plan at same scale.\n Set scale to leave menu")
+                )
+            }
+            .padding()
+            
+            
+            
+            
+            
         }
-        .alert(isPresented: $presentAlert) { // 4
-            Alert(
-                title: Text("PLAN NOT SCALED"),
-                message: Text("nonsense results unless wheelchair and plan at same scale.\n Set scale to leave menu")
-            )
-        }
-        .padding()
+
     }
 }
 

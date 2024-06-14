@@ -10,6 +10,22 @@ import SwiftUI
 import Combine
 
 
+class UnscaledPhotoAlertService {
+    static let shared = UnscaledPhotoAlertService()
+    
+    @Published var unscaledPhotoAlert = false
+    
+    func setUnscaledPhotoAlertFalse(){
+        unscaledPhotoAlert = false
+    }
+    
+    func setUnscaledPhotoAlertTrue(){
+        unscaledPhotoAlert = true
+    }
+}
+
+
+
 class ShowScalingDimensionSelectorService {
     static let shared = ShowScalingDimensionSelectorService()
     

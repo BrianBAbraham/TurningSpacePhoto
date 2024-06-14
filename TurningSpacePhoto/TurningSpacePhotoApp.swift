@@ -18,6 +18,7 @@ struct TurningSpacePhotoApp: App {
     @StateObject var dismissRightSideMenuViewModel = DismissRightSideMenuViewModel()
     @StateObject var returnToRightSideMenuViewModel = ReturnToRightSideMenuViewModel()
     @StateObject var rightSideMenuItemViewModel = RightSideMenuItemViewModel()
+    @StateObject var unscaledPhotoAlertViewModel = UnscaledPhotoAlertViewModel()
     
    //MISC
     @StateObject var vm = ChairManoeuvreProjectVM()
@@ -52,6 +53,7 @@ struct TurningSpacePhotoApp: App {
                 .environmentObject(dismissRightSideMenuViewModel)
                 .environmentObject(returnToRightSideMenuViewModel)
                 .environmentObject(rightSideMenuItemViewModel)
+                .environmentObject(unscaledPhotoAlertViewModel)
             
                 //MISC
                 .environmentObject(vm)

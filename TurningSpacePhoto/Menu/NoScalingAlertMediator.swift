@@ -8,14 +8,12 @@
 import Foundation
 import Combine
 
-class NoScalingAlertMediator: ObservableObject {
+class UnscaledPhotoAlertMediator {
     private var photoStatus = PhotoService.shared.photoStatus
     
     private var scalingCompleted = ScaleService.shared.scalingCompleted
     
     private var cancellables: Set<AnyCancellable> = []
-    
-    @Published private (set) var alertRequired = false
     
     init() {
 
@@ -39,8 +37,28 @@ class NoScalingAlertMediator: ObservableObject {
     }
     
     func setAlertRequired(){
-        alertRequired =
-            !scalingCompleted && photoStatus
+        if !scalingCompleted && photoStatus {
+            UnscaledPhotoAlertService.shared.setUnscaledPhotoAlertTrue()
+        }
     }
     
+}
+
+
+
+class UnscaledPhotoAlertViewModel: ObservableObject {
+    @Published var unscaledPhotoAlert = UnscaledPhotoAlertService.shared.unscaledPhotoAlert
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
+    init() {
+        UnscaledPhotoAlertService.shared.$unscaledPhotoAlert
+             .sink { [weak self] newData in
+                 self?.unscaledPhotoAlert = newData
+             }
+             .store(
+                     in: &cancellables
+                 )
+        
+    }
 }
