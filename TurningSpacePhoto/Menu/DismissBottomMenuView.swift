@@ -17,14 +17,9 @@ struct DismissBottomMenuView: View {
     
     var body: some View {
         let unscaledImageSoPreventDismiss =
-        dismissBottomMenuVM.preventDismiss && menuName == "photo"
+        dismissBottomMenuVM.preventPhotoMenuDismiss && menuName == "photo"
 
         Button(action: {
-            dismissBottomMenuVM.setShowRightSideMenuFalse()
-            
-            if unscaledImageSoPreventDismiss {
-                print("ALERT")
-            } else {
                 
                 if menuName == "openFile" {
                    
@@ -41,7 +36,7 @@ struct DismissBottomMenuView: View {
                 }
                 
                 
-            }
+          //  }
            
 
         }, label: {
@@ -51,7 +46,6 @@ struct DismissBottomMenuView: View {
                 ActionDismissStyle(color: unscaledImageSoPreventDismiss ? .gray : .blue)
             }
         })
-       // .disabled(unscaledImageSoPreventDismiss)
     }
 }
 

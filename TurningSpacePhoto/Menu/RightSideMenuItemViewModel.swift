@@ -17,10 +17,10 @@ class RightSideMenuItemViewModel: ObservableObject {
     }
     
     func toggleShowChairMenuStatus(){
-        SubMenuDisplayService.shared.toggleShowChairMenu()
+        BottomMenuDisplayService.shared.toggleShowChairMenu()
     }
     
     func setShowPhotoMenuTrue (){
-        SubMenuDisplayService.shared.setShowPhotoMenuTrue()
+        BottomMenuDisplayService.shared.setShowPhotoMenuTrue()
     }
 }

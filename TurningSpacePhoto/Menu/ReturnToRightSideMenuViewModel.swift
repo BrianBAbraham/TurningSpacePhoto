@@ -11,25 +11,15 @@ import Combine
 
 class ReturnToRightSideMenuViewModel: ObservableObject {
     
-    private var photoStatus = PhotoService.shared.photoStatus
-    
-    private var scalingCompleted = ScaleService.shared.scalingCompleted
+    private var unscaledPhotoAlert = UnscaledPhotoAlertService.shared.unscaledPhotoAlert
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
 
-       PhotoService.shared.$photoStatus
+        UnscaledPhotoAlertService.shared.$unscaledPhotoAlert
             .sink { [weak self] newData in
-                self?.photoStatus = newData
-            }
-            .store(
-                    in: &cancellables
-                )
-        
-        ScaleService.shared.$scalingCompleted
-            .sink { [weak self] newData in
-                self?.scalingCompleted = newData
+                self?.unscaledPhotoAlert = newData
             }
             .store(
                     in: &cancellables
@@ -38,15 +28,12 @@ class ReturnToRightSideMenuViewModel: ObservableObject {
     
     
     func retunToRightSideMenu() {
-        if !scalingCompleted && photoStatus {
-            
-        }
-        else {
+//            ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertToTrue()
+  
             RightSideMenuDisplayService.shared.setShowRightSideMenuTrue()
             
-            SubMenuDisplayService.shared.setShowPhotoMenuFalse()
+            BottomMenuDisplayService.shared.setShowPhotoMenuFalse()
             
-            SubMenuDisplayService.shared.setShowChairMenuFalse()
-        }
+            BottomMenuDisplayService.shared.setShowChairMenuFalse()
     }
 }

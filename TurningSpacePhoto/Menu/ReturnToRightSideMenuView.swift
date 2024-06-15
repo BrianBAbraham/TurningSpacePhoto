@@ -18,6 +18,8 @@ struct ReturnToRightSideMenuView: View {
                 Button( action: {
                    
                     returnToRightSideMenuVM.retunToRightSideMenu()
+                    
+                    print("ALERT")
 
                 }) {
                     Spacer()

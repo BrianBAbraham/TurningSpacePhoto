@@ -12,12 +12,12 @@ import Combine
 
 class MenuChairViewModel: ObservableObject {
     @Published private var menuChairModel: MenuChairModel = MenuChairModel(showMenu: false)
-    @Published private (set) var showChairMenu = SubMenuDisplayService.shared.showChairMenu
+    @Published private (set) var showChairMenu = BottomMenuDisplayService.shared.showChairMenu
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        SubMenuDisplayService.shared.$showChairMenu
+        BottomMenuDisplayService.shared.$showChairMenu
             .sink { [weak self] newData in
                 self?.showChairMenu = newData
             }
@@ -44,7 +44,7 @@ extension MenuChairViewModel {
     }
     
     func setShowMenuStatus(_ state: Bool){
-        SubMenuDisplayService.shared.setShowChairMenu(state)
+        BottomMenuDisplayService.shared.setShowChairMenu(state)
     }
     
     func setCurrentMovementType(_ movementType: MovementNames){

@@ -10,13 +10,13 @@ import Combine
 
 class PhotoMenuViewModel: ObservableObject {
     
-    @Published private (set) var showMenu: Bool = SubMenuDisplayService.shared.showPhotoMenu
+    @Published private (set) var showMenu: Bool = BottomMenuDisplayService.shared.showPhotoMenu
    
     private var cancellables: Set<AnyCancellable> = []
     
     init(){
         
-        SubMenuDisplayService.shared.$showPhotoMenu
+        BottomMenuDisplayService.shared.$showPhotoMenu
             .sink { [weak self] newData in
                 self?.showMenu = newData
             }
@@ -28,6 +28,6 @@ class PhotoMenuViewModel: ObservableObject {
     
 
     func setShowMenu (_ state: Bool){
-        SubMenuDisplayService.shared.setShowPhotoMenu(state)
+        BottomMenuDisplayService.shared.setShowPhotoMenu(state)
     }
 }

@@ -25,6 +25,24 @@ class UnscaledPhotoAlertService {
 }
 
 
+class ShowUnscaledPhotoAlertService {
+    static let shared = ShowUnscaledPhotoAlertService()
+    
+    @Published var showAlert = false
+    
+    func setShowUnscaledPhotoAlertFalse() {
+        showAlert = false
+    }
+    
+    func setShowUnscaledPhotoAlertTrue() {
+        showAlert = true
+    }
+}
+
+
+
+
+
 
 class ShowScalingDimensionSelectorService {
     static let shared = ShowScalingDimensionSelectorService()
@@ -41,39 +59,18 @@ class ShowScalingDimensionSelectorService {
 class RightSideMenuDisplayService {
     static let shared = RightSideMenuDisplayService()
     
-//    @Published var showBottomMenu = false
     @Published var showRightSideMenu = true
-    @Published var preventBottomMenuDismiss = false
-    
-//    
-//    func setShowSlideFromBottomMenuFalse() {
-//        showBottomMenu = false
-//    }
-    
-    
+
     func setShowRightSideMenuFalse() {
         showRightSideMenu = false
     }
     
-    
-    func setPreventSlideFromBottomDismissFalse() {
-        preventBottomMenuDismiss = false
-    }
-    
-    
-//    func setShowSlideFromBottomMenuTrue() {
-//        showBottomMenu = true
-//    }
-    
-    
+
     func setShowRightSideMenuTrue() {
         showRightSideMenu = true
     }
     
-    
-    func setPreventSlideFromBottomDismissTrue() {
-        preventBottomMenuDismiss = true
-    }
+
     
     func setShowRightSideMenu(_ value: Bool) {
         showRightSideMenu = value
@@ -81,11 +78,12 @@ class RightSideMenuDisplayService {
 }
 
 
-class SubMenuDisplayService {
-    static let shared = SubMenuDisplayService()
+class BottomMenuDisplayService {
+    static let shared = BottomMenuDisplayService()
     
     @Published var showPhotoMenu = false
     @Published var showChairMenu = false
+    @Published var preventPhotoMenuDimsiss = false
     
     
     func setShowPhotoMenuFalse() {
@@ -105,14 +103,26 @@ class SubMenuDisplayService {
     func setShowPhotoMenuTrue() {
         showPhotoMenu = true
     }
+    
     func setShowChairMenu(_ value: Bool) {
         showChairMenu = value
+    }
+    
+    
+    func setPreventPhotoMenuDismissFalse() {
+        preventPhotoMenuDimsiss = false
+    }
+    
+    
+    func setPreventPhotoMenuDismissTrue() {
+        preventPhotoMenuDimsiss = true
     }
     
     
     func setShowChairMenuTrue() {
         showChairMenu = true
     }
+    
     
     func toggleShowChairMenu() {
         showChairMenu.toggle()

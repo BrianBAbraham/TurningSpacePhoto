@@ -52,6 +52,9 @@ final class PhotoPickerViewModel: ObservableObject {
                     
                         scaleService.setScalingCompletedFalse()
                     
+                    //if a photo exists protect against unscalred use
+                    let _ = UnscaledPhotoAlertMediator.shared
+                    
                         self.isLoading = false
                  
                 } else {

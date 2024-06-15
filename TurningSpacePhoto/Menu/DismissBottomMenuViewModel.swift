@@ -12,15 +12,16 @@ import Combine
 class DismissBottomMenuViewModel: ObservableObject {
     var chosenPhotoStatus: Bool = PhotoService.shared.photoStatus
     var scalingCompleted: Bool = ScaleService.shared.scalingCompleted
-    @Published var preventDismiss = false
+    @Published var preventPhotoMenuDismiss = BottomMenuDisplayService.shared.preventPhotoMenuDimsiss
+  
     
+  
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
         PhotoService.shared.$photoStatus
             .sink { [weak self] newData in
                 self?.chosenPhotoStatus = newData
-                self?.getPreventDismiss()
             }
             .store(
                     in: &cancellables
@@ -29,32 +30,44 @@ class DismissBottomMenuViewModel: ObservableObject {
         ScaleService.shared.$scalingCompleted
             .sink { [weak self] newData in
                 self?.scalingCompleted = newData
-                self?.getPreventDismiss()
             }
             .store(
                     in: &cancellables
                 )
-        }
-    
-    func getPreventDismiss(){
-        preventDismiss = 
-            !scalingCompleted && chosenPhotoStatus
+       
+        BottomMenuDisplayService.shared.$preventPhotoMenuDimsiss
+            .sink { [weak self] newData in
+                self?.preventPhotoMenuDismiss = newData
+                if newData == true {
+                    //self?.setShowPhotoMenuTrue()
+                }
+              
+            }
+            .store(
+                    in: &cancellables
+                )
     }
     
     
     func setShowChairMenuFalse (){
-        SubMenuDisplayService.shared.setShowChairMenuFalse()
+        BottomMenuDisplayService.shared.setShowChairMenuFalse()
     }
     
     
     func setShowPhotoMenuFalse (){
-        SubMenuDisplayService.shared.setShowPhotoMenuFalse()
-    }
+        print("!preventPhotoMenuDismiss \(preventPhotoMenuDismiss)")
+        if preventPhotoMenuDismiss{
+
+            
+        } else {
+            BottomMenuDisplayService.shared.setShowPhotoMenuFalse()
+        }
+        }
     
     
-    func setShowRightSideMenuFalse() {
-        RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
-    }
+    func setShowPhotoMenuTrue (){
+            BottomMenuDisplayService.shared.setShowPhotoMenuTrue()
+        }
     
 }
 

@@ -12,12 +12,9 @@ import Combine
 class DismissRightSideMenuViewModel: ObservableObject {
  
     @Published private (set) var showRightSideMenu = RightSideMenuDisplayService.shared.showRightSideMenu
-    
 
-    
     private var cancellables: Set<AnyCancellable> = []
     
-   
     init() {
         RightSideMenuDisplayService.shared.$showRightSideMenu
             .sink { [weak self] newData in
@@ -26,7 +23,6 @@ class DismissRightSideMenuViewModel: ObservableObject {
             .store(
                     in: &cancellables
                 )
-
     }
 
     func setShowRightSideMenuFalse (){
