@@ -28,6 +28,9 @@ class ConfirmScaleButtonViewModel: ObservableObject {
 
     func setScalingCompleted(){
         ScaleService.shared.setScalingCompleted()
-        UnscaledPhotoAlertService.shared.setUnscaledPhotoAlertFalse()
+        // UnscaledPhotoAlertService.shared.setUnscaledPhotoAlertFalse()
+        ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertButtonFalse()
+        ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertDialogFalse()
+        
     }
 }

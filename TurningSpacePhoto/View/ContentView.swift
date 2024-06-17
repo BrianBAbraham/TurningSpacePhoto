@@ -77,7 +77,7 @@ struct ChairMovementOnChosenBackground: View {
 
 struct ContentView: View {
     @EnvironmentObject var alertVM: AlertViewModel
-    @EnvironmentObject var showUnscaledPhotoAlertVM: ShowUnscaledPhotoAlertViewModel
+    @EnvironmentObject var showUnscaledPhotoAlertVM: UnscaledPhotoAlertViewModel
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
     @EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
     @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
@@ -185,7 +185,7 @@ struct ContentView: View {
                 
                MenuForChairView() 
                 
-               ConditionalScaleAlert()
+               ConditionalUnscaledPhotoAlertView()
                             
                 
             }
@@ -197,68 +197,3 @@ struct ContentView: View {
 
 
 
-
-//struct ConditionalScaleAlert: View {
-//    @EnvironmentObject var showUnscaledPhotoAlertVM: ShowUnscaledPhotoAlertViewModel
-//    @State private var isAlertPresented = true
-//    @State private var showText = false
-//
-//    var body: some View {
-//        if showUnscaledPhotoAlertVM.showAlert {
-//            VStack {
-//                Button("Alert") {
-//                    isAlertPresented = true
-//                }
-//                Spacer()
-//            }
-//            .alert(isPresented: $isAlertPresented) {
-//                Alert(
-//                    title: Text("PLAN NOT SCALED"),
-//                    message: Text("You have left the photo-scaling menu without setting a scale. To compare a wheelchair against a plan you must set the correct scale.\n Set dimension and Go to scale"),
-//                    dismissButton: .default(Text("OK"), action: {
-//                        showText = true
-//                        isAlertPresented = false
-//                    })
-//                )
-//            }
-//            .padding()
-//        } else {
-//            EmptyView()
-//        }
-//    }
-//}
-
-struct ConditionalScaleAlert: View {
-    @EnvironmentObject var showUnscaledPhotoAlertVM: ShowUnscaledPhotoAlertViewModel
-    @State private var isAlertPresented = true
-    @State private var showText = false
-
-    var body: some View {
-        if showUnscaledPhotoAlertVM.showAlert {
-            VStack {
-                Button("Alert") {
-                    isAlertPresented = true
-                }
-                Spacer()
-            }
-            .alert(isPresented: $isAlertPresented) {
-                Alert(
-                    title: Text("PLAN NOT SCALED"),
-                    message: Text("You have left the photo-scaling menu without setting a scale. To compare a wheelchair against a plan you must set the correct scale.\n Set dimension and Go to scale"),
-                    primaryButton: .default(Text("Set Scale"), action: {
-
-                        showUnscaledPhotoAlertVM.setPreventPhotoMenuDimissTrue()
-                        //showUnscaledPhotoAlertVM.showAlert = false
-                    }),
-                    secondaryButton: .cancel(Text("Do not scale"), action: {
-                        showUnscaledPhotoAlertVM.setPreventPhotoMenuDimissFalse()
-                        //showUnscaledPhotoAlertVM.showAlert = false
-                    })
-                )
-            }
-            .padding()
-        } else {
-            EmptyView()
-        }
-    }
-}

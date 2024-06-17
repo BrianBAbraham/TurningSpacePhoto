@@ -14,8 +14,6 @@ class ConditionalRightSideMenuViewModel: ObservableObject {
  
     @Published private (set) var showRightSideMenu = RightSideMenuDisplayService.shared.showRightSideMenu
     
-
-    
     private var cancellables: Set<AnyCancellable> = []
     
    

@@ -1,5 +1,5 @@
 //
-//  NoScalingAlertMediator.swift
+//  UnScaledPhotAlertMediator.swift
 //  TurningSpacePhoto
 //
 //  Created by Brian Abraham on 14/06/2024.
@@ -18,6 +18,8 @@ class UnscaledPhotoAlertMediator {
     private var showRightSideMenu = RightSideMenuDisplayService.shared.showRightSideMenu
     
     private var showPhotoMenu = BottomMenuDisplayService.shared.showPhotoMenu
+    
+    private var showUnscaledPhotoAlertButton = ShowUnscaledPhotoAlertService.shared.showAlert
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -62,48 +64,38 @@ class UnscaledPhotoAlertMediator {
              .store(
                      in: &cancellables
                  )
+        
+        ShowUnscaledPhotoAlertService.shared.$showAlert
+            .sink { [weak self] newData in
+                self?.showUnscaledPhotoAlertButton = newData
+                if newData == false{
+                    self?.setAlertRequired()
+                }
+            }
+            .store(
+                in: &cancellables
+            )
+   
+                    
     }
     
     func setAlertRequired(){
-      //  print("\nDETECT")
-        let unscaledPhoto = !scalingCompleted && photoStatus
-        let leavingScaling = !showPhotoMenu || showRightSideMenu
-//        print("\(unscaledPhoto && leavingScaling)\n")
-        if  unscaledPhoto && leavingScaling {
-            UnscaledPhotoAlertService.shared.setUnscaledPhotoAlertTrue()
-            ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertTrue()
+        //if there is already an alert button do not show alert dialog
+        if !showUnscaledPhotoAlertButton {
+            let unscaledPhoto = !scalingCompleted && photoStatus
+            let leavingScaling = !showPhotoMenu || showRightSideMenu
+            if  unscaledPhoto && leavingScaling {
+                ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertDialogTrue()
+                ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertTrue()
+            }
         }
+
     }
     
 }
 
 
 
-class ShowUnscaledPhotoAlertViewModel: ObservableObject {
-    @Published var showAlert = ShowUnscaledPhotoAlertService.shared.showAlert
-    
-    private var cancellables: Set<AnyCancellable> = []
-    
-    init() {
-        ShowUnscaledPhotoAlertService.shared.$showAlert
-             .sink { [weak self] newData in
-                 self?.showAlert = newData
-                 
-             }
-             .store(
-                     in: &cancellables
-                 )
-        
-    }
-    
-    
-    func setPreventPhotoMenuDimissFalse(){
-        BottomMenuDisplayService.shared.setPreventPhotoMenuDismissFalse()
-    }
-    
-    func setPreventPhotoMenuDimissTrue(){
-        BottomMenuDisplayService.shared.setPreventPhotoMenuDismissTrue()
-    }
-    
 
-}
+
+

@@ -25,9 +25,5 @@ class PhotoMenuViewModel: ObservableObject {
                 )
     }
   
-    
 
-    func setShowMenu (_ state: Bool){
-        BottomMenuDisplayService.shared.setShowPhotoMenu(state)
-    }
 }

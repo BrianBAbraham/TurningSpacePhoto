@@ -59,6 +59,8 @@
 		FD26F5EA2BFF5AE700AECB16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */; };
 		FD26F5EC2BFF5B9900AECB16 /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */; };
 		FD3B49982C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */; };
+		FD4F78152C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F78142C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift */; };
+		FD4F78172C20736D00EAC50D /* UnscaledPhotoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */; };
 		FD4F9E132C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F9E122C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift */; };
 		FD4F9E152C18797200BD4100 /* ConfirmScaleButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F9E142C18797200BD4100 /* ConfirmScaleButtonViewModel.swift */; };
 		FD5F667F2C1C9AF80069A215 /* UnscaledPhotoAlertMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F667E2C1C9AF80069A215 /* UnscaledPhotoAlertMediator.swift */; };
@@ -132,6 +134,8 @@
 		FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../turningSpace001/turningSpace001/Assets.xcassets; sourceTree = "<group>"; };
 		FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
 		FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScalingDimensionSelectorMediator.swift; sourceTree = "<group>"; };
+		FD4F78142C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscaledPhotoAlertViewModel.swift; sourceTree = "<group>"; };
+		FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscaledPhotoAlertView.swift; sourceTree = "<group>"; };
 		FD4F9E122C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDimensionSelectorViewModel.swift; sourceTree = "<group>"; };
 		FD4F9E142C18797200BD4100 /* ConfirmScaleButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmScaleButtonViewModel.swift; sourceTree = "<group>"; };
 		FD5F667E2C1C9AF80069A215 /* UnscaledPhotoAlertMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscaledPhotoAlertMediator.swift; sourceTree = "<group>"; };
@@ -207,7 +211,7 @@
 				FD26F5882BFF597900AECB16 /* Styles */,
 				FD26F5912BFF59BB00AECB16 /* Model */,
 				FDD75A552C0DBFAF002853D4 /* PhotoScaling */,
-				FDF3F8B62C19F65A003AF330 /* Menu */,
+				FDF3F8B62C19F65A003AF330 /* MenuManagement */,
 				FD26F5BB2BFF5A4F00AECB16 /* View */,
 				FD26F5A62BFF5A0C00AECB16 /* ViewModel */,
 				FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */,
@@ -277,6 +281,7 @@
 				FD26F5C22BFF5A4F00AECB16 /* TurnHandleView.swift */,
 				FD26F5C42BFF5A4F00AECB16 /* SizeClass.swift */,
 				FD26F5C72BFF5A4F00AECB16 /* ViewModifier.swift */,
+				FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */,
 				FD26F5C92BFF5A4F00AECB16 /* ContentView.swift */,
 			);
 			path = View;
@@ -298,7 +303,6 @@
 		FD4F9E162C18A5E000BD4100 /* ModelAndMediator */ = {
 			isa = PBXGroup;
 			children = (
-				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
 				FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */,
 				FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */,
 				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
@@ -309,6 +313,7 @@
 		FD711A0C2C09E5E500A2163A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
 				FDD75A512C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift */,
 				FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */,
 				FD4F9E142C18797200BD4100 /* ConfirmScaleButtonViewModel.swift */,
@@ -332,22 +337,23 @@
 			path = PhotoScaling;
 			sourceTree = "<group>";
 		};
-		FDF3F8B62C19F65A003AF330 /* Menu */ = {
+		FDF3F8B62C19F65A003AF330 /* MenuManagement */ = {
 			isa = PBXGroup;
 			children = (
 				FD26F5AC2BFF5A0C00AECB16 /* DismissRightSideMenuViewModel.swift */,
 				FD5F667E2C1C9AF80069A215 /* UnscaledPhotoAlertMediator.swift */,
+				FD4F78142C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift */,
 				FD26F5C52BFF5A4F00AECB16 /* ConditionalRightSideMenuView.swift */,
 				FDF3F8B92C1A0C0C003AF330 /* ConditionalRightSideMenuViewModel.swift */,
-				FD26F5DD2BFF5ACE00AECB16 /* BottomMenuView.swift */,
-				FD0449FB2C1B1D910002B525 /* DismissBottomMenuView.swift */,
-				FDF3F8B22C19B6D5003AF330 /* DismissBottomMenuViewModel.swift */,
 				FDF3F8B42C19F644003AF330 /* ReturnToRightSideMenuViewModel.swift */,
 				FDF3F8B72C1A0650003AF330 /* ReturnToRightSideMenuView.swift */,
 				FD0449FD2C1B3F000002B525 /* RightSideMenuItemViewModel.swift */,
 				FD0449FF2C1B4A820002B525 /* RightSideMenuItemView.swift */,
+				FD26F5DD2BFF5ACE00AECB16 /* BottomMenuView.swift */,
+				FD0449FB2C1B1D910002B525 /* DismissBottomMenuView.swift */,
+				FDF3F8B22C19B6D5003AF330 /* DismissBottomMenuViewModel.swift */,
 			);
-			path = Menu;
+			path = MenuManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +458,7 @@
 				FD26F5B62BFF5A0C00AECB16 /* DismissRightSideMenuViewModel.swift in Sources */,
 				FD26F5B12BFF5A0C00AECB16 /* ChairManoeuvreProjectVM.swift in Sources */,
 				FDF3F8B32C19B6D5003AF330 /* DismissBottomMenuViewModel.swift in Sources */,
+				FD4F78152C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift in Sources */,
 				FD26F58F2BFF597900AECB16 /* Symbols.swift in Sources */,
 				FD26F5E72BFF5ACE00AECB16 /* GlobalSizes.swift in Sources */,
 				FD0449FE2C1B3F000002B525 /* RightSideMenuItemViewModel.swift in Sources */,
@@ -481,6 +488,7 @@
 				FD0449FC2C1B1D910002B525 /* DismissBottomMenuView.swift in Sources */,
 				FD26F5CF2BFF5A4F00AECB16 /* ArcView.swift in Sources */,
 				FD26F5A42BFF59BB00AECB16 /* MenuChairModel.swift in Sources */,
+				FD4F78172C20736D00EAC50D /* UnscaledPhotoAlertView.swift in Sources */,
 				FD26F5CB2BFF5A4F00AECB16 /* ScalingPhotoView.swift in Sources */,
 				FD26F5E62BFF5ACE00AECB16 /* Type.swift in Sources */,
 				FD26F5D92BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift in Sources */,

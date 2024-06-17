@@ -26,6 +26,10 @@ class RemovePhotoButtonViewModel: ObservableObject {
     
     func removePhoto() {
         photoService.removePhoto()
+        
         ScaleService.shared.setScalingCompletedFalse()
+        
+        ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertButtonFalse()
+        
     }
 }

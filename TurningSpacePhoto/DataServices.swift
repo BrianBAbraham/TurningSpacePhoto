@@ -10,27 +10,37 @@ import SwiftUI
 import Combine
 
 
-class UnscaledPhotoAlertService {
-    static let shared = UnscaledPhotoAlertService()
-    
-    @Published var unscaledPhotoAlert = false
-    
-    func setUnscaledPhotoAlertFalse(){
-        unscaledPhotoAlert = false
-    }
-    
-    func setUnscaledPhotoAlertTrue(){
-        unscaledPhotoAlert = true
-    }
-}
+//class UnscaledPhotoAlertService {
+//    static let shared = UnscaledPhotoAlertService()
+//    
+//    @Published var unscaledPhotoAlert = false
+//    
+//    func setUnscaledPhotoAlertFalse(){
+//        unscaledPhotoAlert = false
+//    }
+//    
+//    func setUnscaledPhotoAlertTrue(){
+//        unscaledPhotoAlert = true
+//    }
+//}
 
 
 class ShowUnscaledPhotoAlertService {
     static let shared = ShowUnscaledPhotoAlertService()
     
+    @Published var showAlertDialog = false
     @Published var showAlert = false
     
-    func setShowUnscaledPhotoAlertFalse() {
+    func setShowUnscaledPhotoAlertDialogFalse() {
+        showAlertDialog = false
+    }
+    
+    func setShowUnscaledPhotoAlertDialogTrue() {
+        print ("show photo alert set to true")
+        showAlertDialog = true
+    }
+    
+    func setShowUnscaledPhotoAlertButtonFalse() {
         showAlert = false
     }
     

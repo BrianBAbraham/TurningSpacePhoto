@@ -12,7 +12,6 @@ class CenterPhotoButtonViewModel: ObservableObject {
     @Published var isNotShowing: Bool = true
     let photoService = PhotoService.shared
     var photoLocation = PhotoService.shared.photoLocation
-    let scalingService = ScaleService.shared
     var photoStatus = PhotoService.shared.photoStatus
     
     private var cancellables: Set<AnyCancellable> = []
@@ -22,7 +21,6 @@ class CenterPhotoButtonViewModel: ObservableObject {
             .sink { [weak self] newData in
                 self?.photoStatus = newData
                 self?.getIsNotShowing()
-                
             }
             .store(in: &cancellables)
         
@@ -40,14 +38,13 @@ class CenterPhotoButtonViewModel: ObservableObject {
         // no imnage
         // image and image has not moved
        
-        let outcome =
+        let photoExistsButNotMoved =
         (photoStatus && photoLocation != SizeOf.centre)
         
-        isNotShowing = !outcome
+        isNotShowing = !photoExistsButNotMoved
     }
     
     func resetPositions() {
         photoService.setPhotoLocation(SizeOf.centre)
-        //scalingService.setScalingToolToInitialPosition()
     }
 }

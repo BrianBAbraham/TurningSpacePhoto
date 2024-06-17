@@ -43,6 +43,8 @@ class ScalingToolViewModel: ObservableObject {
     var photoStatus: Bool =
         PhotoService.shared.photoStatus
     
+    private var showUnscaledPhotoAlertButton = ShowUnscaledPhotoAlertService.shared.showAlertDialog
+    
    @Published var notShowing = false
     
     private var cancellables: Set<AnyCancellable> = []
@@ -62,6 +64,13 @@ class ScalingToolViewModel: ObservableObject {
         PhotoService.shared.$photoStatus
             .sink { [weak self] newData in
                 self?.photoStatus = newData
+                self?.setButtonIsNotShowingStatus()
+            }
+            .store(in: &cancellables)
+        
+        ShowUnscaledPhotoAlertService.shared.$showAlert
+            .sink { [weak self] newData in
+                self?.showUnscaledPhotoAlertButton = newData
                 self?.setButtonIsNotShowingStatus()
             }
             .store(in: &cancellables)
@@ -117,7 +126,7 @@ extension ScalingToolViewModel {
     
         func setButtonIsNotShowingStatus() {
             //if no photo or photo but scaling completed
-           notShowing = !photoStatus || scalingCompleted
+           notShowing = !photoStatus || scalingCompleted || showUnscaledPhotoAlertButton
         }
 }
 
