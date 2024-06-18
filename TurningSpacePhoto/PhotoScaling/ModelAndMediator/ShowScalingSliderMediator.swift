@@ -10,9 +10,9 @@ import Combine
 
 
 
-class ShowScalingDimensionSelectorMediator {
+class ShowScalingSliderMediator {
     
-    static let shared = ShowScalingDimensionSelectorMediator()
+    static let shared = ShowScalingSliderMediator()
     private var cancellables: Set<AnyCancellable> = []
     
     @Published private (set) var notShowing = true
@@ -43,7 +43,8 @@ class ShowScalingDimensionSelectorMediator {
         } else {
             notShowing = true
         }
-        ShowScalingDimensionSelectorService.shared.setScalingDimensionSelectorView(notShowing)
+        
+        ShowScalingSliderService.shared.setScalingDimensionSelectorView(notShowing)
     }
     
 }

@@ -21,12 +21,12 @@ struct PhotoDimensionSelectorView: View {
     var body: some View {
           
             HStack {
-                scaleButton(action: { millimeterDimensionOnPlan -= step }, title: "-5")
-                    .disabled(photoDimensionSelectorVM.notShowing)
+                addButton(action: { millimeterDimensionOnPlan -= step }, title: "-5")
+                    .disabled(!photoDimensionSelectorVM.isNotShowing)
                 sliderView
-                    .disabled(photoDimensionSelectorVM.notShowing)
-                scaleButton(action: { millimeterDimensionOnPlan += step }, title: "+5")
-                    .disabled(photoDimensionSelectorVM.notShowing)
+                    .disabled(!photoDimensionSelectorVM.isNotShowing)
+                addButton(action: { millimeterDimensionOnPlan += step }, title: "+5")
+                    .disabled(!photoDimensionSelectorVM.isNotShowing)
             }
             .padding()
        
@@ -37,19 +37,19 @@ struct PhotoDimensionSelectorView: View {
             .onChange(of: millimeterDimensionOnPlan) { value in
                 photoDimensionSelectorVM.setDimensionOnPhoto(millimeterDimensionOnPlan)
             }
-            .accentColor(photoDimensionSelectorVM.notShowing ? .gray : .orange)
-            .opacity(photoDimensionSelectorVM.notShowing ? 0.1 : 1)
+            .accentColor(photoDimensionSelectorVM.isNotShowing ? .gray : .orange)
+            .opacity(photoDimensionSelectorVM.isNotShowing ? 1 : 0.1)
 
 
     }
 
-    private func scaleButton(action: @escaping () -> Void, title: String) -> some View {
+    private func addButton(action: @escaping () -> Void, title: String) -> some View {
         Button(action: action) {
             Text(title)
         }
         .buttonStyle(PictureScaleBlueButton())
         .modifier(MenuButtonWithTextFont())
-        .opacity(photoDimensionSelectorVM.notShowing ? 0.1 : 1)
+        .opacity(photoDimensionSelectorVM.isNotShowing ? 1 : 0.1)
     }
 }
 
