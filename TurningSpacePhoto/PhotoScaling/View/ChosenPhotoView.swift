@@ -22,25 +22,30 @@ struct ChosenPhotoView: View {
     
 
     var body: some View {
-        // set backGround to scale that was last applied in the PhotoScaleView
-        let finalZoomInPhotoPicker = chosenPhotoVM.finalPhotoZoom
         
+       
         return
             Group {
         
                 if chosenPhotoVM.photoStatus {
+                    
                     chosenPhotoVM.chosenPhoto!//safe with if
+                     
                         .initialImageModifier()
-                        .scaleEffect(finalZoomInPhotoPicker )
-                        .position(chosenPhotoVM.chosenPhotoLocation)
-                        .gesture(DragBackgroundPictureAndChairsGesture(
+                    // set backGround to scale that was last applied in the PhotoScaleView
+                        .scaleEffect(chosenPhotoVM.finalPhotoZoom)
+                        .position(chosenPhotoVM.photoLocation)
+                        .gesture(DragPhotoAndChairsGesture(
                             xChange: $xChange,
                             yChange: $yChange
                         ))
                         .gesture(fingerDrag)
+                        .zIndex(0)
+                    
                 } else {
                     EmptyView()
+                       
                 }
             }
-    }
+         }
 }

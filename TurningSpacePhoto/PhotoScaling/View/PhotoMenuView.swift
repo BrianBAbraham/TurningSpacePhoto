@@ -38,17 +38,4 @@ struct PhotoMenuView: View {
 }
 
 
-//
-//struct PhotoMenuView: View {
-//    @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
-//    
-//    var body: some View {
-//        if photoMenuVM.showMenu {
-//            Group {
-//                BottomMenuView(menuName: "photo", menuHeight: 200)
-//            }
-//        } else {
-//            EmptyView()
-//        }
-//    }
-//}
+

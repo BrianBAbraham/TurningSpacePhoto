@@ -18,11 +18,13 @@ class ChairManoeuvreProjectVM: ObservableObject {
     var parts: Array<Array<ChairManoeuvre.Part>> {model.parts}
     var scale: Double =
     ScaleService.shared.scale 
-
+    var  backgroundPhotoLocationChange = PhotoLocationChangeService.shared.locationChange
+    
+    
     private var cancellables: Set<AnyCancellable> = []
+    
     init() {
 
-        
         ScaleService.shared.$scale
             .sink { [weak self] newData in
                 self?.scale = newData
@@ -32,6 +34,16 @@ class ChairManoeuvreProjectVM: ObservableObject {
                 in: &cancellables
             )
         
+        
+        PhotoLocationChangeService.shared.$locationChange
+            .sink { [weak self] newData in
+                self?.backgroundPhotoLocationChange = newData
+               // print( self?.backgroundPhotoLocationChange)
+                self?.modifyAllMovementLocationsByBackgroundPictureDrag( )
+            }
+            .store(
+                in: &cancellables
+            )
     }
     
 
@@ -377,16 +389,25 @@ print("left to right")
     }
 
     
-    func modifyAllMovementLocationsByBackgroundPictureDrag( _ dragLocationChange: CGPoint) {
+//    func modifyAllMovementLocationsByBackgroundPictureDrag( _ dragLocationChange: CGPoint) {
+//        
+//        for chairIndex in 0..<chairManoeuvres.count {
+//        let x = Double(dragLocationChange.x)
+//        let y = Double(dragLocationChange.y)
+//
+//        model.modifyConstraintLocationByBackgroundPictureDrag(chairIndex, x, y)
+//        }
+//    }
+
+    func modifyAllMovementLocationsByBackgroundPictureDrag( ) {
         
         for chairIndex in 0..<chairManoeuvres.count {
-        let x = Double(dragLocationChange.x)
-        let y = Double(dragLocationChange.y)
+        let x = (backgroundPhotoLocationChange.x)
+        let y = (backgroundPhotoLocationChange.y)
 
         model.modifyConstraintLocationByBackgroundPictureDrag(chairIndex, x, y)
         }
     }
-
     
 //    func modifyAllMovementLocationsByBackgroundPictureDrag(_ chairMovement: [Type.ChairMovementParts], _ dragLocationChange: CGPoint) {
 //

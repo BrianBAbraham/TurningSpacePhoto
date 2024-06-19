@@ -44,7 +44,7 @@ class ShowScalingSliderMediator {
             notShowing = true
         }
         
-        ShowScalingSliderService.shared.setScalingDimensionSelectorView(notShowing)
+        ShowScalingSliderService.shared.setScalingSliderShowing(notShowing)
     }
     
 }

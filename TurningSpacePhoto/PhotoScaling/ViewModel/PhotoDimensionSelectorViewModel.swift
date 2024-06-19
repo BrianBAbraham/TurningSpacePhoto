@@ -11,15 +11,15 @@ import Combine
 
 class PhotoDimensionSelectorViewModel: ObservableObject {
     
-    @Published private (set) var notShowing = true
+    @Published private (set) var isNotShowing = true
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
 
-        ShowScalingDimensionSelectorService.shared.$scalingDimensionSelectorView
+        ShowScalingSliderService.shared.$scalingSliderIsShowing
             .sink { [weak self] newData in
-                self?.notShowing = newData
+                self?.isNotShowing = !newData
                
         }
         .store(in: &cancellables)

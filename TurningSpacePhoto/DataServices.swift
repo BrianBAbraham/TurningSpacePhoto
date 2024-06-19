@@ -25,6 +25,20 @@ import Combine
 //}
 
 
+class PhotoLocationChangeService {
+    static let shared = PhotoLocationChangeService()
+    
+    @Published var locationChange = (x: 0.0, y: 0.0)
+    
+    
+    func setLocationChange(_ value: (x: Double, y: Double)) {
+        
+        locationChange = value
+    }
+}
+
+
+
 class ShowUnscaledPhotoAlertService {
     static let shared = ShowUnscaledPhotoAlertService()
     
@@ -54,13 +68,13 @@ class ShowUnscaledPhotoAlertService {
 
 
 
-class ShowScalingDimensionSelectorService {
-    static let shared = ShowScalingDimensionSelectorService()
+class ShowScalingSliderService {
+    static let shared = ShowScalingSliderService()
     
-    @Published var scalingDimensionSelectorView = false
+    @Published var scalingSliderIsShowing = false
     
-    func setScalingDimensionSelectorView(_ value: Bool) {
-        scalingDimensionSelectorView = value
+    func setScalingSliderShowing(_ value: Bool) {
+        scalingSliderIsShowing = value
     }
 }
 
@@ -143,9 +157,9 @@ class BottomMenuDisplayService {
 
 
 class ScaleService {
-    @Published var scale = 1.0
+    @Published var scale = 0.1
     @Published var scalingCompleted = false
-    @Published var scalingToolAtInitialPosition = false
+    var scalingToolAtInitialPosition = false
     @Published var leftScalingToolPosition = CGPoint(x: 75, y: 100)
     @Published var rightScalingToolPosition = CGPoint(x: SizeOf.screenWidth * 0.8, y: 100)
     

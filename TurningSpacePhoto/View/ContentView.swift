@@ -9,51 +9,9 @@ import SwiftUI
 
 
 
-
-
-
-struct DragBackgroundPictureAndChairsGesture: Gesture {
-    @Binding var xChange: Double
-    @Binding var yChange: Double
-    @EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
-    @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
-    @GestureState private var startLocation: CGPoint? = nil
-
-    var body: some Gesture {
-        DragGesture(minimumDistance: 1, coordinateSpace: .global)
-            .updating($startLocation) { value, startLocation, _ in
-                startLocation = startLocation ?? chosenPhotoVM.chosenPhotoLocation
-            }
-            .onChanged { value in
-                guard let startLocation = startLocation else { return }
-                let newLocation = CGPoint(
-                    x: startLocation.x + value.translation.width,
-                    y: startLocation.y + value.translation.height
-                )
-                chosenPhotoVM.setChosenPhotoLocation(newLocation)
-
-                let xTranslation = value.translation.width
-                let yTranslation = value.translation.height
-
-                xChange = xTranslation - xChange
-                yChange = yTranslation - yChange
-                chairManoeuvreProjectVM.modifyAllMovementLocationsByBackgroundPictureDrag(CGPoint(x: xChange, y: yChange))
-                xChange = xTranslation
-                yChange = yTranslation
-            }
-            .onEnded { value in
-                xChange = 0.0
-                yChange = 0.0
-            }
-    }
-}
-
-
 struct ChairMovementOnChosenBackground: View {
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
-    @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
-    @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
-    
+  
     var arrayOfForEachMovementOfOneChairArrayChairMovementPart:  [(chairIndex: Int, chairMovementsParts: [Type.ChairMovementParts])] {
         chairManoeuvreProjectVM.getForEachMovementOfOneChairArrayChairMovementPart()
     }
@@ -61,13 +19,14 @@ struct ChairMovementOnChosenBackground: View {
     var body: some View {
         ZStack{
             ChosenPhotoView()
-               
-            if scalingCompletedViewModel.scalingCompleted {
+             
+            VStack{
                 ForEach( arrayOfForEachMovementOfOneChairArrayChairMovementPart, id: \.chairIndex) { item in
                     ChairMovementsView(forEachMovementOfOneChairArrayChairMovementPart: item.chairMovementsParts)
                     TurnHandleConditionalView(forEachMovementOfOneChairArrayChairMovementPart: item.chairMovementsParts)
                 }
             }
+
         }
 
     }
@@ -80,16 +39,10 @@ struct ContentView: View {
     @EnvironmentObject var showUnscaledPhotoAlertVM: UnscaledPhotoAlertViewModel
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
     @EnvironmentObject var chosenPhotoVM: ChosenPhotoViewModel
-    @EnvironmentObject var scalingCompletedViewModel: ScalingCompletedViewModel
     @EnvironmentObject var photoMenuVM: PhotoMenuViewModel
     @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-  
-    var scalingCompleted: Bool {
-        scalingCompletedViewModel.scalingCompleted
-    }
-    
 
     @State var currentZoom: CGFloat = 0.0
     @State var lastCurrentZoom: CGFloat = 0.0
@@ -107,56 +60,13 @@ struct ContentView: View {
        return max(min(zoom, maximimumZoom),minimumZoom)
     }
     
-    
-
-
-    var backgroundWhenInChairMenu: some View {
-        LocalFilledRectangle.path(0,0,SizeOf.screenWidth * 1, SizeOf.screenHeight * 1,.white,0.9)
-    }
-
-    
-    func chosenBackground() -> some View {
-        // set backGround to scale that was last applied in the PhotoScaleView
-        return
-            Group {
-                if scalingCompleted {
-                    ChosenPhotoView()
-                }
-       
-                else {
-                    if scalingCompleted {
-                        backgroundWhenInChairMenu
-                    }
-                }
-            }
-    }
-    
-    
-    var showAlert: Bool {
-        var state = true
-//        if alertVM.getPickerImageAddedWhenNoChairsStatus() {
-//            state =
-//            !scalingCompleted
-//            && chairManoeuvreProjectVM.chairManoeuvres.count > 0 && //chosenPhotoScaleVM.getImagePickerStatus() &&
-//            scalingCompleted
-//
-//        }
-        return state
-    }
-    
-
-   
-    
-    
-    
     var body: some View {
 
         ZStack{
      
-            if scalingCompleted
-            {
+
                ScaleDimensionLineView(zoom)
-            }
+
 
             ZStack {
                 PhotoManagementView()

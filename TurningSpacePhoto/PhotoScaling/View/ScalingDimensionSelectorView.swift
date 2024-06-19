@@ -60,7 +60,7 @@ class CurrentDimensionViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        ShowScalingDimensionSelectorService.shared.$scalingDimensionSelectorView
+        ShowScalingSliderService.shared.$scalingSliderIsShowing
             .sink { [weak self] newData in
                 self?.notShowing = newData
         }

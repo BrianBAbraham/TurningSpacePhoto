@@ -16,9 +16,9 @@ class ConfirmScaleButtonViewModel: ObservableObject {
    
     init() {
         // Ensure ShowScalingDimensionSelectorMediator.shared is initialized
-       let _ = ShowScalingDimensionSelectorMediator.shared
+       let _ = ShowScalingSliderMediator.shared
         
-        ShowScalingDimensionSelectorService.shared.$scalingDimensionSelectorView
+        ShowScalingSliderService.shared.$scalingSliderIsShowing
             .sink { [weak self] newData in
                 self?.notShowing = newData
         }
@@ -28,8 +28,9 @@ class ConfirmScaleButtonViewModel: ObservableObject {
 
     func setScalingCompleted(){
         ScaleService.shared.setScalingCompleted()
-        // UnscaledPhotoAlertService.shared.setUnscaledPhotoAlertFalse()
+        
         ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertButtonFalse()
+        
         ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertDialogFalse()
         
     }

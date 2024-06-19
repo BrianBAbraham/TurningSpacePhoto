@@ -12,14 +12,14 @@ struct RemovePhotoButtonView: View {
   
    
     var body: some View {
-        let isNotShowing = removePhotoVM.isNotShowing
+      
         Button(action: {
             removePhotoVM.removePhoto()
  
         }) { Text("Remove")}
 
-            .disabled(isNotShowing)
-            .opacity(isNotShowing ? 0.1: 1.0)
+            .disabled(removePhotoVM.isNotShowing)
+            .opacity(removePhotoVM.isNotShowing ? 0.1: 1.0)
     }
       
 }

@@ -12,7 +12,7 @@ import Combine
 class RemovePhotoButtonViewModel: ObservableObject {
     let photoService = PhotoService.shared
    
-    @Published var isNotShowing: Bool = PhotoService.shared.photoStatus
+    @Published var isNotShowing = true
     
     private var cancellables: Set<AnyCancellable> = []
     

@@ -60,8 +60,7 @@ var movements = MovementNames.allCases.map {$0}// ["only wheelchair", "tightest 
 
 struct ModifyNumberOfManouevre: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
-    @EnvironmentObject var menuPictureScaleViewModel: ScalingCompletedViewModel
-   // @EnvironmentObject var pictureScaleViewModel: ChosenPhotoViewModel
+
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let buttonText: String
     var body: some View {

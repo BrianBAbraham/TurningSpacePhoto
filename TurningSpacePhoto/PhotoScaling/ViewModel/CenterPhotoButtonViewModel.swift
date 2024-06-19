@@ -37,12 +37,12 @@ class CenterPhotoButtonViewModel: ObservableObject {
     func getIsNotShowing() {
         // no imnage
         // image and image has not moved
-       
         let photoExistsButNotMoved =
         (photoStatus && photoLocation != SizeOf.centre)
         
         isNotShowing = !photoExistsButNotMoved
     }
+    
     
     func resetPositions() {
         photoService.setPhotoLocation(SizeOf.centre)

@@ -27,6 +27,10 @@ struct TurningSpacePhotoApp: App {
     @StateObject var alertVM = AlertViewModel()
     @StateObject var visibleToolViewModel = VisibleToolViewModel()
     
+    
+    //OBJECT CONTROL
+    @StateObject var dragBackgroundPhotoAndChairsGestureMediator = DragPhotoAndChairsGestureMediator()
+    
     //PHOTO SELECTION a - z
     @StateObject var chosenPhotoViewModel = ChosenPhotoViewModel()
     @StateObject var removePhotoViewModel = RemovePhotoButtonViewModel()
@@ -40,9 +44,10 @@ struct TurningSpacePhotoApp: App {
     @StateObject var scaleDimensionLineViewModel = ScaleDimensionLineViewModel()
     @StateObject var scaleMenuViewModel = PhotoMenuViewModel()
     @StateObject var scaleValueProviderMediator = ScaleValueProviderMediator()
-    @StateObject var scalingCompletedViewModel = ScalingCompletedViewModel()
     @StateObject var scalingPhotoViewModel = ScalingPhotoViewModel()
     @StateObject var scalingToolViewModel = ScalingToolViewModel()
+    
+    
  
     var body: some Scene {
         WindowGroup {
@@ -62,6 +67,9 @@ struct TurningSpacePhotoApp: App {
                 .environmentObject(menuChairViewModel)
                 .environmentObject(alertVM)
                 .environmentObject(visibleToolViewModel)
+            
+                //OBJECT CONTROL
+                .environmentObject(dragBackgroundPhotoAndChairsGestureMediator)
 
                 //PHOTO SELECTION a - z
                 .environmentObject(chosenPhotoViewModel)
@@ -76,7 +84,6 @@ struct TurningSpacePhotoApp: App {
                 .environmentObject(scaleDimensionLineViewModel)
                 .environmentObject(scaleMenuViewModel)
                 .environmentObject(scaleValueProviderMediator)
-                .environmentObject(scalingCompletedViewModel)
                 .environmentObject(scalingPhotoViewModel)
                 .environmentObject(scalingToolViewModel)
         }

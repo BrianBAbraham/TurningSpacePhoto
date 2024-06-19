@@ -28,7 +28,6 @@
 		FD26F5A42BFF59BB00AECB16 /* MenuChairModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */; };
 		FD26F5B12BFF5A0C00AECB16 /* ChairManoeuvreProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreProjectVM.swift */; };
 		FD26F5B22BFF5A0C00AECB16 /* MenuChairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */; };
-		FD26F5B32BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5A92BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift */; };
 		FD26F5B42BFF5A0C00AECB16 /* VisbileToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */; };
 		FD26F5B52BFF5A0C00AECB16 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */; };
 		FD26F5B62BFF5A0C00AECB16 /* DismissRightSideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5AC2BFF5A0C00AECB16 /* DismissRightSideMenuViewModel.swift */; };
@@ -58,7 +57,8 @@
 		FD26F5E82BFF5ACE00AECB16 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */; };
 		FD26F5EA2BFF5AE700AECB16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */; };
 		FD26F5EC2BFF5B9900AECB16 /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */; };
-		FD3B49982C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */; };
+		FD3366052C21A9C20029CDA8 /* DragBackgroundPhotoAndChairGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3366042C21A9C20029CDA8 /* DragBackgroundPhotoAndChairGesture.swift */; };
+		FD3B49982C12022D0065BBB8 /* ShowScalingSliderMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B49972C12022D0065BBB8 /* ShowScalingSliderMediator.swift */; };
 		FD4F78152C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F78142C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift */; };
 		FD4F78172C20736D00EAC50D /* UnscaledPhotoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */; };
 		FD4F9E132C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F9E122C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift */; };
@@ -103,7 +103,6 @@
 		FD26F59A2BFF59BB00AECB16 /* MenuChairModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairModel.swift; sourceTree = "<group>"; };
 		FD26F5A72BFF5A0C00AECB16 /* ChairManoeuvreProjectVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreProjectVM.swift; sourceTree = "<group>"; };
 		FD26F5A82BFF5A0C00AECB16 /* MenuChairViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairViewModel.swift; sourceTree = "<group>"; };
-		FD26F5A92BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCompletedViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AA2BFF5A0C00AECB16 /* VisbileToolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisbileToolViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AB2BFF5A0C00AECB16 /* AlertViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		FD26F5AC2BFF5A0C00AECB16 /* DismissRightSideMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissRightSideMenuViewModel.swift; sourceTree = "<group>"; };
@@ -133,7 +132,8 @@
 		FD26F5E12BFF5ACE00AECB16 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		FD26F5E92BFF5AE700AECB16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../turningSpace001/turningSpace001/Assets.xcassets; sourceTree = "<group>"; };
 		FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
-		FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScalingDimensionSelectorMediator.swift; sourceTree = "<group>"; };
+		FD3366042C21A9C20029CDA8 /* DragBackgroundPhotoAndChairGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragBackgroundPhotoAndChairGesture.swift; sourceTree = "<group>"; };
+		FD3B49972C12022D0065BBB8 /* ShowScalingSliderMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScalingSliderMediator.swift; sourceTree = "<group>"; };
 		FD4F78142C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscaledPhotoAlertViewModel.swift; sourceTree = "<group>"; };
 		FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnscaledPhotoAlertView.swift; sourceTree = "<group>"; };
 		FD4F9E122C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDimensionSelectorViewModel.swift; sourceTree = "<group>"; };
@@ -169,12 +169,12 @@
 		FD0C04352C0B445500DD0132 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FDD75A532C0DBB02002853D4 /* CenterPhotoButtonView.swift */,
 				FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */,
+				FDD75A532C0DBB02002853D4 /* CenterPhotoButtonView.swift */,
 				FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */,
 				FDF365C52C0F41C20054FFF0 /* PhotoDimensionSelectorView.swift */,
-				FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */,
 				FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */,
+				FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */,
 				FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */,
 				FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */,
 				FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */,
@@ -273,9 +273,9 @@
 		FD26F5BB2BFF5A4F00AECB16 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD26F5BF2BFF5A4F00AECB16 /* FlipView.swift */,
 				FD26F5BD2BFF5A4F00AECB16 /* ChairView.swift */,
 				FD26F5BE2BFF5A4F00AECB16 /* MenuChairView.swift */,
-				FD26F5BF2BFF5A4F00AECB16 /* FlipView.swift */,
 				FD26F5C02BFF5A4F00AECB16 /* ArcView.swift */,
 				FD26F5C12BFF5A4F00AECB16 /* ConstraintView.swift */,
 				FD26F5C22BFF5A4F00AECB16 /* TurnHandleView.swift */,
@@ -283,6 +283,7 @@
 				FD26F5C72BFF5A4F00AECB16 /* ViewModifier.swift */,
 				FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */,
 				FD26F5C92BFF5A4F00AECB16 /* ContentView.swift */,
+				FD3366042C21A9C20029CDA8 /* DragBackgroundPhotoAndChairGesture.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */,
-				FD3B49972C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift */,
+				FD3B49972C12022D0065BBB8 /* ShowScalingSliderMediator.swift */,
 				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
 			);
 			path = ModelAndMediator;
@@ -313,16 +314,15 @@
 		FD711A0C2C09E5E500A2163A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
-				FDD75A512C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift */,
 				FD26F5AE2BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift */,
+				FDD75A512C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift */,
 				FD4F9E142C18797200BD4100 /* ConfirmScaleButtonViewModel.swift */,
 				FD4F9E122C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift */,
 				FD26F5B02BFF5A0C00AECB16 /* PhotoMenuViewModel.swift */,
 				FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */,
 				FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */,
-				FD26F5A92BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift */,
 				FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */,
+				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -439,7 +439,7 @@
 				FDD75A572C0E168F002853D4 /* ScalingToollViewModel.swift in Sources */,
 				FDF3F8B82C1A0650003AF330 /* ReturnToRightSideMenuView.swift in Sources */,
 				FD0C04392C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift in Sources */,
-				FD3B49982C12022D0065BBB8 /* ShowScalingDimensionSelectorMediator.swift in Sources */,
+				FD3B49982C12022D0065BBB8 /* ShowScalingSliderMediator.swift in Sources */,
 				FD26F5BA2BFF5A0C00AECB16 /* PhotoMenuViewModel.swift in Sources */,
 				FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */,
 				FD26F5D42BFF5A4F00AECB16 /* ConditionalRightSideMenuView.swift in Sources */,
@@ -464,8 +464,8 @@
 				FD0449FE2C1B3F000002B525 /* RightSideMenuItemViewModel.swift in Sources */,
 				FD26F5D32BFF5A4F00AECB16 /* SizeClass.swift in Sources */,
 				FD26F5D52BFF5A4F00AECB16 /* PhotoManagementView.swift in Sources */,
-				FD26F5B32BFF5A0C00AECB16 /* ScalingCompletedViewModel.swift in Sources */,
 				FD711A0B2C09E5C200A2163A /* PhotoMenuView.swift in Sources */,
+				FD3366052C21A9C20029CDA8 /* DragBackgroundPhotoAndChairGesture.swift in Sources */,
 				FD044A002C1B4A820002B525 /* RightSideMenuItemView.swift in Sources */,
 				FD26F5752BFF542500AECB16 /* TurningSpacePhotoApp.swift in Sources */,
 				FD26F58E2BFF597900AECB16 /* ActionDismissStyle.swift in Sources */,

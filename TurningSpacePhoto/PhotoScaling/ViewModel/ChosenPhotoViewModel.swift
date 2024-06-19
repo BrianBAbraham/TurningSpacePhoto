@@ -20,7 +20,7 @@ class ChosenPhotoViewModel: ObservableObject {
 
     @Published var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
 
-    @Published var chosenPhotoLocation = PhotoService.shared.photoLocation
+    @Published var photoLocation = PhotoService.shared.photoLocation
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -52,7 +52,7 @@ class ChosenPhotoViewModel: ObservableObject {
         
         PhotoService.shared.$photoLocation
             .sink { [weak self] newData in
-                self?.chosenPhotoLocation = newData
+                self?.photoLocation = newData
             }
             .store(
                 in: &cancellables
@@ -61,12 +61,6 @@ class ChosenPhotoViewModel: ObservableObject {
 }
 
 
-extension ChosenPhotoViewModel {
 
-    func setChosenPhotoLocation(_ location: CGPoint) {
-      
-        PhotoService.shared.setPhotoLocation(location)
-    }
-}
 
 
