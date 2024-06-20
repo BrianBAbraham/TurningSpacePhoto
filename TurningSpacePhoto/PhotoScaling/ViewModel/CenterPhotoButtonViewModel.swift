@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class CenterPhotoButtonViewModel: ObservableObject {
-    @Published var isNotShowing: Bool = true
+    @Published var notShowing: Bool = true
     let photoService = PhotoService.shared
     var photoLocation = PhotoService.shared.photoLocation
     var photoStatus = PhotoService.shared.photoStatus
@@ -40,7 +40,7 @@ class CenterPhotoButtonViewModel: ObservableObject {
         let photoExistsButNotMoved =
         (photoStatus && photoLocation != SizeOf.centre)
         
-        isNotShowing = !photoExistsButNotMoved
+        notShowing = !photoExistsButNotMoved
     }
     
     

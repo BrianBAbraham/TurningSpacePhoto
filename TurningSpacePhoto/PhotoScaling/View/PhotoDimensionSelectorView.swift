@@ -22,11 +22,11 @@ struct PhotoDimensionSelectorView: View {
           
             HStack {
                 addButton(action: { millimeterDimensionOnPlan -= step }, title: "-5")
-                    .disabled(!photoDimensionSelectorVM.isNotShowing)
+                    .disabled(photoDimensionSelectorVM.notShowing)
                 sliderView
-                    .disabled(!photoDimensionSelectorVM.isNotShowing)
+                    .disabled(photoDimensionSelectorVM.notShowing)
                 addButton(action: { millimeterDimensionOnPlan += step }, title: "+5")
-                    .disabled(!photoDimensionSelectorVM.isNotShowing)
+                    .disabled(photoDimensionSelectorVM.notShowing)
             }
             .padding()
        
@@ -37,8 +37,8 @@ struct PhotoDimensionSelectorView: View {
             .onChange(of: millimeterDimensionOnPlan) { value in
                 photoDimensionSelectorVM.setDimensionOnPhoto(millimeterDimensionOnPlan)
             }
-            .accentColor(photoDimensionSelectorVM.isNotShowing ? .gray : .orange)
-            .opacity(photoDimensionSelectorVM.isNotShowing ? 1 : 0.1)
+            .accentColor(photoDimensionSelectorVM.notShowing ? .gray : .orange)
+            .opacity(photoDimensionSelectorVM.notShowing ? 0.1 : 1)
 
 
     }
@@ -49,7 +49,7 @@ struct PhotoDimensionSelectorView: View {
         }
         .buttonStyle(PictureScaleBlueButton())
         .modifier(MenuButtonWithTextFont())
-        .opacity(photoDimensionSelectorVM.isNotShowing ? 1 : 0.1)
+        .opacity(photoDimensionSelectorVM.notShowing ? 0.1 : 1)
     }
 }
 

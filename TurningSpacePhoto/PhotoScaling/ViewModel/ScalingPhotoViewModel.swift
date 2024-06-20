@@ -60,7 +60,7 @@ class ScalingPhotoViewModel: ObservableObject {
 
 extension ScalingPhotoViewModel {
     
-    func setFinalChosenPhotoZoom(_ zoom: Double, _ callerName: String? = "unknown") {
+    func setFinalChosenPhotoZoom(_ zoom: Double) {
         //make available for other ViewModel
        photoService.setFinalPhotoZoom(zoom)
     }

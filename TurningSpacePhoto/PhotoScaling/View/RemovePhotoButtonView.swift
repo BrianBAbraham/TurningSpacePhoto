@@ -18,8 +18,8 @@ struct RemovePhotoButtonView: View {
  
         }) { Text("Remove")}
 
-            .disabled(removePhotoVM.isNotShowing)
-            .opacity(removePhotoVM.isNotShowing ? 0.1: 1.0)
+            .disabled(removePhotoVM.notShowing)
+            .opacity(removePhotoVM.notShowing ? 0.1: 1.0)
     }
       
 }

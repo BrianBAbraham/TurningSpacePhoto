@@ -71,10 +71,10 @@ class ShowUnscaledPhotoAlertService {
 class ShowScalingSliderService {
     static let shared = ShowScalingSliderService()
     
-    @Published var scalingSliderIsShowing = false
+    @Published var scalingSliderNotShowing = true
     
     func setScalingSliderShowing(_ value: Bool) {
-        scalingSliderIsShowing = value
+        scalingSliderNotShowing = value
     }
 }
 

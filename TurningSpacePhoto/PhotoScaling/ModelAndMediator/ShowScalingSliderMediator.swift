@@ -38,6 +38,7 @@ class ShowScalingSliderMediator {
     }
     
     func setShowing()  {
+        //thee is a photo but scaling not complete
         if photoStatus == true && scalingCompleted == false {
             notShowing = false
         } else {

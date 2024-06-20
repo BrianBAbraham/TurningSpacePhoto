@@ -14,7 +14,7 @@ struct  CentrePhotoButtonView: View {
 
     
     var body: some View {
-        let isNotShowing = centrePhotoButtonViewModel.isNotShowing
+        let isNotShowing = centrePhotoButtonViewModel.notShowing
         Button(action: {
             centrePhotoButtonViewModel.resetPositions()
         }) {Text ("centre photo")}

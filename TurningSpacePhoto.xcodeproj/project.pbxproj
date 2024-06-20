@@ -10,6 +10,7 @@
 		FD0449FC2C1B1D910002B525 /* DismissBottomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0449FB2C1B1D910002B525 /* DismissBottomMenuView.swift */; };
 		FD0449FE2C1B3F000002B525 /* RightSideMenuItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0449FD2C1B3F000002B525 /* RightSideMenuItemViewModel.swift */; };
 		FD044A002C1B4A820002B525 /* RightSideMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0449FF2C1B4A820002B525 /* RightSideMenuItemView.swift */; };
+		FD044A2C2C24817200A0E323 /* CurrentDimensionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD044A2B2C24817200A0E323 /* CurrentDimensionViewModel.swift */; };
 		FD0C04322C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */; };
 		FD0C04342C0B442900DD0132 /* RemovePhotoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */; };
 		FD0C04372C0B474900DD0132 /* ScaleDimensionLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */; };
@@ -84,6 +85,7 @@
 		FD0449FB2C1B1D910002B525 /* DismissBottomMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissBottomMenuView.swift; sourceTree = "<group>"; };
 		FD0449FD2C1B3F000002B525 /* RightSideMenuItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideMenuItemViewModel.swift; sourceTree = "<group>"; };
 		FD0449FF2C1B4A820002B525 /* RightSideMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideMenuItemView.swift; sourceTree = "<group>"; };
+		FD044A2B2C24817200A0E323 /* CurrentDimensionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDimensionViewModel.swift; sourceTree = "<group>"; };
 		FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoButtonViewModel.swift; sourceTree = "<group>"; };
 		FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoButtonView.swift; sourceTree = "<group>"; };
 		FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleDimensionLineView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */,
 				FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */,
 				FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */,
+				FD044A2B2C24817200A0E323 /* CurrentDimensionViewModel.swift */,
 				FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */,
 				FD26F5C82BFF5A4F00AECB16 /* ScalingToolView.swift */,
 			);
@@ -306,7 +309,6 @@
 			children = (
 				FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */,
 				FD3B49972C12022D0065BBB8 /* ShowScalingSliderMediator.swift */,
-				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
 			);
 			path = ModelAndMediator;
 			sourceTree = "<group>";
@@ -322,6 +324,7 @@
 				FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */,
 				FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */,
 				FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */,
+				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
 				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
 			);
 			path = ViewModel;
@@ -449,6 +452,7 @@
 				FDD75A522C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift in Sources */,
 				FD26F5B52BFF5A0C00AECB16 /* AlertViewModel.swift in Sources */,
 				FD4F9E132C18772F00BD4100 /* PhotoDimensionSelectorViewModel.swift in Sources */,
+				FD044A2C2C24817200A0E323 /* CurrentDimensionViewModel.swift in Sources */,
 				FDF4C12E2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift in Sources */,
 				FD26F5852BFF591200AECB16 /* SimpleWheelchair.swift in Sources */,
 				FDF3F8BA2C1A0C0C003AF330 /* ConditionalRightSideMenuViewModel.swift in Sources */,

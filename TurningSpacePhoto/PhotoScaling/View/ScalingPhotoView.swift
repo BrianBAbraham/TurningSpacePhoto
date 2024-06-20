@@ -66,7 +66,7 @@ struct ScalingPhotoView: View {
                     .onEnded { value in
                         lastCurrentZoom += currentZoom
                         currentZoom = 0.0
-                        scalingPhotoVM.setFinalChosenPhotoZoom(photoScalingZoom, "PhotoView")
+                        scalingPhotoVM.setFinalChosenPhotoZoom(photoScalingZoom)
                     })
             }
         }

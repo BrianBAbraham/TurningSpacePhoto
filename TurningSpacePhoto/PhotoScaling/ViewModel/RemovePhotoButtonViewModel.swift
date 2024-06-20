@@ -12,14 +12,14 @@ import Combine
 class RemovePhotoButtonViewModel: ObservableObject {
     let photoService = PhotoService.shared
    
-    @Published var isNotShowing = true
+    @Published var notShowing = true
     
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
         photoService.$photoStatus
             .sink { [weak self] newData in
-                self?.isNotShowing = !newData
+                self?.notShowing = !newData
             }
             .store(in: &cancellables)
     }

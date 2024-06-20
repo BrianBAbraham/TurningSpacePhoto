@@ -10,7 +10,7 @@ import Combine
 
 class ConfirmScaleButtonViewModel: ObservableObject {
    
-    @Published private (set) var notShowing = true
+    @Published private (set) var notShowing = ShowScalingSliderService.shared.scalingSliderNotShowing
     
     private var cancellables: Set<AnyCancellable> = []
    
@@ -18,7 +18,7 @@ class ConfirmScaleButtonViewModel: ObservableObject {
         // Ensure ShowScalingDimensionSelectorMediator.shared is initialized
        let _ = ShowScalingSliderMediator.shared
         
-        ShowScalingSliderService.shared.$scalingSliderIsShowing
+        ShowScalingSliderService.shared.$scalingSliderNotShowing
             .sink { [weak self] newData in
                 self?.notShowing = newData
         }
