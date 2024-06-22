@@ -9,7 +9,7 @@ import SwiftUI
 
 
 
-struct BottomMenuView<Content: View>: View {
+struct BottomMenuViewBuilder<Content: View>: View {
     @State var showingPopover = false
     var menuName: String
     var menuHeight: CGFloat

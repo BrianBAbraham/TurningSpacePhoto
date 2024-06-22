@@ -11,6 +11,7 @@ struct PhotoPickerButtonView: View {
     @EnvironmentObject private var photoPickerVM: PhotoPickerViewModel
 
     @State private var showPicker = false
+    
     var body: some View {
 
         Button(action: {
@@ -22,7 +23,7 @@ struct PhotoPickerButtonView: View {
         }
         .photosPicker(
             isPresented: $showPicker,
-            selection: $photoPickerVM.imageSelection,
+            selection: $photoPickerVM.selectedPhotoItem,
             matching: .images
         )
     }

@@ -25,6 +25,7 @@ struct DismissBottomMenuView: View {
                 if menuName == "photo" {
                 
                     dismissBottomMenuVM.setShowPhotoMenuFalse()
+                    
                 }
                 if menuName == "arrow.clockwise" {
                    

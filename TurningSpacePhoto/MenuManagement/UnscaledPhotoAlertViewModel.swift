@@ -9,27 +9,6 @@ import Foundation
 import Combine
 
 
-class ConditionalUnscaledPhotoAlertViewModel: ObservableObject {
-    
-    @Published var showAlert = ShowUnscaledPhotoAlertService.shared.showAlert
-    
-    private var cancellables: Set<AnyCancellable> = []
-    
-    init() {
-       
-        
-        ShowUnscaledPhotoAlertService.shared.$showAlert
-             .sink { [weak self] newData in
-                 self?.showAlert = newData
-             }
-             .store(
-                     in: &cancellables
-                 )
-    }
-    
-}
-
-
 class UnscaledPhotoAlertViewModel: ObservableObject {
     @Published var showAlertDialog = ShowUnscaledPhotoAlertService.shared.showAlertDialog
         
@@ -47,20 +26,19 @@ class UnscaledPhotoAlertViewModel: ObservableObject {
 
     }
     
-    func setScale() {
+    func setProceedWithScalingPhoto() {
         BottomMenuDisplayService.shared.setShowPhotoMenuTrue()
         
         ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertButtonFalse()
     }
         
     
-    func setDoNotScale() {
+    func setProceedWithUnscaledPhoto() {
         ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertTrue()
     }
 
     
     func setShowUnscaledPhotoAlertDialogTrue() {
-        print("DERTECT")
         ShowUnscaledPhotoAlertService.shared.setShowUnscaledPhotoAlertDialogTrue()
     }
 

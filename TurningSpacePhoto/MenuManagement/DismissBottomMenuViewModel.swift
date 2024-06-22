@@ -39,6 +39,8 @@ class DismissBottomMenuViewModel: ObservableObject {
         BottomMenuDisplayService.shared.setShowPhotoMenuFalse()
     }
     
+    
+  
 
 }
 

@@ -51,7 +51,7 @@
 		FD26F5D92BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */; };
 		FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DB2BFF5ACE00AECB16 /* Names.swift */; };
 		FD26F5E32BFF5ACE00AECB16 /* Determine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */; };
-		FD26F5E42BFF5ACE00AECB16 /* BottomMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DD2BFF5ACE00AECB16 /* BottomMenuView.swift */; };
+		FD26F5E42BFF5ACE00AECB16 /* BottomMenuViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DD2BFF5ACE00AECB16 /* BottomMenuViewBuilder.swift */; };
 		FD26F5E52BFF5ACE00AECB16 /* Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */; };
 		FD26F5E62BFF5ACE00AECB16 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5DF2BFF5ACE00AECB16 /* Type.swift */; };
 		FD26F5E72BFF5ACE00AECB16 /* GlobalSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */; };
@@ -69,10 +69,13 @@
 		FD711A0E2C0A121F00A2163A /* ChosenPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */; };
 		FD711A102C0A284B00A2163A /* ScalingPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */; };
 		FD93F2562C075B96005C3312 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93F2552C075B96005C3312 /* DataServices.swift */; };
+		FDD3250B2C25CAE8005CEFC0 /* ConditiinalUnscaledPhotoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD3250A2C25CAE8005CEFC0 /* ConditiinalUnscaledPhotoAlertViewModel.swift */; };
 		FDD75A522C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A512C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift */; };
 		FDD75A542C0DBB02002853D4 /* CenterPhotoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A532C0DBB02002853D4 /* CenterPhotoButtonView.swift */; };
 		FDD75A572C0E168F002853D4 /* ScalingToollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */; };
 		FDE11BED2C04F4FF0088420F /* ScaleValueProviderMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */; };
+		FDE363402C2701D400D99097 /* CurrentDimensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3633F2C2701D400D99097 /* CurrentDimensionView.swift */; };
+		FDE363422C274A2500D99097 /* DimissRightSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE363412C274A2500D99097 /* DimissRightSideMenuView.swift */; };
 		FDF365C62C0F41C20054FFF0 /* PhotoDimensionSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF365C52C0F41C20054FFF0 /* PhotoDimensionSelectorView.swift */; };
 		FDF3F8B32C19B6D5003AF330 /* DismissBottomMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF3F8B22C19B6D5003AF330 /* DismissBottomMenuViewModel.swift */; };
 		FDF3F8B52C19F644003AF330 /* ReturnToRightSideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF3F8B42C19F644003AF330 /* ReturnToRightSideMenuViewModel.swift */; };
@@ -127,7 +130,7 @@
 		FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmScaleButtonView.swift; sourceTree = "<group>"; };
 		FD26F5DB2BFF5ACE00AECB16 /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
 		FD26F5DC2BFF5ACE00AECB16 /* Determine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Determine.swift; sourceTree = "<group>"; };
-		FD26F5DD2BFF5ACE00AECB16 /* BottomMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuView.swift; sourceTree = "<group>"; };
+		FD26F5DD2BFF5ACE00AECB16 /* BottomMenuViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomMenuViewBuilder.swift; sourceTree = "<group>"; };
 		FD26F5DE2BFF5ACE00AECB16 /* Manipulations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manipulations.swift; sourceTree = "<group>"; };
 		FD26F5DF2BFF5ACE00AECB16 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		FD26F5E02BFF5ACE00AECB16 /* GlobalSizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSizes.swift; sourceTree = "<group>"; };
@@ -145,10 +148,13 @@
 		FD711A0D2C0A121F00A2163A /* ChosenPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPhotoView.swift; sourceTree = "<group>"; };
 		FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingPhotoViewModel.swift; sourceTree = "<group>"; };
 		FD93F2552C075B96005C3312 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		FDD3250A2C25CAE8005CEFC0 /* ConditiinalUnscaledPhotoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditiinalUnscaledPhotoAlertViewModel.swift; sourceTree = "<group>"; };
 		FDD75A512C0DBA17002853D4 /* CenterPhotoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterPhotoButtonViewModel.swift; sourceTree = "<group>"; };
 		FDD75A532C0DBB02002853D4 /* CenterPhotoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterPhotoButtonView.swift; sourceTree = "<group>"; };
 		FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingToollViewModel.swift; sourceTree = "<group>"; };
 		FDE11BEC2C04F4FF0088420F /* ScaleValueProviderMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleValueProviderMediator.swift; sourceTree = "<group>"; };
+		FDE3633F2C2701D400D99097 /* CurrentDimensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDimensionView.swift; sourceTree = "<group>"; };
+		FDE363412C274A2500D99097 /* DimissRightSideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimissRightSideMenuView.swift; sourceTree = "<group>"; };
 		FDF365C52C0F41C20054FFF0 /* PhotoDimensionSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDimensionSelectorView.swift; sourceTree = "<group>"; };
 		FDF3F8B22C19B6D5003AF330 /* DismissBottomMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissBottomMenuViewModel.swift; sourceTree = "<group>"; };
 		FDF3F8B42C19F644003AF330 /* ReturnToRightSideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnToRightSideMenuViewModel.swift; sourceTree = "<group>"; };
@@ -176,12 +182,12 @@
 				FD26F5CA2BFF5A4F00AECB16 /* ConfirmScaleButtonView.swift */,
 				FDF365C52C0F41C20054FFF0 /* PhotoDimensionSelectorView.swift */,
 				FD711A0A2C09E5C200A2163A /* PhotoMenuView.swift */,
+				FDE3633F2C2701D400D99097 /* CurrentDimensionView.swift */,
 				FD26F5C62BFF5A4F00AECB16 /* PhotoManagementView.swift */,
 				FD26F5C32BFF5A4F00AECB16 /* PhotoPickerButtonView.swift */,
 				FD0C04332C0B442900DD0132 /* RemovePhotoButtonView.swift */,
 				FD0C04362C0B474900DD0132 /* ScaleDimensionLineView.swift */,
 				FDF4C12D2C08D4AD00A63333 /* ScalingDimensionSelectorView.swift */,
-				FD044A2B2C24817200A0E323 /* CurrentDimensionViewModel.swift */,
 				FD26F5BC2BFF5A4F00AECB16 /* ScalingPhotoView.swift */,
 				FD26F5C82BFF5A4F00AECB16 /* ScalingToolView.swift */,
 			);
@@ -284,7 +290,6 @@
 				FD26F5C22BFF5A4F00AECB16 /* TurnHandleView.swift */,
 				FD26F5C42BFF5A4F00AECB16 /* SizeClass.swift */,
 				FD26F5C72BFF5A4F00AECB16 /* ViewModifier.swift */,
-				FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */,
 				FD26F5C92BFF5A4F00AECB16 /* ContentView.swift */,
 				FD3366042C21A9C20029CDA8 /* DragBackgroundPhotoAndChairGesture.swift */,
 			);
@@ -323,6 +328,7 @@
 				FD26F5B02BFF5A0C00AECB16 /* PhotoMenuViewModel.swift */,
 				FD26F5EB2BFF5B9900AECB16 /* PhotoPickerViewModel.swift */,
 				FD0C04312C0B228C00DD0132 /* RemovePhotoButtonViewModel.swift */,
+				FD044A2B2C24817200A0E323 /* CurrentDimensionViewModel.swift */,
 				FD0C04382C0B498A00DD0132 /* ScaleDimensionLineViewModel.swift */,
 				FD711A0F2C0A284B00A2163A /* ScalingPhotoViewModel.swift */,
 				FDD75A562C0E168F002853D4 /* ScalingToollViewModel.swift */,
@@ -344,16 +350,19 @@
 			isa = PBXGroup;
 			children = (
 				FD26F5AC2BFF5A0C00AECB16 /* DismissRightSideMenuViewModel.swift */,
+				FDD3250A2C25CAE8005CEFC0 /* ConditiinalUnscaledPhotoAlertViewModel.swift */,
 				FD5F667E2C1C9AF80069A215 /* UnscaledPhotoAlertMediator.swift */,
 				FD4F78142C206ED500EAC50D /* UnscaledPhotoAlertViewModel.swift */,
 				FD26F5C52BFF5A4F00AECB16 /* ConditionalRightSideMenuView.swift */,
+				FDE363412C274A2500D99097 /* DimissRightSideMenuView.swift */,
 				FDF3F8B92C1A0C0C003AF330 /* ConditionalRightSideMenuViewModel.swift */,
 				FDF3F8B42C19F644003AF330 /* ReturnToRightSideMenuViewModel.swift */,
 				FDF3F8B72C1A0650003AF330 /* ReturnToRightSideMenuView.swift */,
 				FD0449FD2C1B3F000002B525 /* RightSideMenuItemViewModel.swift */,
 				FD0449FF2C1B4A820002B525 /* RightSideMenuItemView.swift */,
-				FD26F5DD2BFF5ACE00AECB16 /* BottomMenuView.swift */,
+				FD26F5DD2BFF5ACE00AECB16 /* BottomMenuViewBuilder.swift */,
 				FD0449FB2C1B1D910002B525 /* DismissBottomMenuView.swift */,
+				FD4F78162C20736D00EAC50D /* UnscaledPhotoAlertView.swift */,
 				FDF3F8B22C19B6D5003AF330 /* DismissBottomMenuViewModel.swift */,
 			);
 			path = MenuManagement;
@@ -435,6 +444,7 @@
 				FD26F5CD2BFF5A4F00AECB16 /* MenuChairView.swift in Sources */,
 				FD26F5D62BFF5A4F00AECB16 /* ViewModifier.swift in Sources */,
 				FD26F5A12BFF59BB00AECB16 /* AlertModel.swift in Sources */,
+				FDE363422C274A2500D99097 /* DimissRightSideMenuView.swift in Sources */,
 				FDF365C62C0F41C20054FFF0 /* PhotoDimensionSelectorView.swift in Sources */,
 				FD26F5B22BFF5A0C00AECB16 /* MenuChairViewModel.swift in Sources */,
 				FD26F5D12BFF5A4F00AECB16 /* TurnHandleView.swift in Sources */,
@@ -478,12 +488,14 @@
 				FD26F5A32BFF59BB00AECB16 /* DefaultMeasurements.swift in Sources */,
 				FDD75A542C0DBB02002853D4 /* CenterPhotoButtonView.swift in Sources */,
 				FDF3F8B52C19F644003AF330 /* ReturnToRightSideMenuViewModel.swift in Sources */,
+				FDE363402C2701D400D99097 /* CurrentDimensionView.swift in Sources */,
 				FD26F5EC2BFF5B9900AECB16 /* PhotoPickerViewModel.swift in Sources */,
+				FDD3250B2C25CAE8005CEFC0 /* ConditiinalUnscaledPhotoAlertViewModel.swift in Sources */,
 				FD26F5E52BFF5ACE00AECB16 /* Manipulations.swift in Sources */,
 				FD26F5E32BFF5ACE00AECB16 /* Determine.swift in Sources */,
 				FD93F2562C075B96005C3312 /* DataServices.swift in Sources */,
 				FDE11BED2C04F4FF0088420F /* ScaleValueProviderMediator.swift in Sources */,
-				FD26F5E42BFF5ACE00AECB16 /* BottomMenuView.swift in Sources */,
+				FD26F5E42BFF5ACE00AECB16 /* BottomMenuViewBuilder.swift in Sources */,
 				FD26F5B82BFF5A0C00AECB16 /* ChosenPhotoViewModel.swift in Sources */,
 				FD0C04342C0B442900DD0132 /* RemovePhotoButtonView.swift in Sources */,
 				FD26F5E22BFF5ACE00AECB16 /* Names.swift in Sources */,

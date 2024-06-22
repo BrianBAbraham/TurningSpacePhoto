@@ -297,7 +297,7 @@ struct MenuForChairView: View {
         )
 
         if menuChairViewModel.getShowMenuStatus() {
-            BottomMenuView(MenuIcon.chairTool, 230) {
+            BottomMenuViewBuilder(MenuIcon.chairTool, 230) {
                 VStack{
                     HStack {
                         sliderChairLength(boundLength)

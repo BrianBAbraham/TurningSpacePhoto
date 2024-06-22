@@ -8,19 +8,34 @@
 import Foundation
 import Combine
 
+
+
 class RightSideMenuItemViewModel: ObservableObject {
-    
-    
-    
-    func setShowRightSideMenuFalse (){
+
+    func setShowRightSideMenuFalse() {
         RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
     }
     
-    func toggleShowChairMenuStatus(){
+    func toggleShowChairMenuStatus() {
         BottomMenuDisplayService.shared.toggleShowChairMenu()
     }
     
-    func setShowPhotoMenuTrue (){
+    func setShowPhotoMenuTrue() {
         BottomMenuDisplayService.shared.setShowPhotoMenuTrue()
+    }
+    
+    func handleButtonAction(for name: String) {
+        setShowRightSideMenuFalse()
+        switch name {
+        case "photo":
+            setShowPhotoMenuTrue()
+        case MenuIcon.chairTool:
+            toggleShowChairMenuStatus()
+        case "folder.fill", "arrow.clockwise":
+            // handle these cases if needed
+            break
+        default:
+            break
+        }
     }
 }

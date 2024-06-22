@@ -11,33 +11,26 @@ import SwiftUI
 import PhotosUI
 
 
-//struct PhotoPickerModel {
-//    var modelSelectedImage: Image?
-//    var pickerSelectedImage: Image?
-//}
-
-
 
 
 @MainActor
 final class PhotoPickerViewModel: ObservableObject {
     
    
-    @Published var selectedImage: Image? = nil
-    @Published var imageSelection: PhotosPickerItem? = nil {
+    //@Published
+    var selectedPhoto: Image? = nil
+    @Published var selectedPhotoItem: PhotosPickerItem? = nil {
         didSet {
-            setImage(from: imageSelection)
+            setPhoto(from: selectedPhotoItem)
         }
     }
-    
    
     var isLoading: Bool = false
     
-    var photoService = PhotoService.shared
-    var scaleService = ScaleService.shared
-
-    private func setImage(from selection: PhotosPickerItem?) {
-            guard let selection else { return }
+    let photoService = PhotoService.shared
+    
+    private func setPhoto(from selection: PhotosPickerItem?) {
+        guard let selection else { return }
             
         isLoading = true
         
@@ -45,15 +38,12 @@ final class PhotoPickerViewModel: ObservableObject {
             if let data = try? await selection.loadTransferable(type: Data.self) {
                 if let uiImage = UIImage(data: data) {
                
-                    self.selectedImage = Image(uiImage: uiImage)
+                    self.selectedPhoto = Image(uiImage: uiImage)
                         
-                    
-                    //make photo presence known to all
-                        photoService.setPhoto(Image(uiImage: uiImage))
-                    
-                        //scaleService.setScalingCompletedFalse()
-                    
-                        self.isLoading = false
+                    //make photo available to all subscribers
+                    photoService.setPhoto(Image(uiImage: uiImage))
+                
+                    self.isLoading = false
                  
                 } else {
                         self.isLoading = false
@@ -65,19 +55,15 @@ final class PhotoPickerViewModel: ObservableObject {
     }
     
     
+    
     func getSelectedImage() -> Image {
-        guard let unwrapped = selectedImage else {
+        guard let unwrapped = selectedPhoto else {
             fatalError()
         }
         
         return unwrapped
     }
     
-    func removeSelectedImage() {
-        selectedImage = nil
-        imageSelection = nil
-        photoService.removePhoto()
-    }
 
 }
 

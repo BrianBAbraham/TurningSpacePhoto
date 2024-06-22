@@ -13,9 +13,9 @@ import SwiftUI
 struct ScalingPhotoView: View {
     @EnvironmentObject var scalingPhotoVM: ScalingPhotoViewModel
   
-    var photo: Image? {
-        scalingPhotoVM.scalingPhoto
-    }
+//    var photo: Image? {
+//        scalingPhotoVM.scalingPhoto
+//    }
  
     @GestureState private var startScalingPhotoLocation: CGPoint? = nil // 1
     
@@ -54,7 +54,7 @@ struct ScalingPhotoView: View {
         
         if scalingPhotoVM.showScalingPhoto {
             Group {
-                photo! // if checks for nil
+                scalingPhotoVM.scalingPhoto! // if checks for nil
                 .initialImageModifier()
                 .scaleEffect(photoScalingZoom)
                 .position(position)

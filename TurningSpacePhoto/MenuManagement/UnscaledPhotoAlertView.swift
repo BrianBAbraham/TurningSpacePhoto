@@ -31,11 +31,11 @@ struct UnscaledPhotoAlertView: View {
                     title: Text("PLAN NOT SCALED"),
                     message: Text("You have left photo-scaling without setting the scale. To compare a wheelchair against a plan you must position the dotted scaling lines and input the plan dimension and tap \"Go\" \n\nOr if just playing without a scaled plan, do not scale"),
                     primaryButton: .default(Text("Set Scale"), action: {
-                        unscaledPhotoAlertVM.setScale()
+                        unscaledPhotoAlertVM.setProceedWithScalingPhoto()
 
                     }),
                     secondaryButton: .cancel(Text("Do not scale"), action: {
-                        unscaledPhotoAlertVM.setDoNotScale()
+                        unscaledPhotoAlertVM.setProceedWithUnscaledPhoto()
                     })
                 )
             }
