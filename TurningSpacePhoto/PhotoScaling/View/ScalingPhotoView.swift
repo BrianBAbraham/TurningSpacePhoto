@@ -9,32 +9,24 @@
 import SwiftUI
 
 
-
 struct ScalingPhotoView: View {
     @EnvironmentObject var scalingPhotoVM: ScalingPhotoViewModel
-  
-//    var photo: Image? {
-//        scalingPhotoVM.scalingPhoto
-//    }
- 
-    @GestureState private var startScalingPhotoLocation: CGPoint? = nil // 1
     
-    var position: CGPoint {
-        scalingPhotoVM.scalingPhotoLocation
-    }
+   
+    @GestureState private var startScalingPhotoLocation: CGPoint? = nil // 1
     
     var dragScalingPhoto: some Gesture {
        
         DragGesture()
             .onChanged { value in
-                var newLocation = startScalingPhotoLocation ?? position//
+                var newLocation = startScalingPhotoLocation ?? scalingPhotoVM.scalingPhotoLocation//
                     newLocation.x += value.translation.width
                     newLocation.y += value.translation.height
                 scalingPhotoVM.setScalingPhotoLocation(newLocation)
             }
             .updating($startScalingPhotoLocation) { (value, startLocation, transaction) in
                     startLocation = startLocation ??
-                position
+                scalingPhotoVM.scalingPhotoLocation
                 
             }
     }
@@ -55,9 +47,10 @@ struct ScalingPhotoView: View {
         if scalingPhotoVM.showScalingPhoto {
             Group {
                 scalingPhotoVM.scalingPhoto! // if checks for nil
+             
                 .initialImageModifier()
                 .scaleEffect(photoScalingZoom)
-                .position(position)
+                .position(scalingPhotoVM.scalingPhotoLocation)
                 .gesture(dragScalingPhoto)
                 .gesture(MagnificationGesture()
                     .onChanged { value in

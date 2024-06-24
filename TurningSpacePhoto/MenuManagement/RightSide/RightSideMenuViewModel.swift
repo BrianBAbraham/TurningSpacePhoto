@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 
-class ConditionalRightSideMenuViewModel: ObservableObject {
+class RightSideMenuViewModel: ObservableObject {
  
     @Published private (set) var showRightSideMenu = RightSideMenuDisplayService.shared.showRightSideMenu
     

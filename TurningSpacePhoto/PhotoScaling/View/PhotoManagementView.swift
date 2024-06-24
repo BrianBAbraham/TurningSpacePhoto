@@ -18,6 +18,7 @@ struct PhotoManagementView: View {
             ScalingToolView()
                 
             PhotoMenuView()
+                
         }
     }
 }

@@ -24,16 +24,39 @@ class DismissBottomMenuViewModel: ObservableObject {
     }
     
     
+    func setMenu(_ menuName: String) {
+       
+        if menuName == "openFile" {
+           
+        }
+        if menuName == "photo" {
+        
+            setShowPhotoMenuFalse()
+            
+        }
+        if menuName == "arrow.clockwise" {
+           
+        }
+        if menuName == MenuIcon.chairTool {
+            setShowChairMenuFalse()
+        }
+    }
+    
+    
     func setShowChairMenuFalse (){
         BottomMenuDisplayService.shared.setShowChairMenuFalse()
     }
     
     
     func setShowPhotoMenuFalse (){
-        
+
         if photoStatus {
-            //if a photo exists protect against unscaled use
+          
+            //if photo exists alert of unscaled use
             let _ = UnscaledPhotoAlertMediator.shared
+            
+            //photo is chosen even if unscaled
+            PhotoService.shared.setChosenPhotoStatusTrue()
         }
         
         BottomMenuDisplayService.shared.setShowPhotoMenuFalse()

@@ -9,7 +9,8 @@ import Combine
 import SwiftUI
 
 
-
+//provides a photo which is scaled independently of
+//wheelchair until scaling completed is activated
 class ScalingPhotoViewModel: ObservableObject {
 
     
@@ -19,9 +20,12 @@ class ScalingPhotoViewModel: ObservableObject {
         
     let photoService = PhotoService.shared
     
-    var scalingPhoto: Image? = PhotoService.shared.photo
+    @Published var scalingPhoto: Image? = PhotoService.shared.photo
     
     var scalingCompleted = ScaleService.shared.scalingCompleted
+    
+   private (set) var showPhotoMenu =
+        BottomMenuDisplayService.shared.showPhotoMenu
     
 
     private var cancellables: Set<AnyCancellable> = []
@@ -54,6 +58,15 @@ class ScalingPhotoViewModel: ObservableObject {
             .store(
                 in: &cancellables
             )
+        
+        BottomMenuDisplayService.shared.$showPhotoMenu
+            .sink { [weak self] newData in
+                self?.showPhotoMenu = newData
+                self?.setShowScalingPhotoFalseIfPhotoMenuDimsissed()
+            }
+            .store(
+                in: &cancellables
+            )
     }
 }
 
@@ -67,7 +80,7 @@ extension ScalingPhotoViewModel {
     
     
     func setShowScalingPhoto() {
-       showScalingPhoto = false
+
         if scalingCompleted == false &&
             scalingPhoto != nil {
             showScalingPhoto = true
@@ -75,9 +88,14 @@ extension ScalingPhotoViewModel {
             showScalingPhoto = false
         }
     }
-    
 
     
+    func setShowScalingPhotoFalseIfPhotoMenuDimsissed(){
+        if !showPhotoMenu && scalingPhoto != nil && !scalingCompleted {
+            showScalingPhoto = false
+        }
+    }
+
     
     func setScalingPhotoLocation(_ location: CGPoint) {
         photoService.setPhotoLocation(location)

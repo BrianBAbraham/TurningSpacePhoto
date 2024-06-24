@@ -9,14 +9,10 @@ import Foundation
 import Combine
 import SwiftUI
 
-
-
-
-
 class ChosenPhotoViewModel: ObservableObject {
     @Published var chosenPhoto: Image? = PhotoService.shared.photo
 
-    @Published var photoStatus: Bool = PhotoService.shared.photoStatus
+    @Published var chosenPhotoStatus: Bool = PhotoService.shared.chosenPhotoStatus
 
     @Published var finalPhotoZoom = PhotoService.shared.finalPhotoZoom
 
@@ -34,9 +30,9 @@ class ChosenPhotoViewModel: ObservableObject {
                 in: &cancellables
             )
         
-        PhotoService.shared.$photoStatus
+        PhotoService.shared.$chosenPhotoStatus
             .sink { [weak self] newData in
-                self?.photoStatus = newData
+                self?.chosenPhotoStatus = newData
             }
             .store(
                 in: &cancellables

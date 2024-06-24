@@ -58,7 +58,7 @@ class ScaleValueProviderMediator: ObservableObject {
    
     var dimensionOnPlan = DimensionService.shared.dimensionOnPlan
     
-    @Published var scale = ScaleService.shared.scale
+    var scale = ScaleService.shared.scale
 
     private var cancellables: Set<AnyCancellable> = []
 

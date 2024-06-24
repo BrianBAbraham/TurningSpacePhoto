@@ -22,30 +22,24 @@ struct ChosenPhotoView: View {
     
 
     var body: some View {
-        
-       
-        return
-            Group {
-        
-                if chosenPhotoVM.photoStatus {
-                    
-                    chosenPhotoVM.chosenPhoto!//safe with if
-                     
-                        .initialImageModifier()
-                    // set backGround to scale that was last applied in the PhotoScaleView
-                        .scaleEffect(chosenPhotoVM.finalPhotoZoom)
-                        .position(chosenPhotoVM.photoLocation)
-                        .gesture(DragPhotoAndChairsGesture(
-                            xChange: $xChange,
-                            yChange: $yChange
-                        ))
-                        .gesture(fingerDrag)
-                        .zIndex(0)
-                    
-                } else {
-                    EmptyView()
-                       
-                }
-            }
-         }
+        if chosenPhotoVM.chosenPhotoStatus {
+            chosenPhotoVM.chosenPhoto!//safe with if
+                .initialImageModifier()
+            // set backGround to scale last applied in the PhotoScaleView
+            // all further scale change in chair and photo view as must synchronise
+            // all drag must act on chair and photo
+                .scaleEffect(chosenPhotoVM.finalPhotoZoom)
+                .position(chosenPhotoVM.photoLocation)
+                .gesture(DragPhotoAndChairsGesture(
+                    xChange: $xChange,
+                    yChange: $yChange
+                ))
+                .gesture(fingerDrag)
+                .zIndex(0)
+            
+        } else {
+            EmptyView()
+               
+        }
+     }
 }

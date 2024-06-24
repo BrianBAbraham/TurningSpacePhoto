@@ -13,7 +13,7 @@ import SwiftUI
 struct TurningSpacePhotoApp: App {
     
     //MENU MANAGEMENT a - z
-    @StateObject var conditionalRightSideMenuViewModel = ConditionalRightSideMenuViewModel()
+    @StateObject var rightSideMenuViewModel = RightSideMenuViewModel()
     @StateObject var conditionalUnscaledPhotoAlertViewModel = ConditionalUnscaledPhotoAlertViewModel()
     @StateObject var dismissBottomMenuViewModel = DismissBottomMenuViewModel()
     @StateObject var dismissRightSideMenuViewModel = DismissRightSideMenuViewModel()
@@ -54,7 +54,7 @@ struct TurningSpacePhotoApp: App {
             ContentView()
                
                 //MENU MANAGEMENT a - z
-                .environmentObject(conditionalRightSideMenuViewModel)
+                .environmentObject(rightSideMenuViewModel)
                 .environmentObject(conditionalUnscaledPhotoAlertViewModel)
                 .environmentObject(dismissBottomMenuViewModel)
                 .environmentObject(dismissRightSideMenuViewModel)

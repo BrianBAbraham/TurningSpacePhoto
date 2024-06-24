@@ -16,11 +16,8 @@ struct ReturnToRightSideMenuView: View {
         ZStack {
             VStack {
                 Button( action: {
-                   
+                
                     returnToRightSideMenuVM.retunToRightSideMenu()
-                    
-                    print("ALERT")
-
                 }) {
                     Spacer()
                     ZStack{

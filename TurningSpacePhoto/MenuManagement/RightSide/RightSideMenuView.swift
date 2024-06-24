@@ -7,53 +7,33 @@
 
 import SwiftUI
 
-struct ConditionalRightSideMenuView: View {
-    @EnvironmentObject var conditionalRightSideMenuVM: ConditionalRightSideMenuViewModel
-    var body: some View {
-            if conditionalRightSideMenuVM.showRightSideMenu {
-                ShowRightSideMenuView (content: RightSideMenuView())
-            }
-    }
-}
-
-
-
-struct ShowRightSideMenuView<Content: View>: View {
-    let content: Content
-    init(content: Content) {
-        self.content = content
-    }
-    var body:some View {
-       HStack {
-           self.content
-        }
-        .transition(.move(edge: .trailing))
-        .onAppear{
-            withAnimation(Animation.easeInOut(duration: 1.5)) {}
-        }
-    }
-}
-
 
 
 struct RightSideMenuView: View {
+    @EnvironmentObject var rightSideMenuVM: RightSideMenuViewModel
     var body: some View {
-        ZStack (alignment: .trailing) {
-            RightSideMenuBackgroundView()
-            
-            VStack{
-                Group{
-                    DismissRightSideMenuView()
-                    Spacer()
-                    // all sub menu below
-                    RightSideMenuItemView("photo")
-                    Spacer()
-                    RightSideMenuItemView(MenuIcon.chairTool)
-                    Spacer()
-                    MainHelpView()//helpButton
-                    Spacer()
+        if rightSideMenuVM.showRightSideMenu {
+            ZStack (alignment: .trailing) {
+                RightSideMenuBackgroundView()
+             
+                
+                VStack{
+                    Group{
+                        DismissRightSideMenuView()
+                        Spacer()
+                        // all sub menu below
+                        RightSideMenuItemView("photo")
+                        Spacer()
+                        RightSideMenuItemView(MenuIcon.chairTool)
+                        Spacer()
+                        MainHelpView()//helpButton
+                        Spacer()
+                    }
                 }
             }
+        } else {
+            ReturnToRightSideMenuView()
+                .zIndex(11.0)
         }
     }
 }

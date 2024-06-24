@@ -10,20 +10,6 @@ import SwiftUI
 import Combine
 
 
-//class UnscaledPhotoAlertService {
-//    static let shared = UnscaledPhotoAlertService()
-//    
-//    @Published var unscaledPhotoAlert = false
-//    
-//    func setUnscaledPhotoAlertFalse(){
-//        unscaledPhotoAlert = false
-//    }
-//    
-//    func setUnscaledPhotoAlertTrue(){
-//        unscaledPhotoAlert = true
-//    }
-//}
-
 
 class PhotoLocationChangeService {
     static let shared = PhotoLocationChangeService()
@@ -50,7 +36,6 @@ class ShowUnscaledPhotoAlertService {
     }
     
     func setShowUnscaledPhotoAlertDialogTrue() {
-        print ("show photo alert set to true")
         showAlertDialog = true
     }
     
@@ -217,11 +202,16 @@ class DimensionService {
 
 class PhotoService {
     @Published var photoStatus = false
+    @Published var chosenPhotoStatus = false
     @Published var photo: Image?
     @Published var finalPhotoZoom = 1.0
     @Published var photoLocation = SizeOf.centre
     
     static let shared = PhotoService()
+    
+    func setChosenPhotoStatusTrue() {
+        chosenPhotoStatus = true
+    }
     
     
     func setFinalPhotoZoom(_ value: Double) {
@@ -240,14 +230,17 @@ class PhotoService {
     }
     
     
+    
     func setPhoto(_ image: Image) {
         setPhotoStatus(true)
+        setChosenPhotoStatusTrue()
         self.photo = image
     }
     
     
     func removePhoto() {
         photoStatus = false
+        chosenPhotoStatus = false
         photo = nil
     }
 }
