@@ -19,8 +19,4 @@ struct SizeClass: View {
         }
 }
 
-struct SizeClass_Previews: PreviewProvider {
-    static var previews: some View {
-        SizeClass()
-    }
-}
+

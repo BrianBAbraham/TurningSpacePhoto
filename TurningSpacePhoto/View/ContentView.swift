@@ -48,12 +48,10 @@ struct ContentView: View {
                     .zIndex(2.0)
                  
           
-                ChairMovementOnChosenBackground(zoom)
-
+                ChairMovementOnChosenPhoto(zoom)
                     .gesture(MagnificationGesture()
                         .onChanged { value in
                             currentZoom = value - 1
-                            
                             //tools to edit chair movment only appear at sufficient zoom
                             visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
                         }
@@ -62,6 +60,7 @@ struct ContentView: View {
                             currentZoom = 0.0
                         }
                      )
+                
                 
                 RightSideMenuView()
                     .zIndex(11.0)

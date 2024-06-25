@@ -10,8 +10,8 @@ import SwiftUI
 
 
 @main
-struct TurningSpacePhotoApp: App {
-    
+
+struct TurningSpace001App: App {
     //MENU MANAGEMENT a - z
     @StateObject var rightSideMenuViewModel = RightSideMenuViewModel()
     @StateObject var conditionalUnscaledPhotoAlertViewModel = ConditionalUnscaledPhotoAlertViewModel()
@@ -24,7 +24,6 @@ struct TurningSpacePhotoApp: App {
    //MISC
     @StateObject var vm = ChairManoeuvreProjectVM()
     @StateObject var menuChairViewModel = MenuChairViewModel()
-    @StateObject var alertVM = AlertViewModel()
     @StateObject var visibleToolViewModel = VisibleToolViewModel()
     
     
@@ -65,7 +64,6 @@ struct TurningSpacePhotoApp: App {
                 //MISC
                 .environmentObject(vm)
                 .environmentObject(menuChairViewModel)
-                .environmentObject(alertVM)
                 .environmentObject(visibleToolViewModel)
             
                 //OBJECT CONTROL

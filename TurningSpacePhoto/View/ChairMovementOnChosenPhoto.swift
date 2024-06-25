@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChairMovementOnChosenBackground: View {
+struct ChairMovementOnChosenPhoto: View {
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
    
     let zoom: Double

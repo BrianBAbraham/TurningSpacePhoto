@@ -29,7 +29,7 @@ struct DragPhotoAndChairsGesture: Gesture {
                     x: startLocation.x + value.translation.width,
                     y: startLocation.y + value.translation.height
                 )
-                
+                print("update")
                 dragPhotoAndChairsGestureMediator.setPhotoLocation((newLocation.x, newLocation.y))
 
                 let xTranslation = value.translation.width
@@ -49,6 +49,8 @@ struct DragPhotoAndChairsGesture: Gesture {
             }
     }
 }
+
+
 
 
 import Combine

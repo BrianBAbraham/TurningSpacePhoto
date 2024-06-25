@@ -28,6 +28,7 @@ struct ChosenPhotoView: View {
             // set backGround to scale last applied in the PhotoScaleView
             // all further scale change in chair and photo view as must synchronise
             // all drag must act on chair and photo
+            //ChairManoeuvreProjectVM subscribes to locationChange
                 .scaleEffect(chosenPhotoVM.finalPhotoZoom)
                 .position(chosenPhotoVM.photoLocation)
                 .gesture(DragPhotoAndChairsGesture(
