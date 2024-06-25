@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-
+//
 
 //struct SubMenuForPickManoeuvreView: View {
 //    @EnvironmentObject var vm: ChairManoeuvreProjectVM
