@@ -28,7 +28,7 @@ struct ContentView: View {
     private var  minimumZoom: Double {
         0.07 / chairManoeuvreProjectVM.model.manoeuvreScale
     }
-    private var maximimumZoom = 5.0
+    private let maximimumZoom = 5.0
     var zoom: CGFloat {
         limitZoom( 1 + currentZoom + lastCurrentZoom)
    
@@ -38,16 +38,10 @@ struct ContentView: View {
     }
     
     
-    
-    
-    
     var body: some View {
 
         ZStack{
-     
-
              ScaleDimensionLineView(zoom)
-
 
             ZStack {
                 PhotoManagementView()
@@ -55,7 +49,7 @@ struct ContentView: View {
                  
           
                 ChairMovementOnChosenBackground(zoom)
-                    .scaleEffect(zoom)
+
                     .gesture(MagnificationGesture()
                         .onChanged { value in
                             currentZoom = value - 1
@@ -76,7 +70,6 @@ struct ContentView: View {
                 
                ConditionalUnscaledPhotoAlertView()
                             
-                
             }
         }
     }
