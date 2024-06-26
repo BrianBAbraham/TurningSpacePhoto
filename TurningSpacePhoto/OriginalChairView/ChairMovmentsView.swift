@@ -116,7 +116,7 @@ struct ChairMovementView: View {
             return false
         } else {
         return
-        (vm.getMovementIndexWithOutChairIndex(chairMovement)! == 0) || (!vm.getMovementFixedConstraintLocationStates(chairMovement).contains(true)) ? true: false
+            (vm.getMovementIndexWithOutChairIndex(chairMovement)! == 0) || (!vm.getMovementFixedConstraintLocationStates(chairMovement).contains(true)) ? true: false
         }
     }
     var chairDragToolOffset: Double {
@@ -223,21 +223,20 @@ struct ChairMovementsView: View {
     }
 
     var body: some View {
-        let indexOfFirstMovement = 0
+        //let indexOfFirstMovement = 0
         ZStack{
 
                 ForEach(forEachMovementOfOneChairArrayChairMovementPart, id: \.movement.id ) { item in
                     ChairMovementView(chairMovementArgument: item)
                 }
                 .gesture(
-                    chairDrag.simultaneously(with: fingerDrag), including: turningNotDragging ? subviews: all
-            )
+                    chairDrag)//.simultaneously(with: fingerDrag), including: turningNotDragging ? subviews: all)
             
-            if forEachMovementOfOneChairArrayChairMovementPart.count > 1 {
-            TurningArcs(forEachMovementOfOneChairArrayChairMovementPart)
-            }
-
-            TapToFlipConditionalView(chairMovement: forEachMovementOfOneChairArrayChairMovementPart[0])
+//            if forEachMovementOfOneChairArrayChairMovementPart.count > 1 {
+//            TurningArcs(forEachMovementOfOneChairArrayChairMovementPart)
+//            }
+//
+//            TapToFlipConditionalView(chairMovement: forEachMovementOfOneChairArrayChairMovementPart[0])
             
 
         }

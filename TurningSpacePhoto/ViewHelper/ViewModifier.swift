@@ -7,13 +7,7 @@
 
 import SwiftUI
 
-//struct ForInitialImageSize: ViewModifier {
-//
-//    func body(content: Content) -> some View {
-//        content
-//
-//        }
-//}
+
 
 extension Image {
     //Must be applied both to image in select photo and to the that image when saved as a background or scaling is wrong

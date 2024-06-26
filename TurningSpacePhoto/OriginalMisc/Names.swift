@@ -30,14 +30,7 @@ enum MovementNames: String, CaseIterable, Identifiable {
 //    case turn = "turn"
 }
 
-//enum ManoeureNames: [String] {
-//
-//    case oval = ["Oval", "position", "straight", "turn", "straight ", "turn", "straight", "turn", "straight"]
-//    case slalom = "Slalom"
-//    case simpleStraight = "Simple Straight"
-//    case simpleTurn = "Simmple Turn"
-//    case teeTurn = "T-Turn"
-//}
+
 
 enum PartElementNames: String, CaseIterable {
     case xLocal = "xLocal"
@@ -90,12 +83,7 @@ enum FlipAxes {
     case bottomToTop
     case leftToRight
 }
-//struct LocationNames {
-//    let names = ChairPartsAndLocationNames(String)
-//    let required = [names.left, names.betweenLeftRight, names.right, names.front, names.betweenFrontRear, names.rear]
-//
-//    static let are = ChairPartsAndLocationNames.allCases[0...5].map{$0}
-//}
+
 
 enum MovementIs: String {
     case anyWhere = "AnyWhere"

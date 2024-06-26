@@ -422,7 +422,7 @@ print("left to right")
     
     func replacePartsInExistingChairManoeuvre(_ new: Double, _ measureItem: ChairMeasurements){
         if getIsAnyChairSelected() {
-            let scale = 1.0
+          //  let scale = 1.0
             let chairIndex = getSelectedChairIndexAfterEnsuringSelectedExists()
             let chairMeasurements = chairManoeuvres[chairIndex].chair.measurements
             let oldChairWidth = chairMeasurements[ChairMeasurements.chairWidth.rawValue] ?? 100.0

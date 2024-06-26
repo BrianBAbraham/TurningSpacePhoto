@@ -34,6 +34,12 @@ class RightSideMenuItemViewModel: ObservableObject {
         case "folder.fill", "arrow.clockwise":
             // handle these cases if needed
             break
+            
+        case "figure.roll":
+            break
+            
+        case "circle":
+            break
         default:
             break
         }

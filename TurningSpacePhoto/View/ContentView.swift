@@ -7,27 +7,11 @@
 
 import SwiftUI
 
-
-
-
-
-
 struct ContentView: View {
-    
-    @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
 
-  // @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
-
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-
-    
-    
-    
     @State var currentZoom: CGFloat = 0.0
     @State var lastCurrentZoom: CGFloat = 0.0
-    private var  minimumZoom: Double {
-        0.07 / chairManoeuvreProjectVM.model.manoeuvreScale
-    }
+    private let  minimumZoom = 0.5
     private let maximimumZoom = 5.0
     var zoom: CGFloat {
         limitZoom( 1 + currentZoom + lastCurrentZoom)
