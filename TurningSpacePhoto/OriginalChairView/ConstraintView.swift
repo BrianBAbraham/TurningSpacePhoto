@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ConstraintView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
-    @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
+ 
     let chairMovement: Type.ChairMovementParts
     var movement: ChairManoeuvre.Movement{chairMovement.movement}
     var constraintLlocation: CGPoint {Determine.constraintLocationInGlobal(movement)}
@@ -18,9 +18,9 @@ struct ConstraintView: View {
         vm.applyChairManoeuvreScale(SizeOf.tool)
     }
     var body: some View {
-        if visibleToolViewModel.getShowTool()  {
+ 
             ConstraintMark(chairMovement: chairMovement, location: constraintLlocation)
-        }
+   
     }
 }
 

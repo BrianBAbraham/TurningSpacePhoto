@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TurnHandleConditionalView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
-    @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
+  
     var forEachMovementOfOneChairArrayChairMovementPart: [Type.ChairMovementParts]
     let firstIndex = 0
     var chairMovementParts: Type.ChairMovementParts {
@@ -46,7 +46,8 @@ struct TurnHandleConditionalView: View {
     var mostDistantSideFromConstraint: LeftOrRight {
         movement.xConstraintToChairOriginLocation >= 0.0 ? .left: .right}
     var body: some View {
-        if atLeastOneMovementIsSelected && visibleToolViewModel.getShowTool() {
+    
+        if atLeastOneMovementIsSelected {
                 TurnHandleView(
                     forEachMovementOfOneChairArrayChairMovementPart: forEachMovementOfOneChairArrayChairMovementPart,
                     chair: chair,

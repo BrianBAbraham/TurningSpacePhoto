@@ -63,20 +63,7 @@ struct Determine {
         return CGPoint(x: xNewLocation, y: yNewLocation)
     }
     
-//    static func locationOfTurnHandleStickEndInGlobal ( _ movement: ChairManoeuvre.Movement, _ markLocationInGlobal: CGPoint, _ xFlipped: Bool) -> CGPoint {
-//        var turnStickLength = 600.0
-//        if movement.name == MovementNames.turn.rawValue {
-//            turnStickLength += 600.0
-//        }
-//        var xLocationOfTurnHanldeStickEndInGlobal = markLocationInGlobal.x + turnStickLength
-//        xLocationOfTurnHanldeStickEndInGlobal = xFlipped ? -xLocationOfTurnHanldeStickEndInGlobal: xLocationOfTurnHanldeStickEndInGlobal
-//
-//        let turnHandleStickEndLocationInGlobal =  CGPoint(x: xLocationOfTurnHanldeStickEndInGlobal,  y: markLocationInGlobal.y)
-//print(xLocationOfTurnHanldeStickEndInGlobal)
-//print(markLocationInGlobal.x)
-//print("")
-//        return turnHandleStickEndLocationInGlobal
-//    }
+
     
     static func locationOfLeftTurnHandleStickEndInGlobal (_ turnStickLength: Double, _ markLocationInGlobal: CGPoint ) -> CGPoint{
         return CGPoint(x: markLocationInGlobal.x + turnStickLength,  y: markLocationInGlobal.y)
@@ -123,22 +110,7 @@ struct Determine {
         return locationForDimension
     }
     
-    
-//    static func locationOnAftForeLineAtDimensionFromOriginInGlobal(_ chair: ChairManoeuvre.Chair, _ movement: ChairManoeuvre.Movement, _ dimension: Double, _ scale: Double) -> CGPoint{
-////print("locationOnConstraintLineAtDimensionFromOriginInGlobal:\(dimension)")
-//        var locationForDimension: CGPoint = .zero
-//        var mostDistantSideFromConstraint: LeftOrRight {
-//            movement.xConstraintToChairOriginLocation >= 0.0 ? .left: .right}
-//        switch mostDistantSideFromConstraint {
-//            case .left:
-//            locationForDimension = CGPoint(x: 0 , y: dimension)
-//            case .right:
-//            locationForDimension = CGPoint(x: 0 , y: dimension)
-//        }
-//        locationForDimension = Manipulate.addCGPoints(locationForDimension, chairOriginAccountingForScaleInGlobal(movement, scale))
-////print("locationOnConstraintLineAtDimensionFromOriginInGlobal:\(locationForDimension)")
-//        return locationForDimension
-//    }
+
     
     static func locationOnCircleClosestToPointInLocal(_ radius: Double, _ circleCentre: CGPoint, _ otherLocation: CGPoint) -> CGPoint {
         let circleCentreToOtherLocationInLocal = Manipulate.secondMinusFirstCGPoints( circleCentre,  otherLocation)
@@ -266,19 +238,11 @@ struct Determine {
             partNames = [partName + markLocationName + "Mark"]
         }
         
-        
-//print(partNames)
         return partNames
     }
     
     
-//    static func directionOfArcs(_ startAngleAccountingForFlip: Double, _ endAngleAccountingForFlip: Double) -> Bool{
-//        startAngleInitiallySmaller = startAngleAccountingForFlip < endAngleAccountingForFlip ? true: false
-//        if startAngleAccountingForFlip > endAngleAccountingForFlip {
-//            endAngleSubsequentlySmaller = true
-//        }
-//        return startAngleInitiallySmaller && !endAngleSubsequentlySmaller ? true: false
-//    }
+
     
     static func turnStickLength(_ movement: ChairManoeuvre.Movement, _ length: Double) -> Double {
         var turnStickLength = length

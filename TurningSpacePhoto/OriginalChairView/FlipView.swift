@@ -11,7 +11,7 @@ import SwiftUI
 struct TapToFlipConditionalView: View {
 
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
-    @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
+
     let chairMovement: Type.ChairMovementParts
     var movement: ChairManoeuvre.Movement{
         chairMovement.movement
@@ -44,18 +44,11 @@ struct TapToFlipConditionalView: View {
     }
     
     var body: some View {
-//        if chairMovement.chair.isSelected {
-//            TapToFlipView(chairMovement: chairMovement, movement: movement)
-//            FlipRectangleView(movement, originAfterRotationInGlobal, 0, scaledHorizontalDimensionFromOrign)
-        if visibleToolViewModel.getShowTool() {
 
+   
         CircleFlipView(chairMovement: chairMovement, originAfterRotationInGlobal: originAfterRotationInGlobal)
 
-//        } else {
-//            EmptyView()
-//        }
-        }
-    }
+   }
 }
 
 struct CircleFlipView: View {

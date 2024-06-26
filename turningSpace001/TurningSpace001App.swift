@@ -24,7 +24,7 @@ struct TurningSpace001App: App {
    //MISC
     @StateObject var vm = ChairManoeuvreProjectVM()
     @StateObject var menuChairViewModel = MenuChairViewModel()
-    @StateObject var visibleToolViewModel = VisibleToolViewModel()
+    //@StateObject var visibleToolViewModel = VisibleToolViewModel()
     
     
     //OBJECT CONTROL
@@ -64,7 +64,7 @@ struct TurningSpace001App: App {
                 //MISC
                 .environmentObject(vm)
                 .environmentObject(menuChairViewModel)
-                .environmentObject(visibleToolViewModel)
+               // .environmentObject(visibleToolViewModel)
             
                 //OBJECT CONTROL
                 .environmentObject(dragBackgroundPhotoAndChairsGestureMediator)

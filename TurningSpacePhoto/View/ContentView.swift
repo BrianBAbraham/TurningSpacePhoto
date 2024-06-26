@@ -16,7 +16,7 @@ struct ContentView: View {
     
     @EnvironmentObject var chairManoeuvreProjectVM: ChairManoeuvreProjectVM
 
-   @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
+  // @EnvironmentObject var visibleToolViewModel: VisibleToolViewModel
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
@@ -53,7 +53,7 @@ struct ContentView: View {
                     .onChanged { value in
                         currentZoom = value - 1
                         //tools to edit chair movment only appear at sufficient zoom
-                        visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
+                       // visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
                     }
                     .onEnded { value in
                         lastCurrentZoom += currentZoom

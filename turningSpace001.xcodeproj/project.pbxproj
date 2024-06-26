@@ -10,12 +10,10 @@
 		FDDA3BEB2C2B14D900C7ED5E /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B912C2B14D900C7ED5E /* DataServices.swift */; };
 		FDDA3BEC2C2B14D900C7ED5E /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B932C2B14D900C7ED5E /* Names.swift */; };
 		FDDA3BED2C2B14D900C7ED5E /* Determine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B942C2B14D900C7ED5E /* Determine.swift */; };
-		FDDA3BEE2C2B14D900C7ED5E /* Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B952C2B14D900C7ED5E /* Manipulations.swift */; };
 		FDDA3BEF2C2B14D900C7ED5E /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B962C2B14D900C7ED5E /* Type.swift */; };
 		FDDA3BF02C2B14D900C7ED5E /* GlobalSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B972C2B14D900C7ED5E /* GlobalSizes.swift */; };
 		FDDA3BF12C2B14D900C7ED5E /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B982C2B14D900C7ED5E /* Shapes.swift */; };
 		FDDA3BF22C2B14D900C7ED5E /* MenuChairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B9A2C2B14D900C7ED5E /* MenuChairViewModel.swift */; };
-		FDDA3BF32C2B14D900C7ED5E /* VisbileToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B9B2C2B14D900C7ED5E /* VisbileToolViewModel.swift */; };
 		FDDA3BF52C2B14D900C7ED5E /* ChairManoeuvreProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B9D2C2B14D900C7ED5E /* ChairManoeuvreProjectVM.swift */; };
 		FDDA3BF62C2B14D900C7ED5E /* TurningSpace001App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3B9E2C2B14D900C7ED5E /* TurningSpace001App.swift */; };
 		FDDA3BF82C2B14D900C7ED5E /* UnscaledPhotoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BA32C2B14D900C7ED5E /* UnscaledPhotoAlertView.swift */; };
@@ -87,12 +85,10 @@
 		FDDA3B912C2B14D900C7ED5E /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		FDDA3B932C2B14D900C7ED5E /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
 		FDDA3B942C2B14D900C7ED5E /* Determine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Determine.swift; sourceTree = "<group>"; };
-		FDDA3B952C2B14D900C7ED5E /* Manipulations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manipulations.swift; sourceTree = "<group>"; };
 		FDDA3B962C2B14D900C7ED5E /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		FDDA3B972C2B14D900C7ED5E /* GlobalSizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSizes.swift; sourceTree = "<group>"; };
 		FDDA3B982C2B14D900C7ED5E /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		FDDA3B9A2C2B14D900C7ED5E /* MenuChairViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairViewModel.swift; sourceTree = "<group>"; };
-		FDDA3B9B2C2B14D900C7ED5E /* VisbileToolViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisbileToolViewModel.swift; sourceTree = "<group>"; };
 		FDDA3B9D2C2B14D900C7ED5E /* ChairManoeuvreProjectVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreProjectVM.swift; sourceTree = "<group>"; };
 		FDDA3B9E2C2B14D900C7ED5E /* TurningSpace001App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurningSpace001App.swift; sourceTree = "<group>"; };
 		FDDA3BA32C2B14D900C7ED5E /* UnscaledPhotoAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnscaledPhotoAlertView.swift; sourceTree = "<group>"; };
@@ -176,10 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				FDDA3B912C2B14D900C7ED5E /* DataServices.swift */,
-				FDDA3B922C2B14D900C7ED5E /* Misc */,
+				FDDA3B922C2B14D900C7ED5E /* OriginalMisc */,
+				FDDA3BBB2C2B14D900C7ED5E /* OriginalModel */,
 				FDDA3B992C2B14D900C7ED5E /* OriginalViewModel */,
 				FDDA3C372C2B25A200C7ED5E /* OriginalChairView */,
-				FDDA3BBB2C2B14D900C7ED5E /* OriginalModel */,
 				FDDA3BA12C2B14D900C7ED5E /* MenuManagement */,
 				FDDA3BC12C2B14D900C7ED5E /* PhotoScaling */,
 				FDDA3C362C2B250C00C7ED5E /* ViewHelper */,
@@ -188,23 +184,21 @@
 			path = TurningSpacePhoto;
 			sourceTree = SOURCE_ROOT;
 		};
-		FDDA3B922C2B14D900C7ED5E /* Misc */ = {
+		FDDA3B922C2B14D900C7ED5E /* OriginalMisc */ = {
 			isa = PBXGroup;
 			children = (
 				FDDA3B932C2B14D900C7ED5E /* Names.swift */,
 				FDDA3B942C2B14D900C7ED5E /* Determine.swift */,
-				FDDA3B952C2B14D900C7ED5E /* Manipulations.swift */,
 				FDDA3B962C2B14D900C7ED5E /* Type.swift */,
 				FDDA3B972C2B14D900C7ED5E /* GlobalSizes.swift */,
 			);
-			path = Misc;
+			path = OriginalMisc;
 			sourceTree = "<group>";
 		};
 		FDDA3B992C2B14D900C7ED5E /* OriginalViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				FDDA3B9A2C2B14D900C7ED5E /* MenuChairViewModel.swift */,
-				FDDA3B9B2C2B14D900C7ED5E /* VisbileToolViewModel.swift */,
 				FDDA3B9D2C2B14D900C7ED5E /* ChairManoeuvreProjectVM.swift */,
 			);
 			path = OriginalViewModel;
@@ -289,7 +283,6 @@
 				FDDA3BC92C2B14D900C7ED5E /* PhotoMenuViewModel.swift */,
 				FDDA3BCA2C2B14D900C7ED5E /* PhotoDimensionSelectorViewModel.swift */,
 				FDDA3BCB2C2B14D900C7ED5E /* ScalingPhotoViewModel.swift */,
-				FDDA3BCC2C2B14D900C7ED5E /* ScaleDimensionLineViewModel.swift */,
 				FDDA3BCD2C2B14D900C7ED5E /* CenterPhotoButtonViewModel.swift */,
 			);
 			path = ViewModel;
@@ -328,6 +321,7 @@
 				FDDA3BE02C2B14D900C7ED5E /* ChairMovementOnChosenPhoto.swift */,
 				FDDA3BC52C2B14D900C7ED5E /* ChosenPhotoViewModel.swift */,
 				FDDA3BD32C2B14D900C7ED5E /* ChosenPhotoView.swift */,
+				FDDA3BCC2C2B14D900C7ED5E /* ScaleDimensionLineViewModel.swift */,
 				FDDA3BD82C2B14D900C7ED5E /* ScaleDimensionLineView.swift */,
 				FDDA3BE42C2B14D900C7ED5E /* DragBackgroundPhotoAndChairGesture.swift */,
 				FDDA3BE92C2B14D900C7ED5E /* ContentView.swift */,
@@ -489,7 +483,6 @@
 				FDDA3C012C2B14D900C7ED5E /* ReturnToRightSideMenuView.swift in Sources */,
 				FDDA3C282C2B14D900C7ED5E /* ConfirmScaleButtonView.swift in Sources */,
 				FDDA3C1B2C2B14D900C7ED5E /* CenterPhotoButtonViewModel.swift in Sources */,
-				FDDA3BF32C2B14D900C7ED5E /* VisbileToolViewModel.swift in Sources */,
 				FDDA3C2E2C2B14D900C7ED5E /* ArcView.swift in Sources */,
 				FDDA3C1E2C2B14D900C7ED5E /* PhotoMenuView.swift in Sources */,
 				FDDA3C1D2C2B14D900C7ED5E /* CurrentDimensionView.swift in Sources */,
@@ -531,7 +524,6 @@
 				FDDA3C172C2B14D900C7ED5E /* PhotoMenuViewModel.swift in Sources */,
 				FDDA3C112C2B14D900C7ED5E /* CurrentDimensionViewModel.swift in Sources */,
 				FDDA3C0C2C2B14D900C7ED5E /* VisibleToolModel.swift in Sources */,
-				FDDA3BEE2C2B14D900C7ED5E /* Manipulations.swift in Sources */,
 				FDDA3C192C2B14D900C7ED5E /* ScalingPhotoViewModel.swift in Sources */,
 				FDDA3C272C2B14D900C7ED5E /* ScalingDimensionSelectorView.swift in Sources */,
 				FDDA3C302C2B14D900C7ED5E /* ConstraintView.swift in Sources */,
