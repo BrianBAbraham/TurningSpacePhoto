@@ -36,7 +36,6 @@
 		FDDA3C092C2B14D900C7ED5E /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BB72C2B14D900C7ED5E /* Symbols.swift */; };
 		FDDA3C0A2C2B14D900C7ED5E /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BB82C2B14D900C7ED5E /* ButtonStyle.swift */; };
 		FDDA3C0B2C2B14D900C7ED5E /* SimpleWheelchair.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BBA2C2B14D900C7ED5E /* SimpleWheelchair.swift */; };
-		FDDA3C0C2C2B14D900C7ED5E /* VisibleToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BBC2C2B14D900C7ED5E /* VisibleToolModel.swift */; };
 		FDDA3C0D2C2B14D900C7ED5E /* ChairManoeuvreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BBD2C2B14D900C7ED5E /* ChairManoeuvreModel.swift */; };
 		FDDA3C0F2C2B14D900C7ED5E /* DefaultMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BBF2C2B14D900C7ED5E /* DefaultMeasurements.swift */; };
 		FDDA3C102C2B14D900C7ED5E /* MenuChairModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BC02C2B14D900C7ED5E /* MenuChairModel.swift */; };
@@ -71,7 +70,6 @@
 		FDDA3C2D2C2B14D900C7ED5E /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE22C2B14D900C7ED5E /* FlipView.swift */; };
 		FDDA3C2E2C2B14D900C7ED5E /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE32C2B14D900C7ED5E /* ArcView.swift */; };
 		FDDA3C2F2C2B14D900C7ED5E /* DragBackgroundPhotoAndChairGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE42C2B14D900C7ED5E /* DragBackgroundPhotoAndChairGesture.swift */; };
-		FDDA3C302C2B14D900C7ED5E /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE52C2B14D900C7ED5E /* ConstraintView.swift */; };
 		FDDA3C322C2B14D900C7ED5E /* SizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE72C2B14D900C7ED5E /* SizeClass.swift */; };
 		FDDA3C332C2B14D900C7ED5E /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE82C2B14D900C7ED5E /* ViewModifier.swift */; };
 		FDDA3C342C2B14D900C7ED5E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA3BE92C2B14D900C7ED5E /* ContentView.swift */; };
@@ -110,7 +108,6 @@
 		FDDA3BB72C2B14D900C7ED5E /* Symbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		FDDA3BB82C2B14D900C7ED5E /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		FDDA3BBA2C2B14D900C7ED5E /* SimpleWheelchair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleWheelchair.swift; sourceTree = "<group>"; };
-		FDDA3BBC2C2B14D900C7ED5E /* VisibleToolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibleToolModel.swift; sourceTree = "<group>"; };
 		FDDA3BBD2C2B14D900C7ED5E /* ChairManoeuvreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairManoeuvreModel.swift; sourceTree = "<group>"; };
 		FDDA3BBF2C2B14D900C7ED5E /* DefaultMeasurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMeasurements.swift; sourceTree = "<group>"; };
 		FDDA3BC02C2B14D900C7ED5E /* MenuChairModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuChairModel.swift; sourceTree = "<group>"; };
@@ -145,7 +142,6 @@
 		FDDA3BE22C2B14D900C7ED5E /* FlipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		FDDA3BE32C2B14D900C7ED5E /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
 		FDDA3BE42C2B14D900C7ED5E /* DragBackgroundPhotoAndChairGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragBackgroundPhotoAndChairGesture.swift; sourceTree = "<group>"; };
-		FDDA3BE52C2B14D900C7ED5E /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
 		FDDA3BE72C2B14D900C7ED5E /* SizeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClass.swift; sourceTree = "<group>"; };
 		FDDA3BE82C2B14D900C7ED5E /* ViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		FDDA3BE92C2B14D900C7ED5E /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -251,7 +247,6 @@
 		FDDA3BBB2C2B14D900C7ED5E /* OriginalModel */ = {
 			isa = PBXGroup;
 			children = (
-				FDDA3BBC2C2B14D900C7ED5E /* VisibleToolModel.swift */,
 				FDDA3BBA2C2B14D900C7ED5E /* SimpleWheelchair.swift */,
 				FDDA3BBD2C2B14D900C7ED5E /* ChairManoeuvreModel.swift */,
 				FDDA3BBF2C2B14D900C7ED5E /* DefaultMeasurements.swift */,
@@ -346,7 +341,6 @@
 			children = (
 				FDDA3BE22C2B14D900C7ED5E /* FlipView.swift */,
 				FDDA3BE32C2B14D900C7ED5E /* ArcView.swift */,
-				FDDA3BE52C2B14D900C7ED5E /* ConstraintView.swift */,
 				FDDA3BEA2C2B14D900C7ED5E /* ChairMovmentsView.swift */,
 				FDDA3BE12C2B14D900C7ED5E /* MenuChairView.swift */,
 			);
@@ -519,10 +513,8 @@
 				FDDA3BFE2C2B14D900C7ED5E /* DimissRightSideMenuView.swift in Sources */,
 				FDDA3C172C2B14D900C7ED5E /* PhotoMenuViewModel.swift in Sources */,
 				FDDA3C112C2B14D900C7ED5E /* CurrentDimensionViewModel.swift in Sources */,
-				FDDA3C0C2C2B14D900C7ED5E /* VisibleToolModel.swift in Sources */,
 				FDDA3C192C2B14D900C7ED5E /* ScalingPhotoViewModel.swift in Sources */,
 				FDDA3C272C2B14D900C7ED5E /* ScalingDimensionSelectorView.swift in Sources */,
-				FDDA3C302C2B14D900C7ED5E /* ConstraintView.swift in Sources */,
 				FDDA3C162C2B14D900C7ED5E /* ScalingToollViewModel.swift in Sources */,
 				FDDA3C212C2B14D900C7ED5E /* CenterPhotoButtonView.swift in Sources */,
 				FDDA3BF62C2B14D900C7ED5E /* TurningSpace001App.swift in Sources */,

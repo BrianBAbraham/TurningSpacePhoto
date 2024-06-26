@@ -139,8 +139,6 @@ struct ChairMovementView: View {
     var body: some View {
             ZStack {
                 ZStack {
-
-                    LineFromConstraintToWheelMarkView(chairMovement)
                 
                     GeometryReader { geo in
                         ChairView(chairMovement: chairMovement)
@@ -169,13 +167,7 @@ struct ChairMovementView: View {
     
 }
 
-//struct ChairDragTool: View {
-//    var body: some View {
-//        Image(systemName: "arrow.up.and.down.and.arrow.left.and.right")
-//            .font(.system(size: SizeOf.fontProportionOfTool * scaledToolSize))
-//            .position(chairOriginInGlobal)
-//    }
-//}
+
 
 struct ChairMovementsView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
@@ -247,8 +239,7 @@ struct ChairMovementsView: View {
 
             TapToFlipConditionalView(chairMovement: forEachMovementOfOneChairArrayChairMovementPart[0])
             
-            ConstraintView(chairMovement: forEachMovementOfOneChairArrayChairMovementPart[indexOfFirstMovement])
-                .opacity(0.9)
+
         }
     }
 }

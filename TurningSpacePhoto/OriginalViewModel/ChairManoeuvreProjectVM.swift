@@ -132,34 +132,6 @@ print("left to right")
     }
     
     
-//    func getMeasurement(_ chair: ChairManoeuvre.Chair, _ measurementCase: ChairMeasurements) {
-//        var measurement = 0.0
-//        switch measurementCase {
-//        case .chairLength:
-//            measurement = getMeasurementValue(ChairMeasurements.chairLength.rawValue)
-//        case .chairWidth:
-//            <#code#>
-//        case .footPlateWidth:
-//            <#code#>
-//        case .seatDepth:
-//            <#code#>
-//        case .wheelLength:
-//            <#code#>
-//        }
-//
-//        func getMeasurementValue(_ name: String ) -> Double {
-//
-//        }
-//        let caseName = ChairMeasurements(rawValue: measurementName)
-//        var measurement = 0.0
-//        if let caseNameUnwrapped = caseName {
-//            measurement = chair.measurements[measurementName]
-//        } else {
-//            let measurement = DefaultMeasurements.wheelchair(caseName)
-//        }
-//        return measurement
-//    }
-    
     func getAngleChangeInTanTwoRange(_ angleChange: Double, _ chairAngle: Double) -> Double {
         let angleSign = angleChange < 0 ? -1.0: 1.0
         let angleChangeInPiRange = angleChange.magnitude > .pi ?  Constant.twoPi - angleSign * angleChange: angleChange
@@ -178,20 +150,11 @@ print("left to right")
     }
 
     
-//    func reportSelectionStatus() {
-//        for chairIndex in 0..<chairManoeuvres.count {
-//            for movementIndex in 0..<chairManoeuvres[chairIndex].movements.count {
-//                print("chair:\(chairIndex)  selection:\(chairManoeuvres[chairIndex].chair.isSelected)  movement:\(movementIndex) selection:\(chairManoeuvres[chairIndex].movements[movementIndex].isSelected)")
-//            }
-//        }
-//    }
+
     
     func getChairIndex(_ chairMovement: Type.ChairMovementParts) ->Int {
         var chairIndexOnlyCalledIfItExists = 0
-//        while chairMovement.chair.id != chairManoeuvres[chairIndex].chair.id {
-//            print(chairIndex)
-//            chairIndex += 1
-//        }
+
         
         for index in 0..<model.chairManoeuvres.count {
             if chairMovement.chair.id == chairManoeuvres[index].chair.id {
@@ -200,7 +163,7 @@ print("left to right")
 
         }
       
-//    print("CHAIR INDEX \(chairIndexOnlyCalledIfItExists)")
+
         return chairIndexOnlyCalledIfItExists
     }
 
@@ -222,19 +185,6 @@ print("left to right")
         }
         return isSelectedArray
     }
-//    func getIndexForChairWithAllMovements(_ chairWithAllMovements: Type.ChairMovementsParts) -> Int {
-//        var chairIndex: Int?
-//        for index in 0..<model.chairManoeuvres.count {
-//            if chairWithAllMovements.chair.id == model.chairManoeuvres[index].chair.id {
-//                chairIndex = index
-//            }
-//        }
-//
-//
-//        return chairIndex!
-//    }
-    
-
     
     func getForEachMovementOfOneChairArrayChairMovementPart() ->  [(chairIndex: Int, chairMovementsParts: [Type.ChairMovementParts])]  {
         var items: [(chairIndex: Int, chairMovementsParts: [Type.ChairMovementParts])] = []
@@ -295,11 +245,7 @@ print("left to right")
     func getMarkLocationInRootLocal( _ chair: ChairManoeuvre.Chair, _ markName: String ) -> CGPoint {
         var locationCG = CGPoint(x: 0.0, y: 0.0)
         let markDictionary = chair.marks
-//print("\(markDictionary.count)")
-//print(markDictionary[markName])
-//for key in markDictionary.keys {
-//    print("\(key) \(markName)")
-//}
+
 
         if let location = markDictionary[markName] {
 //print(location)
@@ -375,16 +321,7 @@ print("left to right")
         return measurement
     }
 
-    
-//    func modifyAllMovementLocationsByBackgroundPictureDrag( _ dragLocationChange: CGPoint) {
-//        
-//        for chairIndex in 0..<chairManoeuvres.count {
-//        let x = Double(dragLocationChange.x)
-//        let y = Double(dragLocationChange.y)
-//
-//        model.modifyConstraintLocationByBackgroundPictureDrag(chairIndex, x, y)
-//        }
-//    }
+
 
     func modifyAllMovementLocationsByBackgroundPictureDrag( ) {
         
@@ -396,25 +333,7 @@ print("left to right")
         }
     }
     
-//    func modifyAllMovementLocationsByBackgroundPictureDrag(_ chairMovement: [Type.ChairMovementParts], _ dragLocationChange: CGPoint) {
-//
-//        for chairIndex in 0..<chairManoeuvres.count {
-//        let x = Double(dragLocationChange.x)
-//        let y = Double(dragLocationChange.y)
-//
-//        model.modifyConstraintLocationByBackgroundPictureDrag(chairIndex, x, y)
-//        }
-//    }
-    
 
-//    func modifyAllMovementLocationsByBackgroundPictureDrag(_ chairMovement: [Type.ChairMovementParts], _ dragLocationChange: CGPoint) {
-//        let chairIndex = getChairIndex(chairMovement[0])
-//
-//        let x = Double(dragLocationChange.x)
-//        let y = Double(dragLocationChange.y)
-//
-//        model.modifyConstraintLocationByBackgroundPictureDrag(chairIndex, x, y)
-//    }
     
     
     func modifyTurnChairAngle (_ angleChange: Double, _ chairId: UUID) {
@@ -473,26 +392,6 @@ print("left to right")
         //model.modifyManoeuvreScale(scale)
     }
     
-//    func modifyZoomScale (_ newManoeuvreScale: Double) {
-//print("SizeOf.zoomScale \(SizeOf.zoomScale)")
-//        let proportionalChangeToManoeuvreScale = model.manoeuvreScale/newManoeuvreScale
-//        let correctionEnsuringFixedFingerTapArea = model.manoeuvreScale/newManoeuvreScale
-//        SizeOf.zoomScale = SizeOf.zoomScale * correctionEnsuringFixedFingerTapArea
-//print("SizeOf.zoomScale \(SizeOf.zoomScale)")
-//    }
-
-    
-//    func modifyEndAngleSubsequentlySmaller(_ state: Bool, _ chairMovement: Type.ChairMovementParts) {
-//        let chairIndex = getChairIndex(chairMovement)
-//        model.modifyEndAngleSubsequentlySmaller(state, chairIndex)
-//    }
-//    func modifyStartEndAnglesCrossed(_ state: Bool, _ chairMovement: Type.ChairMovementParts) {
-//        let chairIndex = getChairIndex(chairMovement)
-//print("CHAIR INDEX \(chairIndex)")
-//        model.modifyStartAngleInitiallySmaller(state, chairIndex)
-//    }
-    
-
 
     
 
@@ -509,15 +408,7 @@ print("left to right")
             model.removeAllChairManoeuvre()
     }
        
-//    func removeMovement(){
-//        if getIsAnyChairSelected() {
-//            let chairIndex =  getSelectedChairIndexAfterEnsuringSelectedExists()
-//                model.removeInterpolatedRotationMovement(chairIndex)
-//        }
-//
-//        removeInterpolatedRotationMovement(_ chairIndex: Int)
-//
-//    }
+
     
     func removeIntbetweenerRotationMovement() {
         if getIsAnyChairSelected() {
@@ -602,11 +493,7 @@ print("left to right")
 //print(chairManoeuvres[chairIndex].chair.turningNotDragging)
         }
     }
-    
-//    func toggleSelectionOfAllMovementToOneStateForManoeuvre(_ chairMovement:Type.ChairMovementParts) {
-//        let chairIndex = getChairIndex(chairMovement)
-//        model.toggleSelectionOfAllMovementToOneStateForManoeuvre(chairIndex)
-//    }
+
     
     func setTurningNotDragging(_ chairMovement: Type.ChairMovementParts, _ turning: Bool) {
         let chairIndex = getChairIndex(chairMovement)
@@ -618,25 +505,9 @@ print("left to right")
         let chairIndex = getChairIndex(chairMovement)
 
         model.toggleTurningNotDragging(chairIndex)
-//print("Turning not dragging set to \(model.chairManoeuvres[chairIndex].chair.turningNotDragging)")
+
     }
-//    func modifyFixedConstraintLocation(_ chairMovement: Type.ChairMovementParts) {
-//        let chairIndex = getChairIndex(chairMovement)
-//        let movementIndex = getMovementIndex(chairIndex, chairMovement)
-//
-//    }
-    
-    
-//    func toggleFlipState(_ chairMovement: Type.ChairMovementParts, _ horizontalOrVertical: FlipAxes) {
-//        let chairIndex = getChairIndex(chairMovement)
-//        switch horizontalOrVertical {
-//        case .leftToRight:
-//            model.toggleHorizontalFlipState(chairIndex)
-//        case .bottomToTop:
-//            model.toggleVerticalFlipState(chairIndex)
-//        }
-//    }
-    
+
 
     
     
