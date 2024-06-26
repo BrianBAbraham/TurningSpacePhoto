@@ -46,19 +46,6 @@ class ChairManoeuvreProjectVM: ObservableObject {
             )
     }
     
-
-//    func errorReport(_ chairMovements: [Type.ChairMovementParts] ) {
-//        var movementCount = 99
-//        var chairIndex = 99
-//        for index in 0..<chairManoeuvres.count {
-//            if chairMovements[0].chair.id == chairManoeuvres[index].chair.id {
-//                chairIndex = index
-//                movementCount = chairManoeuvres[index].movements.count
-//            }
-//        }
-       
-//print ("chair:\(chairIndex)   movement\(movementCount) ")
-//    }
     
     func setShowMenu (_ value: Bool){
             RightSideMenuDisplayService.shared.setShowRightSideMenu(value)

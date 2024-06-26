@@ -52,8 +52,6 @@ struct ContentView: View {
                 .gesture(MagnificationGesture()
                     .onChanged { value in
                         currentZoom = value - 1
-                        //tools to edit chair movment only appear at sufficient zoom
-                       // visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
                     }
                     .onEnded { value in
                         lastCurrentZoom += currentZoom
