@@ -40,65 +40,7 @@ struct RectangleView: View {
     }
 }
 
-//struct MarkView: View {
-//    @EnvironmentObject var vm: ChairManoeuvreProjectVM
-//    let location: CGPoint
-//    var markSize: Double { vm.applyChairManoeuvreScale(50.0) }
-//    var body: some View {
-//        Circle()
-//            .fill(.blue)
-//            .frame(width: markSize)
-//            .position(location)
-//            .opacity(0.3)
-//    }
-//}
 
-struct MarkView: View {
-    @EnvironmentObject var vm: ChairManoeuvreProjectVM
-    let chairMovement: Type.ChairMovementParts
-    var chair: ChairManoeuvre.Chair{chairMovement.chair}
-    var movement: ChairManoeuvre.Movement{chairMovement.movement}
-    var markSize: Double { vm.applyChairManoeuvreScale(50.0) }
-
-    
-    func getMarkLocationMostDistantFromConstraintInGlobal() -> CGPoint {
-        var constraintLocationInGlobal: CGPoint {
-            Determine.constraintLocationInGlobal(movement)
-        }
-        var chairOriginInGlobal: CGPoint {Determine.chairOriginInGlobal(movement)}
-        var leftMarkName: String {
-            Determine.partNameFromRandomOrderPartAndLocations([[.rear,.left,.fixedWheel]],.betweenFrontRear)[0]
-        }
-        var leftMarkLocationInGlobal: CGPoint {
-            Manipulate.addCGPoints(vm.getMarkLocationInRootLocal(chair,leftMarkName), chairOriginInGlobal)
-        }
-        var rightMarkName: String {
-            Determine.partNameFromRandomOrderPartAndLocations([[.rear,.right,.fixedWheel]],.betweenFrontRear)[0]
-        }
-        var rightMarkLocationInGlobal: CGPoint {
-            Manipulate.addCGPoints(vm.getMarkLocationInRootLocal(chair,rightMarkName), chairOriginInGlobal)
-        }
-        var leftOrRight: LeftOrRight{
-            movement.xConstraintToChairOriginLocation >= 0.0 ? .left: .right}
-        var markLocationMostDistantFromConstraintInGlobal: CGPoint {
-            switch leftOrRight {
-            case .left:
-                return leftMarkLocationInGlobal
-            case .right:
-                return rightMarkLocationInGlobal
-            }
-        }
-        return markLocationMostDistantFromConstraintInGlobal
-    }
-    
-    var body: some View {
-        Circle()
-            .fill(.blue)
-            .frame(width: markSize)
-            .position(getMarkLocationMostDistantFromConstraintInGlobal())
-            .opacity(0.3)
-    }
-}
 
 struct ChairView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
@@ -106,22 +48,17 @@ struct ChairView: View {
     var chair: ChairManoeuvre.Chair{chairMovement.chair}
     var movement: ChairManoeuvre.Movement{chairMovement.movement}
     var parts: [ChairManoeuvre.Part] {chairMovement.parts}
-//    var constraintLocationInGlobal: CGPoint {
-//        Determine.constraintLocationInGlobal(movement)
-//    }
 
     var  body: some View {
         ZStack {
             ForEach(parts) { part in
                 RectangleView( chair: chair, manoeuvre: movement, part: part)
                 }
-
-
-//                .position(constraintLocationInGlobal)
-
             }
     }
 }
+
+
 
 struct ForRotationView: ViewModifier {
     let movement: ChairManoeuvre.Movement
@@ -141,6 +78,8 @@ struct ForRotationView: ViewModifier {
         return transform
     }
 }
+
+
 
 struct ChairMovementView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
@@ -200,26 +139,23 @@ struct ChairMovementView: View {
     var body: some View {
             ZStack {
                 ZStack {
-//                    LineFromMarkToTurnHandleConditionalView( markLocationMostDistantFromConstraintInGlobal, handleEndLocationInGlobal, movement)
-                    
-//                    MarkView(chairMovement: chairMovement)
-                        LineFromConstraintToWheelMarkView(chairMovement)
-                    
-                        GeometryReader { geo in
-                            ChairView(chairMovement: chairMovement)
-                                .position(chairOriginInGlobal)
-                                .offset(x: geo.size.width / 2 , y: geo.size.height / 2)
 
-                            if noFixedConstraintLocationOrFirstMovement {chairDragToolView}
-                        }
+                    LineFromConstraintToWheelMarkView(chairMovement)
+                
+                    GeometryReader { geo in
+                        ChairView(chairMovement: chairMovement)
+                            .position(chairOriginInGlobal)
+                            .offset(x: geo.size.width / 2 , y: geo.size.height / 2)
+
+                        if noFixedConstraintLocationOrFirstMovement {chairDragToolView}
                     }
+                }
                 .gesture(
                     TapGesture(count: 2).onEnded {
                         print("DOUBLE TAP")
                     }.exclusively(before: TapGesture(count: 1).onEnded {
                     vm.toggleSelectionOfOneMovementOfManoeuvre(chairMovement)
                         if vm.getIsAnyChairSelected() {
-//                            menuChairVM.setShowMenuStatus(true)
                             vm.setShowMenu(false)
                         }
                         
@@ -269,7 +205,6 @@ struct ChairMovementsView: View {
     var chairDrag: some Gesture {
             DragGesture()
                 .onChanged{ value in
-    //                turningNotDragging ? print("TAP CHAIR TO SELECT"): print(" can drag")
                     var newLocation = startLocation ?? location
                     let xTranslation = value.translation.width
                     let yTranslation = value.translation.height
@@ -294,31 +229,17 @@ struct ChairMovementsView: View {
     var  turningNotDragging: Bool {
         chair.turningNotDragging
     }
-//    var scale: Double {vm.model.manoeuvreScale}
-//    var chairOriginInGlobal: CGPoint {Determine.chairOriginAccountingForScaleInGlobal(firstMovement, scale)}
+
     var body: some View {
         let indexOfFirstMovement = 0
         ZStack{
-//            GeometryReader { geo in
-//                Color(.red)
-
 
                 ForEach(forEachMovementOfOneChairArrayChairMovementPart, id: \.movement.id ) { item in
                     ChairMovementView(chairMovementArgument: item)
-                    
                 }
-//                .border(.red)
-//                .border(width: geo.size.width, height: geo.size.height)
-//                .foregroundColor(.red)
-//            }
-
-
-                    .gesture(
-                        chairDrag.simultaneously(with: fingerDrag), including: turningNotDragging ? subviews: all
-        //                chairDrag.simultaneously(with: fingerDrag)
-
+                .gesture(
+                    chairDrag.simultaneously(with: fingerDrag), including: turningNotDragging ? subviews: all
             )
-            
             
             if forEachMovementOfOneChairArrayChairMovementPart.count > 1 {
             TurningArcs(forEachMovementOfOneChairArrayChairMovementPart)
@@ -328,13 +249,11 @@ struct ChairMovementsView: View {
             
             ConstraintView(chairMovement: forEachMovementOfOneChairArrayChairMovementPart[indexOfFirstMovement])
                 .opacity(0.9)
-
-//                .position(chairOriginInGlobal)
-//                .border(.red)
-
         }
     }
 }
+
+
 
 extension Angle {
   /// Returns an Angle in the range `0° ..< 360°`

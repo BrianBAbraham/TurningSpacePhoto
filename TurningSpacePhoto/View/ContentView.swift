@@ -41,34 +41,34 @@ struct ContentView: View {
     var body: some View {
 
         ZStack{
-             ScaleDimensionLineView(zoom)
+            ScaleDimensionLineView(zoom)
 
             ZStack {
-                PhotoManagementView()
-                    .zIndex(2.0)
-                 
-          
-                ChairMovementOnChosenPhoto(zoom)
-                    .gesture(MagnificationGesture()
-                        .onChanged { value in
-                            currentZoom = value - 1
-                            //tools to edit chair movment only appear at sufficient zoom
-                            visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
-                        }
-                        .onEnded { value in
-                            lastCurrentZoom += currentZoom
-                            currentZoom = 0.0
-                        }
-                     )
-                
-                
-                RightSideMenuView()
-                    .zIndex(11.0)
-                
-               MenuForChairView()
-                
-               ConditionalUnscaledPhotoAlertView()
-                            
+            PhotoManagementView()
+                .zIndex(2.0)
+             
+
+            ChairMovementOnChosenPhoto(zoom)
+                .gesture(MagnificationGesture()
+                    .onChanged { value in
+                        currentZoom = value - 1
+                        //tools to edit chair movment only appear at sufficient zoom
+                        visibleToolViewModel.setZoomForTool(zoom, chairManoeuvreProjectVM.model.manoeuvreScale)
+                    }
+                    .onEnded { value in
+                        lastCurrentZoom += currentZoom
+                        currentZoom = 0.0
+                    }
+                 )
+
+
+            RightSideMenuView()
+                .zIndex(11.0)
+
+            MenuForChairView()
+
+            ConditionalUnscaledPhotoAlertView()
+                        
             }
         }
     }

@@ -17,7 +17,7 @@ class ChairManoeuvreProjectVM: ObservableObject {
     var movements: Array<Array<ChairManoeuvre.Movement>> {model.movements}
     var parts: Array<Array<ChairManoeuvre.Part>> {model.parts}
     var scale: Double =
-    ScaleService.shared.scale 
+        ScaleService.shared.scale
     var  backgroundPhotoLocationChange = PhotoLocationChangeService.shared.locationChange
     
     

@@ -34,27 +34,15 @@ struct TurnHandleConditionalView: View {
     var scaledTurnHandleSize: Double {
             vm.applyChairManoeuvreScale(SizeOf.tool)
     }
-//        TurnHandleView.turnHandleSize
-//        ( (chair.measurements[ChairMeasurements.chairWidth.rawValue] ?? 600 ) * 0.0 + TurnHandleView.turnHandleSize) * 1.0
-       //300.0//vm.applyChairManoeuvreScale(200)
- 
     var turnHandleDimensionFromOrigin: Double {
         vm.applyChairManoeuvreScale( defineTurnHandleDimensionFromOrigin(chair, vm, scaledTurnHandleSize))
     }
     var scale: Double {
         vm.model.manoeuvreScale
     }
-    
-    
-//    var handleEndLocationInGlobal: CGPoint{
-//        Determine.locationOnConstraintLineAtDimensionFromOriginInGlobal(chair, movement, turnHandleDimensionFromOrigin, scale)
-//    }
     var handleEndLocationInGlobal: CGPoint{
-        Determine.locationOnAftForeLineAtDimensionFromOriginInGlobal(chair, movement, turnHandleDimensionFromOrigin, scale)
+        Determine.locationOnAftForeLineAtDimensionFromOriginInGlobal(chair, movement, turnHandleDimensionFromOrigin, scale )
     }
-    
-    
-    
     var mostDistantSideFromConstraint: LeftOrRight {
         movement.xConstraintToChairOriginLocation >= 0.0 ? .left: .right}
     var body: some View {
@@ -77,8 +65,7 @@ struct TurnHandleConditionalView: View {
     func defineTurnHandleDimensionFromOrigin (_ chair: ChairManoeuvre.Chair,_ vm: ChairManoeuvreProjectVM, _ turnHandleSize: Double) -> Double {
       
         let dimensionToChairExternalWidth = ( (chair.measurements[ChairMeasurements.chairLength.rawValue]  ?? DefaultMeasurements.wheelchair(.chairLength) ) )
-//        let dimensionForFlip = 100.0
-        let dimension = (dimensionToChairExternalWidth * 1.25 + turnHandleSize)
+        let dimension = (dimensionToChairExternalWidth * 0.5 + turnHandleSize)
         return dimension
     }
 
@@ -116,7 +103,7 @@ struct TurnHandleView: View {
 
     var chairOriginInGlobal: CGPoint {
         Determine.chairOriginInGlobal(movement)
-//        vm.getChairOriginInGlobal(chairMovement)
+
     }
     var constraintLocationInGlobal: CGPoint {
         Determine.constraintLocationInGlobal(movement)
@@ -137,9 +124,7 @@ struct TurnHandleView: View {
     var location: CGPoint {
         Determine.chairOriginInGlobal(chairMovementParts.movement)
     }
-//    var flipEffect: Double {
-//        (chair.bottomToTopFlip ? 0: .pi) + (chair.leftToRightFlip ? 0: -1.0 * .pi)
-//    }
+
     var turnHandleDrag: some Gesture {
         DragGesture()
             .onChanged { value in
@@ -152,58 +137,33 @@ struct TurnHandleView: View {
                     Determine.locationOnCircleClosestToPointInLocal(handleEndCirclePathRadius, constraintLocationInGlobal, value.location)
                     let constraintToHandleEndLocation = Manipulate.secondMinusFirstCGPoints(constraintLocationInGlobal, handleEndLocationInGlobal)
                     let angleConstraintToHandleEndLocation = atan2(constraintToHandleEndLocation.y,constraintToHandleEndLocation.x)
-//print("\(Int(angleConstraintToHandleEndLocation * 180 / .pi)) x: \(Int(constraintToHandleEndLocation.x))  y:\(Int(constraintToHandleEndLocation.y))")
-//print("\(Int( atan2(newLocationOnCircle.y * correctorForRightOrLeftSideConstraint, newLocationOnCircle.x * correctorForRightOrLeftSideConstraint)  * 180 / .pi)) \n")
+
                     let angleChange =
                     atan2(newLocationOnCircle.y * correctorForRightOrLeftSideConstraint, newLocationOnCircle.x * correctorForRightOrLeftSideConstraint) -
                     (Angle(radians:movement.chairAngle).normalized().radians ) -
                     angleConstraintToHandleEndLocation
-//
-//                    let angleChange = atan2(newLocationOnCircle.y, newLocationOnCircle.x) - atan(constraintToHandleEndLocation.y / constraintToHandleEndLocation.x) - Angle(radians:movement.chairAngle).normalized().radians //+ flipEffect
-//
-//                    let angleChange = atan2(newLocation.y, newLocation.x) - atan(constraintToHandleEndLocation.y / constraintToHandleEndLocation.x) * 0 - Angle(radians:movement.chairAngle).normalized().radians
                     
                     vm.modifyTurnChairAngle(angleChange, chair.id)
                     location = newLocation
-                } //else {
-//                    var newLocation = startLocation ?? location
-//                    let xTranslation = value.translation.width
-//                    let yTranslation = value.translation.height
-//                    newLocation.y += yTranslation
-//                    newLocation.x += xTranslation
-//                    xChange = xTranslation - xChange
-//                    yChange = yTranslation - yChange
-//                    vm.modifyMovementLocationByChairDrag(forEachMovementOfOneChairArrayChairMovementPart, newLocation, CGPoint(x: xChange, y: yChange))
-//                    xChange = xTranslation
-//                    yChange = yTranslation
-//                }
+                }
            }
-//            .updating($startLocation) { (value, startLocation, transaction) in
-//                if chair.turningNotDragging {
-//                } else {
-//                    startLocation = startLocation ?? Determine.chairOriginInGlobal(chairMovementParts.movement)
-//                }
-//            }
+
         
             .onEnded(){ value in
                 if chair.turningNotDragging {
                     vm.setTurningNotDragging(chairMovementParts, false)
                 }
-//                    else {
-//                    self.xChange = 0.0
-//                    self.yChange = 0.0
-//                    vm.setTurningNotDragging(chairMovementParts, false)
-//                }
+
             }
     }
     var iconOnTurnHandle: String {
         "arrow.triangle.2.circlepath"
-//        chair.turningNotDragging ? "arrow.triangle.2.circlepath": "arrow.up.and.down.and.arrow.left.and.right"
+
     }
     var body: some View {
-//        if movement.isSelected  {
             ZStack{
                 MyCircle(fillColor: Color("Orange"), strokeColor: .black, scaledTurnHandleSize, handleEndLocationAfterRotationInGlobal)
+                
                 Image(systemName: iconOnTurnHandle)
                     .foregroundColor(.black)
                     .font(.system(size: SizeOf.fontProportionOfTool * scaledTurnHandleSize))
@@ -213,23 +173,5 @@ struct TurnHandleView: View {
     }
 }
 
-//struct LineFromMarkToTurnHandleConditionalView: View {
-//    let markLocationInGlobal: CGPoint
-//    let handleEndLocationInGlobal: CGPoint
-//    let movement: ChairManoeuvre.Movement
-//    var movementIsSelected: Bool
-//    init(_ markLocationInGlobal: CGPoint, _ handleEndLocationInGlobal: CGPoint, _ movement: ChairManoeuvre.Movement ) {
-//        self.markLocationInGlobal = markLocationInGlobal
-//        self.handleEndLocationInGlobal = handleEndLocationInGlobal
-//        self.movement = movement
-//        self.movementIsSelected = movement.isSelected
-//    }
-//    
-//    var body: some View {
-//        if self.movement.showTools && self.movementIsSelected {
-//            LocalLine.path([self.markLocationInGlobal, self.handleEndLocationInGlobal])
-//                .opacity(0.5)
-//        }
-//    }
-//}
+
 

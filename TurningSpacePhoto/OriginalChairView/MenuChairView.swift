@@ -9,24 +9,6 @@ import Foundation
 import SwiftUI
 
 
-
-//struct SubMenuForPickManoeuvreView: View {
-//    @EnvironmentObject var vm: ChairManoeuvreProjectVM
-//    var movements = MovementNames.allCases.map {$0.rawValue}// ["only wheelchair", "tightest turn", "medium turn", "slow turn"]
-//    @State private var movementType = MovementNames.slowQuarterTurn
-//
-//    var body: some View {
-//        Picker("Movements", selection: $movementType) {
-//            ForEach(MovementNames.allCases) { movement in
-//                Text(movement.rawValue)
-//            }
-//        }
-//        .onChange(of: movementType) {tag in
-//            vm.modifyManoeuvreForNextChairAdd(tag.rawValue)
-//        }
-//    }
-//}
-
 struct SubMenuForPickManoeuvreView: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
     @EnvironmentObject var menuChairVM: MenuChairViewModel
@@ -52,11 +34,12 @@ var movements = MovementNames.allCases.map {$0}// ["only wheelchair", "tightest 
         .onChange(of: movementType) {tag in
             self.movementType = tag
             vm.modifyManoeuvreForNextChairAdd(tag.rawValue)
-//print("PICKER \(tag.rawValue)")
             menuChairVM.setCurrentMovementType(tag)
         }
     }
 }
+
+
 
 struct ModifyNumberOfManouevre: View {
     @EnvironmentObject var vm: ChairManoeuvreProjectVM
@@ -67,7 +50,6 @@ struct ModifyNumberOfManouevre: View {
         HStack {
             Button(action: {
                 buttonText == "+" ? vm.addChairManoeuvre(): vm.removeChairManoeuvre()
-//print("scaling:\(menuPictureScaleViewModel.getScalingCompletedStatus())   image:\(pictureScaleViewModel.getBackgroundImage() != nil)")
             })  {
                 if buttonText == "+" {
                     Text(buttonText).modifier(MenuButtonWithSymbolFont())
@@ -76,8 +58,6 @@ struct ModifyNumberOfManouevre: View {
                 }
             }
         }
-//        .font(horizontalSizeClass == .compact ? .footnote: .title)
-        .environmentObject(vm)
     }
 }
 
@@ -115,35 +95,7 @@ struct AddInbetweenerMovementView: View {
     }
 }
 
-//struct InbetweenToggleView: View {
-//    @EnvironmentObject var vm: ChairManoeuvreProjectVM
-//    @State private var showExtra = false
-//    var  chairSelected: Bool {
-//        vm.getIsAnyChairSelected()
-//    }
-//    var body: some View {
-//        Toggle(isOn: $showExtra) {
-//        Text("Extra")
-//                .opacity(chairSelected ? 1: 0.1)
-//            .frame(maxWidth: .infinity, alignment: .trailing)
-//        }
-//        .disabled(chairSelected == false)
-//        .onChange(of: showExtra) { value in
-//            if showExtra {
-//print("ADD EXTRA")
-//                if vm.getIsAnyChairSelected() {
-//print(vm.getIsAnyChairSelected())
-//                    vm.addRotationMovementWithInterpolation()
-//                }
-//            } else {
-//print("REMOVE EXTRA")
-//                vm.removeInterpolatedRotationMovement()
-//            }
-//        }
-//    }
-//}
 
- 
 
 
 struct AdaptiveStack<Content: View>: View {
@@ -181,22 +133,28 @@ struct AddManoeuvreOrInbetweenerView: View {
         Spacer()
         AdaptiveStack{
             HStack{
+                
                 ModifyNumberOfManouevre(buttonText: "+")
+                
                 SubMenuForPickManoeuvreView()
+                
                 ModifyNumberOfManouevre(buttonText: "-")
                     .disabled(vm.chairManoeuvres.count == 0)
             }
+            
             Spacer()
+            
             AddInbetweenerMovementView( )
+           
             Spacer()
-//            InbetweenToggleView()
-//
+
         }
         .environmentObject(vm)
         .padding()
 
     }
 }
+
 
 struct MenuForChairView: View {
     @EnvironmentObject var menuChairViewModel: MenuChairViewModel
@@ -234,18 +192,7 @@ struct MenuForChairView: View {
     Text(Image(systemName: "arrow.triangle.2.circlepath"))
      
     
-//    var lockOpenView: some View {
-//        ZStack{
-//            Circle()
-//                .strokeBorder(Color.black)
-//                .background(Circle().foregroundColor(Color.white))
-//                .frame(width: 30, height: 30)
-//            Image(systemName: "lock.open")
-//        }
-//        .offset(x: -20, y: 5.0)
-//    }
-    
-    var helpButton: some View {
+    var helpButtonView: some View {
     Button(action: {
         showingPopover = true
     })
@@ -270,14 +217,14 @@ struct MenuForChairView: View {
     }
     
     
-    func sliderChairWidth(_ boundWidth: Binding<Double>) -> some View {
+    func sliderChairWidthView(_ boundWidth: Binding<Double>) -> some View {
         Slider(value: boundWidth, in: 300.0...1000.0, step: 10)
             .onChange(of: proposedChairExternalWidthMeasurement) { value in
                 vm.replacePartsInExistingChairManoeuvre(proposedChairExternalWidthMeasurement, .chairWidth)
             }
     }
 
-    func sliderChairLength(_ boundLength: Binding<Double>) -> some View {
+    func sliderChairLengthView(_ boundLength: Binding<Double>) -> some View {
         Slider(value: boundLength, in: 500.0...2500.0, step: 10
         )
             .onChange(of: proposedChairLengthMeasurement) { value in
@@ -297,25 +244,32 @@ struct MenuForChairView: View {
         )
 
         if menuChairViewModel.getShowMenuStatus() {
+            
             BottomMenuViewBuilder(MenuIcon.chairTool, 230) {
+                
                 VStack{
+                    
                     HStack {
-                        sliderChairLength(boundLength)
+                        sliderChairLengthView(boundLength)
                         Text("length \(Int( vm.getSelectedChairMeasurement(.chairLength))) mm")
                             .modifier(SliderTextFont())
                     }
                     .modifier(SliderAccentColor())
                     .padding([.leading, .trailing])
+                    
                     HStack {
-                        sliderChairWidth(boundWidth)
+                        sliderChairWidthView(boundWidth)
                         Text("width: \(Int(vm.getSelectedChairMeasurement(.chairWidth))) mm")
                             .modifier(SliderTextFont())
                     }
                     .modifier(SliderAccentColor())
                     .padding([.leading, .trailing])
+                    
                     HStack{
                         AddManoeuvreOrInbetweenerView()
-                        helpButton
+                        
+                        helpButtonView
+            
                         Spacer()
                     }
 

@@ -177,9 +177,9 @@
 			children = (
 				FDDA3B912C2B14D900C7ED5E /* DataServices.swift */,
 				FDDA3B922C2B14D900C7ED5E /* Misc */,
-				FDDA3B992C2B14D900C7ED5E /* ViewModel */,
-				FDDA3BB92C2B14D900C7ED5E /* Chairs */,
-				FDDA3BBB2C2B14D900C7ED5E /* Model */,
+				FDDA3B992C2B14D900C7ED5E /* OriginalViewModel */,
+				FDDA3C372C2B25A200C7ED5E /* OriginalChairView */,
+				FDDA3BBB2C2B14D900C7ED5E /* OriginalModel */,
 				FDDA3BA12C2B14D900C7ED5E /* MenuManagement */,
 				FDDA3BC12C2B14D900C7ED5E /* PhotoScaling */,
 				FDDA3C362C2B250C00C7ED5E /* ViewHelper */,
@@ -200,14 +200,14 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
-		FDDA3B992C2B14D900C7ED5E /* ViewModel */ = {
+		FDDA3B992C2B14D900C7ED5E /* OriginalViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				FDDA3B9A2C2B14D900C7ED5E /* MenuChairViewModel.swift */,
 				FDDA3B9B2C2B14D900C7ED5E /* VisbileToolViewModel.swift */,
 				FDDA3B9D2C2B14D900C7ED5E /* ChairManoeuvreProjectVM.swift */,
 			);
-			path = ViewModel;
+			path = OriginalViewModel;
 			sourceTree = "<group>";
 		};
 		FDDA3BA12C2B14D900C7ED5E /* MenuManagement */ = {
@@ -256,23 +256,16 @@
 			path = Bottom;
 			sourceTree = "<group>";
 		};
-		FDDA3BB92C2B14D900C7ED5E /* Chairs */ = {
-			isa = PBXGroup;
-			children = (
-				FDDA3BBA2C2B14D900C7ED5E /* SimpleWheelchair.swift */,
-			);
-			path = Chairs;
-			sourceTree = "<group>";
-		};
-		FDDA3BBB2C2B14D900C7ED5E /* Model */ = {
+		FDDA3BBB2C2B14D900C7ED5E /* OriginalModel */ = {
 			isa = PBXGroup;
 			children = (
 				FDDA3BBC2C2B14D900C7ED5E /* VisibleToolModel.swift */,
+				FDDA3BBA2C2B14D900C7ED5E /* SimpleWheelchair.swift */,
 				FDDA3BBD2C2B14D900C7ED5E /* ChairManoeuvreModel.swift */,
 				FDDA3BBF2C2B14D900C7ED5E /* DefaultMeasurements.swift */,
 				FDDA3BC02C2B14D900C7ED5E /* MenuChairModel.swift */,
 			);
-			path = Model;
+			path = OriginalModel;
 			sourceTree = "<group>";
 		};
 		FDDA3BC12C2B14D900C7ED5E /* PhotoScaling */ = {
@@ -332,12 +325,12 @@
 		FDDA3BDF2C2B14D900C7ED5E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FDDA3C372C2B25A200C7ED5E /* OriginalChair */,
 				FDDA3BE02C2B14D900C7ED5E /* ChairMovementOnChosenPhoto.swift */,
+				FDDA3BC52C2B14D900C7ED5E /* ChosenPhotoViewModel.swift */,
+				FDDA3BD32C2B14D900C7ED5E /* ChosenPhotoView.swift */,
 				FDDA3BD82C2B14D900C7ED5E /* ScaleDimensionLineView.swift */,
 				FDDA3BE42C2B14D900C7ED5E /* DragBackgroundPhotoAndChairGesture.swift */,
 				FDDA3BE92C2B14D900C7ED5E /* ContentView.swift */,
-				FDDA3BEA2C2B14D900C7ED5E /* ChairMovmentsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,18 +349,17 @@
 			path = ViewHelper;
 			sourceTree = "<group>";
 		};
-		FDDA3C372C2B25A200C7ED5E /* OriginalChair */ = {
+		FDDA3C372C2B25A200C7ED5E /* OriginalChairView */ = {
 			isa = PBXGroup;
 			children = (
-				FDDA3BC52C2B14D900C7ED5E /* ChosenPhotoViewModel.swift */,
-				FDDA3BD32C2B14D900C7ED5E /* ChosenPhotoView.swift */,
 				FDDA3BE22C2B14D900C7ED5E /* FlipView.swift */,
 				FDDA3BE32C2B14D900C7ED5E /* ArcView.swift */,
 				FDDA3BE52C2B14D900C7ED5E /* ConstraintView.swift */,
 				FDDA3BE62C2B14D900C7ED5E /* TurnHandleConditionalView.swift */,
+				FDDA3BEA2C2B14D900C7ED5E /* ChairMovmentsView.swift */,
 				FDDA3BE12C2B14D900C7ED5E /* MenuChairView.swift */,
 			);
-			path = OriginalChair;
+			path = OriginalChairView;
 			sourceTree = "<group>";
 		};
 		FDF9E578281FDAF4004C18BD = {

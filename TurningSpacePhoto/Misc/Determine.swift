@@ -103,9 +103,23 @@ struct Determine {
         return locationForDimension
     }
     
-    static func locationOnAftForeLineAtDimensionFromOriginInGlobal(_ chair: ChairManoeuvre.Chair, _ movement: ChairManoeuvre.Movement, _ dimension: Double, _ scale: Double) -> CGPoint{
-        var locationForDimension: CGPoint = CGPoint(x: 0, y: dimension )
-        locationForDimension = Manipulate.addCGPoints(locationForDimension, chairOriginAccountingForScaleInGlobal(movement, scale))
+    static func locationOnAftForeLineAtDimensionFromOriginInGlobal(
+        _ chair: ChairManoeuvre.Chair,
+        _ movement: ChairManoeuvre.Movement,
+        _ dimension: Double,
+        _ scale: Double
+    ) -> CGPoint{
+        var locationForDimension: CGPoint = CGPoint(
+            x: 0,
+            y: dimension
+        )
+        locationForDimension = Manipulate.addCGPoints(
+            locationForDimension,
+            chairOriginAccountingForScaleInGlobal(
+                movement,
+                scale
+            )
+        )
         return locationForDimension
     }
     
