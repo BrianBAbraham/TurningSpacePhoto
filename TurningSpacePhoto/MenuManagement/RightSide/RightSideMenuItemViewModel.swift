@@ -40,6 +40,10 @@ class RightSideMenuItemViewModel: ObservableObject {
             
         case "circle":
             break
+            
+        case "gear":
+            break
+            
         default:
             break
         }

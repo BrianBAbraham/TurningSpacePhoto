@@ -28,8 +28,9 @@ struct RightSideMenuView: View {
                         Spacer()
                         RightSideMenuItemView("figure.roll")
                         Spacer()
-                        
                         RightSideMenuItemView("circle")
+                        Spacer()
+                        RightSideMenuItemView("gear")
                         Spacer()
                         MainHelpView()//helpButton
                         Spacer()
