@@ -115,7 +115,7 @@ typealias PartChainIdDictionary = [PartChain: OneOrTwo<PartTag> ]
 
 /// Input an object type and get the chain labels associaed with that object type
 /// as defined in ObjectsAndTheirChainLabels
-typealias ObjectChainLabelDictionary = [ObjectTypes: [Part]]
+typealias ObjectChainLabelsDictionary = [ObjectTypes: [Part]]
 
 
 
@@ -123,3 +123,5 @@ typealias ObjectChainLabelDictionary = [ObjectTypes: [Part]]
 typealias AddOrPad = (addX: Double, addY: Double, padX: Double, padY: Double )
 
 typealias AnglesRadius = (id: Int, start: Double, end: Double, radius: Double, clockwise: Bool)
+
+typealias ArcData = (id: Int, start: Double, end: Double, radius: Double, clockwise: Bool)

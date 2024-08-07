@@ -13,7 +13,7 @@ import Foundation
 
 
 
-//Source of truth for partChain
+///Source of truth for partChain
 //chainLabel is the last item in array
 //MARK: ChainLabel
 struct LabelInPartChainOut {
@@ -86,6 +86,7 @@ struct ObjectChainLabel {
     static let chairSupport: [Part] =
         [.mainSupport,
          .backSupportTiltJoint,
+         .backSupport,
         .backSupportHeadSupport,
         .footSupport,
         .armSupport,
@@ -104,7 +105,7 @@ struct ObjectChainLabel {
     static let chairSupportWithFixedRearWheel: [Part] =
     chairSupport + [.fixedWheelAtRear]
     
-   static let dictionary: ObjectChainLabelDictionary =
+   static let dictionary: ObjectChainLabelsDictionary =
         [
         .allCasterBed:
             [.mainSupport, .sideSupport ],
@@ -145,6 +146,11 @@ struct ObjectChainLabel {
         .showerTray: [.mainSupport],
     
     ]
+    
+    static let unsortedNames = dictionary.keys.map{$0.rawValue}
+    
+    static let sortedNames = unsortedNames.sorted()
+    
 }
 
 
@@ -253,36 +259,3 @@ struct AllPartInObject {
         return oneOfEachPartInAllChainLabel
     }
 }
-
-
-//struct AllPartInObject {
-//    
-//    static func getOneOfAllPartInObjectBeforeEdit(_ objectType: ObjectTypes) -> [Part] {
-//        guard let allPartChainLabels = ObjectChainLabel.dictionary[objectType] else {
-//            fatalError("chain labels not defined for object")
-//        }
-//        var oneOfEachPartInAllChainLabel: [Part] = []
-//            for label in allPartChainLabels {
-//               let partChain = LabelInPartChainOut(label).partChain
-//                for part in partChain {
-//                    if !oneOfEachPartInAllChainLabel.contains(part) {
-//                        oneOfEachPartInAllChainLabel.append(part)
-//                    }
-//                }
-//            }
-//        return oneOfEachPartInAllChainLabel
-//    }
-//    
-//    static func getOneOfAllPartInObjectAfterEdit(_ allPartChainLabels: [Part]) -> [Part] {
-//        var oneOfEachPartInAllChainLabel: [Part] = []
-//            for label in allPartChainLabels {
-//               let partChain = LabelInPartChainOut(label).partChain
-//                for part in partChain {
-//                    if !oneOfEachPartInAllChainLabel.contains(part) {
-//                        oneOfEachPartInAllChainLabel.append(part)
-//                    }
-//                }
-//            }
-//        return oneOfEachPartInAllChainLabel
-//    }
-//}

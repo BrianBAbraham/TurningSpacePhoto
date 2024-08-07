@@ -28,7 +28,7 @@ struct ObjectImageData {
     }
     var postTilt = PostTilt()
     
-    let objectChainLabelsDefaultDic: ObjectChainLabelDictionary = ObjectChainLabel.dictionary
+    let objectChainLabelsDefaultDic: ObjectChainLabelsDictionary = ObjectChainLabel.dictionary
     
     var partDataDic: [Part: PartData] = [:]
    
@@ -59,9 +59,7 @@ struct ObjectImageData {
             
             partDataDic =
                 objectData.partDataDic
-            
-            DictionaryService.shared.partDataSharedDic = partDataDic//provide intial values
-            
+              
             createPreTiltDictionaryFromStructFactory()
             
             createPostTiltDictionaries()
@@ -599,3 +597,36 @@ extension ObjectImageData {
     }
         
 }
+
+//    func getSideViewCorners(_ allCorners: [PositionAsIosAxes]) -> [PositionAsIosAxes]{
+//        let corners = [7,3,0,4].map{allCorners[$0]}
+//        var sideWaysCorners: [PositionAsIosAxes] = []
+//        for corner in corners {
+//            sideWaysCorners.append((x: corner.y, y:corner.z ,z: corner.x))
+//        }
+                
+        //print(corners.count)
+//        return sideWaysCorners
+//    }
+
+//    func calculateRotatedCorner(
+//        _ rotatedOriginOfPart: PositionAsIosAxes,
+//        _ cornerPositions: [PositionAsIosAxes],
+//        _ angle: RotationAngles = ZeroValue.rotationAngles)
+//    -> [PositionAsIosAxes]  {
+//        var rotatedCorners: [PositionAsIosAxes] = []
+//        guard angle.y.value == 0.0 || angle.z.value == 0.0 else {
+//            fatalError("\(String(describing: type(of: self))): \(#function ) only x rotation are coded \(angle.y.value)  \(angle.z.value) ")
+//        }
+//        for index in 0..<cornerPositions.count {
+//            let newCornerPosition =
+//            PositionOfPointAfterRotationAboutPoint(
+//                staticPoint:ZeroValue.iosLocation,
+//                movingPoint: cornerPositions[index],
+//                angleChange: angle.x
+//            ).fromObjectOriginToPointWhichHasMoved
+//            rotatedCorners.append(
+//             newCornerPosition + rotatedOriginOfPart)
+//        }
+//        return rotatedCorners
+//    }

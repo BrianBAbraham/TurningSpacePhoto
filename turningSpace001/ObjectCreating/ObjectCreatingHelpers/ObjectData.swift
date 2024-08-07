@@ -8,9 +8,9 @@
 import Foundation
 
 struct ObjectData {
-    let objectChainLabelsDefaultDic: ObjectChainLabelDictionary
+    let objectChainLabelsDefaultDic: ObjectChainLabelsDictionary
     
-    let objectChainLabelsUserEditedDic: ObjectChainLabelDictionary
+    let objectChainLabelsUserEditedDic: ObjectChainLabelsDictionary
     
     var partDataDic: [Part: PartData] = [:]
     

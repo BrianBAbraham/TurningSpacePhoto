@@ -80,7 +80,6 @@ struct MyCircle: View {
                         .modifier(CircleModifier( dimension: dimension, position: position))
                     Circle()
                         .fill(.black)
-//                        .modifier(CircleModifier( dimension: dimension * (horizontalSizeClass == .compact ? 2:2), position: position))
                         .modifier(CircleModifier( dimension: 30, position: position))
                         .opacity(0.0001)
                 }
@@ -91,6 +90,8 @@ struct MyCircle: View {
         }
     }
 }
+
+
 
 struct MyBackgroundlessCircle: View {
     let dimension: Double

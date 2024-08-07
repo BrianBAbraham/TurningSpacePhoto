@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 struct ZeroValue {
     static let iosLocation: PositionAsIosAxes = (x: 0.0, y: 0.0, z: 0.0 )
     static let oneOrTwoPositionAsTuple =
@@ -34,6 +33,30 @@ struct ZeroValue {
     
 
 struct CreateIosPosition {
+    static func cornerToCGPointDic(_ dic: CornerDictionary) ->  [String: [CGPoint]] {
+        var output: [String: [CGPoint]] = [:]
+        
+        for (key, points) in dic {
+            let cgPoints = points.map { CGPoint(x: $0.x, y: $0.y) }
+            output[key] = cgPoints
+        }
+        
+        return output
+    }
+    
+    
+    static func cornerToZHeightDic(_ dic: CornerDictionary) ->  [String: Double] {
+        var output: [String: Double] = [:]
+        
+        for (key, points) in dic {
+            output[key] = points[0].z
+            
+        }
+        
+        return output
+    }
+    
+    
     static func addToToupleX(_ touple: PositionAsIosAxes, _ value: Double) -> PositionAsIosAxes {
         let p = touple
         return
@@ -84,25 +107,7 @@ struct CreateIosPosition {
             return
                 initialCorners
     }
-    
-//    static func dimensionFromIosPositions(_ positions: [PositionAsIosAxes])
-//    -> Dimension {
-//        
-//        let arrayTouple = getArrayFromPositions(positions)
-//        let xArray = arrayTouple.x
-//        let yArray = arrayTouple.z
-//        
-//        func getDimension(_ measurements :[Double]) -> Double {
-//            let defaultMeasurement = measurements[0]
-//            let maxMeasurement = measurements.max() ?? defaultMeasurement
-//            let minMeasurement = measurements.min() ?? defaultMeasurement
-//            return maxMeasurement - minMeasurement
-//        }
-//        return
-//            (
-//            width: getDimension(xArray),
-//            length: getDimension(yArray))
-//    }
+
     
     static func convertMinMaxToDimension(_ minMax: [PositionAsIosAxes]) -> Dimension {
         return (
@@ -229,6 +234,5 @@ struct CreateIosPosition {
         }
     }
 }
-
 
 

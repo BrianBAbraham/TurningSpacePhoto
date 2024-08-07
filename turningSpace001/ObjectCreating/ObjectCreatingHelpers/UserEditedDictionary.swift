@@ -15,7 +15,7 @@ import Foundation
 ///where extant, instead of default values
 ///during intitialisation
 ///partChainId  are wrapped in OneOrTwo
-struct UserEditedDictionaries {
+class UserEditedDictionaries: ObservableObject {
     //relating to Part
     var dimensionUserEditedDic: Part3DimensionDictionary
     
@@ -23,7 +23,6 @@ struct UserEditedDictionaries {
     var angleMinMaxDic: AngleMinMaxDictionary
     
     //relating to Object
-//    var parentToPartOriginUserEditedDicNew: [PartId: PositionAsIosAxes]
     var originOffsetUserEditedDic: PositionDictionary
     var parentToPartOriginUserEditedDic: PositionDictionary
     var parentToPartOriginOffsetUserEditedDic: PositionDictionary
@@ -31,8 +30,8 @@ struct UserEditedDictionaries {
 
     
     //relating to ObjectImage
-    var partIdsUserEditedDic: [Part: OneOrTwo<PartTag>]
-    var objectChainLabelsUserEditDic: ObjectChainLabelDictionary
+    @Published var partIdsUserEditedDic: [Part: OneOrTwo<PartTag>]
+    @Published var objectChainLabelsUserEditDic: ObjectChainLabelsDictionary
    
     static var shared = UserEditedDictionaries()
     
@@ -43,7 +42,7 @@ struct UserEditedDictionaries {
             [:] ,
         parentToPartOriginUserEditedDic: PositionDictionary = [:],
         parentToPartOriginOffsetUserEditedDic: PositionDictionary = [:],
-//        parentToPartOriginUserEditedDicNew: [PartId: PositionAsIosAxes] = [:],
+
         objectToParOrigintUserEditedDic: PositionDictionary = [:],
         originOffsetUserEditedDic: PositionDictionary = [:],
         anglesDic: AnglesDictionary =
@@ -52,14 +51,14 @@ struct UserEditedDictionaries {
             [:],
         partIdsUserEditedDic: [Part: OneOrTwo<PartTag>] =
             [:],
-        objectChainLabelsUserEditDic: ObjectChainLabelDictionary =
+        objectChainLabelsUserEditDic: ObjectChainLabelsDictionary =
             [:]) {
         
         self.dimensionUserEditedDic = dimension
    
         self.parentToPartOriginUserEditedDic = parentToPartOriginUserEditedDic
         self.parentToPartOriginOffsetUserEditedDic = parentToPartOriginUserEditedDic
-//        self.parentToPartOriginUserEditedDicNew = parentToPartOriginUserEditedDicNew
+
         self.objectToPartOrigintUserEditedDic = objectToParOrigintUserEditedDic
         self.originOffsetUserEditedDic = originOffsetUserEditedDic
         self.angleUserEditedDic =

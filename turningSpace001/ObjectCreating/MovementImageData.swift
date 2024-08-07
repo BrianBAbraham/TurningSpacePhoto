@@ -33,12 +33,9 @@ struct MovementImageData {
         switch movementType {
         case .none:
             return
-            
         case .linear:
             translateObject(1,
                             (x: 0.0, y: 1000.0, z: 0.0))
-           
-            
         case .turn:
             for index in 0...1 {
                 let newObjectId = index
@@ -178,9 +175,6 @@ struct MovementImageData {
         
     return names
     }
-    
-
-    
 }
 
 
@@ -189,8 +183,18 @@ enum Movement: String, CaseIterable {
     case none = "static"
     case linear = "forward"
     case turn = "turn"
-    //case slalom = "slalom"
+    case slalom = "slalom"
     //case t = "T-turn"
     //case incremental = "off wall"
 }
 
+
+//struct IdentifiableDictionary: Identifiable {
+//    let id: UUID // Provides a unique identifier for each instance
+//    var dictionary: CornerDictionary // Example dictionary, can be of any type
+//
+//    init(dictionary: CornerDictionary) {
+//        self.id = UUID() // Generate a new UUID for each new instance
+//        self.dictionary = dictionary
+//    }
+//}

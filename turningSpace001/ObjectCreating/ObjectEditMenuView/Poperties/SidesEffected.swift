@@ -26,4 +26,17 @@ enum SidesAffected: String, CaseIterable, Equatable {
             fatalError("sides required but none exists")
         }
     }
+    
+    func asArray() -> [SidesAffected] {
+        switch self {
+        case .both:
+            return [.both, .left, .right]
+        case .left:
+            return [.left]
+        case .right:
+            return [.right]
+        case .none:
+            return [.none]
+        }
+    }
 }
