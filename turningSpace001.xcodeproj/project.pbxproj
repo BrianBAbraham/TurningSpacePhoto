@@ -237,7 +237,6 @@
 			children = (
 				FDDA3B912C2B14D900C7ED5E /* DataServices.swift */,
 				FD21146B2C2DB1AD0099C366 /* Types.swift */,
-				FDF2EA382C2EF434004941DE /* Calculate.swift */,
 				FD21146D2C2DB1BF0099C366 /* PositionTransformation.swift */,
 				FD2114712C2DB2B30099C366 /* ObjectDictionaryTransformation.swift */,
 				FD21146F2C2DB2710099C366 /* CreateName.swift */,
@@ -268,6 +267,7 @@
 		FDDA3B992C2B14D900C7ED5E /* OriginalViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FDF2EA382C2EF434004941DE /* Calculate.swift */,
 				FDDA3B9A2C2B14D900C7ED5E /* MenuChairViewModel.swift */,
 				FDDA3B9D2C2B14D900C7ED5E /* ChairManoeuvreProjectVM.swift */,
 			);
