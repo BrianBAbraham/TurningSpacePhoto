@@ -36,6 +36,7 @@ class RightSideMenuItemViewModel: ObservableObject {
             break
             
         case "figure.roll":
+            print("OBJECT AND PART EDIT MENU")
             break
             
         case "circle":

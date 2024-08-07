@@ -279,3 +279,14 @@ struct MenuForChairView: View {
     }
     
 }
+
+
+struct MenuForObjectEdit: View {
+    var body: some View {
+        BottomMenuViewBuilder ("figure.roll", 300) {
+            
+            Text("HELLO ")
+            //ObjectAndPartEditMenuContainerView()
+        }
+    }
+}

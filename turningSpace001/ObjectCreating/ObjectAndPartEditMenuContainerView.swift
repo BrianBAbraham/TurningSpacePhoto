@@ -10,6 +10,8 @@ import SwiftUI
 struct ObjectAndPartEditMenuContainerView: View {
     var body: some View {
         ZStack{
+        
+            
             VStack (alignment: .leading) {
                 
                 HStack{
