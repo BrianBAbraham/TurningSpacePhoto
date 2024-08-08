@@ -46,6 +46,47 @@ struct TurningSpace001App: App {
     @StateObject var scalingToolViewModel = ScalingToolViewModel()
     
     
+    
+    ///ObjectCreation
+    //ObjectEditMenuView
+        //Properties
+    @StateObject var bilateralPartSidePickerVM = BilateralPartSidePickerViewModel()
+    @StateObject var bilateralPartPresenceVM = BilateralPartSidePresenceViewModel()
+    @StateObject var dimensionPickerVM = DimensionPickerViewModel()
+    @StateObject var dimensionStepperVM = DimensionStepperViewModel()
+    @StateObject var originPickerVM = OriginPickerViewModel()
+    @StateObject var originStepperVM = OriginStepperViewModel()
+    @StateObject var propertyAngleEditVM =  PropertyAngleEditViewModel()
+    @StateObject var unilateralPartPresenceVM =  UnilateralPartPresenceViewModel()
+    @StateObject var menuForObjectEditViewModel =
+    MenuForObjectEditViewModel()
+    
+        //Selections
+    @StateObject var objectPickerVM = ObjectPickerViewModel()
+    @StateObject var partPickerVM = PartPickerViewModel()
+    
+    
+//MovementEditMenuView
+    @StateObject var movementAnglePickerVM = MovementAnglePickerViewModel()
+    @StateObject var movementAngleStepperVM = MovementAngleStepperViewModel()
+    @StateObject var movementOriginStepperVM = MovementOriginStepperViewModel()
+    @StateObject var movementPickerVM = MovementPickerViewModel()
+    @StateObject var movementEditMenuContainerVM = MovementEditMenuContainerViewModel()
+    @StateObject var menuForMovementEditViewModel = MenuForMovementEditViewModel()
+    
+    
+//ObjectView
+    @StateObject var partViewModel = AllPartViewModel()
+    @StateObject var allArcWithStaticPointVM = AllArcWithStaticPointViewModel()
+    @StateObject var allPartWithArcContainerVM = AllPartWithArcContainerViewModel()
+
+ 
+    @StateObject var rulerVM = RightAngleRulerViewModel()
+
+    @StateObject var objectAndRulerVM = ObjectAndRulerViewModel()
+  
+    @StateObject var recenterVM = ObjectRulerRepositionViewModel()
+        
  
     var body: some Scene {
         WindowGroup {
@@ -83,6 +124,45 @@ struct TurningSpace001App: App {
                 .environmentObject(scaleValueProviderMediator)
                 .environmentObject(scalingPhotoViewModel)
                 .environmentObject(scalingToolViewModel)
+            
+            
+            ///ObjectCreation
+            //ObjectEditMenuView
+                //Properties
+                .environmentObject(bilateralPartSidePickerVM)
+                .environmentObject(bilateralPartPresenceVM)
+                .environmentObject(dimensionPickerVM)
+                .environmentObject(dimensionStepperVM)
+                .environmentObject(originPickerVM)
+                .environmentObject(originStepperVM)
+                .environmentObject(propertyAngleEditVM)
+                .environmentObject(unilateralPartPresenceVM)
+                .environmentObject(menuForObjectEditViewModel)
+                
+                //Selection
+                .environmentObject(objectPickerVM)
+                .environmentObject(partPickerVM)
+            
+            
+            
+            //MovementEditMenuView
+                .environmentObject(movementAnglePickerVM)
+                .environmentObject(movementAngleStepperVM)
+                .environmentObject(movementOriginStepperVM)
+                .environmentObject(movementPickerVM)
+                .environmentObject(movementEditMenuContainerVM)
+                .environmentObject(menuForMovementEditViewModel)
+            
+            //ObjectView
+                .environmentObject(partViewModel)
+                .environmentObject(allArcWithStaticPointVM)
+                .environmentObject(allPartWithArcContainerVM)
+            
+                .environmentObject(rulerVM)
+            
+               .environmentObject(objectAndRulerVM)
+                
+                .environmentObject(recenterVM)
         }
     }
 }

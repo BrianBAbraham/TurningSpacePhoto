@@ -281,12 +281,27 @@ struct MenuForChairView: View {
 }
 
 
-struct MenuForObjectEdit: View {
+struct MenuForObjectEditView: View {
+    @EnvironmentObject var vm: MenuForObjectEditViewModel
     var body: some View {
-        BottomMenuViewBuilder ("figure.roll", 300) {
-            
-            Text("HELLO ")
-            //ObjectAndPartEditMenuContainerView()
+        if vm.showMenu {
+            BottomMenuViewBuilder ("figure.roll", 300) {
+                
+                ObjectAndPartEditMenuContainerView()
+            }
+        }
+    }
+}
+
+
+struct MenuForMovementEditView: View {
+    @EnvironmentObject var vm: MenuForMovementEditViewModel
+    var body: some View {
+        if vm.showMenu {
+            BottomMenuViewBuilder ("circle", 300) {
+                
+               MovementEditMenuContainerView()
+            }
         }
     }
 }

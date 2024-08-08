@@ -27,6 +27,8 @@ struct ContentView: View {
         ZStack{
             ScaleDimensionLineView(zoom)
 
+     
+            
             ZStack {
             PhotoManagementView()
                 .zIndex(2.0)
@@ -48,8 +50,14 @@ struct ContentView: View {
                 .zIndex(11.0)
 
             MenuForChairView()
+                
+            MenuForObjectEditView()
+                
+            MenuForMovementEditView()
 
             ConditionalUnscaledPhotoAlertView()
+                
+            ObjectAndRulerView(.edit)
                         
             }
         }

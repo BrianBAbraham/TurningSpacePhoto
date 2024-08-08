@@ -6,28 +6,45 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ObjectAndPartEditMenuContainerView: View {
+   
+    
     var body: some View {
-        ZStack{
-        
-            
-            VStack (alignment: .leading) {
-                
-                HStack{
-                    MovementPickerView()
+     
+            ZStack{
+                VStack (alignment: .leading) {
                     
-                    ObjectPickerView()
+                    HStack{
+                        MovementPickerView()
+                        
+                        ObjectPickerView()
+                        
+                        PartPickerView()
+                    }
                     
-                    PartPickerView()
+                    PartOriginAndDimensionEditContainerView()
+                    
                 }
-                
-                PartOriginAndDimensionEditContainerView()
-                
             }
-        }
-        .padding(.horizontal)
-        .backgroundModifier()
-        .transition(.move(edge: .bottom))
+            .padding(.horizontal)
+            .backgroundModifier()
+            .transition(.move(edge: .bottom))
+    }
+}
+
+
+class MenuForObjectEditViewModel: ObservableObject {
+    @Published var showMenu = BottomMenuDisplayService.shared.showObjectEditMenu
+    
+    
+    internal var cancellables: Set<AnyCancellable> = []
+    
+    init () {
+        BottomMenuDisplayService.shared.$showObjectEditMenu
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.showMenu,on: self)
+            .store(in: &cancellables)
     }
 }

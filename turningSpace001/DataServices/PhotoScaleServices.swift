@@ -60,7 +60,7 @@ class ShowUnscaledPhotoAlertService {
 
 
 class ScaleService {
-    @Published var scale = 0.1
+    @Published var scale = 1.0//0.1
     @Published var scalingCompleted = false
     var scalingToolAtInitialPosition = false
     @Published var leftScalingToolPosition = CGPoint(x: 75, y: 100)

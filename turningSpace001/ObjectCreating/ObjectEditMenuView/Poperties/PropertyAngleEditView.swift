@@ -16,7 +16,7 @@ struct PropertyAngleEditView: View {
                 Text("angle")
                     .colorScheme(.light)
 
-                Slider(value: vm.sliderValueBinding, in: vm.min...vm.max, step: 1.0)
+                Slider(value: vm.sliderValueBinding, in: vm.min...30.0, step: 1.0)
 
                 Text(" deg: \( Int(vm.max - vm.sliderValueBinding.wrappedValue))")
                     .colorScheme(.light)

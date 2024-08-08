@@ -26,13 +26,16 @@ class DismissBottomMenuViewModel: ObservableObject {
     
     func setMenu(_ menuName: String) {
        
-        if menuName == "openFile" {
-           
+        if menuName == "figure.roll" {
+            BottomMenuDisplayService.shared.setObjectEditMenuFalse()
         }
         if menuName == "photo" {
-        
             setShowPhotoMenuFalse()
             
+        }
+        
+        if menuName == "circle" {
+            BottomMenuDisplayService.shared.setMovementEditMenuFalse()
         }
         if menuName == "arrow.clockwise" {
            

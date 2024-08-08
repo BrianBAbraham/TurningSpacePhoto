@@ -31,7 +31,9 @@ struct ObjectAndRulerView: View {
 
     func getZoom() -> CGFloat {
         let zoom =
-        limitZoom( (0.2 + currentZoom + lastCurrentZoom) * vm.defaultScale/vm.measurementScale)
+        limitZoom( (0.2 + currentZoom + lastCurrentZoom) 
+        //           * vm.measurementScale
+        )
         return zoom
         
         func limitZoom (_ zoom: CGFloat) -> CGFloat {

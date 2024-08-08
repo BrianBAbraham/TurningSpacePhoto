@@ -36,11 +36,11 @@ class RightSideMenuItemViewModel: ObservableObject {
             break
             
         case "figure.roll":
-            print("OBJECT AND PART EDIT MENU")
-            break
+           
+            BottomMenuDisplayService.shared.setObjectEditMenuTrue()
             
         case "circle":
-            break
+            BottomMenuDisplayService.shared.setMovementEditMenuTrue()
             
         case "gear":
             break

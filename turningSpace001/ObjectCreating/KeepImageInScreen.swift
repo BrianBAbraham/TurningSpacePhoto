@@ -6,11 +6,43 @@
 //
 
 import Foundation
+import Combine
+
+class ManageEnsureNoNegativePositions {
+    var noNegativePositions = EnsureNoNegativePositions(fourCornerDic: [:], objectDimension: ZeroValue.dimension,
+        scale: 1.0)
+    var scale = ScaleService.shared.scale
+    private var cancellables: Set<AnyCancellable> = []
+    
+    init(
+        fourCornerDic: CornerDictionary,
+        objectDimension: Dimension) {
+        ScaleService.shared.$scale
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] newData in
+                    self?.scale = newData
+                    self?.noNegativePositions =
+                    EnsureNoNegativePositions(
+                    fourCornerDic: fourCornerDic,
+                    objectDimension: objectDimension,
+                    scale: newData)
+                }
+                .store(in: &self.cancellables)
+            
+        noNegativePositions =
+        EnsureNoNegativePositions(
+        fourCornerDic: fourCornerDic,
+        objectDimension: objectDimension,
+        scale: scale)
+    }
+}
+
 
 struct EnsureNoNegativePositions {
     let fourCornerDic: CornerDictionary
     let objectDimension: Dimension
     var originOffset = ZeroValue.iosLocation
+    let scale: Double
     
 
     //MARK: DEVELOPMENT scale = 1
@@ -32,7 +64,8 @@ struct EnsureNoNegativePositions {
                 _ actualSizeDic: CornerDictionary,
                 _ offset: PositionAsIosAxes)
             -> CornerDictionary {
-                let scaleFactor = 1.0
+                let scaleFactor = scale
+                print(scaleFactor)
                 var postTiltObjectToPartFourCornerAllPositivePerKeyDic: CornerDictionary = [:]
                 for item in actualSizeDic {
                     var positivePositions: [PositionAsIosAxes] = []
@@ -111,13 +144,21 @@ struct EnsureNoNegativePositions {
 struct ObjectZeroStaticPointAtMovementFrameCenter {
     let movementImageData: MovementImageData
     
+//    var ensureInitialObjectAllOnScreen: EnsureNoNegativePositions =
+//        // drag will not work if coordinates are negative
+//        // must be repeated as movement can make negative
+//        EnsureNoNegativePositions(
+//            fourCornerDic: [:],
+//            objectDimension: ZeroValue.dimension
+//        )
+    
     var ensureInitialObjectAllOnScreen: EnsureNoNegativePositions =
         // drag will not work if coordinates are negative
         // must be repeated as movement can make negative
-        EnsureNoNegativePositions(
+        ManageEnsureNoNegativePositions(
             fourCornerDic: [:],
             objectDimension: ZeroValue.dimension
-        )
+        ).noNegativePositions
     
     var movementDictionaryForScreen: CornerDictionary = [:]
     
@@ -168,6 +209,19 @@ struct ObjectZeroStaticPointAtMovementFrameCenter {
     }
     
     
+//    func getMakeWholeObjectOnScreen()
+//        -> EnsureNoNegativePositions {
+//            let objectDimension: Dimension =
+//                getObjectDimension()
+//            let fourCornerDic: CornerDictionary =
+//                getPostTiltObjectToPartFourCornerPerKeyDic()
+//            return
+//                EnsureNoNegativePositions(
+//                    fourCornerDic: fourCornerDic,
+//                    objectDimension: objectDimension
+//                )
+//    }
+    
     func getMakeWholeObjectOnScreen()
         -> EnsureNoNegativePositions {
             let objectDimension: Dimension =
@@ -175,12 +229,11 @@ struct ObjectZeroStaticPointAtMovementFrameCenter {
             let fourCornerDic: CornerDictionary =
                 getPostTiltObjectToPartFourCornerPerKeyDic()
             return
-                EnsureNoNegativePositions(
+                ManageEnsureNoNegativePositions(
                     fourCornerDic: fourCornerDic,
                     objectDimension: objectDimension
-                )
+                ).noNegativePositions
     }
-    
     
     func getObjectDimension ( )
         -> Dimension {

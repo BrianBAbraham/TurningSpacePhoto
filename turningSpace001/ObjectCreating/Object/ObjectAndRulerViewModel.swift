@@ -12,7 +12,7 @@ import Combine
 
 class ObjectAndRulerViewModel: ObservableObject {
     @Published var defaultScale = 0.0
-    @Published var measurementScale = 0.0
+    @Published var measurementScale = ScaleService.shared.scale
 
     var onScreenMovementFrameSize: Dimension = ZeroValue.dimension
     var objectZeroStaticPointAtMovementFrameCenter: ObjectZeroStaticPointAtMovementFrameCenter = ObjectZeroStaticPointAtMovementFrameCenterService.shared.objectZeroStaticPointAtMovementFrameCenter
@@ -28,13 +28,18 @@ class ObjectAndRulerViewModel: ObservableObject {
                 self?.updateScales()
             }
             .store(in: &cancellables)
+        
+        ScaleService.shared.$scale
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.measurementScale,on: self)
+            .store(in: &cancellables)
     }
     
     
     func updateScales(){
         let maximumnDimensionOfMotion  = getMaximumDimensionOfMotion()
-        defaultScale = Screen.smallestDimension/maximumnDimensionOfMotion
-        measurementScale = Screen.smallestDimension/maximumnDimensionOfMotion
+        defaultScale = measurementScale//Screen.smallestDimension/maximumnDimensionOfMotion
+        //measurementScale = Screen.smallestDimension/maximumnDimensionOfMotion
         
         func getMaximumDimensionOfMotion() -> Double {
             onScreenMovementFrameSize.length > onScreenMovementFrameSize.width ?         onScreenMovementFrameSize.length :         onScreenMovementFrameSize.width

@@ -28,3 +28,18 @@ class MovementEditMenuContainerViewModel: ObservableObject, SharedMovementType {
     }
     
 }
+
+
+class MenuForMovementEditViewModel: ObservableObject {
+    @Published var showMenu = BottomMenuDisplayService.shared.showMovementEditMenu
+    
+    
+    internal var cancellables: Set<AnyCancellable> = []
+    
+    init () {
+        BottomMenuDisplayService.shared.$showMovementEditMenu
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.showMenu,on: self)
+            .store(in: &cancellables)
+    }
+}

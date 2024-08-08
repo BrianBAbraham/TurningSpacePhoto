@@ -68,15 +68,25 @@ class RightAngleRulerViewModel: ObservableObject {
             unitSystem: unitSystemInitial
         )
         
-        rulerModel = 
-            RulerModel(
-                ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
-                fourCornerDic: rulerDataBackGround.fourCornerDic,
-                objectDimension: rulerDataBackGround.dimension
-                ),
-                rulerMarks: rulerMarks.getMarksDictionary(),
-                rulerNumbers: [:]
-        )
+//        rulerModel = 
+//            RulerModel(
+//                ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
+//                fourCornerDic: rulerDataBackGround.fourCornerDic,
+//                objectDimension: rulerDataBackGround.dimension
+//                ),
+//                rulerMarks: rulerMarks.getMarksDictionary(),
+//                rulerNumbers: [:]
+//        )
+        
+            rulerModel =
+                RulerModel(
+                    ensureInitialRulerIsOnScreen: ManageEnsureNoNegativePositions(
+                    fourCornerDic: rulerDataBackGround.fourCornerDic,
+                    objectDimension: rulerDataBackGround.dimension
+                    ).noNegativePositions,
+                    rulerMarks: rulerMarks.getMarksDictionary(),
+                    rulerNumbers: [:]
+            )
         
         ObjectDataService.shared.$objectType
             .receive(on: DispatchQueue.main)
@@ -118,12 +128,20 @@ class RightAngleRulerViewModel: ObservableObject {
         unitSystem: unitSystem
       )
 
+//      self.rulerModel = RulerModel(
+//          ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
+//              fourCornerDic: rulerDataBackGround.fourCornerDic,
+//              objectDimension: rulerDataBackGround.dimension
+//          ),
+//          rulerMarks: self.rulerMarks.getMarksDictionary(),
+//          rulerNumbers: [:]
+//      )
+      
       self.rulerModel = RulerModel(
-          ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
+          ensureInitialRulerIsOnScreen: ManageEnsureNoNegativePositions(
               fourCornerDic: rulerDataBackGround.fourCornerDic,
-              //oneCornerDic: rulerDataBackGround.oneCornerDic,
               objectDimension: rulerDataBackGround.dimension
-          ),
+          ).noNegativePositions,
           rulerMarks: self.rulerMarks.getMarksDictionary(),
           rulerNumbers: [:]
       )

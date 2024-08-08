@@ -34,6 +34,8 @@ class BottomMenuDisplayService {
     
     @Published var showPhotoMenu = false
     @Published var showChairMenu = false
+    @Published var showObjectEditMenu = false
+    @Published var showMovementEditMenu = false
     @Published var preventPhotoMenuDimsiss = false
     
     
@@ -45,6 +47,15 @@ class BottomMenuDisplayService {
     func setShowChairMenuFalse() {
         showChairMenu = false
     }
+    
+    func setObjectEditMenuFalse() {
+        showObjectEditMenu = false
+    }
+    
+    func setMovementEditMenuFalse() {
+        showMovementEditMenu = false
+    }
+    
     
     
     func setShowPhotoMenu(_ value: Bool) {
@@ -74,6 +85,13 @@ class BottomMenuDisplayService {
         showChairMenu = true
     }
     
+    func setObjectEditMenuTrue() {
+        showObjectEditMenu = true
+    }
+    
+    func setMovementEditMenuTrue() {
+        showMovementEditMenu = true
+    }
     
     func toggleShowChairMenu() {
         showChairMenu.toggle()
