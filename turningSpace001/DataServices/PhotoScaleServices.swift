@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Combine
+
 
 class ShowScalingSliderService {
     static let shared = ShowScalingSliderService()
@@ -57,7 +59,18 @@ class ShowUnscaledPhotoAlertService {
     }
 }
 
-
+//protocol SharedScale: AnyObject {
+//    var scale: Double {get set}
+//    var cancellables: Set<AnyCancellable> { get set }
+//}
+//extension SharedScale {
+//    func subscribeToService() {
+//        ScaleService.shared.$scale
+//            .receive(on: DispatchQueue.main)
+//            .assign(to: \.scale,on: self)
+//            .store(in: &cancellables)
+//    }
+//}
 
 class ScaleService {
     @Published var scale = 1.0//0.1

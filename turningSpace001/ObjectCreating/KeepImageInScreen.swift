@@ -64,7 +64,7 @@ struct EnsureNoNegativePositions {
                 _ actualSizeDic: CornerDictionary,
                 _ offset: PositionAsIosAxes)
             -> CornerDictionary {
-                let scaleFactor = scale
+                let scaleFactor = 1.0//scale
                 print(scaleFactor)
                 var postTiltObjectToPartFourCornerAllPositivePerKeyDic: CornerDictionary = [:]
                 for item in actualSizeDic {

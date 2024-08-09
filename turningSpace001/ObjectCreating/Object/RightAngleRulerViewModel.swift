@@ -12,89 +12,77 @@ import Combine
 struct RulerModel {
     let ensureInitialRulerIsOnScreen:
         EnsureNoNegativePositions
-    let rulerMarks: CornerDictionary
+    let rulerMarksDic: CornerDictionary
     var rulerNumbers: PositionDictionary
 }
 
 
-
-
-
-
-
 class RightAngleRulerViewModel: ObservableObject {
-   
+
     @Published var preTiltObjectToPartFourCornerPerKeyDic: CornerDictionary = [:]
+    @Published var rulerFrameSize = ZeroValue.dimension
+    @Published var numberDictionary: PositionDictionary = [:]
+    @Published var rulerMarksDic: CornerDictionary = [:]
+    @Published var rulerPartAllCGPoint: [CGPoint] = []
     
-    @Published private var rulerModel: RulerModel
-    
-    @Published var objectName: String = ObjectDataService.shared.objectType.rawValue
-    
-    var movementImageData: MovementImageData =
-        MovementImageService.shared.movementImageData
-   
+    var rulerModel: RulerModel
     var unitSystem: UnitSystem = MeasurementSystemService.shared.unitSystem
     let lengthBefore = 170.0//measurement lines
     let lengthAfter = 30.0// measurment lines
     let numberSpan: Double
     let width: Double
-  
-    let rulerDataBackGround: RulerDataBackground
-    var rulerMarks: RulerDataMarks
-  
+    var rulerPartData: RulerPartData
+    var rulerDataMarks: RulerDataMarks
+    var rulerLength = 0.0
+    var scale: Double = ScaleService.shared.scale
+    
 
-    private var cancellables: Set<AnyCancellable> = []
+    internal var cancellables: Set<AnyCancellable> = []
     
     init(
-        _ numberSpan: Double = 3000.0,
+        _ numberSpan: Double = 1000.0,
         _ width: Double = 170.0
     ) {
+        
         self.numberSpan = numberSpan
         self.width = width
-        let rulerLength = lengthBefore + numberSpan + lengthAfter
+        rulerLength = lengthBefore + numberSpan + lengthAfter
         
-        rulerDataBackGround =
-            RulerDataBackground (
-                rulerLength: rulerLength,
-                rulerWidth: width
+        rulerPartData =
+            RulerPartData (
+                rulerLength: rulerLength * scale,
+                rulerWidth: width * scale
             )
+       
         
         let unitSystemInitial = MeasurementSystemService.shared.unitSystem
         
-        rulerMarks = RulerDataMarks(
-            lengthBefore: lengthBefore,
-            numberSpan: numberSpan,
-            ruleWidth: width,
+        rulerDataMarks = RulerDataMarks(
+            lengthBefore: lengthBefore * scale,
+            numberSpan: numberSpan * scale ,
+            ruleWidth: width * scale,
             unitSystem: unitSystemInitial
         )
         
-//        rulerModel = 
-//            RulerModel(
-//                ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
-//                fourCornerDic: rulerDataBackGround.fourCornerDic,
-//                objectDimension: rulerDataBackGround.dimension
-//                ),
-//                rulerMarks: rulerMarks.getMarksDictionary(),
-//                rulerNumbers: [:]
-//        )
+        rulerModel =
+            RulerModel(
+                ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
+                fourCornerDic: rulerPartData.rulerPartDatafourCornerDic,
+                objectDimension: rulerPartData.dimension,
+                scale: scale),
+                rulerMarksDic: rulerDataMarks.getMarksDictionary(),
+                rulerNumbers: [:]
+        )
         
-            rulerModel =
-                RulerModel(
-                    ensureInitialRulerIsOnScreen: ManageEnsureNoNegativePositions(
-                    fourCornerDic: rulerDataBackGround.fourCornerDic,
-                    objectDimension: rulerDataBackGround.dimension
-                    ).noNegativePositions,
-                    rulerMarks: rulerMarks.getMarksDictionary(),
-                    rulerNumbers: [:]
-            )
-        
-        ObjectDataService.shared.$objectType
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] newData in
-               // self?.objectType = newData
-                self?.objectName = newData.rawValue
-            }
-            .store(in: &self.cancellables)
+        ScaleService.shared.$scale
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] newData in
+                    guard let self else {return}
+                    self.scale = newData
+                    print("SCAL:E MODIFIRED to \(newData)")
+                    self.updateDependentProperties(newData)
+                }
+                .store(in: &self.cancellables)
         
         
         MeasurementSystemService.shared.$unitSystem
@@ -103,99 +91,123 @@ class RightAngleRulerViewModel: ObservableObject {
             }
             .store(in: &self.cancellables)
         
-        
-        MovementImageService.shared.$movementImageData
-            .receive(on: DispatchQueue.main) // Ensure UI updates are on the main thread
-            .sink { [weak self] newData in
-                guard let self = self else { return }
-                self.movementImageData = newData
-                self.preTiltObjectToPartFourCornerPerKeyDic = newData.objectImageData.preTilt.objectToPartFourCornerPerKeyDic
-               
-            }
-            .store(in: &cancellables)
-        
-        
-        updateDependentProperties()
+        updateDependentProperties(scale)
+
     }
+//    
+//    func updateRulerDataBackground(_ rulerLength: Double) {
+//        rulerDataBackGround =
+//            RulerDataBackground (
+//                rulerLength: rulerLength * scale,
+//                rulerWidth: width * scale
+//            )
+//    }
+    
+//    
+//    func createRulerModel(_ scale: Double) {
+//        rulerModel =
+//            RulerModel(
+//                ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
+//                fourCornerDic: rulerDataBackGround.fourCornerDic,
+//                objectDimension: rulerDataBackGround.dimension,
+//                scale: scale),
+//                rulerMarksDic: rulerDataMarks.getMarksDictionary(),
+//                rulerNumbers: [:]
+//        )
+//    }
     
     
-  func updateDependentProperties() {
-//        print("ruler update")
-      self.rulerMarks = RulerDataMarks(
-        lengthBefore: lengthBefore,
-        numberSpan: numberSpan,
-        ruleWidth: width,
+    func updateDependentProperties(_ scale: Double) {
+        print("scale at update \(scale)")
+        rulerPartData =
+            RulerPartData (
+                rulerLength: rulerLength * scale,
+                rulerWidth: width * scale
+            )
+
+      self.rulerDataMarks = RulerDataMarks(
+        lengthBefore: lengthBefore * scale,
+        numberSpan: numberSpan * scale,
+        ruleWidth: width * scale,
         unitSystem: unitSystem
       )
-
-//      self.rulerModel = RulerModel(
-//          ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
-//              fourCornerDic: rulerDataBackGround.fourCornerDic,
-//              objectDimension: rulerDataBackGround.dimension
-//          ),
-//          rulerMarks: self.rulerMarks.getMarksDictionary(),
-//          rulerNumbers: [:]
-//      )
-      
-      self.rulerModel = RulerModel(
-          ensureInitialRulerIsOnScreen: ManageEnsureNoNegativePositions(
-              fourCornerDic: rulerDataBackGround.fourCornerDic,
-              objectDimension: rulerDataBackGround.dimension
-          ).noNegativePositions,
-          rulerMarks: self.rulerMarks.getMarksDictionary(),
-          rulerNumbers: [:]
-      )
+     
+      var rulerNumbers: PositionDictionary
       
       switch unitSystem {
       case .cm, .mm:
-          rulerModel.rulerNumbers = createMetricNumberDictionary()
+          rulerNumbers = createMetricNumberDictionary()
       case .imperial:
-          rulerModel.rulerNumbers = createImperialNumberDictionary()
+          rulerNumbers = createImperialNumberDictionary()
       }
+      
+      updateRulerModel(rulerNumbers)
+      
+      func updateRulerModel(_ rulerNumbers: PositionDictionary) {
+          print("scale input into ruler model \(scale)")
+          
+          self.rulerModel = RulerModel(
+            ensureInitialRulerIsOnScreen: EnsureNoNegativePositions(
+                fourCornerDic: rulerPartData.rulerPartDatafourCornerDic,
+                objectDimension: rulerPartData.dimension,
+                scale: scale
+            ),
+            rulerMarksDic: self.rulerDataMarks.getMarksDictionary(),
+            rulerNumbers: rulerNumbers
+          )
+      }
+      
+      rulerMarksDic = rulerModel.rulerMarksDic
+      
+      rulerPartAllCGPoint = getPartCorners()
+  
+      rulerFrameSize = getRulerFrameSize()
+
+      numberDictionary = rulerModel.rulerNumbers
     }
     
     
-    func getDictionaryForScreen() -> CornerDictionary {
-        rulerModel.ensureInitialRulerIsOnScreen.fourCornerDic
-    }
+//    func getDictionaryForScreen() -> CornerDictionary {
+//        rulerModel.ensureInitialRulerIsOnScreen.fourCornerDic
+//    }
     
     
-    func getCorners() -> [CGPoint] {
-        let dic = getDictionaryForScreen()
+    func getPartCorners() -> [CGPoint] {
+        let dic = rulerModel.ensureInitialRulerIsOnScreen.fourCornerDic
+        //print(dic  )
         let dictionaryElementIn = DictionaryElementIn(
             dic,
             ""
         )
-        return dictionaryElementIn.cgPointsOut()
+        let points = dictionaryElementIn.cgPointsOut()
+        
+        print(points)
+    return points
     }
     
     
     func getRulerFrameSize() -> Dimension {
         let frameSize = rulerModel.ensureInitialRulerIsOnScreen.objectDimension
+        
+        print("\nframe size \(frameSize)\n")
         return frameSize
     }
     
-    
-    func getRulerMarks() -> CornerDictionary{
-        rulerModel.rulerMarks
-    }
-    
-    
-    func getNumberDictionary() -> PositionDictionary {
-        rulerModel.rulerNumbers
-
-    }
+//    
+//    func getRulerMarks() -> CornerDictionary{
+//        rulerModel.rulerMarksDic
+//    }
     
     
     func createMetricNumberDictionary() -> PositionDictionary{
-        let dictionary = getRulerMarks()
+        let dictionary =  rulerModel.rulerMarksDic//getRulerMarks()
         var labelDictionary: PositionDictionary = [:]
 
         let unitCorrection = unitSystem == UnitSystem.mm ? 1: 10
         for (key, value) in dictionary {
             if !key.contains(Level.tertiary.rawValue)  && !key.contains(Level.halfSecondary.rawValue){
               
-                let value = value[0].y
+                let value = value[0].y * scale
                 let numberName = String(Int(value - lengthBefore)/unitCorrection)
                 labelDictionary += [numberName: (x: width/2.0, y: value, z: RulerDataMarks.rulerPositionOnZ)]
             }
@@ -205,14 +217,14 @@ class RightAngleRulerViewModel: ObservableObject {
     
     
     func createImperialNumberDictionary() -> PositionDictionary{
-        let dictionary = getRulerMarks()//number name locations
+        let dictionary =  rulerModel.rulerMarksDic//getRulerMarks()//number name locations
         var nameDictionary: PositionDictionary = [:]
 
         for (key, value) in dictionary {
             if (key.contains(Level.primary.rawValue) || //12"
                 key.contains(Level.secondary.rawValue)) //6"
                 && value[0].x == 0.0 { //line has 2 values, use 1
-                let value = value[0].y // y is source of name
+                let value = value[0].y * scale// y is source of name
                 let numberName = //string from y value
                 String(Int(((value - lengthBefore) / 25.4 ).rounded()))
                 nameDictionary += [numberName: (x: width/2.0, y: value, z: RulerDataMarks.rulerPositionOnZ)]
@@ -365,14 +377,14 @@ struct RulerDataMarks {
 }
 
 
-struct RulerDataBackground {
+struct RulerPartData {
     let rulerLength: Double
     let rulerWidth: Double
-    var fourCornerDic: CornerDictionary {
+    var rulerPartDatafourCornerDic: CornerDictionary {
         getDictionary()
     }
     var oneCornerDic: PositionDictionary {
-        ConvertFourCornerPerKeyToOne(fourCornerPerElement:  fourCornerDic).oneCornerPerKey
+        ConvertFourCornerPerKeyToOne(fourCornerPerElement:  rulerPartDatafourCornerDic).oneCornerPerKey
     }
     var dimension: Dimension {
         (width: rulerWidth, length: rulerLength)

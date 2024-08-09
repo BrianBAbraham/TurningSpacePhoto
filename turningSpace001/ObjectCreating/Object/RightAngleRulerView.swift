@@ -16,8 +16,8 @@ struct RightAngleRulerView: View {
     @EnvironmentObject var vm: RightAngleRulerViewModel
    
     var body: some View {
-        let rulerFrameSize = vm.getRulerFrameSize()
-        let width = vm.width
+      //  let rulerFrameSize = vm.getRulerFrameSize()
+      //  let width = vm.width
     
         
         ZStack(alignment: .topLeading ){
@@ -30,11 +30,11 @@ struct RightAngleRulerView: View {
             RulerAllPartView(vm: vm)
                 .rotationEffect(Angle(degrees: -90))
                 .offset(CGSize(
-                    width: (rulerFrameSize.length - width) / 2.0 , 
-                    height: (-rulerFrameSize.length + width ) / 2.0))
+                    width: (vm.rulerFrameSize.length - vm.width) / 2.0 ,
+                    height: (-vm.rulerFrameSize.length + vm.width ) / 2.0))
         }
     
-        .modifier(ForObjectDrag(frameSize: rulerFrameSize, active: true))
+        .modifier(ForObjectDrag(frameSize: vm.rulerFrameSize, active: true))
         }
 }
 
@@ -42,25 +42,21 @@ struct RightAngleRulerView: View {
 
 struct RulerAllPartView: View {
     var vm: RightAngleRulerViewModel
-    var rulerMarksDictionary: CornerDictionary{ vm.getRulerMarks()}
-    var rulerNumberDictionary: PositionDictionary{ vm.getNumberDictionary()}
-    var rulerCorners: [CGPoint]{
-        vm.getCorners()
-    }
-    
+
+  
     var body: some View {
         ZStack{
             RulerPartView(
-                corners: rulerCorners
+                corners: vm.rulerPartAllCGPoint
             )
-            ForEach(rulerMarksDictionary.map { key, value in (key, value) }, id: \.0) { key, value in
-                ObjectLine(tertiaryMarkElement: [key: value])
-            }
-            ForEach(rulerNumberDictionary.map { key, value in (key, value) }, id: \.0) { key, value in
-                Text(key)
-                    .font(.system(size: 50))
-                    .position(x: value.x, y: value.y)
-            }
+//            ForEach(vm.rulerMarksDic.map { key, value in (key, value) }, id: \.0) { key, value in
+//                ObjectLine(tertiaryMarkElement: [key: value])
+//            }
+//            ForEach(vm.numberDictionary.map { key, value in (key, value) }, id: \.0) { key, value in
+//                Text(key)
+//                    .font(.system(size: 50))
+//                    .position(x: value.x, y: value.y)
+//            }
         }
         .zIndex(1000)
     }
