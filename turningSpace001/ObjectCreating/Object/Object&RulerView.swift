@@ -52,16 +52,16 @@ struct ObjectAndRulerView: View {
             RightAngleRulerView()
             
         }
-        //.scaleEffect(zoom)
-        //.gesture(MagnificationGesture()
-       //     .onChanged { value in
-          //      currentZoom = (value - 1) * 0.3 //sensitivity
-         //  }
-          //  .onEnded { value in
-          //      lastCurrentZoom += currentZoom
-           //     currentZoom = 0.0
-           // }
-       //)
+     //  .scaleEffect(zoom)
+        .gesture(MagnificationGesture()
+            .onChanged { value in
+                currentZoom = (value - 1) * 0.3 //sensitivity
+           }
+            .onEnded { value in
+                lastCurrentZoom += currentZoom
+                currentZoom = 0.0
+            }
+       )
     }
 }
 

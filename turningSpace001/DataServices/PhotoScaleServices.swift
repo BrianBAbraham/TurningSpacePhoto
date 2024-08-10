@@ -9,6 +9,11 @@ import Foundation
 import SwiftUI
 import Combine
 
+///SCALE
+///a screen distance (d) is assigned a number by UI (u)
+///given a number (n) it is scale to the distance by
+///d = 500, u = 3000, n =600, d/u = 1/6, n * d/u = 100
+///scale is d/u
 
 class ShowScalingSliderService {
     static let shared = ShowScalingSliderService()
@@ -73,7 +78,7 @@ class ShowUnscaledPhotoAlertService {
 //}
 
 class ScaleService {
-    @Published var scale = 1.0//0.1
+    @Published var scale = 1.0
     @Published var scalingCompleted = false
     var scalingToolAtInitialPosition = false
     @Published var leftScalingToolPosition = CGPoint(x: 75, y: 100)

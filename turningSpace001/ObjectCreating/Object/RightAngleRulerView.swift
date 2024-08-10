@@ -16,24 +16,21 @@ struct RightAngleRulerView: View {
     @EnvironmentObject var vm: RightAngleRulerViewModel
    
     var body: some View {
-      //  let rulerFrameSize = vm.getRulerFrameSize()
-      //  let width = vm.width
-    
+
         
         ZStack(alignment: .topLeading ){
             Text(vm.unitSystem.rawValue)
-                .font(.system(size: 60))
+                .font(.system(size: 40 * vm.scale))
                 .padding()
             
-            RulerAllPartView(vm: vm)
+            RulerAllPartView()
             
-            RulerAllPartView(vm: vm)
+            RulerAllPartView()
                 .rotationEffect(Angle(degrees: -90))
                 .offset(CGSize(
-                    width: (vm.rulerFrameSize.length - vm.width) / 2.0 ,
-                    height: (-vm.rulerFrameSize.length + vm.width ) / 2.0))
+                    width: (vm.rulerFrameSize.length - vm.scaledRulerWidth) / 2.0 ,
+                    height: (-vm.rulerFrameSize.length + vm.scaledRulerWidth ) / 2.0))
         }
-    
         .modifier(ForObjectDrag(frameSize: vm.rulerFrameSize, active: true))
         }
 }
@@ -41,68 +38,43 @@ struct RightAngleRulerView: View {
 
 
 struct RulerAllPartView: View {
-    var vm: RightAngleRulerViewModel
-
+    @EnvironmentObject var vm: RightAngleRulerViewModel
+    static let color: Color = Color("rulerEdges")
+    static let opacity: Double = 0.08
+    static let lineWidth: Double = 1.0
   
     var body: some View {
+        let rulerPartVM = RulerPartViewModel(
+            corners: vm.rulerPartAllCGPoint,
+            color: Self.color,
+            opacity: Self.opacity,
+            lineWidth: Self.lineWidth
+        )
         ZStack{
-            RulerPartView(
-                corners: vm.rulerPartAllCGPoint
-            )
-//            ForEach(vm.rulerMarksDic.map { key, value in (key, value) }, id: \.0) { key, value in
-//                ObjectLine(tertiaryMarkElement: [key: value])
-//            }
-//            ForEach(vm.numberDictionary.map { key, value in (key, value) }, id: \.0) { key, value in
-//                Text(key)
-//                    .font(.system(size: 50))
-//                    .position(x: value.x, y: value.y)
-//            }
+            ZStack {
+                rulerPartVM.path()
+                    .fill(Self.color)
+                    .opacity(Self.opacity)
+                
+                rulerPartVM.path()
+                    .stroke(
+                        Color.black,
+                        lineWidth: Self.lineWidth
+                    )
+            }
+
+            ForEach(vm.rulerMarksDic.map { key, value in (key, value) }, id: \.0) { key, value in
+                ObjectLine(tertiaryMarkElement: [key: value])
+            }
+            ForEach(vm.numberDictionary.map { key, value in (key, value) }, id: \.0) { key, value in
+                Text(key)
+                    .font(.system(size: 50 * vm.scale))
+                    .position(x: value.x, y: value.y)
+            }
         }
         .zIndex(1000)
     }
 }
-
-
-
-struct RulerPartView: View {
-    let corners: [CGPoint]
-    static let color: Color = Color("rulerEdges")
-    static let opacity: Double = 0.08
-    static let lineWidth: Double = 5.0
-    
-    @StateObject var vm: RulerPartViewModel
-    
-    init(
-        corners: [CGPoint]
-    ) {
-
-        self.corners = corners
-
-        _vm = StateObject(
-            wrappedValue: RulerPartViewModel(
-                corners: corners,
-                color: Self.color,
-                opacity: Self.opacity,
-                lineWidth: Self.lineWidth
-            )
-        )
-    }
-    
-    var body: some View {
-        ZStack {
-            vm.path()
-                .fill(Self.color)
-                .opacity(Self.opacity)
-            
-            vm.path()
-                .stroke(
-                    Color.black,
-                    lineWidth: Self.lineWidth
-                )
-        }
-    }
-}
-
 
 
 
@@ -125,7 +97,6 @@ class RulerPartViewModel: ObservableObject,
         self.color = color
         self.opacity = opacity
         self.lineWidth = lineWidth
-        
     }
 }
 

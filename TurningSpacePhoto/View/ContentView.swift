@@ -45,7 +45,6 @@ struct ContentView: View {
                     }
                  )
 
-
             RightSideMenuView()
                 .zIndex(11.0)
 
