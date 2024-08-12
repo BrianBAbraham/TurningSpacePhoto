@@ -44,6 +44,10 @@ struct CreateIosPosition {
         return output
     }
     
+    static func positionToCGPoint(_ position: PositionAsIosAxes) -> CGPoint {
+       CGPoint (x: position.x, y: position.y)
+    }
+    
     
     static func cornerToZHeightDic(_ dic: CornerDictionary) ->  [String: Double] {
         var output: [String: Double] = [:]

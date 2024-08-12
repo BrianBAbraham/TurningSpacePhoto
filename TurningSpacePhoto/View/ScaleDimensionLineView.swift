@@ -12,12 +12,12 @@ struct ScaleDimensionLineView: View {
     @EnvironmentObject  var scaleDimensionLineVM: ScaleDimensionLineViewModel
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
    
-    let zoom: Double
-    init(
-        _ zoom: Double
-    ) {
-        self.zoom = zoom
-    }
+//    let zoom: Double
+//    init(
+//        _ zoom: Double
+//    ) {
+//        self.zoom = zoom
+//    }
     var body: some View {
         if scaleDimensionLineVM.scalingCompleted {
             let dimensionOnPhoto = scaleDimensionLineVM.dimensionOnPhoto
@@ -36,7 +36,8 @@ struct ScaleDimensionLineView: View {
                 )
                 Rectangle()
                     .frame(
-                        width: dimensionOnPhoto *  scaleDimensionLineVM.scale * zoom,
+                        width: dimensionOnPhoto *  scaleDimensionLineVM.scale //* zoom
+                        ,
                         height: 1
                     )
                     .foregroundColor(

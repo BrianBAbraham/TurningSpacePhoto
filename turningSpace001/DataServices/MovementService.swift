@@ -286,7 +286,8 @@ extension SharedObjectZeroStaticPointAtMovementFrameCenter {
     }
 }
 class ObjectZeroStaticPointAtMovementFrameCenterService {
-    @Published var objectZeroStaticPointAtMovementFrameCenter: ObjectZeroStaticPointAtMovementFrameCenter = ObjectZeroStaticPointAtMovementFrameCenter(MovementImageService.shared.movementImageData)//?
+    @Published var objectZeroStaticPointAtMovementFrameCenter: ObjectZeroStaticPointAtMovementFrameCenter = ObjectZeroStaticPointAtMovementFrameCenter(
+            MovementImageService.shared.movementImageData,           ScaleService.shared.scale)//?
     
     static let shared = ObjectZeroStaticPointAtMovementFrameCenterService()
     

@@ -17,21 +17,22 @@ struct ChairMovementOnChosenPhoto: View {
         
     }
     
-    var arrayOfForEachMovementOfOneChairArrayChairMovementPart:  [(chairIndex: Int, chairMovementsParts: [Type.ChairMovementParts])] {
-        chairManoeuvreProjectVM.getForEachMovementOfOneChairArrayChairMovementPart()
-    }
+//    var arrayOfForEachMovementOfOneChairArrayChairMovementPart:  [(chairIndex: Int, chairMovementsParts: [Type.ChairMovementParts])] {
+//        chairManoeuvreProjectVM.getForEachMovementOfOneChairArrayChairMovementPart()
+//    }
 
     var body: some View {
         ZStack{
-          ChosenPhotoView()
+            ChosenPhotoView()
+            ObjectAndRulerView(.edit)
              
-            VStack{
-                ForEach( arrayOfForEachMovementOfOneChairArrayChairMovementPart, id: \.chairIndex) { item in
-                    ChairMovementsView(forEachMovementOfOneChairArrayChairMovementPart: item.chairMovementsParts)
-                    
-                }
-            }
+//            VStack{
+//                ForEach( arrayOfForEachMovementOfOneChairArrayChairMovementPart, id: \.chairIndex) { item in
+//                    ChairMovementsView(forEachMovementOfOneChairArrayChairMovementPart: item.chairMovementsParts)
+//                    
+//                }
+//            }
         }
-        .scaleEffect(zoom)
+       // .scaleEffect(zoom)
     }
 }

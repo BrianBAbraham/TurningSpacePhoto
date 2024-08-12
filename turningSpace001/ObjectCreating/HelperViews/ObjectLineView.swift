@@ -11,26 +11,19 @@ import SwiftUI
 
 
 
+
+
 struct ObjectLine: View {
-    
-   let tertiaryMarkElement: CornerDictionary
-   var dictionaryElementIn: DictionaryElementIn {
-        DictionaryElementIn(
-            tertiaryMarkElement,
-            Array(tertiaryMarkElement.keys)[0]
-        )
-    }
-    
-    var partCorners: [CGPoint] {
-        dictionaryElementIn.cgPointsOut2()
-    }
-   
+    let lineWidth: Double
+    let startOfDivisionMark: CGPoint
+    let endOfDivisionMark: CGPoint
+
     var body: some View {
         
         Path { path in
-            path.move(to: CGPoint(x: partCorners[0].x, y: partCorners[0].y))
-            path.addLine(to: CGPoint(x: partCorners[1].x, y: partCorners[1].y))
+            path.move(to: startOfDivisionMark)
+            path.addLine(to: endOfDivisionMark)
         }
-        .stroke(Color("rulerMarks"), lineWidth: 1)
+        .stroke(Color("rulerMarks"), lineWidth: lineWidth)
     }
 }

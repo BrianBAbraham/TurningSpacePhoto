@@ -37,6 +37,8 @@ class AllPartViewModel: ObservableObject,
     var movementImageData: MovementImageData =
         MovementImageService.shared.movementImageData
     
+    var scale: Double = ScaleService.shared.scale
+    
     func handlePartToEditChange( _ newData: Part){
         // newData is not passed in this use of func
         updatePartModels()
@@ -67,6 +69,17 @@ class AllPartViewModel: ObservableObject,
             }
             .store(in: &cancellables)
         
+        ScaleService.shared.$scale
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] newData in
+                    guard let self else {return}
+                    if self.scale != newData {
+                        self.scale = newData
+                        self.updateData()
+                    }
+                }
+                .store(in: &self.cancellables)
+        
         (self as SharedPartToEditFunc).subscribeToService()
 
       
@@ -77,8 +90,9 @@ class AllPartViewModel: ObservableObject,
         /// transfrom data so that the static point on
         /// the first object is at the center of the whole data display
         let newData =
-        ObjectZeroStaticPointAtMovementFrameCenter(
-                  movementImageData)
+            ObjectZeroStaticPointAtMovementFrameCenter(
+              movementImageData,
+                scale)
         //share the data
         ObjectZeroStaticPointAtMovementFrameCenterService.shared.setObjectZeroStaticPointAtMovementFrameCenter(newData)
 
@@ -118,8 +132,8 @@ class AllPartViewModel: ObservableObject,
                 color:Color(
                     color
                 ),
-                cornerRadius: 10.0,
-                lineWidth: 5.0,
+                cornerRadius: 2.0,
+                lineWidth: 1.0,
                 opacity: 0.9
             )
             

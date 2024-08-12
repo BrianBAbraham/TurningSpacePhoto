@@ -7,27 +7,36 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 
-struct RulerModel {
-    let rulerDivisionDic: CornerDictionary
-    var rulerNumbers: PositionDictionary
+struct RulerDivisionModel:  Identifiable {
+    var id: String
+    let startOfDivisionMark: CGPoint
+    let endOfDivisionMark: CGPoint
+    
 }
 
+struct RulerNumberModel: Identifiable {
+    let id: String
+    let numberPosition: CGPoint
+}
 
 class RightAngleRulerViewModel: ObservableObject {
 
     @Published var preTiltObjectToPartFourCornerPerKeyDic: CornerDictionary = [:]
     @Published var rulerFrameSize = ZeroValue.dimension
-    @Published var numberDictionary: PositionDictionary = [:]
-    @Published var rulerMarksDic: CornerDictionary = [:]
+    @Published var rulerNumberDic: PositionDictionary = [:]
+    @Published var rulerDivisionDic: CornerDictionary = [:]
     @Published var rulerPartAllCGPoint: [CGPoint] = []
+    @Published var rulerDivisionModels: [RulerDivisionModel] = []
+    @Published var rulerNumberModels: [RulerNumberModel] = []
     
-    var rulerModel: RulerModel
+//    var rulerModel: RulerModel
     var unitSystem: UnitSystem = MeasurementSystemService.shared.unitSystem
     static let lengthBefore = 170.0//measurement lines
     static let lengthAfter = 30.0// measurment lines
-    static let numberSpan: Double = 1000.0
+    static let measuringLength: Double = 3000.0
     static let width = 170.0
 
     var rulerPartData: RulerPartData
@@ -45,7 +54,7 @@ class RightAngleRulerViewModel: ObservableObject {
     ) {
     
         scaledRulerLength = (
-            Self.lengthBefore + Self.numberSpan + Self.lengthAfter
+            Self.lengthBefore + Self.measuringLength + Self.lengthAfter
         ) * scale
         
         scaledRulerWidth = Self.width * scale
@@ -60,26 +69,25 @@ class RightAngleRulerViewModel: ObservableObject {
         
         rulerDivisionMarks = RulerDivisionMarks(
             lengthBefore: Self.lengthBefore,
-            numberSpan: Self.numberSpan,
+            measuringLength: Self.measuringLength,
             rulerWidth: scaledRulerWidth,
             scale: scale,
             unitSystem: unitSystemInitial
         )
-        
-        rulerModel =
-            RulerModel(
-                rulerDivisionDic: rulerDivisionMarks.getMarksDictionary(),
-                rulerNumbers: [:]
-        )
+
+        rulerDivisionDic = rulerDivisionMarks.getDictionary()
         
         ScaleService.shared.$scale
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] newData in
                     guard let self else {return}
-                    self.scale = newData
-                 
-                    self.setScaledRulerDimensions(newData)
-                    self.updateDependentProperties(newData)
+                    if self.scale != newData {
+                        self.scale = newData
+                        self.setScaledRulerDimensions(newData)
+                        self.updateDependentProperties(newData)
+                        self.updateRulerDivisionModels()
+                        self.updateRulerNumberModels()
+                    }
                 }
                 .store(in: &self.cancellables)
         
@@ -90,15 +98,57 @@ class RightAngleRulerViewModel: ObservableObject {
             }
             .store(in: &self.cancellables)
         
-        updateDependentProperties(scale)
+       updateDependentProperties(scale)
+        
+        updateRulerDivisionModels()
+        
+        updateRulerNumberModels()
 
     }
 
     
-    func setScaledRulerDimensions( _ scale: Double
-    ) {
+    func updateRulerDivisionModels(){
+    rulerDivisionModels = []
+        for (
+            key,
+            value
+        ) in rulerDivisionDic {
+            rulerDivisionModels.append(
+                RulerDivisionModel(
+                    id: key,
+                    startOfDivisionMark: CreateIosPosition.positionToCGPoint(
+                        value[0]),
+                    endOfDivisionMark:  CreateIosPosition.positionToCGPoint(
+                        value[1])
+                    )
+                )
+        }
+    }
+    
+    
+    func updateRulerNumberModels() {
+        rulerNumberModels = []
+        for (
+            key,
+            value
+        ) in rulerNumberDic {
+            rulerNumberModels.append(
+                RulerNumberModel(
+                    id: key,
+                    numberPosition: CreateIosPosition.positionToCGPoint(
+                        value)
+                    )
+                )
+        }
+        
+        
+        
+    }
+    
+    
+    func setScaledRulerDimensions( _ scale: Double) {
         scaledRulerLength = (
-            Self.lengthBefore + Self.numberSpan + Self.lengthAfter
+            Self.lengthBefore + Self.measuringLength + Self.lengthAfter
         ) * scale
         
         scaledRulerWidth = Self.width * scale
@@ -106,7 +156,6 @@ class RightAngleRulerViewModel: ObservableObject {
     
     
     func updateDependentProperties(_ scale: Double) {
-      
         rulerPartData =
             RulerPartData (
                 rulerLength: scaledRulerLength,
@@ -115,43 +164,83 @@ class RightAngleRulerViewModel: ObservableObject {
         
         rulerDivisionMarks = RulerDivisionMarks(
             lengthBefore: Self.lengthBefore,
-            numberSpan: Self.numberSpan,
+            measuringLength: Self.measuringLength,
             rulerWidth: scaledRulerWidth,
             scale: scale,
             unitSystem: unitSystem
         )
         
-        var rulerNumbers: PositionDictionary
-        
+        rulerDivisionDic = rulerDivisionMarks.getDictionary()
+   
         switch unitSystem {
         case .cm, .mm:
-            rulerNumbers = createMetricNumberDictionary()
+            rulerNumberDic = createMetricNumberDictionary()
         case .imperial:
-            rulerNumbers = createImperialNumberDictionary()
+            rulerNumberDic = createImperialNumberDictionary()
         }
         
-        updateRulerModel(rulerNumbers)
         
-        func updateRulerModel(_ rulerNumbers: PositionDictionary) {
-            rulerModel = RulerModel(
-                rulerDivisionDic: rulerDivisionMarks.getMarksDictionary(),
-                rulerNumbers: rulerNumbers
-            )
-        }
-        
-        rulerMarksDic = rulerModel.rulerDivisionDic
-        
-        rulerPartAllCGPoint = getPartCorners()
-        
+
+ 
         rulerFrameSize = (
             width: scaledRulerWidth,
             length: scaledRulerLength
         )
-        
-        numberDictionary = rulerModel.rulerNumbers
-        
+    
         rulerPartAllCGPoint = getPartCorners()
         
+        
+        func createMetricNumberDictionary() -> PositionDictionary{
+            let dictionary = rulerDivisionDic
+
+            var nameDictionary: PositionDictionary = [:]
+
+            let milliOrCentimeters = unitSystem
+                == UnitSystem.mm ? 1: 10
+           
+            for (key, value) in dictionary {
+                if !key.contains(Level.tertiary.rawValue)  && !key.contains(Level.halfSecondary.rawValue)
+               // if key.contains(Level.secondary.rawValue)
+                {
+                    let divisionFromRulerPartStartInScreen = value[0].y
+                    let yPosition = divisionFromRulerPartStartInScreen
+        
+                    //transform division screen-value to unscaled
+                    let unscaledNumberValue = yPosition / scale - Self.lengthBefore
+                    
+                    //division is from ruler end and not number start
+                    let numberValue = Int(unscaledNumberValue)
+
+                    //make String
+                    let numberName = String(numberValue/milliOrCentimeters)
+                    
+                    nameDictionary += [numberName: (x: scaledRulerWidth/2.0, y: value[0].y, z: RulerDivisionMarks.rulerPositionOnZ)]
+                }
+            }
+           return nameDictionary
+        }
+        
+        
+        func createImperialNumberDictionary() -> PositionDictionary{
+            let dictionary =  rulerDivisionDic
+            
+            var nameDictionary: PositionDictionary = [:]
+
+            for (key, value) in dictionary {
+                if (key.contains(Level.primary.rawValue) || //12"
+                    key.contains(Level.secondary.rawValue)) //6"
+                    && value[0].x == 0.0 { //line has 2 values, use 1
+                    let value = value[0].y //not scaled: numbers constant if ruler small
+                    
+                    let numberName = //string from y value
+                    String(Int(((value - Self.lengthBefore) / 25.4 ).rounded()))
+                    
+                    let yPosition = value * scale//position changes
+                    nameDictionary += [numberName: (x: scaledRulerWidth/2.0, y: yPosition, z: RulerDivisionMarks.rulerPositionOnZ)]
+                }
+            }
+           return nameDictionary
+        }
     }
     
     
@@ -167,51 +256,14 @@ class RightAngleRulerViewModel: ObservableObject {
     }
 
     
-    func createMetricNumberDictionary() -> PositionDictionary{
-        let dictionary =  rulerModel.rulerDivisionDic
-        var nameDictionary: PositionDictionary = [:]
 
-        let unitCorrection = unitSystem == UnitSystem.mm ? 1: 10
-        for (key, value) in dictionary {
-            if !key.contains(Level.tertiary.rawValue)  && !key.contains(Level.halfSecondary.rawValue){
-               
-                let value = value[0].y//not scaled: numbers constant if ruler small
-                let numberName = String(Int(value - Self.lengthBefore)/unitCorrection)
-                
-                let yPosition = value * scale//position changes
-                nameDictionary += [numberName: (x: scaledRulerWidth/2.0, y: yPosition, z: RulerDivisionMarks.rulerPositionOnZ)]
-            }
-        }
-       return nameDictionary
-    }
-    
-    
-    func createImperialNumberDictionary() -> PositionDictionary{
-        let dictionary =  rulerModel.rulerDivisionDic//getRulerMarks()//number name locations
-        var nameDictionary: PositionDictionary = [:]
-
-        for (key, value) in dictionary {
-            if (key.contains(Level.primary.rawValue) || //12"
-                key.contains(Level.secondary.rawValue)) //6"
-                && value[0].x == 0.0 { //line has 2 values, use 1
-                let value = value[0].y //not scaled: numbers constant if ruler small
-                
-                let numberName = //string from y value
-                String(Int(((value - Self.lengthBefore) / 25.4 ).rounded()))
-                
-                let yPosition = value * scale//position changes
-                nameDictionary += [numberName: (x: scaledRulerWidth/2.0, y: yPosition, z: RulerDivisionMarks.rulerPositionOnZ)]
-            }
-        }
-       return nameDictionary
-    }
 }
 
 
 struct RulerDivisionMarks {
     
     let lengthBefore: Double//zero mark on ruler
-    let numberSpan: Double//longest measurement of ruler
+    let measuringLength: Double//longest measurement of ruler
     let rulerWidth: Double
     let scale: Double
     let unitSystem: UnitSystem
@@ -221,7 +273,7 @@ struct RulerDivisionMarks {
     static let rulerPositionOnZ = 1000.0
 
     
-    func getMarksDictionary() -> CornerDictionary{
+    func getDictionary() -> CornerDictionary{
         var dictionary: CornerDictionary = [:]
         addToDictionary(getPositions(.tertiary), .tertiary)
         addToDictionary(getPositions(.secondary), .secondary)
@@ -334,13 +386,14 @@ struct RulerDivisionMarks {
             division = 50
         case .tertiary:
             division = 10
+            
         }
         
         var valuesForY: [Double] = []
-        let numberOfDivisions = Int(numberSpan/division)
+        let numberOfDivisions = Int(measuringLength/division)
         for i in 0...numberOfDivisions {
             let positionY = (Double(i) * division + lengthBefore) * scale
-            valuesForY.append(positionY)
+                valuesForY.append(positionY)
         }
         
         return valuesForY
@@ -362,7 +415,7 @@ struct RulerDivisionMarks {
         
         var valuesForY: [Double] = []
        
-        let numberOfDivisions = Int(numberSpan/division)
+        let numberOfDivisions = Int(measuringLength/division)
         for i in 0...numberOfDivisions {
             let positionY = (Double(i) * division + lengthBefore) * scale
             valuesForY.append(positionY)

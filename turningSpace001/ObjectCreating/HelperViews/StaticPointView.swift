@@ -13,9 +13,9 @@ struct StaticPointView: View {
     let position: [PositionAsIosAxes]
     var body: some View {
         MyObjectCircle(fillColor: .black, strokeColor: .black, dimension
-                         :40, position: CGPoint(x: position[0].x ,y: position[0].y))
+                         :10, position: CGPoint(x: position[0].x ,y: position[0].y))
         MyObjectCircle(fillColor: .white, strokeColor: .black, dimension
-                         :20, position: CGPoint(x: position[0].x ,y: position[0].y))
+                         :5, position: CGPoint(x: position[0].x ,y: position[0].y))
     }
 }
 

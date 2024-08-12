@@ -25,39 +25,41 @@ struct ContentView: View {
     var body: some View {
 
         ZStack{
-            ScaleDimensionLineView(zoom)
-
+            ScaleDimensionLineView()//zoom)
+                .scaleEffect(zoom)
      
             
             ZStack {
             PhotoManagementView()
                 .zIndex(2.0)
-             
-
-            ChairMovementOnChosenPhoto(zoom)
-                .gesture(MagnificationGesture()
-                    .onChanged { value in
-                        currentZoom = value - 1
-                    }
-                    .onEnded { value in
-                        lastCurrentZoom += currentZoom
-                        currentZoom = 0.0
-                    }
-                 )
-
-            RightSideMenuView()
-                .zIndex(11.0)
-
-            MenuForChairView()
                 
-            MenuForObjectEditView()
+                ZStack{
+                    ChairMovementOnChosenPhoto(zoom)
+                        .gesture(MagnificationGesture()
+                            .onChanged { value in
+                                currentZoom = value - 1
+                            }
+                            .onEnded { value in
+                                lastCurrentZoom += currentZoom
+                                currentZoom = 0.0
+                            }
+                        )}
+                 .scaleEffect(zoom)
+                .zIndex(0.0)
                 
-            MenuForMovementEditView()
-
-            ConditionalUnscaledPhotoAlertView()
-                
-            ObjectAndRulerView(.edit)
-                        
+                ZStack {
+//                     .overlay(
+                    RightSideMenuView()
+                        .zIndex(100000.0)
+//                    )
+                   // MenuForChairView()
+                    
+                    MenuForObjectEditView()
+                    
+                    MenuForMovementEditView()
+                    
+                    ConditionalUnscaledPhotoAlertView()
+                }
             }
         }
     }

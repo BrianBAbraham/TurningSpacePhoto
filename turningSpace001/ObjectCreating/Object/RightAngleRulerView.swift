@@ -20,12 +20,13 @@ struct RightAngleRulerView: View {
         
         ZStack(alignment: .topLeading ){
             Text(vm.unitSystem.rawValue)
-                .font(.system(size: 40 * vm.scale))
-                .padding()
+                .font(.system(size: 15 ))
+                .lineLimit(1)
+                .padding(.leading, 3)
             
-            RulerAllPartView()
+            RulerAllPartView()//horizontal
             
-            RulerAllPartView()
+            RulerAllPartView()//vertical
                 .rotationEffect(Angle(degrees: -90))
                 .offset(CGSize(
                     width: (vm.rulerFrameSize.length - vm.scaledRulerWidth) / 2.0 ,
@@ -41,14 +42,13 @@ struct RulerAllPartView: View {
     @EnvironmentObject var vm: RightAngleRulerViewModel
     static let color: Color = Color("rulerEdges")
     static let opacity: Double = 0.08
-    static let lineWidth: Double = 1.0
-  
+    let lineWidth: Double = 1.0
     var body: some View {
         let rulerPartVM = RulerPartViewModel(
             corners: vm.rulerPartAllCGPoint,
             color: Self.color,
             opacity: Self.opacity,
-            lineWidth: Self.lineWidth
+            lineWidth: lineWidth
         )
         ZStack{
             ZStack {
@@ -59,18 +59,28 @@ struct RulerAllPartView: View {
                 rulerPartVM.path()
                     .stroke(
                         Color.black,
-                        lineWidth: Self.lineWidth
+                        lineWidth: lineWidth * vm.scale
                     )
             }
 
-            ForEach(vm.rulerMarksDic.map { key, value in (key, value) }, id: \.0) { key, value in
-                ObjectLine(tertiaryMarkElement: [key: value])
+            
+            ForEach(vm.rulerDivisionModels) { model in
+                ObjectLine(lineWidth: lineWidth * vm.scale, startOfDivisionMark: model.startOfDivisionMark, endOfDivisionMark: model.endOfDivisionMark)
             }
-            ForEach(vm.numberDictionary.map { key, value in (key, value) }, id: \.0) { key, value in
-                Text(key)
+            
+            ForEach(vm.rulerNumberModels) { model in
+                Text(model.id)
                     .font(.system(size: 50 * vm.scale))
-                    .position(x: value.x, y: value.y)
+                    .position(model.numberPosition)
             }
+            
+//            ForEach(vm.rulerNumberDic.map { key, value in (key, value) }, id: \.0) { key, value in
+//                Text(key)
+//                    .font(.system(size: 50 * vm.scale))
+//                    .position(x: value.x, y: value.y)
+//            }
+            
+
         }
         .zIndex(1000)
     }
