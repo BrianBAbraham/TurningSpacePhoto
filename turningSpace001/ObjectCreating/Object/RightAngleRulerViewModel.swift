@@ -22,17 +22,16 @@ struct RulerNumberModel: Identifiable {
     let numberPosition: CGPoint
 }
 
+
 class RightAngleRulerViewModel: ObservableObject {
 
-    @Published var preTiltObjectToPartFourCornerPerKeyDic: CornerDictionary = [:]
     @Published var rulerFrameSize = ZeroValue.dimension
-    @Published var rulerNumberDic: PositionDictionary = [:]
-    @Published var rulerDivisionDic: CornerDictionary = [:]
-    @Published var rulerPartAllCGPoint: [CGPoint] = []
     @Published var rulerDivisionModels: [RulerDivisionModel] = []
     @Published var rulerNumberModels: [RulerNumberModel] = []
     
-//    var rulerModel: RulerModel
+    var rulerNumberDic: PositionDictionary = [:]
+    var rulerDivisionDic: CornerDictionary = [:]
+    var rulerPartAllCGPoint: [CGPoint] = []
     var unitSystem: UnitSystem = MeasurementSystemService.shared.unitSystem
     static let lengthBefore = 170.0//measurement lines
     static let lengthAfter = 30.0// measurment lines
@@ -41,7 +40,6 @@ class RightAngleRulerViewModel: ObservableObject {
 
     var rulerPartData: RulerPartData
     var rulerDivisionMarks: RulerDivisionMarks
-    
     var scale: Double = ScaleService.shared.scale
     var scaledRulerLength: Double = 1.0
     var scaledRulerWidth: Double = 1.0

@@ -8,10 +8,6 @@
 import SwiftUI
 
 
-
-
-
-
 struct RightAngleRulerView: View {
     @EnvironmentObject var vm: RightAngleRulerViewModel
    
@@ -37,35 +33,33 @@ struct RightAngleRulerView: View {
 }
 
 
-
 struct RulerAllPartView: View {
     @EnvironmentObject var vm: RightAngleRulerViewModel
     static let color: Color = Color("rulerEdges")
     static let opacity: Double = 0.08
     let lineWidth: Double = 1.0
     var body: some View {
-        let rulerPartVM = RulerPartViewModel(
+        let rulerOutlineModel = RulerOutlineModel(
             corners: vm.rulerPartAllCGPoint,
             color: Self.color,
             opacity: Self.opacity,
-            lineWidth: lineWidth
+            lineWidth: lineWidth 
         )
         ZStack{
             ZStack {
-                rulerPartVM.path()
+                rulerOutlineModel.path()
                     .fill(Self.color)
                     .opacity(Self.opacity)
                 
-                rulerPartVM.path()
+                rulerOutlineModel.path()
                     .stroke(
                         Color.black,
                         lineWidth: lineWidth * vm.scale
                     )
             }
-
             
             ForEach(vm.rulerDivisionModels) { model in
-                ObjectLine(lineWidth: lineWidth * vm.scale, startOfDivisionMark: model.startOfDivisionMark, endOfDivisionMark: model.endOfDivisionMark)
+                ObjectLineView(lineWidth: lineWidth * vm.scale, startOfDivisionMark: model.startOfDivisionMark, endOfDivisionMark: model.endOfDivisionMark)
             }
             
             ForEach(vm.rulerNumberModels) { model in
@@ -73,14 +67,6 @@ struct RulerAllPartView: View {
                     .font(.system(size: 50 * vm.scale))
                     .position(model.numberPosition)
             }
-            
-//            ForEach(vm.rulerNumberDic.map { key, value in (key, value) }, id: \.0) { key, value in
-//                Text(key)
-//                    .font(.system(size: 50 * vm.scale))
-//                    .position(x: value.x, y: value.y)
-//            }
-            
-
         }
         .zIndex(1000)
     }
@@ -88,25 +74,5 @@ struct RulerAllPartView: View {
 
 
 
-class RulerPartViewModel: ObservableObject, 
-//form the rectangles which make up the ruler
-    PartRectangle {
-    var corners: [CGPoint]
-    var color: Color
-    var opacity: Double
-    var lineWidth: Double
-    let cornerRadius = 0.0
 
-    init(
-        corners: [CGPoint],
-        color: Color = .white,
-        opacity: Double,
-        lineWidth: Double
-    ) {
-        self.corners = corners
-        self.color = color
-        self.opacity = opacity
-        self.lineWidth = lineWidth
-    }
-}
 

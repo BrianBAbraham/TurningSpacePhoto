@@ -29,17 +29,11 @@ class RightSideMenuItemViewModel: ObservableObject {
         switch name {
         case "photo":
             setShowPhotoMenuTrue()
-        case MenuIcon.chairTool:
-            toggleShowChairMenuStatus()
-        case "folder.fill", "arrow.clockwise":
-            // handle these cases if needed
-            break
             
         case "figure.roll":
-           
             BottomMenuDisplayService.shared.setObjectEditMenuTrue()
             
-        case "circle":
+        case "arrow.clockwise":
             BottomMenuDisplayService.shared.setMovementEditMenuTrue()
             
         case "gear":

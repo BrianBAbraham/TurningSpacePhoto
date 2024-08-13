@@ -17,6 +17,8 @@ struct Screen {
     - safeAreaAlllowance
 
     static let smallestDimension = [height, width].min() ?? height
+    
+    static let screenCenter = CGPoint(x: width/1.5, y: height/1.5)
 
 }
   

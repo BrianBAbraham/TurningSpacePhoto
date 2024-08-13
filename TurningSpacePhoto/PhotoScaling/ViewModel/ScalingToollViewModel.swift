@@ -132,3 +132,11 @@ extension ScalingToolViewModel {
 
 
 
+enum LeftOrRight {
+    case left, right
+}
+
+enum HorizontalOrVertical {
+    case horizontal
+    case vertical
+}

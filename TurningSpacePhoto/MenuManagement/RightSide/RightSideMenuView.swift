@@ -23,17 +23,16 @@ struct RightSideMenuView: View {
                         Spacer()
                         // all sub menu below
                         RightSideMenuItemView("photo")
-                        Spacer()
-                        RightSideMenuItemView(MenuIcon.chairTool)
+
                         Spacer()
                         RightSideMenuItemView("figure.roll")
                         Spacer()
-                        RightSideMenuItemView("circle")
+                        RightSideMenuItemView("arrow.clockwise")
                         Spacer()
                         RightSideMenuItemView("gear")
                         Spacer()
-                        MainHelpView()//helpButton
-                        Spacer()
+//                        MainHelpView()//helpButton
+//                        Spacer()
                     }
                 }
             }
@@ -84,27 +83,27 @@ struct RightSideMenuBackgroundView: View {
 
 
 
-struct MainHelpView: View {
-    @State private var showingPopover = false
-    var body: some View {
-        Button(action: {
-            showingPopover = true
-        })  //{Text (Image(systemName: "questionmark.circle"))}
-            {Text("?")}
-                .font(.largeTitle)
-    //        .modifier(MenuButtonWithSymbolFont())
-            .popover(isPresented: $showingPopover) {
-                VStack(alignment: .leading){
-                    Text("BIG IDEA\nShow the wheelchair path on the plan")
-                    Text("\nPHOTO MENU FEATURES\nImport a photo of a scaled plan\nor\nPractice with the TRY ME example plan")
-                    Text("\n8WHEELCHAIR MENU FEATUREES\nAdd wheelchair\nAdd lots of wheelchairs\nDrag wheelchairs\nChange wheelchair length\nChange wheelchair width\nChange wheelchair start angle\nChange wheelchair end angle\nChange to any manoeuvre tightness\nAdd manoeuvres of preset tightness\nFlip wheelchair left to right\nFlip wheelchair top to bottom\nAdd midway wheelchair\nChange midway wheelchair angle")
-                }
-                .modifier(PopOverBodyFont())
-                .padding()
-
-            }
-            .buttonStyle(TopNavigationBlueButton())
-           // .buttonStyle(PlainButtonStyle())
-        
-    }
-}
+//struct MainHelpView: View {
+//    @State private var showingPopover = false
+//    var body: some View {
+//        Button(action: {
+//            showingPopover = true
+//        })  //{Text (Image(systemName: "questionmark.circle"))}
+//            {Text("?")}
+//                .font(.largeTitle)
+//    //        .modifier(MenuButtonWithSymbolFont())
+//            .popover(isPresented: $showingPopover) {
+//                VStack(alignment: .leading){
+//                    Text("BIG IDEA\nShow the wheelchair path on the plan")
+//                    Text("\nPHOTO MENU FEATURES\nImport a photo of a scaled plan\nor\nPractice with the TRY ME example plan")
+//                    Text("\n8WHEELCHAIR MENU FEATUREES\nAdd wheelchair\nAdd lots of wheelchairs\nDrag wheelchairs\nChange wheelchair length\nChange wheelchair width\nChange wheelchair start angle\nChange wheelchair end angle\nChange to any manoeuvre tightness\nAdd manoeuvres of preset tightness\nFlip wheelchair left to right\nFlip wheelchair top to bottom\nAdd midway wheelchair\nChange midway wheelchair angle")
+//                }
+//                .modifier(PopOverBodyFont())
+//                .padding()
+//
+//            }
+//            .buttonStyle(TopNavigationBlueButton())
+//           // .buttonStyle(PlainButtonStyle())
+//        
+//    }
+//}

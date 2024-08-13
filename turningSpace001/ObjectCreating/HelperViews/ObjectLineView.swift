@@ -13,7 +13,7 @@ import SwiftUI
 
 
 
-struct ObjectLine: View {
+struct ObjectLineView: View {
     let lineWidth: Double
     let startOfDivisionMark: CGPoint
     let endOfDivisionMark: CGPoint

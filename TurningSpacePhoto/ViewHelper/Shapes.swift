@@ -121,20 +121,20 @@ struct CircleModifier: ViewModifier {
     }
 }
 
-struct ArcPath: Shape {
-    let arcCentre: CGPoint
-    let radius: Double
-    let startAngle: Angle
-    let endAngle: Angle
-    let clockwise: Bool
-    
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-//        path.move(to: arcCentre)
-        path.addArc(center: arcCentre, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
-        return path
-    }
-}
+//struct ArcPath: Shape {
+//    let arcCentre: CGPoint
+//    let radius: Double
+//    let startAngle: Angle
+//    let endAngle: Angle
+//    let clockwise: Bool
+//    
+//    func path(in rect: CGRect) -> Path {
+//        var path = Path()
+//
+//        path.addArc(center: arcCentre, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+//        return path
+//    }
+//}
 
 
 

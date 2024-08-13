@@ -31,17 +31,10 @@ class DismissBottomMenuViewModel: ObservableObject {
         }
         if menuName == "photo" {
             setShowPhotoMenuFalse()
-            
         }
         
-        if menuName == "circle" {
+        if menuName ==  "arrow.clockwise" {
             BottomMenuDisplayService.shared.setMovementEditMenuFalse()
-        }
-        if menuName == "arrow.clockwise" {
-           
-        }
-        if menuName == MenuIcon.chairTool {
-            setShowChairMenuFalse()
         }
     }
     

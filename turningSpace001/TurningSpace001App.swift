@@ -22,8 +22,8 @@ struct TurningSpace001App: App {
     @StateObject var unscaledPhotoAlertViewModel = UnscaledPhotoAlertViewModel()
     
    //MISC
-    @StateObject var vm = ChairManoeuvreProjectVM()
-    @StateObject var menuChairViewModel = MenuChairViewModel()
+   // @StateObject var vm = ChairManoeuvreProjectVM()
+//    @StateObject var menuChairViewModel = MenuChairViewModel()
     
     
     //OBJECT CONTROL
@@ -83,7 +83,7 @@ struct TurningSpace001App: App {
  
     @StateObject var rulerVM = RightAngleRulerViewModel()
 
-    @StateObject var objectAndRulerVM = ObjectAndRulerViewModel()
+//    @StateObject var objectAndRulerVM = ObjectAndRulerViewModel()
   
     @StateObject var recenterVM = ObjectRulerRepositionViewModel()
         
@@ -102,8 +102,8 @@ struct TurningSpace001App: App {
                 .environmentObject(unscaledPhotoAlertViewModel)
             
                 //MISC
-                .environmentObject(vm)
-                .environmentObject(menuChairViewModel)
+            //    .environmentObject(vm)
+//                .environmentObject(menuChairViewModel)
              
             
                 //OBJECT CONTROL
@@ -160,7 +160,7 @@ struct TurningSpace001App: App {
             
                 .environmentObject(rulerVM)
             
-               .environmentObject(objectAndRulerVM)
+//               .environmentObject(objectAndRulerVM)
                 
                 .environmentObject(recenterVM)
         }

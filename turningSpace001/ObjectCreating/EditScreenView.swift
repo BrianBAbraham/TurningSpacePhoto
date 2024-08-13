@@ -20,7 +20,7 @@ struct EditScreenView<EditableView:View>: View {
             VStack{
                 ObjectRulerRepositionView()
                 
-                ObjectAndRulerView(
+                ObjectAndRulerContainerView(displayStyle:
                     objectDisplayStyle
                 )
                 .position(RecenterObjectsOnScreenService.initialRulerPosition)

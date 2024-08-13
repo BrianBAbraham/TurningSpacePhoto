@@ -25,7 +25,7 @@ struct ContentView: View {
     var body: some View {
 
         ZStack{
-            ScaleDimensionLineView()//zoom)
+            ScaleDimensionLineView()
                 .scaleEffect(zoom)
      
             
@@ -34,7 +34,7 @@ struct ContentView: View {
                 .zIndex(2.0)
                 
                 ZStack{
-                    ChairMovementOnChosenPhoto(zoom)
+                    MovementOnPhotoContainerView()
                         .gesture(MagnificationGesture()
                             .onChanged { value in
                                 currentZoom = value - 1
@@ -44,14 +44,14 @@ struct ContentView: View {
                                 currentZoom = 0.0
                             }
                         )}
-                 .scaleEffect(zoom)
-                .zIndex(0.0)
+                        .scaleEffect(zoom)
+                        .zIndex(0.0)
                 
                 ZStack {
-//                     .overlay(
+//
                     RightSideMenuView()
                         .zIndex(100000.0)
-//                    )
+
                    // MenuForChairView()
                     
                     MenuForObjectEditView()

@@ -4,48 +4,48 @@
 //
 //  Created by Brian Abraham on 12/04/2024.
 //
-
-import Foundation
-import Combine
-
-
-
-class ObjectAndRulerViewModel: ObservableObject {
-    @Published var defaultScale = 0.0
-    @Published var measurementScale = ScaleService.shared.scale
-
-    var onScreenMovementFrameSize: Dimension = ZeroValue.dimension
-    var objectZeroStaticPointAtMovementFrameCenter: ObjectZeroStaticPointAtMovementFrameCenter = ObjectZeroStaticPointAtMovementFrameCenterService.shared.objectZeroStaticPointAtMovementFrameCenter
-    private var cancellables: Set<AnyCancellable> = []
-    
-    init(){
-        
-        ObjectZeroStaticPointAtMovementFrameCenterService.shared.$objectZeroStaticPointAtMovementFrameCenter
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] new in
-                self?.objectZeroStaticPointAtMovementFrameCenter = new
-                self?.onScreenMovementFrameSize = new.onScreenMovementFrameSize
-                self?.updateScales()
-            }
-            .store(in: &cancellables)
-        
-        ScaleService.shared.$scale
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.measurementScale,on: self)
-            .store(in: &cancellables)
-    }
-    
-    
-    func updateScales(){
-        let maximumnDimensionOfMotion  = getMaximumDimensionOfMotion()
-        defaultScale = measurementScale//Screen.smallestDimension/maximumnDimensionOfMotion
-        //measurementScale = Screen.smallestDimension/maximumnDimensionOfMotion
-        
-        func getMaximumDimensionOfMotion() -> Double {
-            onScreenMovementFrameSize.length > onScreenMovementFrameSize.width ?         onScreenMovementFrameSize.length :         onScreenMovementFrameSize.width
-        }
-    }
-}
+//
+//import Foundation
+//import Combine
+//
+//
+//
+//class ObjectAndRulerViewModel: ObservableObject {
+//    @Published var defaultScale = 0.0
+//    @Published var measurementScale = ScaleService.shared.scale
+//
+//    var onScreenMovementFrameSize: Dimension = ZeroValue.dimension
+//    var objectZeroStaticPointAtMovementFrameCenter: ObjectZeroStaticPointAtMovementFrameCenter = ObjectZeroStaticPointAtMovementFrameCenterService.shared.objectZeroStaticPointAtMovementFrameCenter
+//    private var cancellables: Set<AnyCancellable> = []
+//    
+//    init(){
+//        
+//        ObjectZeroStaticPointAtMovementFrameCenterService.shared.$objectZeroStaticPointAtMovementFrameCenter
+//            .receive(on: DispatchQueue.main)
+//            .sink { [weak self] new in
+//                self?.objectZeroStaticPointAtMovementFrameCenter = new
+//                self?.onScreenMovementFrameSize = new.onScreenMovementFrameSize
+//                self?.updateScales()
+//            }
+//            .store(in: &cancellables)
+//        
+//        ScaleService.shared.$scale
+//            .receive(on: DispatchQueue.main)
+//            .assign(to: \.measurementScale,on: self)
+//            .store(in: &cancellables)
+//    }
+//    
+//    
+//    func updateScales(){
+//        let maximumnDimensionOfMotion  = getMaximumDimensionOfMotion()
+//        defaultScale = measurementScale//Screen.smallestDimension/maximumnDimensionOfMotion
+//        //measurementScale = Screen.smallestDimension/maximumnDimensionOfMotion
+//        
+//        func getMaximumDimensionOfMotion() -> Double {
+//            onScreenMovementFrameSize.length > onScreenMovementFrameSize.width ?         onScreenMovementFrameSize.length :         onScreenMovementFrameSize.width
+//        }
+//    }
+//}
 //gets the picked movement
 //provides the raw data from movmentImageData
 //commits to the service
