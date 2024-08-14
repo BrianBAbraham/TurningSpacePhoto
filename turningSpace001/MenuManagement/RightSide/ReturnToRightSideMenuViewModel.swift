@@ -19,6 +19,8 @@ class ReturnToRightSideMenuViewModel: ObservableObject {
             
             BottomMenuDisplayService.shared.setShowPhotoMenuFalse()
             
-            BottomMenuDisplayService.shared.setShowChairMenuFalse()
+            BottomMenuDisplayService.shared.setObjectEditMenuFalse()
+            
+            BottomMenuDisplayService.shared.setMovementEditMenuFalse()
     }
 }

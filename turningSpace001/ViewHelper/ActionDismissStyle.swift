@@ -11,8 +11,6 @@ struct ActionDismissStyle: View {
     var body: some View {
     Image(systemName: "xmark")
         .foregroundColor(color)
-        .padding(.top, 5)
-        .padding(.leading, 5)
     }
 }
 

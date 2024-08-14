@@ -52,7 +52,7 @@ struct RightSideMenuBackgroundView: View {
             Spacer()
             Color(UIColor(named:"MiddleMenu")!)
             .frame(maxWidth: maxWidth, alignment: .trailing)
-            .opacity(1)
+            .opacity(0)
         }
     }
 }

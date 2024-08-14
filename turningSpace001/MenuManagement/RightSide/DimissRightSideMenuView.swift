@@ -16,15 +16,14 @@ struct DismissRightSideMenuView: View {
             dismissRightSideMenuVM.setShowRightSideMenuFalse()
         }, label: {
             ActionDismissStyle(color: .blue)
-                .padding(.top, 2)
-                .padding(.leading, 5)
             }
         )
-        .buttonStyle(DefaultButtonStyle())
-        .offset(y: 5)
-//        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(TopNavigationBlueButton())
     }
 }
+
+
+
 
 struct RightSideBackgroundWidth {
     let width = 58.0

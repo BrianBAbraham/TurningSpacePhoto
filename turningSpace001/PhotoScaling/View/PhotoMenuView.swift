@@ -14,7 +14,7 @@ struct PhotoMenuView: View {
         if photoMenuVM.showMenu{
             Group {
                 
-                BottomMenuViewBuilder("photo", 200) {
+                BottomMenuViewBuilder("photo") {
                 
                     VStack{
                         

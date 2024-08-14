@@ -19,13 +19,13 @@ struct DismissBottomMenuView: View {
 
         Button(action: {
             dismissBottomMenuVM.setMenu(menuName)
-           
-        }
-               , label:{
-                ActionDismissStyle(color: .blue)
-
-        }
-        )
+            }
+                   , label:{
+                    ActionDismissStyle(color: .blue)
+            })
+        
     }
 }
+
+
 

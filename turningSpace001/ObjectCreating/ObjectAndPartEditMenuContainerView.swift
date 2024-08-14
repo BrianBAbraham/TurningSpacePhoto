@@ -29,7 +29,6 @@ struct ObjectAndPartEditMenuContainerView: View {
                 }
             }
             .padding(.horizontal)
-            .backgroundModifier()
             .transition(.move(edge: .bottom))
     }
 }

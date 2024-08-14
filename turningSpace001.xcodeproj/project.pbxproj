@@ -42,6 +42,7 @@
 		FD2BCEC82C63BF9E004106CE /* PickerLabelWorkAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BCEC72C63BF9E004106CE /* PickerLabelWorkAround.swift */; };
 		FD2BCECC2C63BFC2004106CE /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BCECA2C63BFC2004106CE /* MeasurementView.swift */; };
 		FD2BCECD2C63BFC2004106CE /* UnitSystemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2BCECB2C63BFC2004106CE /* UnitSystemVM.swift */; };
+		FD6655E92C6CF89B0048E562 /* StaticPointAtMovementFrameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6655E82C6CF89B0048E562 /* StaticPointAtMovementFrameCenter.swift */; };
 		FD8226462C63C1C6005E9FA2 /* ObjectLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8226452C63C1C6005E9FA2 /* ObjectLineView.swift */; };
 		FD8226482C63C25C005E9FA2 /* UserEditedDictionariesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8226472C63C25B005E9FA2 /* UserEditedDictionariesService.swift */; };
 		FD82264C2C63C2D9005E9FA2 /* MovementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82264B2C63C2D9005E9FA2 /* MovementService.swift */; };
@@ -193,6 +194,7 @@
 		FD2BCEC72C63BF9E004106CE /* PickerLabelWorkAround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerLabelWorkAround.swift; sourceTree = "<group>"; };
 		FD2BCECA2C63BFC2004106CE /* MeasurementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		FD2BCECB2C63BFC2004106CE /* UnitSystemVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitSystemVM.swift; sourceTree = "<group>"; };
+		FD6655E82C6CF89B0048E562 /* StaticPointAtMovementFrameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPointAtMovementFrameCenter.swift; sourceTree = "<group>"; };
 		FD8226452C63C1C6005E9FA2 /* ObjectLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectLineView.swift; sourceTree = "<group>"; };
 		FD8226472C63C25B005E9FA2 /* UserEditedDictionariesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEditedDictionariesService.swift; sourceTree = "<group>"; };
 		FD82264B2C63C2D9005E9FA2 /* MovementService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementService.swift; sourceTree = "<group>"; };
@@ -456,15 +458,6 @@
 		FDDA3B902C2B14D900C7ED5E /* TurningSpacePhoto */ = {
 			isa = PBXGroup;
 			children = (
-				FD21146B2C2DB1AD0099C366 /* Types.swift */,
-				FD21146D2C2DB1BF0099C366 /* PositionTransformation.swift */,
-				FD2BCEA12C63AD5B004106CE /* Screen.swift */,
-				FD2114712C2DB2B30099C366 /* ObjectDictionaryTransformation.swift */,
-				FD21146F2C2DB2710099C366 /* CreateName.swift */,
-				FDDA3BA12C2B14D900C7ED5E /* MenuManagement */,
-				FDDA3BC12C2B14D900C7ED5E /* PhotoScaling */,
-				FDDA3C362C2B250C00C7ED5E /* ViewHelper */,
-				FDDA3BDF2C2B14D900C7ED5E /* View */,
 			);
 			path = TurningSpacePhoto;
 			sourceTree = SOURCE_ROOT;
@@ -600,6 +593,7 @@
 			children = (
 				FD21144A2C2DB0CD0099C366 /* ObjectCreatingHelpers */,
 				FD2BCE9F2C63AD0F004106CE /* KeepImageInScreen.swift */,
+				FD6655E82C6CF89B0048E562 /* StaticPointAtMovementFrameCenter.swift */,
 				FD2BCEA32C63AD80004106CE /* MovementImageData.swift */,
 				FD2BCEA52C63AD93004106CE /* ObjectImageData.swift */,
 				FD2BCEA72C63AE95004106CE /* ObjectDataMediator.swift */,
@@ -643,7 +637,16 @@
 			children = (
 				FDDA3B9E2C2B14D900C7ED5E /* TurningSpace001App.swift */,
 				FD2BCE942C63A42D004106CE /* DataServices */,
+				FD21146B2C2DB1AD0099C366 /* Types.swift */,
+				FD21146D2C2DB1BF0099C366 /* PositionTransformation.swift */,
+				FD2BCEA12C63AD5B004106CE /* Screen.swift */,
+				FD2114712C2DB2B30099C366 /* ObjectDictionaryTransformation.swift */,
+				FD21146F2C2DB2710099C366 /* CreateName.swift */,
 				FDF2EA342C2EF37C004941DE /* ObjectCreating */,
+				FDDA3BA12C2B14D900C7ED5E /* MenuManagement */,
+				FDDA3BC12C2B14D900C7ED5E /* PhotoScaling */,
+				FDDA3C362C2B250C00C7ED5E /* ViewHelper */,
+				FDDA3BDF2C2B14D900C7ED5E /* View */,
 				FDDA3B902C2B14D900C7ED5E /* TurningSpacePhoto */,
 				FDF9E588281FDAF6004C18BD /* Assets.xcassets */,
 				FDF9E58A281FDAF6004C18BD /* Preview Content */,
@@ -855,6 +858,7 @@
 				FDDA3C072C2B14D900C7ED5E /* ActionSlideStyle.swift in Sources */,
 				FDDA3C0A2C2B14D900C7ED5E /* ButtonStyle.swift in Sources */,
 				FDDBA5302C63D7C4009E4884 /* MovementEditMenuContainerView.swift in Sources */,
+				FD6655E92C6CF89B0048E562 /* StaticPointAtMovementFrameCenter.swift in Sources */,
 				FDDBA5282C63D732009E4884 /* EditScreenViewModel.swift in Sources */,
 				FDDBA5262C63D6F3009E4884 /* MovementPickerView.swift in Sources */,
 				FD8226672C63CD54005E9FA2 /* RightAngleRulerView.swift in Sources */,

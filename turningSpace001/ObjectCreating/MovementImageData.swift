@@ -28,14 +28,19 @@ struct MovementImageData {
         self.staticPoint = staticPoint
         self.startAngle = startAngle
         self.endAngle = endAngle
-        angleChange = endAngle - startAngle
+        angleChange = endAngle - startAngle//redraw with angle change
+            
+            /// angleType = end
+            ///
+            /// angleType = start
+            /// value [startAngle,
             
         switch movementType {
         case .none:
             return
-        case .linear:
-            translateObject(1,
-                            (x: 0.0, y: 1000.0, z: 0.0))
+//        case .linear:
+//            translateObject(1,
+//                            (x: 0.0, y: 1000.0, z: 0.0))
         case .turn:
             for index in 0...1 {
                 let newObjectId = index
@@ -101,7 +106,7 @@ struct MovementImageData {
             key,
             value
         ) in objectImageData.postTilt.objectToPartFourCornerPerKeyDic {
-            
+         
             var newValues = rotatePart(
                 value,
                 angle,
@@ -122,7 +127,7 @@ struct MovementImageData {
                 in: key,
                 with: String(
                     objectIndex
-                ) //change name of object
+                ) //reeuse static object0 by changing name of object
             ):
                 newValues
             ]
@@ -181,7 +186,7 @@ struct MovementImageData {
 
 enum Movement: String, CaseIterable {
     case none = "static"
-    case linear = "forward"
+   // case linear = "forward"
     case turn = "turn"
     case slalom = "slalom"
     //case t = "T-turn"

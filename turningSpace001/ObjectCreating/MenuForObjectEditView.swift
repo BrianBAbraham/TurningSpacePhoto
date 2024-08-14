@@ -12,7 +12,7 @@ struct MenuForObjectEditView: View {
     @EnvironmentObject var vm: MenuForObjectEditViewModel
     var body: some View {
         if vm.showMenu {
-            BottomMenuViewBuilder ("figure.roll", 300) {
+            BottomMenuViewBuilder ("figure.roll") {
                 
                 ObjectAndPartEditMenuContainerView()
             }

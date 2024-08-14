@@ -21,7 +21,8 @@ class ObjectPickerViewModel: ObservableObject,
     }
     @Published var allObjectsName: [String] = ObjectChainLabel.sortedNames
 
-    var objectType: ObjectTypes = ObjectDataService.shared.objectType
+    //no updadate without publishing objectType
+    @Published var objectType: ObjectTypes = ObjectDataService.shared.objectType
     var userEditedSharedDics: UserEditedDictionaries = UserEditedDictionariesService.shared.userEditedSharedDics
     
     internal var cancellables: Set<AnyCancellable> = []

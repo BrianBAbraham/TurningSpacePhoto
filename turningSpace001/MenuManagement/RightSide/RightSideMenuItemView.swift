@@ -25,5 +25,6 @@ struct RightSideMenuItemView: View {
             Image(systemName: self.name)
         }
         .buttonStyle(TopNavigationBlueButton())
+        .shadow(color: .black.opacity(0.4), radius: 8, x: 5, y: 5)
     }
 }

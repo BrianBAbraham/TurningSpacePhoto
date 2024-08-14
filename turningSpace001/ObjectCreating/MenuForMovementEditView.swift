@@ -13,7 +13,7 @@ struct MenuForMovementEditView: View {
     @EnvironmentObject var vm: MenuForMovementEditViewModel
     var body: some View {
         if vm.showMenu {
-            BottomMenuViewBuilder ( "arrow.clockwise", 300) {
+            BottomMenuViewBuilder ( "arrow.clockwise") {
                 
                MovementEditMenuContainerView()
             }

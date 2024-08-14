@@ -12,27 +12,21 @@ import Combine
 
 class RightSideMenuItemViewModel: ObservableObject {
 
-    func setShowRightSideMenuFalse() {
-        RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
-    }
     
-    func toggleShowChairMenuStatus() {
-        BottomMenuDisplayService.shared.toggleShowChairMenu()
-    }
-    
-    func setShowPhotoMenuTrue() {
-        BottomMenuDisplayService.shared.setShowPhotoMenuTrue()
+    func resetAllMenu() {
+        BottomMenuDisplayService.shared.setShowPhotoMenuFalse()
+        BottomMenuDisplayService.shared.setObjectEditMenuFalse()
+        BottomMenuDisplayService.shared.setMovementEditMenuFalse()
     }
     
     func handleButtonAction(for name: String) {
-        setShowRightSideMenuFalse()
+        RightSideMenuDisplayService.shared.setShowRightSideMenuFalse()
+        resetAllMenu()
         switch name {
         case "photo":
-            setShowPhotoMenuTrue()
-            
+            BottomMenuDisplayService.shared.setShowPhotoMenuTrue()
         case "figure.roll":
             BottomMenuDisplayService.shared.setObjectEditMenuTrue()
-            
         case "arrow.clockwise":
             BottomMenuDisplayService.shared.setMovementEditMenuTrue()
             

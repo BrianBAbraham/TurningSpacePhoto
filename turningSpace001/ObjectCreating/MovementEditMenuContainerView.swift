@@ -42,7 +42,6 @@ struct MovementEditMenuContainerView: View {
             }
             .disabled(vm.isNotTurning)
         }
-        .backgroundModifier()
         .transition(.move(edge: .bottom))
     }
 }

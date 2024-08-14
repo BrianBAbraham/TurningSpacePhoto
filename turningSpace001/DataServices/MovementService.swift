@@ -179,7 +179,7 @@ class MovementEditService {
     }
     
     func setMovementTypeToForward(){
-        movementType = .linear
+//        movementType = .linear
     }
     
     func setMovementType(_ value: Movement) {

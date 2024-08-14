@@ -21,15 +21,18 @@ struct ReturnToRightSideMenuView: View {
                 }) {
                     Spacer()
                     ZStack{
-                        Color(UIColor(named:"MiddleMenu")!)
+                        Color("Orange")
                             .frame(maxWidth: maxWidth,maxHeight: maxWidth, alignment: .trailing)
-                            .opacity(0.5)
+                            //.opacity(0.5)
+                            .clipShape(Circle())
+                            .shadow(color: .black.opacity(0.4), radius: 8, x: 5, y: 5)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.blue)
                     }
                 }
-//                .buttonStyle(DefaultButtonStyle())
                 .buttonStyle(PlainButtonStyle())
+
+
                 Spacer()
             }
         }
